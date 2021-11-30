@@ -1,0 +1,407 @@
+/* ---------------------------------------------------------------------------------------- RESET */
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { font-size:100%; }
+html, body { min-height: 100%; height: 100%; }
+ul { list-style: none; padding: 0; margin: 0; }
+img {
+	user-select: none;
+	-webkit-user-select: none;
+  -moz-user-select: none;
+  -khtml-user-select: none;
+  -ms-user-select: none;
+}
+
+/* ---------------------------------------------------------------------------------------- FONTS */
+
+/*@import url(https://lolstatic-a.akamaihd.net/webfonts/live/css/riot/fonts.css);*/
+@font-face { font-family: Beaufort-Regular; src: url("../assets/fonts/Beaufort-Regular.woff") format("woff"); }
+@font-face { font-family: Beaufort-Italic; src: url("../assets/fonts/Beaufort-Italic.woff") format("woff"); }
+@font-face { font-family: Beaufort-Bold; src: url("../assets/fonts/Beaufort-Bold.woff") format("woff"); }
+@font-face { font-family: Spiegel-Regular; src: url("../assets/fonts/Spiegel-Regular.woff") format("woff"); }
+@font-face { font-family: Spiegel-Italic; src: url("../assets/fonts/Spiegel-Italic.woff") format("woff"); }
+
+/* ---------------------------------------------------------------------------------------- ETC */
+
+.js-template { display: none !important; }
+.max-width-page { max-width: 1100px; margin: auto; }
+
+#sticky-top {
+	display: flex;
+	position: fixed;
+	align-items: center;
+	justify-content: center;
+	top: 0;
+	height: 70px;
+	width: 100%;
+	z-index: 10;
+	background-color: #111318;
+	border-bottom: 1px solid #1a1a1a;
+	color: #C4C4C4;
+	font-family: Spiegel-Regular;
+	transition: all 300ms ease;
+	-o-transition: all 300ms ease;
+  -ms-transition: all 300ms ease;
+  -moz-transition: all 300ms ease;
+  -webkit-transition: all 300ms ease;
+}
+
+#sticky-top.hide { top: -70px; }
+
+/* ---------------------------------------------------------------------------------------- SCROLLBAR */
+
+body {
+	overflow: overlay; /* if scrollbar appears, don't push / resize page content */
+}
+
+::-webkit-scrollbar {
+	width: 7px;
+}
+
+::-webkit-scrollbar-thumb:vertical {
+	margin: 5px;
+	background-color: #463714;
+	-webkit-border-radius: 5px;
+}
+
+::-webkit-scrollbar-button:start:decrement,
+::-webkit-scrollbar-button:end:increment {
+	height: 5px;
+	display: block;
+}
+
+/* ---------------------------------------------------------------------------------------- */
+
+body {
+	background-color: #000;
+}
+
+#bg-img {
+	position: absolute;
+	top: 70;
+	z-index: -1;
+	width: 100%;
+	height: calc(100% - 70px);
+	object-fit: cover;
+	opacity: 20%;
+}
+
+/* ---------------------------------------------------------------------------------------- HEAD */
+
+#site-header {
+	height: 70px;
+}
+
+#site-header__wrapper {
+	display: flex;
+	height: calc(100% - 2px);
+	align-items: center;
+	vertical-align: middle;
+	flex-flow: row;
+}
+
+hr {
+	 border: none; height: 1px;
+}
+hr.yellow { /*background-color: #785A28;*/ }
+hr.gray { background-color: #1a1a1a; }
+
+h1#site-heading {
+	color: #CDBE91;
+	font-family: Beaufort-Bold;
+	font-size: 18px;
+	letter-spacing: 0.05em;
+	margin-right: 24px;
+}
+
+/* ---------------------------------------- SEARCH WRAPPER */
+
+#search__wrapper {
+	position: relative;
+	background: linear-gradient(180deg, rgba(120,90,40,1) 0%, rgba(70,55,20,1) 100%);
+	padding: 1px;
+	height: 36px;
+	width: 300px;
+}
+
+#search__icon {
+	position: absolute;
+	top: 13px;
+	left: 12px;
+}
+
+/* ---------------------------------------- SEARCH */
+
+#search {
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	border: none;
+	padding: 12px calc(24px + 6px);
+	font-size: 14px;
+	font-family: Spiegel-Regular;
+	color: #F0E6D2;
+}
+
+#search::placeholder,
+#search:-ms-input-placeholder,
+#search::-ms-input-placeholder {
+  color: #999485;
+  opacity: 1;
+}
+
+#search:focus {
+    outline: none;
+}
+
+/* ---------------------------------------------------------------------------------------- FILTERS */
+
+#filter-lane { margin-left: 20px; }
+#filter-role { margin-left: 20px; }
+#filter-lane svg { padding: 0 2px; }
+#filter-role svg { padding: 0 6px; }
+/*
+.search-filters .icon-wrapper { 
+	display: inline-block;
+	padding: 2px;
+}*/
+.search-filters svg { cursor: pointer; box-sizing: content-box; }
+.search-filters svg path { fill: #444; }	
+.search-filters svg.active path { fill: #fff; }
+
+/* ---------------------------------------------------------------------------------------- BODY */
+
+#champ-list__wrapper {
+	min-height: calc(100% - 70px); /* - #search*/
+}
+
+#champ-list {
+	display: flex;
+	flex-flow: row wrap;
+	padding-top: 15px;
+	width: 100%;
+}
+
+.item {
+	flex: 1;
+	display: flex;
+	flex-flow: column;
+	margin-bottom: 16px;
+	min-width: 120px;
+	align-items: center;
+	cursor: pointer;
+}
+
+.item span {
+	text-align: center;
+	margin-top: 5px;
+	color: #999485;
+	font-size: 16px;
+	font-family: Spiegel-Regular;
+}
+
+.item img {
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	height: 87px;
+	width: 87px;
+	/*margin: 0 auto;*/
+	/*border: 1px solid #5B5A56;*/
+	outline: 1px solid #5B5A56;
+  outline-offset: -3px;
+}
+
+.item .image__wrapper {
+	height: 84px;
+	width: 84px;
+	overflow: hidden;
+	position: relative;
+	overflow: visible;
+}
+
+.item .image__wrapper svg {
+	position: absolute;
+	top: -3;
+	left: -3;
+	z-index: 1;
+	visibility: hidden;
+}
+
+.item.active .image__wrapper svg {
+	visibility: visible;
+}
+
+.item.hidden {
+	visibility: hidden;
+	height: 0;
+	margin-bottom: 0;
+}
+
+.item.hide {
+	display: none;
+}
+
+.item:hover img {
+	outline: 1px solid #937341;
+}
+
+.item:hover .image__wrapper::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	background-color: #fff;
+	opacity: 0.07;
+	height: 100%;
+	width: 100%;
+}
+
+/* ---------------------------------------------------------------------------------------- CHAMPCARD */
+
+#champcard {
+	/*margin-bottom: 20px;*/
+	/*margin-left: 10px;*/
+	/*background-color: #111318;*/
+	background-color: #010910;
+	border-radius: 4px;
+	border: 1px solid #463714;
+	bottom: 16px;
+	min-width: 300px;
+	padding-right: 40px;
+	padding: 22px;
+	position: fixed;
+	z-index: 2;
+	transition: all .3s ease-out;
+	box-shadow: 0px 4px 10px #46371480;
+}
+
+#champcard.hide {
+	bottom: -300px;
+	visibility: hidden;
+}
+
+/* ---------------------------------------- CHAMPCARD HEADING */
+
+#champcard__heading {
+	display: inline-flex;
+	flex-flow: row;
+	align-items: center;
+	margin-bottom: 6px;
+	padding-left: 10px;
+}
+
+#champcard__heading > a { margin-left: 10px; }
+#champcard__heading > a:nth-child(2) { margin-left: 20px; }
+
+/* ---------------------------------------- CHAMPCARD TEXT */
+
+#champcard__name {
+	color: #fff;
+	font-family: Beaufort-Bold;
+	font-size: 18px;
+	font-style: italic;
+	letter-spacing: 0.20em;
+	text-transform: uppercase;
+}
+
+/* ---------------------------------------- CHAMPCARD ABILITY LINE */
+
+.ability__line {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	cursor: pointer;
+	margin-top: 10px;
+	transition: all .3s ease-out;
+}
+
+.ability__line img {
+	width: 28px;
+	height: 28px;
+	margin-left: 10px;
+	margin-right: 12px;
+}
+
+.ability__line .key {
+	color: #937341;
+	font-family: Spiegel-Regular;
+	font-size: 10px;
+	font-weight: bold;
+	width: 10px;
+}
+
+.ability__line .name {
+	color: #C4B998;
+	font-family: Spiegel-Regular;
+	font-size: 14px;
+}
+
+.ability__line:hover {
+	transform: translateX(10px);
+}
+
+/* ---------------------------------------------------------------------------------------- ANCHOR LINK */
+
+a {
+	font-family: Spiegel-Regular;
+	font-size: 12px;
+	color: #0BC4E2;
+	text-decoration: none;
+}
+
+a svg {
+	margin-left: 4px;
+}
+
+/* ---------------------------------------------------------------------------------------- FOOTER */
+
+#footer {
+	padding: 20px;
+}
+
+#footer P {
+	/*font-family: "FF Mark W05",Arial,sans-serif;*/
+	font-family: Spiegel-Regular;
+  font-weight: 500;
+  font-size: 12px;
+  line-height: 1.316;
+  letter-spacing: 0.1px;
+  margin: 0 auto;
+  max-width: 600px;
+  text-align: center;
+  color: #7e7e7e;
+}
+
+/* ---------------------------------------------------------------------------------------- EDIT */
+
+.edit__wrapper {
+	padding-top: 48px;
+}
+
+.edit__wrapper img {
+	margin-right: 8px;
+}
+
+textarea {
+	padding: 10px;
+	color: #D2D3D6;
+	background-color: #202124;
+}
+
+.edit__wrapper > p.action {
+	cursor: pointer;
+	color: #C4B998;
+	font-family: Spiegel-Regular;
+	/*margin-top: 8px;*/
+	white-space: pre;
+}
+
+.edit__wrapper > p.desc {
+	color: #919191;
+	font-family: Spiegel-Regular;
+	margin-left: 17px;
+	margin-top: 1px;
+	margin-bottom: 12px;
+	white-space: pre;
+}

@@ -1,0 +1,21 @@
+@media only screen and (max-width: 1100px) {
+	#site-heading { margin-left: 20px; }
+	#champcard {
+		margin-left: 20px;
+		bottom: 6px;
+	}
+}
+
+@media only screen and (max-width: 440px) {
+	#site-heading { margin-top: 10px; margin-left: 0; }
+	#site-header {
+		height: 160px;
+	}
+	#site-header__wrapper {
+		flex-flow: column;
+		gap: 10px;
+	}
+	#search__wrapper {
+		width: calc(100% - 52px);
+	}
+}

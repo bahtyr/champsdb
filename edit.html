@@ -1,0 +1,44 @@
+<html>
+	<head>
+		<title>ChampsDB - Edit</title>
+		<link rel="icon" href="./assets/favicon2.svg">
+		<link rel="stylesheet" href="./css/base.css">
+	</head>
+	<body>
+		<div id="site-header">
+			<hr class="yellow">
+			<div id="site-header__wrapper" class="max-width-page">
+				<h1 id="site-heading">ChampsDB &mdash; Edit</h1>
+			</div>
+			<hr class="gray">
+		</div>
+
+		<div class="edit__wrapper max-width-page">
+			<textarea rows="4" cols="100"></textarea>
+			<div style="height:30px;"></div>
+			<p class="action"><img src = "./assets/bullet.svg"/>Useful Sites</p>
+			<p class="desc"><a href="https://jsoneditoronline.org/">JSON Editor Online</a></p>
+			<p class="action"><img src = "./assets/bullet.svg"/>Notes</p>
+			<p class="desc">Todo save champion sprite image.<br><br>Champion list may require Name sort, Riot uses code-names instead.<br><br>Champion data source infomation;<br>- Roles: available in basic and detailed Riot API<br>- Lanes: get it from OP.GG<br>- Release Patch & Rework Patch: manual?<br>- Wiki has release date<br><br>Extra Info<br>- Resource Type, Range Type</p>
+			<div style="height:40px;"></div>
+			<p class="action" onclick="loadVersions()"><img src = "./assets/bullet.svg"/>Initialize Patch Version</p>
+			<p class="desc">Patch version needs to be set before requesting champion information.</p>
+			<p class="action" onclick="loadChamps()"><img src = "./assets/bullet.svg"/>Load Champions</p>
+			<p class="desc">Get champions list with basic information from Riot.</p>
+			<p class="action" onclick="loadChampsAbilities()"><img src = "./assets/bullet.svg"/>Load Champions' Details</p>
+			<p class="desc">Get a champion's detailed information and request it for every champion.</p>
+			<p class="action" onclick="print()"><img src = "./assets/bullet.svg"/>Print Riot Champions array to text</p>
+			<div style="height:60px;"></div>
+			<p class="action" onclick="convertCsvToJson()"><img src = "./assets/bullet.svg"/>Excel -> CSV to JSON</p>
+			<p class="desc">Covert CSV table into a champion object map. (First column needs to be "Champion")</p>
+			<p class="action" onclick="updateChampsData()"><img src = "./assets/bullet.svg"/>Update Data from JSON</p>
+			<p class="desc">Merge CSV map with local data. Does not auto save, <strong>data.json</strong> needs to be manually updated.</p>
+		</div>
+
+
+		
+		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+		<script src="./js/classes.js?v=1.1"></script>
+		<script src="./js/edit.js?v=1.1"></script>
+	</body>
+</html>
