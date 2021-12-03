@@ -268,8 +268,9 @@ h1#site-heading {
 	border: 1px solid #463714;
 	bottom: 16px;
 	min-width: 300px;
-	padding-right: 40px;
 	padding: 22px;
+	padding-bottom: calc(22px - 5px);
+	padding-right: 40px;
 	position: fixed;
 	z-index: 2;
 	transition: all .3s ease-out;
@@ -287,7 +288,7 @@ h1#site-heading {
 	display: inline-flex;
 	flex-flow: row;
 	align-items: center;
-	margin-bottom: 6px;
+	margin-bottom: 12px;
 	padding-left: 10px;
 }
 
@@ -312,7 +313,7 @@ h1#site-heading {
 	flex-flow: row;
 	align-items: center;
 	cursor: pointer;
-	margin-top: 10px;
+	padding: 5px 0;
 	transition: all .3s ease-out;
 }
 
