@@ -95,4 +95,83 @@ class ChampsList {
 			}
 		}
 	}
+
+	static findChampIndex(champList, champName) {
+		for (let i = 0; i < champList.length; i++) {
+			if (champName == champList[i].name) {
+				return i;
+			}
+		}
+	}
+}
+
+class ChampTags {
+	#PATH_TAGS = "data-tags.json";
+	items;	// {id, name, champs{}}
+	tagMap;	// [{tagId, champId}]
+	#champNamePairStatus = 0;
+
+	constructor() { }
+
+	load(callback, context = this) {
+		$.ajax({
+	  		type: "GET",
+			url: this.#PATH_TAGS,
+			dataType: "json",
+			success: function(data, textStatus) {
+				// console.log(data);
+				context.items = data.items;
+				context.tagMap = data.tagMap;
+				if (callback != null)
+					callback();
+			},
+			error: function(textStatus, errorThrown) {
+				console.log(errorThrown);
+			}
+		});
+	}
+
+	clearChampsFromTags() {
+		for (let i = 0; i < this.items.length; i++) {
+			delete this.items[i].champs;
+		}
+
+		this.#champNamePairStatus = 0;
+	}
+
+	putChampNamesToTags() {
+		if (this.#champNamePairStatus == 1) return;
+		this.#champNamePairStatus = 1;
+
+		for (let i = 0; i < this.items.length; i++)
+			delete this.items[i].champs;
+
+		for (let i = 0; i < this.tagMap.length; i++) { // loop tagId & champName pairs
+			for (let ii = 0; ii < this.items.length; ii++) { // find the tagId
+				if (this.tagMap[i].tagId == this.items[ii].id) {
+					if (this.items[ii].champs == null) this.items[ii].champs = [];
+					this.items[ii].champs.push(this.tagMap[i].champName); // add the champ to the tag
+					break;
+				}
+			}
+		}
+	}
+
+	putChampIndexesToTags(champList) {
+		if (this.#champNamePairStatus == 2) return;
+		this.#champNamePairStatus = 2;
+
+		for (let i = 0; i < this.items.length; i++)
+			delete this.items[i].champs;
+
+		for (let i = 0; i < this.tagMap.length; i++) { // loop tagId & champName pairs
+			for (let ii = 0; ii < this.items.length; ii++) { // find the tagId
+				if (this.tagMap[i].tagId == this.items[ii].id) {
+					if (this.items[ii].champs == null) this.items[ii].champs = [];
+					this.items[ii].champs.push(ChampsList.findChampIndex(champList, this.tagMap[i].champName)); // add the champ to the tag
+					break;
+				}
+			}
+		}
+	}
 }

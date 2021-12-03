@@ -4,38 +4,95 @@
 		<link rel="icon" href="./assets/favicon2.svg">
 		<link rel="stylesheet" href="./css/base.css">
 	</head>
-	<body>
+	<body class="edit">
 		<div id="site-header">
 			<hr class="yellow">
 			<div id="site-header__wrapper" class="max-width-page">
 				<h1 id="site-heading">ChampsDB &mdash; Edit</h1>
+				<h2 id="heading-notes" onclick="showPage(1)">Notes</h2>
+				<h2 id="heading-champs" onclick="showPage(2)">Champion</h2>
+				<h2 id="heading-tags" class="active" onclick="showPage(3)" >Tag</h2>
 			</div>
 			<hr class="gray">
 		</div>
 
-		<div class="edit__wrapper max-width-page">
-			<textarea rows="4" cols="100"></textarea>
-			<div style="height:30px;"></div>
-			<p class="action"><img src = "./assets/bullet.svg"/>Useful Sites</p>
-			<p class="desc"><a href="https://jsoneditoronline.org/">JSON Editor Online</a></p>
-			<p class="action"><img src = "./assets/bullet.svg"/>Notes</p>
-			<p class="desc">Todo save champion sprite image.<br><br>Champion list may require Name sort, Riot uses code-names instead.<br><br>Champion data source infomation;<br>- Roles: available in basic and detailed Riot API<br>- Lanes: get it from OP.GG<br>- Release Patch & Rework Patch: manual?<br>- Wiki has release date<br><br>Extra Info<br>- Resource Type, Range Type</p>
-			<div style="height:40px;"></div>
-			<p class="action" onclick="loadVersions()"><img src = "./assets/bullet.svg"/>Initialize Patch Version</p>
-			<p class="desc">Patch version needs to be set before requesting champion information.</p>
-			<p class="action" onclick="loadChamps()"><img src = "./assets/bullet.svg"/>Load Champions</p>
-			<p class="desc">Get champions list with basic information from Riot.</p>
-			<p class="action" onclick="loadChampsAbilities()"><img src = "./assets/bullet.svg"/>Load Champions' Details</p>
-			<p class="desc">Get a champion's detailed information and request it for every champion.</p>
-			<p class="action" onclick="print()"><img src = "./assets/bullet.svg"/>Print Riot Champions array to text</p>
-			<div style="height:60px;"></div>
-			<p class="action" onclick="convertCsvToJson()"><img src = "./assets/bullet.svg"/>Excel -> CSV to JSON</p>
-			<p class="desc">Covert CSV table into a champion object map. (First column needs to be "Champion")</p>
-			<p class="action" onclick="updateChampsData()"><img src = "./assets/bullet.svg"/>Update Data from JSON</p>
-			<p class="desc">Merge CSV map with local data. Does not auto save, <strong>data.json</strong> needs to be manually updated.</p>
+		<div class="max-width-page">
+			<textarea id="edit-console" rows="4" cols="100"></textarea>
 		</div>
 
+		<div id="page-notes" class="max-width-page edit-page hide">
+			<p class="edit-action"><img src = "./assets/bullet.svg"/>Notes</p>
+			<p class="edit-desc"><br><a href="https://jsoneditoronline.org/" target="_blank">JSON Editor Online</a><br><br>Champion list may require Name sort, Riot uses code-names instead.<br><br>Champion data source infomation;<br>- Roles: available in basic and detailed Riot API<br>- Lanes: get it from OP.GG<br>- Release Patch & Rework Patch: manual?<br>- Wiki has release date<br><br>Extra Info<br>- Resource Type, Range Type</p>
+			<div style="height:40px;"></div>
+		</div>
 
+		<div id="page-champs" class="max-width-page edit-page hide">
+			<p class="edit-action" onclick="loadVersions()"><img src = "./assets/bullet.svg"/>Initialize Patch Version</p>
+			<p class="edit-desc">Patch version needs to be set before requesting champion information.</p>
+			<p class="edit-action" onclick="loadChamps()"><img src = "./assets/bullet.svg"/>Load Champions</p>
+			<p class="edit-desc">Get champions list with basic information from Riot.</p>
+			<p class="edit-action" onclick="loadChampsAbilities()"><img src = "./assets/bullet.svg"/>Load Champions' Details</p>
+			<p class="edit-desc">Get a champion's detailed information and request it for every champion.</p>
+			<p class="edit-action" onclick="print()"><img src = "./assets/bullet.svg"/>Print Riot Champions array to text</p>
+			<div style="height:60px;"></div>
+			<p class="edit-action" onclick="convertCsvToJson()"><img src = "./assets/bullet.svg"/>Excel -> CSV to JSON</p>
+			<p class="edit-desc">Covert CSV table into a champion object map. (First column needs to be "Champion")</p>
+			<p class="edit-action" onclick="updateChampsData()"><img src = "./assets/bullet.svg"/>Update Data from JSON</p>
+			<p class="edit-desc">Merge CSV map with local data. Does not auto save, <strong>data.json</strong> needs to be manually updated.</p>
+			<div style="height:60px;"></div>
+		</div>
+
+		<div id="page-tags" class="max-width-page edit-page">
+			<p class="edit-action"><img src = "./assets/bullet.svg"/>Notes</p>
+			<p class="edit-desc"><a href="https://jsoneditoronline.org/" target="_blank">JSON Editor Online</a><br>When you are done with editing the Tags object, you need to use <strong>"Show the object"</strong> method then copy it to <strong>"data-tags.json"</strong></p>
+			<div style="height:20px;"></div>
+
+			<div id="edit-table-actions">
+				<p class="edit-action" onclick="toggleTableVisibility()"><img src = "./assets/bullet.svg"/>Show Table</p><p class="edit-action" onclick="showTagsTable()"><img src = "./assets/bullet.svg"/>Refresh</p><select id="edit-tags-selector" name="cars">
+					<option value="volvo">Select</option>
+					<option value="tags">tags</option>
+					<option value="tags-ids">tags / champ ids</option>
+					<option value="tags-names">tags / champ names</option>
+					<option value="map">map</option>
+				</select>
+			</div>
+
+			<table id="edit-tags-table" class="hide3rd">
+			  <tr>
+			    <th>id</th>
+			    <th>tag</th>
+			    <th class="three">champ</th>
+			  </tr>
+			  <tr class="items js-template"> <!-- item class is used to delete items -->
+			    <td>1</td>
+			    <td>charm</td>
+			    <td class="three">ahri</td>
+			  </tr>
+			</table>
+			<div style="height:40px;"></div>
+			<p class="edit-action" onclick="showTagsObject()"><img src = "./assets/bullet.svg"/>Show the object</p>
+			<div></div><!-- separates the inline elements -->
+			<p class="edit-action inline" onclick="showTags()"><img src = "./assets/bullet.svg"/>Show Tags</p>
+			<p class="edit-action inline margin" onclick="saveTags"><img src = "./assets/bullet.svg"/>Save</p>
+			<div></div><!-- separates the inline elements -->
+			<p class="edit-action inline" onclick="showTagMap()"><img src = "./assets/bullet.svg"/>Show TagMap</p>
+			<p class="edit-action inline margin" onclick="saveTagMap"><img src = "./assets/bullet.svg"/>Save</p>
+			<div style="height:20px;"></div>
+			<p class="edit-action" onclick="showTagsWNames()"><img src = "./assets/bullet.svg"/>Show Tags with Names</p>
+			<p class="edit-action" onclick="showTagsWId()"><img src = "./assets/bullet.svg"/>Show Tags with IDs</p>
+			<div style="height:40px;"></div>
+			<p class="edit-action" onclick="createTagEasy()"><img src = "./assets/bullet.svg"/>Create a New Tag and Map</p>
+			<p class="edit-desc">"TagName  \n  Champ, Champ" <br>A new tag will be created and champions will be instered to its map. Adds the data to the tags object on creation -unlike following actions.</p>
+			<p class="edit-action" onclick="copyMapForNewMap()"><img src = "./assets/bullet.svg"/>Copy existing Map for a New Tag</p>
+			<p class="edit-desc">"{tag id to copy}  \n  {new tag name}  \n  Champ, Champ"</p>
+			<div style="height:60px;"></div>
+			<p class="edit-action" onclick="createTag()"><img src = "./assets/bullet.svg"/>Create a New Tag / Get New ID</p>
+			<p class="edit-desc">To create, type in a tag name.</p>
+			<p class="edit-action" onclick="createTagChampPairs()"><img src = "./assets/bullet.svg"/>Generate Tag - Champ Pairs</p>
+			<p class="edit-desc">To create, type in the tag id to first line, type a string array (separated by coma) to second line.</p>
+			<p class="edit-action" onclick="attemptToInsertTagChampPairs()"><img src = "./assets/bullet.svg"/>Attempt to Insert Tag / Champ Pairs</p>
+			<p class="edit-desc">You need to use function above first, or put in a an array of Tag - Champ pairs.</p>
+		</div>
 		
 		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
 		<script src="./js/classes.js?v=1.1"></script>

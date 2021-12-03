@@ -1,5 +1,6 @@
 let stickyAlert = $("#sticky-top");
 let champs = new ChampsList();
+let tags = new ChampTags();
 let champsPrinter;
 let champCard = {
 	card: $("#champcard"),
@@ -30,6 +31,8 @@ $(function() {
 	bindChampCardActions();
 
 	champs.load(() => {
+		tags.load(() => tags.putChampIndexesToTags(champs.items));
+
 		champsPrinter.addAll(champs.items, (holder, i) => {
 			holder.find("img").attr("src", champs.items[i].portrait);
 			holder.find("span").text(champs.items[i].name);
@@ -49,13 +52,14 @@ function initSearch() {
 		let s = $(this).val().toLowerCase();
 		
 		if (s.length == 0) {
-			resetSearch();
+			showAllChamps();
 			champCard.hide();
 			return;
 		}
 
-		resetSearch();
-		searchText(s);
+		showAllChamps();
+		if (searchTag(s) == -1)
+			searchText(s);
 
 		if (e.which == 39 && this.value.length == this.selectionEnd) {
 			updateChampCard(champs.nextVisibleItem());
@@ -68,7 +72,7 @@ function initSearchFilter() {
 	$(".search-filters svg").on("click", function(e) {
 		
 		champCard.hide();
-		resetSearch();
+		showAllChamps();
 
 		if ($(this).hasClass("active")) {
 			$(this).removeClass("active");
@@ -86,6 +90,22 @@ function initSearchFilter() {
 	});
 }
 
+/**
+ * This method hides everything else when there is match, therefore no other search functions should run after this.
+ * Returns; 1: if there is match, otherwise -1
+ */
+function searchTag(str) {
+	for (let i = 0; i < tags.items.length; i++) { //loop tags
+		if (str == tags.items[i].name.toLowerCase() //on match;
+			&& tags.items[i].champs != null) {
+			hideAllChampsExcept(tags.items[i].champs);
+			showChampCardForFistVisibleChamps();
+			return 1;
+		}
+	}
+	return -1;
+}
+
 function searchText(str) {
 	for (let i = 0; i < champs.items.length; i++) {
 		if (champs.items[i].name.toLowerCase().includes(str) || 
@@ -97,14 +117,7 @@ function searchText(str) {
 		}
 	}
 
-	if (champs.visibleItems.length > 0) {
-		// to allow to go to next champ directly, because first right arrow is 0 element,
-		// since first champ's card will be open, we start i from 0
-		champs.i = champs.visibleItems[0];
-		champs.v = 0;
-		updateChampCard(champs.i);
-		champCard.show();
-	} else champCard.hide();
+	showChampCardForFistVisibleChamps();
 }
 
 function searchLaneOrRole(str, type) {
@@ -129,14 +142,61 @@ function searchLaneOrRole(str, type) {
 	}
 }
 
+/* ---------------------------------------- */
+
 /**
  * Show all items and clear array.
  */
-function resetSearch() {
+function showAllChamps() {
 	champsPrinter.parent.find(".hide").removeClass("hide");
 	champs.visibleItems = [];
 	champs.i = -1; //ChampsList.next/prevVisibleItem() handles -1 as default
 	champs.v = -1;
+}
+
+/**
+ * Instead of looping through every champion and checking their name every time before hiding,
+ * 
+ * this method;
+ * - creates an index list,
+ * - removes the exception(s) from our index list
+ * - the hide everything that is left
+ */
+function hideAllChampsExcept(champIndex) {
+	if (typeof champIndex == "number") champIndex = [champIndex]; // convert this to an array for easier handling
+
+	// get a simple integer list with the length of champs
+	let indexList = [];
+	for (let i = 0; i < champs.items.length; i++)
+		indexList.push(i);
+
+	// for every element to NOT hide, remove the integer from the list above
+	for (let i = 0; i < champIndex.length; i++)
+		indexList[champIndex[i]] = null;
+	
+	// loop through our integer list, and hide every element except null
+	for (let i = 0; i < indexList.length; i++) {
+		if (indexList[i] != null)
+			champsPrinter.items[indexList[i]+1].classList.add("hide");
+	}
+
+	// add the exceptions to the visible list
+	for (let i = 0; i < champIndex.length; i++)
+		champs.visibleItems.push(champIndex[i]);
+}
+
+/*
+ *
+ */
+function showChampCardForFistVisibleChamps() {
+	if (champs.visibleItems.length > 0) {
+		// to allow to go to next champ directly, because first right arrow is 0 element,
+		// since first champ's card will be open, we start i from 0
+		champs.i = champs.visibleItems[0];
+		champs.v = 0;
+		updateChampCard(champs.i);
+		champCard.show();
+	} else champCard.hide();
 }
 
 /* ---------------------------------------- */
