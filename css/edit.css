@@ -66,6 +66,7 @@ p.edit-desc {
 	padding-top: 1px;
 	padding-bottom: 4px;
 	white-space: pre;
+	line-height: 22px;
 }
 
 p.edit-action img,
