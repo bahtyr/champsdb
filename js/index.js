@@ -1,6 +1,6 @@
 let stickyAlert = $("#sticky-top");
-let champs = new ChampsList();
-let tags = new ChampTags();
+let champs = new ChampionListManager();
+let tags = new TagsListManager();
 let champsPrinter;
 let champCard = {
 	card: $("#champcard"),
@@ -31,13 +31,13 @@ $(function() {
 
 	bindChampCardActions();
 
-	champs.load(() => {
-		tags.load(() => tags.putChampIndexesToTags(champs.items));
+	champs.onLoad(() => {
 
-		champsPrinter.addAll(champs.items, (holder, i) => {
+		champsPrinter.addAll(champs.items.length, (holder, i) => {
 			holder.find("img").attr("src", champs.items[i].portrait);
 			holder.find("span").text(champs.items[i].name);
 		});
+		
 		champsPrinter.addSpaceItems(20);
 		bindChampsClickListener();
 	});
@@ -98,8 +98,8 @@ function initSearchFilter() {
 function searchTag(str) {
 	for (let i = 0; i < tags.items.length; i++) { //loop tags
 		if (str == tags.items[i].name.toLowerCase() //on match;
-			&& tags.items[i].champs != null) {
-			hideAllChampsExcept(tags.items[i].champs);
+			&& tags.items[i].champIndexes != null) {
+			hideAllChampsExcept(tags.items[i].champIndexes);
 			showChampCardForFistVisibleChamps();
 			return 1;
 		}
