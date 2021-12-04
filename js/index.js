@@ -11,6 +11,7 @@ let champCard = {
 		{name: $(".ability__line:nth-child(4) .name"), img: $(".ability__line:nth-child(4) img")},
 		{name: $(".ability__line:nth-child(5) .name"), img: $(".ability__line:nth-child(5) img")},
 		{name: $(".ability__line:nth-child(6) .name"), img: $(".ability__line:nth-child(6) img")}],
+	index: 0,
 	show: function() { this.card.removeClass("hide");},
 	hide: function() { this.card.addClass("hide"); champsPrinter.items[champs.ii+1].classList.remove("active"); }
 };
@@ -283,6 +284,7 @@ function updateChampCard(i) {
 	champs.ii = i;
 	champsPrinter.items[champs.i+1].classList.add("active");
 
+	champCard.index = i;
 	champCard.name.text(champs.items[i].name);
 
 	champCard.abilities[0].img.attr("src", champs.items[i].abilities[0].img);
