@@ -122,6 +122,7 @@ h1#site-heading {
 	padding: 1px;
 	height: 36px;
 	width: 300px;
+	box-sizing: content-box;
 }
 
 #search__icon {
