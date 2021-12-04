@@ -262,22 +262,7 @@ function correctChampCardPosition() {
 
 /**
  * Put champion name, abilities and update links.
- * 
- * To have a smooth navigation of champs the following cases are handled;
- * - typing even without a focus auto directs to search
- * - clicking on the sampe champ clears selection
- * - clicking on a blank space clears selection
- * - while searcing;
- *   - the first champ is selected
- *   - pressing right arrow key selects the next champ, if caret is at the end
- *   - the followings clear search focus withouting clearing selection to allow arrow keys navigation
- *     - clicking on a blank space does not immediately clear selection
- *     - pressing tab key focuses on an invisible element
- * - arrow keys navigates through visible champs
- *   - changing selection by clicking does not break arrow keys navigation on a filtered list
- *   - pressing arrow down key while champcard is open does not scroll the page
- * - when search is empty selection clears
- * - selecting filters clears selection
+ * Does not auto show the card, only updates it.
  */
 function updateChampCard(i) {
 	champsPrinter.items[champs.ii+1].classList.remove("active");
