@@ -165,6 +165,14 @@ class TagsEditor {
 
 	// PRINT
 
+	printObjectClean() {
+		for (let i in tagsEditor.data.tags) {
+			delete tagsEditor.data.tags[i].champs;
+			delete tagsEditor.data.tags[i].champIndexes;
+		}
+		this.printObject();
+	}
+
 	printObject() {
 		textarea.val(JSON.stringify(this.data));
 	}
@@ -174,15 +182,16 @@ class TagsEditor {
 		if (s == "" || s.split(/\r|\n/).length > 1) return;
 		let matchFound = false;
 
-
 		for (let i in tagsEditor.data.tags)
-			tagsEditor.data.tags[i].champs = null;
+			delete tagsEditor.data.tags[i].champs;
 
 		Tags.combineChampsAndTags(this.data);
 
 		for (let i in this.data.tags) {
 			if (s == this.data.tags[i].name) {
-				textarea.val(`${s}\n${this.data.tags[i].champs.toString()}`)
+				if (this.data.tags[i].champs == null)
+					console.warn(`! ${s} tag does not contain a champs list.`);
+				else textarea.val(`${s}\n${this.data.tags[i].champs.toString()}`)
 				matchFound = true;
 			}
 		}

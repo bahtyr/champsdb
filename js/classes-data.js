@@ -73,6 +73,8 @@ class Tags {
 	}
 
 	static combineChampsAndTags(tagsObj, useChampIndex) {
+		Tags.combineAliasesAndChampTags(tagsObj);
+
 		for (let champ in tagsObj.champs) { // for each champ
 			for (let t in tagsObj.champs[champ].tags) { // loop their tag ids
 				//
@@ -87,6 +89,19 @@ class Tags {
 								tagsObj.tags[tt].champIndexes = [];
 							tagsObj.tags[tt].champIndexes.push(tagsObj.champs[champ].index);
 						}
+					}
+				}
+			}
+		}
+	}
+
+	static combineAliasesAndChampTags(tagsObj) {
+		for (let champ in tagsObj.champs) { // for each champ
+			let tagsLength = tagsObj.champs[champ].tags.length;
+			for (let t = 0; t < tagsLength; t++) { // loop their tag ids
+				for (let a in tagsObj.aliases) { // check if we have an alias for any of the tags
+					if (tagsObj.champs[champ].tags[t] == tagsObj.aliases[a].tagId) {
+						tagsObj.champs[champ].tags.push(tagsObj.aliases[a].aliasId); // add the alias as a tag to the champ
 					}
 				}
 			}
