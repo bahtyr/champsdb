@@ -1,4 +1,7 @@
 let stickyAlert = $("#sticky-top");
+let searchInfo = {hasFocus: false, lastFocuTime: 0, canRestartTyping: false};
+let search;
+
 let champs = new ChampionListManager();
 let tags = new TagsListManager();
 let champsPrinter;
@@ -23,9 +26,11 @@ $(function() {
 	correctChampCardPosition();
 
 	champsPrinter = new ElementPrinter("#champ-list", "#champ-list .item");
+	search = $("#search");
 
 	listenKeys();
 	listenEmptyClicks();
+	listenSearchTimeout();
 	initSearch();
 	initSearchFilter();
 
@@ -46,26 +51,26 @@ $(function() {
 /* ---------------------------------------- */
 
 function initSearch() {
-	$("#search").keyup(function(e) {
+	let prevLength = 0;
+	search.keyup(function(e) {
 
 		$(".search-filters svg.active").removeClass("active");
 
 		let s = $(this).val().toLowerCase();
+
+		if (s.length == 0 && prevLength != 0)
+			champCard.hide();
 		
 		if (s.length == 0) {
 			showAllChamps();
-			champCard.hide();
 			return;
 		}
+
+		prevLength = s.length;
 
 		showAllChamps();
 		if (searchTag(s) == -1)
 			searchText(s);
-
-		if (e.which == 39 && this.value.length == this.selectionEnd) {
-			updateChampCard(champs.nextVisibleItem());
-			$(this).blur();
-		}
 	});
 }
 
@@ -80,7 +85,7 @@ function initSearchFilter() {
 			return;
 		}
 
-		$("#search").val("");
+		search.val("");
 		$(".search-filters svg.active").removeClass("active");
 		$(this).addClass("active");
 
@@ -202,54 +207,102 @@ function showChampCardForFistVisibleChamps() {
 
 /* ---------------------------------------- */
 
+
+
 /**
  * On key press immediately start typing on the search box.
  * Show next / prev champs on arrow keys.
  */
 function listenKeys() {
 	let prevKey;
-	$(document).keydown(function(e) {
 
-		// C + CTRL
+	search.on("focusin", () => searchInfo.hasFocus = true);
+	search.on("blur", () => setTimeout(() => {searchInfo.hasFocus = false;}, 200));
+
+	$(document).keydown(function(e) {
+		
+		// COPY (CTRL + C)
 		if (e.which == 67 && prevKey == 17) return;
+
 		prevKey = e.which;
 
-		if ($(e.target).is('input, textarea, select')) return;
+		// LETTERS
 		if ((e.which > 64 && e.which < 91) || e.which == 8) {
-			$("#search").focus();
+			if (!searchInfo.hasFocus) {
+				search.focus();
+			}
+
+			if (searchInfo.canRestartTyping) {
+				search.val("")
+			}
 		}
 
-		switch (e.which) {
-			case 37: //left
-				updateChampCard(champs.prevVisibleItem());
-				champCard.show();
-				break;
-			case 39: //right
-				updateChampCard(champs.nextVisibleItem());
-				champCard.show();
-				break;
-			case 40:
-				if (!champCard.card.hasClass("hide"))
-					e.preventDefault();
-				champCard.hide();
-			break;
-			// case 38: //up
+		searchInfo.canRestartTyping = false;
+		searchInfo.lastFocuTime = Date.now();
+
+		// ARROW KEYS
+		if (e.which > 36 && e.which < 41) {
+
+			// LEFT
+			if (e.which == 37) {
+				if (!searchInfo.hasFocus) {
+					updateChampCard(champs.prevVisibleItem());
+					champCard.show();
+				}
+			}
+			// RIGHT
+			else if (e.which == 39) {
+				if (!searchInfo.hasFocus) {
+					updateChampCard(champs.nextVisibleItem());
+					champCard.show();
+				} else {
+					if (search[0].value.length == search[0].selectionEnd) {
+						search.blur();
+						updateChampCard(champs.nextVisibleItem());
+						champCard.show();
+					}
+				}
+			}
+			// DOWN
+			else if (e.which == 40) {
+				if (!searchInfo.hasFocus) {
+					if (!champCard.card.hasClass("hide"))
+						e.preventDefault();
+					champCard.hide();
+				} else {
+					if (search[0].value.length == search[0].selectionEnd) {
+						e.preventDefault();
+						search.blur();
+						champCard.hide();
+					}
+				}
+			}
 		}
 	});
 }
 
 /**
  * Upon clicking on an empty space hide the #champcard.
+ * If search has focus, only clear focus. Don't hide immediately
  */
 function listenEmptyClicks() {
-	let searchHasFocus = false;
-	$("#search").on("focusin", () => searchHasFocus = true);
-	$("#search").on("blur", () => setTimeout(() => {searchHasFocus = false;}, 1000));
 	$("#champ-list__wrapper").on("click", function(e) {
-		if ((e.target.id == "champ-list__wrapper" || e.target.id == "champ-list") && !searchHasFocus) {
+		if ((e.target.id == "champ-list__wrapper" || e.target.id == "champ-list") && !searchInfo.hasFocus) {
 			champCard.hide();
 		}
 	});
+}
+
+/**
+ * Check if it has been while since last typed.
+ * Then within listenKeys() search text will be cleared before typing.
+ */
+function listenSearchTimeout() {
+	setInterval(function() {
+		if (Date.now() - searchInfo.lastFocuTime > 5000) {
+			searchInfo.canRestartTyping = true;
+		}
+	}, 2000);
 }
 
 /**
