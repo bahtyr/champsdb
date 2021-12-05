@@ -35,9 +35,9 @@ class TagsEditor {
 				else textarea.val(`${tagName} tag created with id: ${tagId}`);
 				break;
 			case 2:
-				let champs = input[1].replaceAll(" ,", ",").replaceAll(", ", ",").split(",");
+				let champs = input[1].split(",");
 				for (let i in champs) {
-					this.addTagToChampion(champs[i], tagId);
+					this.addTagToChampion(champs[i].trim(), tagId);
 				}
 				console.warn(`Added ${tagName} tag as id#${tagId} to ${champs.length} champion(s).`);
 				break;
