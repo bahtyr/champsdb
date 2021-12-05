@@ -318,9 +318,12 @@ function correctChampCardPosition() {
  * Does not auto show the card, only updates it.
  */
 function updateChampCard(i) {
+	// show / hide selected champion border
 	champsPrinter.items[champs.ii+1].classList.remove("active");
-	champs.ii = i;
 	champsPrinter.items[champs.i+1].classList.add("active");
+
+	if (champs.ii == i) return; // if same champ don't update the card again
+	champs.ii = i; // keep prev. champ index
 
 	champCard.index = i;
 	champCard.name.text(champs.items[i].name);
@@ -339,8 +342,8 @@ function updateChampCard(i) {
 
 	const link1 = $("#champcard a:nth-child(2)");
 	const link2 = $("#champcard a:nth-child(3)");
-	link1.attr("href", `https://leagueoflegends.fandom.com/wiki/${champs.items[i].name.replace("\\s","_")}/LoL#Abilities`);
-	link2.attr("href", `https://universe.leagueoflegends.com/en_SG/champion/${champs.items[i].id}/`);
+	link1.attr("href", Champion.getUrlWiki(champs.items[i].name));
+	link2.attr("href", Champion.getUrlUniverse(champs.items[i].id));
 }
 
 /**

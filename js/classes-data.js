@@ -41,9 +41,13 @@ class Champion {
 		champion[attribute] = value;
 	}
 
-	static getUrlWiki() { }
+	static getUrlWiki(champName) {
+		return `https://leagueoflegends.fandom.com/wiki/${champName.replace("\\s","_")}/LoL#Abilities`
+	}
 
-	static getUrlUniverse() { }
+	static getUrlUniverse(champId) {
+		return `https://universe.leagueoflegends.com/en_SG/champion/${champId}/`;
+	}
 
 	static sortComparison(a, b) {
 		if (a.name < b.name)
