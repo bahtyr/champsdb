@@ -28,6 +28,7 @@ body {
 	max-width: 1100px;
 	margin-top: 70px;
 	margin-left: 260px;
+	padding-left: 20px;
 }
 
 .sides-inner {
@@ -101,7 +102,8 @@ body {
 }
 
 #header__main {
-	padding-left: 16px;
+	padding-left: 36px;
+	margin-left: -20px; /* undo .center padding-left */
 	border-bottom: 1px solid #1a1a1a;
 	z-index: 2;
 }
@@ -278,21 +280,17 @@ p.sidebar-subheading svg {
 /* ---------------------------------------------------------------------------------------- CHAMPCARD */
 
 #champcard {
-	/*margin-bottom: 20px;*/
-	/*margin-left: 10px;*/
-	/*background-color: #111318;*/
-	background-color: #010910;
-	border-radius: 4px;
-	border: 1px solid #463714;
-	bottom: 16px;
-	min-width: 300px;
-	padding: 22px;
-	padding-bottom: calc(22px - 5px);
-	padding-right: 40px;
 	position: fixed;
-	z-index: 2;
-	transition: all .3s ease-out;
+	bottom: 0;
+	background-color: #0e0e0e;
+	border: 1px solid #31271E;
+	border-radius: 4px;
+	min-width: 300px;
 	box-shadow: 0px 4px 10px #46371480;
+	margin: 0 0 16px 14px;
+	padding: 22px 40px calc(22px - 5px) 22px;
+	transition: all .3s ease-out;
+	z-index: 2;
 }
 
 #champcard.hide {

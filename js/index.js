@@ -19,12 +19,7 @@ let champCard = {
 	hide: function() { this.card.addClass("hide"); champsPrinter.items[champs.ii+1].classList.remove("active"); }
 };
 
-$(window).on("resize", () => correctChampCardPosition());
-
 $(function() {
-
-	correctChampCardPosition();
-	listenPageScroll();
 
 	champsPrinter = new ElementPrinter("#champ-list", "#champ-list .item");
 	search = $("#search");
@@ -32,6 +27,7 @@ $(function() {
 	listenKeys();
 	listenEmptyClicks();
 	listenSearchTimeout();
+	listenPageScroll();
 	initSearch();
 	initSearchFilter();
 
@@ -322,14 +318,6 @@ function listenPageScroll() {
 	    ticking = true;
 	  }
 	});
-}
-
-/**
- * Match #champcard position to siteMaxWidth
- */
-function correctChampCardPosition() {
-	const siteHeader = $("#header__main")[0];
-	champCard.card.css("left", siteHeader.getBoundingClientRect().left + 16);
 }
 
 /**
