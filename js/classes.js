@@ -34,4 +34,8 @@ class ElementPrinter {
 		}
 		this.parent.append(arr);
 	}
+
+	removaAllHiddenItems() {
+		this.parent.find(".hidden").remove();
+	}
 }

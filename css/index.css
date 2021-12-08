@@ -1,0 +1,436 @@
+
+body {
+	/*
+	 * .header's width is 100% page, but it begins from .center.
+	 * maybe 40%~ of it becomes overflow, we don't need to see it
+	 */
+	overflow-x: hidden;
+}
+
+/* ======================== */
+
+/*.center { background-color: #74c0fc; }*/
+/*.left.sides-inner { background-color: #ffa8a8; }*/
+/*.left.sides-outer { background-color: #ffc9c9; }*/
+/*.right.sides-inner { background-color: #e599f7; }*/
+/*.right.sides-outer { background-color: #eebefa; }*/
+/*#header__main { background-color: #9775fa; }*/
+/*#header__sidebar { background-color: #da77f2; }*/
+/*#header__sidebar-2 { background-color: #be4bdb; }*/
+
+#body-wrapper { display: flex; }
+#center-wrapper { display: flex; }
+
+.center {
+	flex: 3;
+	/*width: 100%;*/
+	/*min-width: 1100px;*/
+	max-width: 1100px;
+	margin-top: 70px;
+	margin-left: 260px;
+}
+
+.sides-inner {
+	width: 260px;
+	min-height: 100vh;
+}
+
+.sides-outer {
+	/*
+	 * we can't makes these static, then .main-wrapper wouldb't be at the center
+	 * if don't make static, they'll scroll with page
+	 * height: 100%; doesn't work well with scrolling
+	 * therefore, it needs to have auto height with min-height of 100vh (not parent 100% it's content can change)
+	 */
+	flex: 0.5;
+	min-height: 100vh;
+}
+
+/* ======================== */
+
+@media only screen and (max-width: 1400px) {
+	/*
+	 * calc() does not seem to work
+	 * if there is not much space, there is not need to occupy double the space for .sides-inner
+	 * only keep .sidebar and hide .sides-inner.right
+	 */ 
+	.sides-inner.right {
+		width: 0;
+	}
+}
+
+/* ======================== */
+
+#sidebar {
+	/*
+	 * normally making position fixed breaks .main-wrapper alignment,
+	 * that's why; .center needs to have margin-left equal to .sidebar's width.
+	 *
+	 * fixed sidebar's height shoudln't be auto (not min-height 100vh) it always needs to match the window height
+	 * otherwise with because of fixed position and auto height we won't be able to scroll it
+	 */
+	position: fixed;
+	height: 100vh;
+	/*overflow-x: overlay;*/
+	overflow-x: hidden;
+	border-right: 1px solid #1a1a1a;
+	background-color: #000;
+	padding: calc(70px + 6px) 6px 40px 16px;
+}
+
+#sidebar,
+.sides-outer.left {
+	/*background-color: #000;*/
+	background-color: #0e0e0e;
+}
+
+/* ======================== */
+
+.header {
+	/*
+	 * normally making position absolute breaks .main-wrapper alignment,
+	 * that's why; .center needs to have margin-top equal to .header's height.
+	 */
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 70px;
+	display: flex;
+	align-items: center;
+	transition: opacity 300ms;
+}
+
+#header__main {
+	padding-left: 16px;
+	border-bottom: 1px solid #1a1a1a;
+	z-index: 2;
+}
+
+#header__sidebar {
+	align-items: flex-end;
+	padding-bottom: 14px;
+}
+
+#header__sidebar-2 {
+	 /*show this element on top of .sides, so their background does not hide the border*/
+	/*z-index: 1;*/
+}
+/* ---------------------------------------------------------------------------------------- SIDEBAR CONTENT */
+
+#sidebar::-webkit-scrollbar {
+	width: 2px;
+	z-index: 10;
+}
+
+/* ---------------------------------------- FILTERS */
+
+#filter-lane {
+	display: flex;
+	justify-content: space-around;
+	background-color: #242424;
+	border-radius: 6px;
+	padding: 4px 4px;
+	margin-right: 26px;
+}
+#filter-role {
+	display: flex;
+	justify-content: space-around;
+	margin: 16px 26px 32px 0;
+}
+
+#filter-lane svg { padding: 0 2px; }
+#filter-role svg { padding: 0 6px; }
+
+.search-filters svg { cursor: pointer; box-sizing: content-box; }
+.search-filters svg path { fill: #444; }	
+.search-filters svg.active path { fill: #fff; }
+
+/* ---------------------------------------- TEXT */
+
+p.sidebar-heading {
+	color: #937341;
+	font-size: 12px;
+	font-family: Beaufort-Bold;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	margin-bottom: 4px;
+}
+
+p.sidebar-subheading {
+	color: #DBD4BF;
+	/*color: #cdbd8f;*/
+	font-size: 14px;
+	/*font-weight: bold;*/
+	font-family: Spiegel-Regular;
+	letter-spacing: 0.12em;
+	padding: 4px 0;
+	margin-top: 8px;
+}
+
+p.sidebar-subheading svg {
+	margin-bottom: 2px;
+	margin-right: 8px;
+}
+
+#sidebar ul {
+	margin-left: 16px;
+}
+
+#sidebar ul ul {
+	margin-left: 20px;
+}
+
+#sidebar li {
+	color: #95938e;
+	/*cursor: pointer;*/
+	font-family: Spiegel-Regular;
+}
+
+
+/* ---------------------------------------------------------------------------------------- CHAMPLIST */
+
+#champ-list__wrapper {
+	min-height: calc(100vh - 90px);
+}
+
+#champ-list {
+	display: flex;
+	flex-flow: row wrap;
+	padding-top: 15px;
+	width: 100%;
+}
+
+.item {
+	flex: 1;
+	display: flex;
+	flex-flow: column;
+	margin-bottom: 16px;
+	min-width: 120px;
+	align-items: center;
+	cursor: pointer;
+}
+
+.item span {
+	text-align: center;
+	margin-top: 5px;
+	color: #999485;
+	font-size: 16px;
+	font-family: Spiegel-Regular;
+}
+
+.item img {
+	position: absolute;
+	top: -2px;
+	left: -2px;
+	height: 87px;
+	width: 87px;
+	/*margin: 0 auto;*/
+	/*border: 1px solid #5B5A56;*/
+	outline: 1px solid #5B5A56;
+ 	outline-offset: -3px;
+}
+
+.item .image__wrapper {
+	height: 84px;
+	width: 84px;
+	overflow: hidden;
+	position: relative;
+	overflow: visible;
+}
+
+.item .image__wrapper svg {
+	position: absolute;
+	top: -3;
+	left: -3;
+	z-index: 1;
+	visibility: hidden;
+}
+
+.item.active .image__wrapper svg {
+	visibility: visible;
+}
+
+.item.hidden {
+	visibility: hidden;
+	height: 0;
+	margin-bottom: 0;
+}
+
+.item.hide {
+	display: none;
+}
+
+.item:hover img {
+	outline: 1px solid #937341;
+}
+
+.item:hover .image__wrapper::before {
+	content: "";
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	background-color: #fff;
+	opacity: 0.07;
+	height: 100%;
+	width: 100%;
+}
+
+/* ---------------------------------------------------------------------------------------- CHAMPCARD */
+
+#champcard {
+	/*margin-bottom: 20px;*/
+	/*margin-left: 10px;*/
+	/*background-color: #111318;*/
+	background-color: #010910;
+	border-radius: 4px;
+	border: 1px solid #463714;
+	bottom: 16px;
+	min-width: 300px;
+	padding: 22px;
+	padding-bottom: calc(22px - 5px);
+	padding-right: 40px;
+	position: fixed;
+	z-index: 2;
+	transition: all .3s ease-out;
+	box-shadow: 0px 4px 10px #46371480;
+}
+
+#champcard.hide {
+	bottom: -300px;
+	visibility: hidden;
+}
+
+/* ---------------------------------------- CHAMPCARD HEADING */
+
+#champcard__heading {
+	display: inline-flex;
+	flex-flow: row;
+	align-items: center;
+	margin-bottom: 12px;
+	padding-left: 10px;
+}
+
+#champcard__heading > a { margin-left: 10px; }
+#champcard__heading > a:nth-child(2) { margin-left: 20px; }
+
+/* ---------------------------------------- CHAMPCARD TEXT */
+
+#champcard__name {
+	color: #fff;
+	font-family: Beaufort-Bold;
+	font-size: 18px;
+	font-style: italic;
+	letter-spacing: 0.20em;
+	text-transform: uppercase;
+}
+
+/* ---------------------------------------- CHAMPCARD ABILITY LINE */
+
+.ability__line {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	cursor: pointer;
+	padding: 5px 0;
+	transition: all .3s ease-out;
+}
+
+.ability__line img {
+	width: 28px;
+	height: 28px;
+	margin-left: 10px;
+	margin-right: 12px;
+}
+
+.ability__line .key {
+	color: #937341;
+	font-family: Spiegel-Regular;
+	font-size: 10px;
+	font-weight: bold;
+	width: 10px;
+}
+
+.ability__line .name {
+	color: #C4B998;
+	font-family: Spiegel-Regular;
+	font-size: 14px;
+}
+
+.ability__line:hover {
+	transform: translateX(10px);
+}
+
+/* ---------------------------------------------------------------------------------------- SEARCH */
+
+/* ---------------------------------------- SEARCH WRAPPER */
+
+#search__wrapper {
+	position: relative;
+	background: linear-gradient(180deg, rgba(120,90,40,1) 0%, rgba(70,55,20,1) 100%);
+	padding: 1px;
+	height: 36px;
+	width: 300px;
+	box-sizing: content-box;
+}
+
+#search__icon {
+	position: absolute;
+	top: 13px;
+	left: 12px;
+}
+
+/* ---------------------------------------- SEARCH */
+
+#search {
+	width: 100%;
+	height: 100%;
+	background-color: #000;
+	border: none;
+	padding: 12px calc(24px + 6px);
+	font-size: 14px;
+	font-family: Spiegel-Regular;
+	color: #F0E6D2;
+}
+
+#search::placeholder,
+#search:-ms-input-placeholder,
+#search::-ms-input-placeholder {
+  color: #999485;
+  opacity: 1;
+}
+
+#search:focus {
+    outline: none;
+}
+
+/* ---------------------------------------------------------------------------------------- FOOTER */
+
+#footer {
+	padding: 20px;
+	/*max-width: 1000px;*/
+}
+
+#footer a {
+	font-family: Spiegel-Regular;
+	font-size: 14px;
+	font-weight: bold;
+	color: #088a9f;
+	display: inline-block;
+	font-size: 14px;
+	margin-right: 14px;
+	margin-bottom: 10px;
+	letter-spacing: 0.6px;
+}
+
+#footer .disclaimer {
+	/*font-family: "FF Mark W05",Arial,sans-serif;*/
+	font-family: Spiegel-Regular;
+	font-weight: 500;
+	font-size: 12px;
+	line-height: 1.316;
+	letter-spacing: 0.1px;
+	margin: 0 auto;
+	/*max-width: 600px;*/
+	/*text-align: center;*/
+	color: #7e7e7e;
+}

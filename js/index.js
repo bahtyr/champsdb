@@ -24,6 +24,7 @@ $(window).on("resize", () => correctChampCardPosition());
 $(function() {
 
 	correctChampCardPosition();
+	listenPageScroll();
 
 	champsPrinter = new ElementPrinter("#champ-list", "#champ-list .item");
 	search = $("#search");
@@ -38,6 +39,7 @@ $(function() {
 
 	champs.onLoad(() => {
 
+		champsPrinter.removaAllHiddenItems();
 		champsPrinter.addAll(champs.items.length, (holder, i) => {
 			holder.find("img").attr("src", champs.items[i].portrait);
 			holder.find("span").text(champs.items[i].name);
@@ -207,8 +209,6 @@ function showChampCardForFistVisibleChamps() {
 
 /* ---------------------------------------- */
 
-
-
 /**
  * On key press immediately start typing on the search box.
  * Show next / prev champs on arrow keys.
@@ -305,12 +305,31 @@ function listenSearchTimeout() {
 	}, 2000);
 }
 
+function listenPageScroll() {
+	//https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event#scroll_event_throttling
+	let ticking = false;
+
+	document.addEventListener('scroll', function(e) {
+	  if (!ticking) {
+	    window.requestAnimationFrame(function() {
+	      if (window.scrollY > 1) {
+	      	// show hide header border or champ card
+	      }
+
+	      ticking = false;
+	    });
+
+	    ticking = true;
+	  }
+	});
+}
+
 /**
  * Match #champcard position to siteMaxWidth
  */
 function correctChampCardPosition() {
-	const siteHeader = $("#site-header__wrapper");
-	champCard.card.css("left", siteHeader.css("margin-left"));
+	const siteHeader = $("#header__main")[0];
+	champCard.card.css("left", siteHeader.getBoundingClientRect().left + 16);
 }
 
 /**
