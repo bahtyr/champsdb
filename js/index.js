@@ -24,6 +24,8 @@ $(function() {
 	champsPrinter = new ElementPrinter("#champ-list", "#champ-list .item");
 	search = $("#search");
 
+	initSidebar();
+
 	listenKeys();
 	listenEmptyClicks();
 	listenSearchTimeout();
@@ -393,5 +395,21 @@ function bindChampsClickListener() {
 			updateChampCard(champs.i);
 			champCard.show();
 		}
+	});
+}
+
+/* ---------------------------------------- */
+
+function initSidebar() {
+	let sidebar = $("#sidebar");
+	let sidebarOverlay = $("#sidebar__content-overlay");
+	$("#site-icon").on("click", function() {
+		sidebar.toggleClass("show");
+		sidebarOverlay.toggleClass("show");
+	});
+
+	sidebarOverlay.on("click", function() {
+		sidebar.toggleClass("show");
+		sidebarOverlay.toggleClass("show");
 	});
 }

@@ -36,6 +36,10 @@ body {
 	min-height: 100vh;
 }
 
+.sides-inner.right {
+	width: 130px;
+}
+
 .sides-outer {
 	/*
 	 * we can't makes these static, then .main-wrapper wouldb't be at the center
@@ -80,9 +84,9 @@ body {
 }
 
 #sidebar,
-.sides-outer.left {
-	/*background-color: #000;*/
-	background-color: #0e0e0e;
+.sides-outer.left,
+#champcard {
+	background-color: #0C0C0D;
 }
 
 /* ======================== */
@@ -124,16 +128,25 @@ body {
 	z-index: 10;
 }
 
+/* ---------------------------------------- HEADER */
+
+#site-icon__small {
+	margin-right: 10px;	
+	margin-bottom: 3px;
+}
+
 /* ---------------------------------------- FILTERS */
 
 #filter-lane {
 	display: flex;
 	justify-content: space-around;
-	background-color: #242424;
+	background-color: #161618;
 	border-radius: 6px;
 	padding: 4px 4px;
-	margin-right: 26px;
+	margin-right: 18px;
+	margin-left: -8px;
 }
+
 #filter-role {
 	display: flex;
 	justify-content: space-around;
@@ -144,8 +157,10 @@ body {
 #filter-role svg { padding: 0 6px; }
 
 .search-filters svg { cursor: pointer; box-sizing: content-box; }
-.search-filters svg path { fill: #444; }	
-.search-filters svg.active path { fill: #fff; }
+#filter-lane svg path { fill: #5a5a5a; }
+#filter-role svg path { fill: #444444; }
+#filter-lane svg.active path { fill: #fff; }
+#filter-role svg.active path { fill: #fff; }
 
 /* ---------------------------------------- TEXT */
 
@@ -282,7 +297,7 @@ p.sidebar-subheading svg {
 #champcard {
 	position: fixed;
 	bottom: 0;
-	background-color: #0e0e0e;
+	/*background-color: #000;*/
 	border: 1px solid #31271E;
 	border-radius: 4px;
 	min-width: 300px;
@@ -360,6 +375,10 @@ p.sidebar-subheading svg {
 
 /* ---------------------------------------------------------------------------------------- SEARCH */
 
+#site-icon {
+	display: none;
+}
+
 /* ---------------------------------------- SEARCH WRAPPER */
 
 #search__wrapper {
@@ -384,6 +403,7 @@ p.sidebar-subheading svg {
 	height: 100%;
 	background-color: #000;
 	border: none;
+	border-radius: 0;
 	padding: 12px calc(24px + 6px);
 	font-size: 14px;
 	font-family: Spiegel-Regular;
