@@ -1,3 +1,13 @@
+#header__edit {
+	height: 70px;
+	border-bottom: 1px solid #1a1a1a;
+}
+
+#header__edit div {
+	height: 100%;
+	display: flex;
+	align-items: center;
+}
 
 /* ---------------------------------------- HEADINGS */
 
