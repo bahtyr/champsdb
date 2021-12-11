@@ -324,15 +324,24 @@ function listenSearchTimeout() {
 
 function listenPageScroll() {
 	//https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event#scroll_event_throttling
+	let lastKnownScrollPosition = 0;
 	let ticking = false;
+
+	let cardHeight = champCard.card.outerHeight() - 30; //reducition is to allow for the champ item to be slighlty hidden
+	let champList = $("#champ-list");
+	let champListWrapper = $("#champ-list__wrapper");
 
 	document.addEventListener('scroll', function(e) {
 	  if (!ticking) {
 	    window.requestAnimationFrame(function() {
 	      if (window.scrollY > 1) {
-	      	// show hide header border or champ card
+	      	if (champList.outerHeight() > champListWrapper.outerHeight() - cardHeight && //if list height is bigger than visible area
+	      		window.scrollY > lastKnownScrollPosition) { //only on scroll down
+	      		champCard.hide();
+	      	}
 	      }
 
+	      lastKnownScrollPosition = window.scrollY;
 	      ticking = false;
 	    });
 
