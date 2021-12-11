@@ -34,6 +34,7 @@ class Champion {
 			case "abilities":
 			case "tags":
 			case "lanes":
+			case "releaseDate":
 				break;
 			default: console.error(`! ${attribute} does not match any champion attributes.`); return;
 		}
@@ -53,6 +54,16 @@ class Champion {
 		if (a.name < b.name)
 			return -1;
 		else if (a.name > b.name)
+			return 1;
+		return 0;
+	}
+
+	static sortCompareReleaseDatesDesc(a, b) {
+		let a_ = new Date(a.releaseDate).getTime();
+		let b_ = new Date(b.releaseDate).getTime();
+		if (a_ > b_)
+			return -1;
+		else if (a_ < b_)
 			return 1;
 		return 0;
 	}

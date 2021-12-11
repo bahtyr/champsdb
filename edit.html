@@ -59,7 +59,7 @@
 		</div>
 
 		<div id="page-parsers" class="max-width-page edit-page hide">
-			<p class="edit-heading" onclick="riotApi.init()">RiotApi</p>
+			<p class="edit-heading">RiotApi</p>
 			<p class="edit-action" onclick="riotApi.init()"><img src="./assets/bullet.svg"/>Initialize</p>
 			<p class="edit-desc">Patch version needs to be set before requesting champion information.</p>
 			<p class="edit-action" onclick="riotApi.loadChamps()"><img src="./assets/bullet.svg"/>Load Champions</p>
@@ -70,6 +70,12 @@
 			<div style="height:40px;"></div>
 			<p class="edit-action" onclick="riotApi.findChampAndAdd(champions)"><img src="./assets/bullet.svg"/>Find champion and add it to Champions array</p>
 			<p class="edit-desc">Look up a champion by Name in RiotApi champions and add it to the end of our champions array. Probably requires the array to be sorted.</p>
+			<div style="height:40px;"></div>
+			<p class="edit-heading">WikiApi</p>
+			<p class="edit-action" onclick="wikiApi.loadAll()"><img src="./assets/bullet.svg"/>Load All Champions</p>
+			<p class="edit-action" onclick="wikiApi.matchPatchDates()"><img src="./assets/bullet.svg"/>Match Release Dates</p>
+			<p class="edit-desc"><a href="https://leagueoflegends.fandom.com/wiki/List_of_champions">List of Champions</a><br><a href="https://leagueoflegends.fandom.com/wiki/Patch_(League_of_Legends)">List of Patches</a>
+			</p>
 		</div>
 	</body>
 </html>

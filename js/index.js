@@ -21,7 +21,7 @@ let champCard = {
 
 $(function() {
 
-	champsPrinter = new ElementPrinter("#champ-list", "#champ-list .item");
+	champsPrinter = new ElementPrinter("#champ-list", ".item");
 	search = $("#search");
 
 	initSidebar();
@@ -32,6 +32,7 @@ $(function() {
 	listenPageScroll();
 	initSearch();
 	initSearchFilter();
+	initSortSelector();
 
 	bindChampCardActions();
 
@@ -41,6 +42,7 @@ $(function() {
 		champsPrinter.addAll(champs.items.length, (holder, i) => {
 			holder.find("img").attr("src", champs.items[i].portrait);
 			holder.find("span").text(champs.items[i].name);
+			holder.find("span.tooltip").text("Patch " + champs.items[i].releasePatch);
 		});
 		
 		champsPrinter.addSpaceItems(20);
@@ -118,6 +120,7 @@ function searchText(str) {
 			champs.items[i].id.toLowerCase().includes(str)) {
 			champs.visibleItems.push(i);
 			champsPrinter.items[i+1].classList.remove("hide");
+			
 		} else {
 			champsPrinter.items[i+1].classList.add("hide");
 		}
@@ -411,5 +414,33 @@ function initSidebar() {
 	sidebarOverlay.on("click", function() {
 		sidebar.toggleClass("show");
 		sidebarOverlay.toggleClass("show");
+	});
+}
+
+function initSortSelector() {
+	$("#sort").on("change", function() {
+		champCard.hide();
+		console.log(this.value);
+
+		switch (this.value) {
+			case "abc": champs.items.sort(Champion.sortComparison); break;
+			case "release": champs.items.sort(Champion.sortCompareReleaseDatesDesc); break;
+			case "rework": break;
+		}
+
+		// console.log(Champion.sortCompareReleaseDates(champs.items[4], champs.items[1]));
+
+		// console.log(champs.items);
+
+		champsPrinter.removaAllItems();
+		champsPrinter.addAll(champs.items.length, (holder, i) => {
+			holder.find("img").attr("src", champs.items[i].portrait);
+			holder.find("span").text(champs.items[i].name);
+			holder.find("span.tooltip").text("Patch " + champs.items[i].releasePatch);
+		});
+		
+		champsPrinter.addSpaceItems(20);
+		bindChampsClickListener();
+
 	});
 }

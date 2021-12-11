@@ -35,6 +35,11 @@ function printArray(arr) {
 	}
 }
 
+function stringify(obj) {
+	textarea.val(JSON.stringify(obj));
+	//
+}
+
 /* ---------------------------------------- TAGS */
 
 let tagsEditor = new TagsEditor();
@@ -97,3 +102,9 @@ function champsReadCSVandUpdate() {
 /* ---------------------------------------- PARSERS */
 
 let riotApi = new RiotApi();
+let wikiApi = new WikiApi();
+
+function test() {
+	console.log("hello");
+	wikiApi.loadReleaseDates();
+}

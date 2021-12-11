@@ -123,3 +123,78 @@ class RiotApi {
 		return;
 	}
 }
+
+class WikiApi {
+	arr = [];
+	patchDates = [];
+
+	constructor() { }
+
+	/**
+	 * Start champions' abilities requests.
+	 */
+	loadAll() {
+		textarea.val(`Loading release dates for ${champions.length} champions.`);
+		this.loadChampPage(0);
+	}
+
+	/**
+	 * Get a champion's ability name and image.
+	 */
+	loadChampPage(i, THIS = this) {
+		$.ajax({type: "GET", url: Champion.getUrlWiki(champions[i].name),
+			success: function(data, textStatus) {
+				let html = $(data);
+				let releaseDate = html.find("#infobox-champion-container > aside > div:nth-child(4) > div").text();
+				let resource = html.find("#infobox-champion-container > aside > div:nth-child(9) > div").text();
+				let rangeType = html.find("#infobox-champion-container > aside > div:nth-child(10) > div > span > a.mw-redirect").text();
+				
+				champions[i].releaseDate = releaseDate;
+				champions[i].resource = resource;
+				champions[i].rangeType = rangeType;
+				
+				THIS.arr.push({name: champions[i].name, releaseDate: releaseDate, resource: resource, rangeType: rangeType});
+
+				if (i < champions.length - 1) {
+					i++;
+					THIS.loadChampPage(i);
+				} else {
+					textarea.val(`Loaded release dates for ${i+1} champions.`);
+					console.log(THIS.releaseDates);
+				}
+			},
+			error: (textStatus, errorThrown) => console.error(errorThrown)
+		});
+	}
+
+
+	matchPatchDates() {
+		let patchHistory;
+		let list = JSON.parse(patchHistory);
+		console.log(list);
+
+		for (let c in champions) {
+			if (list[champions[c].releaseDate] != null) {
+				champions[c].releasePatch = list[champions[c].releaseDate];
+			} else console.log(champions[c].name + " --- " + champions[c].releaseDate);
+		}
+	}
+}
+
+/*
+ * to be used manually..
+ */
+function printPatchDates() {
+	let table = "#mw-content-text > div.mw-parser-output > div > div.wds-tab__content.wds-is-current > table";
+	let rowCount = $(table)[0].rows.length;
+	let data = [];
+
+	for (let i = 2; i <= rowCount; i++) {
+		let date = $(`${table} > tbody > tr:nth-child(${i}) > td:nth-child(1)`).text().replace("\n", "");
+		let patch = $(`${table} > tbody > tr:nth-child(${i}) > td:nth-child(2)`).text().replace("\n", "");
+		date = date.replace("(Notes)", "");
+		data.push(`${date}	${patch}`);
+	}
+
+	console.log(JSON.stringify(data));
+}

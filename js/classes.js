@@ -8,7 +8,7 @@ class ElementPrinter {
 	constructor(parent, item) {
 		this.parent = $(parent);
 		this.itemSelector = item;
-		this.itemHtml = $(item)[0].outerHTML;
+		this.itemHtml = this.parent.find(item)[0].outerHTML;
 	}
 
 	addAll(elementCount, init) {
@@ -33,6 +33,11 @@ class ElementPrinter {
 			arr.push(holder);
 		}
 		this.parent.append(arr);
+	}
+
+	removaAllItems() {
+		this.items = null;
+		this.parent.find(`${this.itemSelector}:not(.js-template)`).remove();
 	}
 
 	removaAllHiddenItems() {
