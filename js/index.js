@@ -1,5 +1,5 @@
 let stickyAlert = $("#sticky-top");
-let searchInfo = {hasFocus: false, lastFocuTime: 0, canRestartTyping: false};
+let searchInfo = {hasFocus: false, lastFocuTime: 0, canRestartTyping: false, wrapper: null};
 let search;
 
 let champs = new ChampionListManager();
@@ -16,41 +16,33 @@ let champCard = {
 		{name: $(".ability__line:nth-child(6) .name"), img: $(".ability__line:nth-child(6) img")}],
 	index: 0,
 	show: function() { this.card.removeClass("hide");},
-	hide: function() { this.card.addClass("hide"); champsPrinter.items[champs.ii+1].classList.remove("active"); }
+	hide: function() { this.card.addClass("hide"); champsPrinter.elements[champs.ii+1].classList.remove("active"); }
 };
 
 $(function() {
 
 	champsPrinter = new ElementPrinter("#champ-list", ".item");
+	champs.printer = champsPrinter;
 	search = $("#search");
+	searchInfo.wrapper = $("#search__wrapper");
 
+	champs.onLoad(() => initChampionsListDOM());
+
+	//search, sidebar, sort...
 	initSidebar();
-
+	initSearch();
+	initSearchFilter();
+	initSortSelector();
+	//champcard
+	bindChampCardActions();
+	//qol
 	listenKeys();
 	listenEmptyClicks();
 	listenSearchTimeout();
 	listenPageScroll();
-	initSearch();
-	initSearchFilter();
-	initSortSelector();
-
-	bindChampCardActions();
-
-	champs.onLoad(() => {
-
-		champsPrinter.removaAllHiddenItems();
-		champsPrinter.addAll(champs.items.length, (holder, i) => {
-			holder.find("img").attr("src", champs.items[i].portrait);
-			holder.find("span").text(champs.items[i].name);
-			holder.find("span.tooltip").text("Patch " + champs.items[i].releasePatch);
-		});
-		
-		champsPrinter.addSpaceItems(20);
-		bindChampsClickListener();
-	});
 });
 
-/* ---------------------------------------- */
+/* ---------------------------------------- SEARCH */
 
 function initSearch() {
 	let prevLength = 0;
@@ -64,13 +56,13 @@ function initSearch() {
 			champCard.hide();
 		
 		if (s.length == 0) {
-			showAllChamps();
+			champs.unhideAll();
 			return;
 		}
 
 		prevLength = s.length;
 
-		showAllChamps();
+		champs.unhideAll();
 		if (searchTag(s) == -1)
 			searchText(s);
 	});
@@ -80,7 +72,7 @@ function initSearchFilter() {
 	$(".search-filters svg").on("click", function(e) {
 		
 		champCard.hide();
-		showAllChamps();
+		champs.unhideAll();
 
 		if ($(this).hasClass("active")) {
 			$(this).removeClass("active");
@@ -106,7 +98,8 @@ function searchTag(str) {
 	for (let i = 0; i < tags.items.length; i++) { //loop tags
 		if (str == tags.items[i].name.toLowerCase() //on match;
 			&& tags.items[i].champIndexes != null) {
-			hideAllChampsExcept(tags.items[i].champIndexes);
+
+			champs.hideAllExcept(tags.items[i].champIndexes);
 			showChampCardForFistVisibleChamps();
 			return 1;
 		}
@@ -118,11 +111,9 @@ function searchText(str) {
 	for (let i = 0; i < champs.items.length; i++) {
 		if (champs.items[i].name.toLowerCase().includes(str) || 
 			champs.items[i].id.toLowerCase().includes(str)) {
-			champs.visibleItems.push(i);
-			champsPrinter.items[i+1].classList.remove("hide");
-			
+			champs.show(i);
 		} else {
-			champsPrinter.items[i+1].classList.add("hide");
+			champs.hide(i);
 		}
 	}
 
@@ -144,58 +135,71 @@ function searchLaneOrRole(str, type) {
 			}
 		}
 
-		if (matchFound) {
-			champs.visibleItems.push(i);
-			champsPrinter.items[i+1].classList.remove("hide");
-		} else champsPrinter.items[i+1].classList.add("hide");
+		if (matchFound)
+			champs.show(i);
+		else champs.hide(i);
 	}
 }
 
-/* ---------------------------------------- */
+/* ---------------------------------------- CHAMPCARD */
 
 /**
- * Show all items and clear array.
+ * Put champion name, abilities and update links.
+ * Does not auto show the card, only updates it.
  */
-function showAllChamps() {
-	champsPrinter.parent.find(".hide").removeClass("hide");
-	champs.visibleItems = [];
-	champs.i = -1; //ChampsList.next/prevVisibleItem() handles -1 as default
-	champs.v = -1;
+function updateChampCard(i) {
+	// show / hide selected champion border
+	champsPrinter.elements[champs.ii+1].classList.remove("active");
+	champsPrinter.elements[champs.i+1].classList.add("active");
+
+	if (champs.ii == i) return; // if same champ don't update the card again
+	champs.ii = i; // keep prev. champ index
+
+	champCard.index = i;
+	champCard.name.text(champs.items[i].name);
+
+	champCard.abilities[0].img.attr("src", champs.items[i].abilities[0].img);
+	champCard.abilities[1].img.attr("src", champs.items[i].abilities[1].img);
+	champCard.abilities[2].img.attr("src", champs.items[i].abilities[2].img);
+	champCard.abilities[3].img.attr("src", champs.items[i].abilities[3].img);
+	champCard.abilities[4].img.attr("src", champs.items[i].abilities[4].img);
+
+	champCard.abilities[0].name.text(champs.items[i].abilities[0].name);
+	champCard.abilities[1].name.text(champs.items[i].abilities[1].name);
+	champCard.abilities[2].name.text(champs.items[i].abilities[2].name);
+	champCard.abilities[3].name.text(champs.items[i].abilities[3].name);
+	champCard.abilities[4].name.text(champs.items[i].abilities[4].name);
+
+	const link1 = $("#champcard a:nth-child(2)");
+	const link2 = $("#champcard a:nth-child(3)");
+	link1.attr("href", Champion.getUrlWiki(champs.items[i].name));
+	link2.attr("href", Champion.getUrlUniverse(champs.items[i].id));
 }
 
 /**
- * Instead of looping through every champion and checking their name every time before hiding,
- * 
- * this method;
- * - creates an index list,
- * - removes the exception(s) from our index list
- * - the hide everything that is left
+ * Copy ability name to clipboard on click.
  */
-function hideAllChampsExcept(champIndex) {
-	if (typeof champIndex == "number") champIndex = [champIndex]; // convert this to an array for easier handling
+function bindChampCardActions() {
+	$(".ability__line").on("click", function() {
+		let s = "";
+		// s += champs.items[champs.i].name + " ";
+		s += champs.items[champs.i].abilities[$(this).index() - 1].name;
+		switch ($(this).index() - 1) {
+			case 0: s += " (P)"; break;
+			case 1: s += " (Q)"; break;
+			case 2: s += " (W)"; break;
+			case 3: s += " (E)"; break;
+			case 4: s += " (R)"; break;
+		}
 
-	// get a simple integer list with the length of champs
-	let indexList = [];
-	for (let i = 0; i < champs.items.length; i++)
-		indexList.push(i);
-
-	// for every element to NOT hide, remove the integer from the list above
-	for (let i = 0; i < champIndex.length; i++)
-		indexList[champIndex[i]] = null;
-	
-	// loop through our integer list, and hide every element except null
-	for (let i = 0; i < indexList.length; i++) {
-		if (indexList[i] != null)
-			champsPrinter.items[indexList[i]+1].classList.add("hide");
-	}
-
-	// add the exceptions to the visible list
-	for (let i = 0; i < champIndex.length; i++)
-		champs.visibleItems.push(champIndex[i]);
+		navigator.clipboard.writeText(s);
+		stickyAlert.removeClass("hide");
+		setTimeout(() =>  stickyAlert.addClass("hide"), 2000);
+	});
 }
 
 /*
- *
+ * To be used after a search method, shows champCard of the first champion.
  */
 function showChampCardForFistVisibleChamps() {
 	if (champs.visibleItems.length > 0) {
@@ -208,18 +212,27 @@ function showChampCardForFistVisibleChamps() {
 	} else champCard.hide();
 }
 
-/* ---------------------------------------- */
+/* ---------------------------------------- QUALITY OF LIFE */
 
 /**
  * On key press immediately start typing on the search box.
  * Show next / prev champs on arrow keys.
  */
 function listenKeys() {
+
+	// note down search focus state
+	// while we are at it also trigger fake hover to highlight the element
+	search.on("focusin", () => {
+		searchInfo.hasFocus = true
+		searchInfo.wrapper[0].classList.add("hover");
+	});
+	search.on("blur", () => setTimeout(() => {
+		searchInfo.hasFocus = false;
+		searchInfo.wrapper[0].classList.remove("hover");
+	}, 200));
+
+
 	let prevKey;
-
-	search.on("focusin", () => searchInfo.hasFocus = true);
-	search.on("blur", () => setTimeout(() => {searchInfo.hasFocus = false;}, 200));
-
 	$(document).keydown(function(e) {
 		
 		// COPY (CTRL + C)
@@ -287,8 +300,11 @@ function listenKeys() {
  * If search has focus, only clear focus. Don't hide immediately
  */
 function listenEmptyClicks() {
-	$("#champ-list__wrapper").on("click", function(e) {
-		if ((e.target.id == "champ-list__wrapper" || e.target.id == "champ-list") && !searchInfo.hasFocus) {
+	$("body").on("click", function(e) {
+		if ((e.target.id == "champ-list__wrapper" || e.target.id == "champ-list" || 
+			e.target.id == "header__main" || e.target.id == "footer" ||
+			e.target.classList.value == "sides-inner right" || e.target.classList.value == "sides-outer right") &&
+			!searchInfo.hasFocus) {
 			champCard.hide();
 		}
 	});
@@ -325,59 +341,23 @@ function listenPageScroll() {
 	});
 }
 
-/**
- * Put champion name, abilities and update links.
- * Does not auto show the card, only updates it.
- */
-function updateChampCard(i) {
-	// show / hide selected champion border
-	champsPrinter.items[champs.ii+1].classList.remove("active");
-	champsPrinter.items[champs.i+1].classList.add("active");
+/* ---------------------------------------- CHAMPIONS LIST */
 
-	if (champs.ii == i) return; // if same champ don't update the card again
-	champs.ii = i; // keep prev. champ index
+function initChampionsListDOM() {
+	champsPrinter.removaAllItems();
+	champsPrinter.addAll(champs.items.length, (holder, i) => {
 
-	champCard.index = i;
-	champCard.name.text(champs.items[i].name);
+		if (champs.items[i].hide == true)
+			holder.addClass("hide");
+		else champs.visibleItems.push(i);
 
-	champCard.abilities[0].img.attr("src", champs.items[i].abilities[0].img);
-	champCard.abilities[1].img.attr("src", champs.items[i].abilities[1].img);
-	champCard.abilities[2].img.attr("src", champs.items[i].abilities[2].img);
-	champCard.abilities[3].img.attr("src", champs.items[i].abilities[3].img);
-	champCard.abilities[4].img.attr("src", champs.items[i].abilities[4].img);
-
-	champCard.abilities[0].name.text(champs.items[i].abilities[0].name);
-	champCard.abilities[1].name.text(champs.items[i].abilities[1].name);
-	champCard.abilities[2].name.text(champs.items[i].abilities[2].name);
-	champCard.abilities[3].name.text(champs.items[i].abilities[3].name);
-	champCard.abilities[4].name.text(champs.items[i].abilities[4].name);
-
-	const link1 = $("#champcard a:nth-child(2)");
-	const link2 = $("#champcard a:nth-child(3)");
-	link1.attr("href", Champion.getUrlWiki(champs.items[i].name));
-	link2.attr("href", Champion.getUrlUniverse(champs.items[i].id));
-}
-
-/**
- * Copy ability name to clipboard on click.
- */
-function bindChampCardActions() {
-	$(".ability__line").on("click", function() {
-		let s = "";
-		// s += champs.items[champs.i].name + " ";
-		s += champs.items[champs.i].abilities[$(this).index() - 1].name;
-		switch ($(this).index() - 1) {
-			case 0: s += " (P)"; break;
-			case 1: s += " (Q)"; break;
-			case 2: s += " (W)"; break;
-			case 3: s += " (E)"; break;
-			case 4: s += " (R)"; break;
-		}
-
-		navigator.clipboard.writeText(s);
-		stickyAlert.removeClass("hide");
-		setTimeout(() =>  stickyAlert.addClass("hide"), 2000);
+		holder.find("img").attr("src", champs.items[i].portrait);
+		holder.find("span.name").text(champs.items[i].name);
+		holder.find("span.tooltip").text("Patch " + champs.items[i].releasePatch);
 	});
+	
+	champsPrinter.addSpaceItems(20);
+	bindChampsClickListener();
 }
 
 /**
@@ -393,7 +373,7 @@ function bindChampsClickListener() {
 		if (champs.i == champs.ii && !champCard.card.hasClass("hide")) {
 			// hide card upon clicking on the same champ twice
 			champCard.hide();
-			champsPrinter.items[champs.i+1].classList.remove("active");
+			champsPrinter.elements[champs.i+1].classList.remove("active");
 		} else {
 			updateChampCard(champs.i);
 			champCard.show();
@@ -420,27 +400,13 @@ function initSidebar() {
 function initSortSelector() {
 	$("#sort").on("change", function() {
 		champCard.hide();
-		console.log(this.value);
 
 		switch (this.value) {
-			case "abc": champs.items.sort(Champion.sortComparison); break;
-			case "release": champs.items.sort(Champion.sortCompareReleaseDatesDesc); break;
+			case "abc": champs.items.sort(Champion.sortByName); break;
+			case "release": champs.items.sort(Champion.sortByReleaseDateDesc); break;
 			case "rework": break;
 		}
 
-		// console.log(Champion.sortCompareReleaseDates(champs.items[4], champs.items[1]));
-
-		// console.log(champs.items);
-
-		champsPrinter.removaAllItems();
-		champsPrinter.addAll(champs.items.length, (holder, i) => {
-			holder.find("img").attr("src", champs.items[i].portrait);
-			holder.find("span").text(champs.items[i].name);
-			holder.find("span.tooltip").text("Patch " + champs.items[i].releasePatch);
-		});
-		
-		champsPrinter.addSpaceItems(20);
-		bindChampsClickListener();
-
+		initChampionsListDOM();
 	});
 }

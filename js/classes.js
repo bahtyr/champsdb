@@ -1,14 +1,14 @@
 
 class ElementPrinter {
 	parent;
-	items;
+	elements;
 	itemSelector;
 	itemHtml;
 
-	constructor(parent, item) {
-		this.parent = $(parent);
-		this.itemSelector = item;
-		this.itemHtml = this.parent.find(item)[0].outerHTML;
+	constructor(parentSelector, itemSelector) {
+		this.parent = $(parentSelector);
+		this.itemSelector = itemSelector;
+		this.itemHtml = this.parent.find(itemSelector)[0].outerHTML;
 	}
 
 	addAll(elementCount, init) {
@@ -21,7 +21,7 @@ class ElementPrinter {
 			arr.push(holder);
 		}
 		this.parent.append(arr);
-		this.items = $(this.itemSelector);
+		this.elements = $(this.itemSelector);
 	}
 
 	addSpaceItems(count) {
@@ -36,11 +36,7 @@ class ElementPrinter {
 	}
 
 	removaAllItems() {
-		this.items = null;
+		this.elements = null;
 		this.parent.find(`${this.itemSelector}:not(.js-template)`).remove();
-	}
-
-	removaAllHiddenItems() {
-		this.parent.find(".hidden").remove();
 	}
 }

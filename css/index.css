@@ -239,24 +239,28 @@ p.sidebar-subheading svg {
 	left: 60px;
 	z-index: 2;
 	opacity: 0;
+	/*bg*/
 	/*box-shadow: rgb(0 0 0 / 20%) 0px 0px 6px;*/
 	/*background-color: #0C0C0D;*/
-	/*color: #DBD4BF;*/
 	background-color: #DBD4BF;
 	border-radius: 5px;
 	border: 1px solid #785A28;
+	padding: 4px 12px;
+	/*text*/
+	/*color: #DBD4BF;*/
 	color: #604820;
+	font-family: Spiegel-Regular;
 	font-size: 12px;
 	letter-spacing: 0.04em;
-	padding: 4px 12px;
+	white-space: nowrap;
+	/*etc*/
 	pointer-events: none;
 	transform-origin: left bottom;
 	transform: scale(0.90) translateZ(0px);
 	transition: transform .1s linear;
-	white-space: nowrap ;
 }
 
-.item span {
+.item span.name {
 	text-align: center;
 	margin-top: 5px;
 	color: #999485;
@@ -411,18 +415,7 @@ p.sidebar-subheading svg {
 /* ---------------------------------------- SEARCH WRAPPER */
 
 #search__wrapper {
-	position: relative;
-	background: linear-gradient(180deg, rgba(120,90,40,1) 0%, rgba(70,55,20,1) 100%);
-	padding: 1px;
-	height: 36px;
 	width: 300px;
-	box-sizing: content-box;
-}
-
-#search__icon {
-	position: absolute;
-	top: 13px;
-	left: 12px;
 }
 
 /* ---------------------------------------- SEARCH */
@@ -487,4 +480,5 @@ p.sidebar-subheading svg {
 	/*max-width: 600px;*/
 	/*text-align: center;*/
 	color: #7e7e7e;
+	pointer-events: none;
 }

@@ -50,26 +50,36 @@ class Champion {
 		return `https://universe.leagueoflegends.com/en_SG/champion/${champId}/`;
 	}
 
-	static sortComparison(a, b) {
-		if (a.name < b.name)
-			return -1;
-		else if (a.name > b.name)
-			return 1;
-		return 0;
-	}
-
-	static sortCompareReleaseDatesDesc(a, b) {
-		let a_ = new Date(a.releaseDate).getTime();
-		let b_ = new Date(b.releaseDate).getTime();
-		if (a_ > b_)
-			return -1;
-		else if (a_ < b_)
-			return 1;
-		return 0;
-	}
-
 	static clipboardTextBuilder(mode, champName, abilityName, abilityNo) {
 
+	}
+
+	static sortByName(a, b) {
+		if (a.name < b.name) return -1;
+		else if (a.name > b.name) return 1;
+		return 0;
+	}
+
+	static sortByNameDesc(a, b) {
+		if (a.name > b.name) return -1;
+		else if (a.name < b.name) return 1;
+		return 0;
+	}
+
+	static sortByReleaseDateDesc(a, b) {
+		let a_ = new Date(a.releaseDate).getTime();
+		let b_ = new Date(b.releaseDate).getTime();
+		if (a_ < b_) return -1;
+		else if (a_ > b_) return 1;
+		return Champion.sortByName(a, b);
+	}
+
+	static sortByReleaseDateDesc(a, b) {
+		let a_ = new Date(a.releaseDate).getTime();
+		let b_ = new Date(b.releaseDate).getTime();
+		if (a_ > b_) return -1;
+		else if (a_ < b_) return 1;
+		return Champion.sortByNameDesc(a, b);
 	}
 }
 

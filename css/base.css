@@ -109,20 +109,30 @@ select {
 
 .input-wrapper {
 	position: relative;
-	background: linear-gradient(180deg, rgba(120,90,40,1) 0%, rgba(70,55,20,1) 100%);
+	background: linear-gradient(180deg, #93723B 0, #463714);
 	padding: 1px;
 	height: 36px;
 	box-sizing: content-box;
 }
 
-.input-wrapper svg {
+.input-wrapper .svg-wrapper {
+	display: flex;
+	align-items: center;
 	position: absolute;
+	pointer-events: none;
+	height: calc(100% - 2px);
 }
 
-.input-wrapper.select svg {
-	top: 12px;
-	right: 12px;
-}
+.input-wrapper .svg-wrapper.left { left: 12px; }
+.input-wrapper .svg-wrapper.right { right: 12px; }
+
+.input-wrapper:hover,
+.input-wrapper.hover { background: linear-gradient(180deg, #B88F4C 0, #67511D); }
+
+.input-wrapper.search.hover svg path,
+.input-wrapper.search:hover svg path { stroke: #C4B998; }
+.input-wrapper.select:hover svg path { stroke: #937341; }
+
 
 /* ---------------------------------------------------------------------------------------- */
 
