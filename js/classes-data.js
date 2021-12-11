@@ -17,7 +17,7 @@ class Champion {
 	constructor() { }
 
 	static loadChampions(callback) {
-		$.ajax({type: "GET", url: "data.json", dataType: "json",
+		$.ajax({type: "GET", url: "data.json?v=0.2.32", dataType: "json",
 			success: (data, textStatus) => callback(data),
 			error: (textStatus, errorThrown) => console.error(errorThrown)
 		});
@@ -91,7 +91,7 @@ class Tags {
 	constructor() { }
 
 	static loadTags(callback) {
-		$.ajax({type: "GET", url: "data-tags.json", dataType: "json",
+		$.ajax({type: "GET", url: "data-tags.json?v=0.2.32", dataType: "json",
 			success: (data, textStatus) => callback(data),
 			error: (textStatus, errorThrown) => console.error(errorThrown)
 		});
