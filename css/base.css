@@ -56,13 +56,14 @@ body {
 }
 
 #bg-img {
-	position: absolute;
-	top: 70;
+	position: fixed;
+	bottom: 0;
 	z-index: -1;
 	width: 100%;
 	height: calc(100% - 70px);
 	object-fit: cover;
 	opacity: 20%;
+	transform: rotate(180deg);
 }
 
 /* ---------------------------------------------------------------------------------------- */
