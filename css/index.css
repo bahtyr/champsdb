@@ -76,7 +76,7 @@ body {
 	 */
 	position: fixed;
 	height: 100vh;
-	/*overflow-x: overlay;*/
+	overflow: overlay;
 	overflow-x: hidden;
 	border-right: 1px solid #1a1a1a;
 	background-color: #000;
@@ -171,6 +171,7 @@ p.sidebar-heading {
 	letter-spacing: 0.07em;
 	text-transform: uppercase;
 	margin-bottom: 4px;
+	cursor: default;
 }
 
 p.sidebar-subheading {
@@ -182,6 +183,11 @@ p.sidebar-subheading {
 	letter-spacing: 0.12em;
 	padding: 4px 0;
 	margin-top: 8px;
+	cursor: pointer;
+}
+
+p.sidebar-subheading:hover {
+	color: #fff;
 }
 
 p.sidebar-subheading svg {
@@ -205,6 +211,12 @@ p.sidebar-subheading svg {
 
 #sidebar li:hover {
 	color: #fff;
+}
+
+#sidebar ul.section {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
 }
 
 
@@ -422,6 +434,15 @@ p.sidebar-subheading svg {
 
 #search__wrapper {
 	width: 300px;
+}
+
+#search__clear {
+	pointer-events: unset;
+	cursor: pointer;
+}
+
+#search__clear.hide {
+	visibility: hidden;
 }
 
 /* ---------------------------------------- SEARCH */

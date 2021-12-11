@@ -1,5 +1,5 @@
 let stickyAlert = $("#sticky-top");
-let searchInfo = {hasFocus: false, lastFocuTime: 0, canRestartTyping: false, wrapper: null};
+let searchInfo = {hasFocus: false, lastFocuTime: 0, canRestartTyping: false, wrapper: null, clearBtn: null};
 let search;
 
 let champs = new ChampionListManager();
@@ -25,6 +25,7 @@ $(function() {
 	champs.printer = champsPrinter;
 	search = $("#search");
 	searchInfo.wrapper = $("#search__wrapper");
+	searchInfo.clearBtn = $("#search__clear");
 
 	champs.onLoad(() => initChampionsListDOM());
 
@@ -57,14 +58,23 @@ function initSearch() {
 		
 		if (s.length == 0) {
 			champs.unhideAll();
+			searchInfo.clearBtn.addClass("hide");
 			return;
 		}
+
+		searchInfo.clearBtn.removeClass("hide");
 
 		prevLength = s.length;
 
 		champs.unhideAll();
 		if (searchTag(s) == -1)
 			searchText(s);
+	});
+
+	searchInfo.clearBtn.on("click", function() {
+		search.val("");
+		const event = new Event('keyup');
+		search[0].dispatchEvent(event);
 	});
 }
 
@@ -395,21 +405,36 @@ function bindChampsClickListener() {
 function initSidebar() {
 	let sidebar = $("#sidebar");
 	let sidebarOverlay = $("#sidebar__content-overlay");
+
+	// show sidebar
 	$("#site-icon").on("click", function() {
 		sidebar.toggleClass("show");
 		sidebarOverlay.toggleClass("show");
 	});
 
+	// hide sidebar upon clicking "empty area"
 	sidebarOverlay.on("click", function() {
 		sidebar.toggleClass("show");
 		sidebarOverlay.toggleClass("show");
 	});
 
+	// search attribute
 	$("#sidebar li").on("click", function() {
 		search.val($(this).text());
 		const event = new Event('keyup');
 		search[0].dispatchEvent(event);
-	})
+	});
+
+	// https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapsible_animate
+	// uncollapse list
+	$(".sidebar-subheading").on("click", function() {
+		var content = this.nextElementSibling;
+	    if (content.style.maxHeight){
+	      content.style.maxHeight = null;
+	    } else {
+	      content.style.maxHeight = content.scrollHeight + "px";
+	    } 
+	});
 }
 
 function initSortSelector() {
