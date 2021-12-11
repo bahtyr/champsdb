@@ -410,6 +410,8 @@ p.sidebar-subheading svg {
 
 #site-icon {
 	display: none;
+	/*width: 100%;*/
+	/*height: 100%;*/
 }
 
 /* ---------------------------------------- SEARCH WRAPPER */

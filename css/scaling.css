@@ -1,4 +1,14 @@
 @media only screen and (max-width: 768px) {
+
+	#header__main {
+		padding-left: 16px;
+		margin-left: 0;
+	}
+
+	#sort__wrapper {
+		margin-right: 24px;
+	}
+
 	#site-icon {
 		cursor: pointer;
 		display: inline-block;
@@ -39,5 +49,11 @@
 	.center {
 		margin-left: 0;
 		padding-left: 0;
+	}
+
+	.item span.tooltip {
+		left: unset;
+		right: 10px;
+		transform-origin: right top;
 	}
 }
