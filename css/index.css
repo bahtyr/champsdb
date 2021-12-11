@@ -199,8 +199,12 @@ p.sidebar-subheading svg {
 
 #sidebar li {
 	color: #95938e;
-	/*cursor: pointer;*/
+	cursor: pointer;
 	font-family: Spiegel-Regular;
+}
+
+#sidebar li:hover {
+	color: #fff;
 }
 
 

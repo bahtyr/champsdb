@@ -395,6 +395,12 @@ function initSidebar() {
 		sidebar.toggleClass("show");
 		sidebarOverlay.toggleClass("show");
 	});
+
+	$("#sidebar li").on("click", function() {
+		search.val($(this).text());
+		const event = new Event('keyup');
+		search[0].dispatchEvent(event);
+	})
 }
 
 function initSortSelector() {
