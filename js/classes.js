@@ -4,11 +4,13 @@ class ElementPrinter {
 	elements;
 	itemSelector;
 	itemHtml;
+	templates = {};
 
 	constructor(parentSelector, itemSelector) {
 		this.parent = $(parentSelector);
 		this.itemSelector = itemSelector;
-		this.itemHtml = this.parent.find(itemSelector)[0].outerHTML;
+		if (itemSelector != null)
+			this.itemHtml = this.parent.find(itemSelector)[0].outerHTML;
 	}
 
 	addAll(elementCount, init) {
@@ -38,5 +40,35 @@ class ElementPrinter {
 	removaAllItems() {
 		this.elements = null;
 		this.parent.find(`${this.itemSelector}:not(.js-template)`).remove();
+	}
+
+	useTemplate(selector) {
+		if (this.templates[selector] == null) {
+			this.templates[selector] = $($.parseHTML($(selector)[0].outerHTML));
+			this.templates[selector].removeClass("js-template");
+		}
+
+		return this.templates[selector].clone();
+	}
+
+	useTemplateAsString(selector) {
+		if (this.templates[selector] == null) {
+			this.templates[selector] = $($.parseHTML($(selector)[0].outerHTML));
+			this.templates[selector].removeClass("js-template");
+		}
+
+		return this.templates[selector][0].outerHTML;
+	}
+
+	static startElement(tagname, more) {
+		return `<${tagname} ${more == null ? "" : ` ${more}`}>`;
+	}
+
+	static endElemenet(tagname) {
+		return `</${tagname}>`;
+	}
+
+	static element(tagname, content) {
+		return `<${tagname}>${content == null ? "" : content}</${tagname}>`;
 	}
 }

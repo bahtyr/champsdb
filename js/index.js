@@ -28,9 +28,12 @@ $(function() {
 	searchInfo.clearBtn = $("#search__clear");
 
 	champs.onLoad(() => initChampionsListDOM());
+	tags.onLoad(() => {
+		initSidebarItems()
+		initSidebar();
+	});
 
 	//search, sidebar, sort...
-	initSidebar();
 	initSearch();
 	initSearchFilter();
 	initSortSelector();
@@ -419,7 +422,7 @@ function initSidebar() {
 	});
 
 	// search attribute
-	$("#sidebar li").on("click", function() {
+	$("#sidebar li span").on("click", function() {
 		search.val($(this).text());
 		const event = new Event('keyup');
 		search[0].dispatchEvent(event);
@@ -435,6 +438,56 @@ function initSidebar() {
 	      content.style.maxHeight = content.scrollHeight + "px";
 	    } 
 	});
+}
+
+function initSidebarItems() {
+	let filterPrinter = new ElementPrinter("#filters-wrapper");
+
+	for (let i in tags.tagsObj.menu) {
+		
+		let e;
+		if (tags.tagsObj.menu[i].heading != null) { // HEADING
+			e = filterPrinter.useTemplate(".sidebar-heading");
+			e.text(tags.tagsObj.menu[i].heading);
+
+		} else if (tags.tagsObj.menu[i].subheading != null) { // SUBHEADING
+			e = filterPrinter.useTemplate(".sidebar-subheading");
+			e.find("span").text(tags.tagsObj.menu[i].subheading);
+
+		} else if (tags.tagsObj.menu[i].list != null) { // LIST
+			e = ElementPrinter.startElement("ul", `class="section"`);
+			for (let ii in tags.tagsObj.menu[i].list) {
+				if (!Array.isArray(tags.tagsObj.menu[i].list[ii])) { // LIST ITEM
+					// let li = filterPrinter.useTemplate("#filters-wrapper li");
+					// li.find("a").attr("href", tags.tagsObj.menu[i].list[ii].link);
+					// li.find("span").text(tags.tagsObj.menu[i].list[ii].text);
+					// li.attr("title", tags.tagsObj.menu[i].list[ii].tooltip);
+					// e += li[0].outerHTML;
+					let li = filterPrinter.useTemplateAsString("#filters-wrapper li");
+					li = li.replace("$text", tags.tagsObj.menu[i].list[ii].text);
+					li = li.replace("$tooltip", tags.tagsObj.menu[i].list[ii].tooltip);
+					e += li;
+				} else { // NESTED LIST
+					e += ElementPrinter.startElement("ul");
+					for (let iii in tags.tagsObj.menu[i].list[ii]) { // NESTED LIST ITEM
+						// let li = filterPrinter.useTemplate("#filters-wrapper li");
+						// li.find("a").attr("href", tags.tagsObj.menu[i].list[ii][iii].link);
+						// li.find("span").text(tags.tagsObj.menu[i].list[ii][iii].text);
+						// li.attr("title", tags.tagsObj.menu[i].list[ii][iii].tooltip);
+						// e += li[0].outerHTML;
+						let li = filterPrinter.useTemplateAsString("#filters-wrapper li");
+						li = li.replace("$text", tags.tagsObj.menu[i].list[ii][iii].text);
+						li = li.replace("$tooltip", tags.tagsObj.menu[i].list[ii][iii].tooltip);
+						e += li;
+					}
+					e += ElementPrinter.endElemenet("ul");
+				} 
+			}
+			e += ElementPrinter.endElemenet("ul");
+		}
+		
+		filterPrinter.parent.append(e);
+	}
 }
 
 function initSortSelector() {

@@ -170,6 +170,7 @@ p.sidebar-heading {
 	font-family: Beaufort-Bold;
 	letter-spacing: 0.07em;
 	text-transform: uppercase;
+	margin-top: 24px;
 	margin-bottom: 4px;
 	cursor: default;
 }
@@ -195,30 +196,38 @@ p.sidebar-subheading svg {
 	margin-right: 8px;
 }
 
-#sidebar ul {
-	margin-left: 16px;
-}
-
-#sidebar ul ul {
-	margin-left: 20px;
-}
-
-#sidebar li {
-	color: #95938e;
-	cursor: pointer;
-	font-family: Spiegel-Regular;
-}
-
-#sidebar li:hover {
-	color: #fff;
-}
-
+#sidebar ul { margin-left: 16px; }
+/*#sidebar ul { margin-left: -2px; }*/
+#sidebar ul ul { margin-left: 20px; }
 #sidebar ul.section {
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 0.2s ease-out;
 }
 
+#sidebar li {
+	color: #95938e;
+	cursor: pointer;
+	font-family: Spiegel-Regular;
+
+	position: relative;
+	display: flex;
+	align-items: center;
+	overflow: visible;
+}
+
+#sidebar li svg {
+	margin-right: 4px;
+	visibility: hidden;
+}
+
+#sidebar li:hover { color: #fff; }
+#sidebar li:hover svg { visibility: visible; }
+
+#sidebar li:hover a[href=""] svg,
+#sidebar li:hover a[href="#"] svg {
+	visibility: hidden;
+}
 
 /* ---------------------------------------------------------------------------------------- CHAMPLIST */
 
