@@ -229,6 +229,44 @@ p.sidebar-subheading svg {
 	visibility: hidden;
 }
 
+/*tooltip*/
+
+#sidebar li:hover span.tooltip {
+	opacity: 1;
+	transform: scale(1) translateZ(0px);
+}
+
+#sidebar li span.tooltip:empty {
+	display: none;
+}
+
+#sidebar li span.tooltip {
+	position: absolute;
+	top: -24px;
+	left: 2;
+	z-index: 2;
+	opacity: 0;
+	/*bg*/
+	/*box-shadow: rgb(0 0 0 / 20%) 0px 0px 6px;*/
+	/*background-color: #0C0C0D;*/
+	background-color: #DBD4BF;
+	border-radius: 5px;
+	border: 1px solid #785A28;
+	padding: 4px 12px;
+	/*text*/
+	/*color: #DBD4BF;*/
+	color: #604820;
+	font-family: Spiegel-Regular;
+	font-size: 12px;
+	letter-spacing: 0.04em;
+	white-space: nowrap;
+	/*etc*/
+	pointer-events: none;
+	transform-origin: left bottom;
+	transform: scale(0.90) translateZ(0px);
+	transition: transform .1s linear;
+}
+
 /* ---------------------------------------------------------------------------------------- CHAMPLIST */
 
 #champ-list__wrapper {
