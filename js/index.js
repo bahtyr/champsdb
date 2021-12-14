@@ -108,9 +108,19 @@ function initSearchFilter() {
  * Returns; 1: if there is match, otherwise -1
  */
 function searchTag(str) {
+	const sort = $("#sort");
+	const event = new Event('change');
+
 	for (let i = 0; i < tags.items.length; i++) { //loop tags
 		if (str == tags.items[i].name.toLowerCase() //on match;
 			&& tags.items[i].champIndexes != null) {
+
+			// since we only keep "champ index" on our tag list, we have to revert the list before showing results
+			// otherwise "champ index" taglist and the champ list indexes will not match
+			if (sort.val() != "abc") {
+				sort.val("abc");
+				sort[0].dispatchEvent(event);
+			}
 
 			champs.hideAllExcept(tags.items[i].champIndexes);
 			// showChampCardForFistVisibleChamps();
