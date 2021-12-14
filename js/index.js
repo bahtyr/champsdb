@@ -113,7 +113,7 @@ function searchTag(str) {
 			&& tags.items[i].champIndexes != null) {
 
 			champs.hideAllExcept(tags.items[i].champIndexes);
-			showChampCardForFistVisibleChamps();
+			// showChampCardForFistVisibleChamps();
 			return 1;
 		}
 	}
