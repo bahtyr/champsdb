@@ -2,11 +2,12 @@
 
 	#header__main {
 		padding-left: 16px;
+		padding-right: 24;
 		margin-left: 0;
 	}
 
 	#sort__wrapper {
-		margin-right: 24px;
+
 	}
 
 	#site-icon {
@@ -55,5 +56,19 @@
 		left: unset;
 		right: 10px;
 		transform-origin: right top;
+	}
+}
+
+@media only screen and (max-width: 390px) {
+	#site-icon {
+		padding: 4px;
+	}
+
+	#sort {
+		font-size: 12px;
+	}
+
+	#search__count {
+		font-size: 14px;
 	}
 }

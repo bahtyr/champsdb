@@ -27,7 +27,10 @@ $(function() {
 	searchInfo.wrapper = $("#search__wrapper");
 	searchInfo.clearBtn = $("#search__clear");
 
-	champs.onLoad(() => initChampionsListDOM());
+	champs.onLoad(() => {
+		updateSearchResultsCount(0);
+		initChampionsListDOM();
+	});
 	tags.onLoad(() => {
 		initSidebarItems()
 		initSidebar();
@@ -56,6 +59,9 @@ function initSearch() {
 
 		let s = $(this).val().toLowerCase();
 
+		if (s.length == 0)
+			updateSearchResultsCount(0);
+
 		if (s.length == 0 && prevLength != 0)
 			champCard.hide();
 		
@@ -72,6 +78,7 @@ function initSearch() {
 		champs.unhideAll();
 		if (searchTag(s) == -1)
 			searchText(s);
+		updateSearchResultsCount();
 	});
 
 	searchInfo.clearBtn.on("click", function() {
@@ -89,6 +96,7 @@ function initSearchFilter() {
 
 		if ($(this).hasClass("active")) {
 			$(this).removeClass("active");
+			updateSearchResultsCount(0);
 			return;
 		}
 
@@ -100,6 +108,8 @@ function initSearchFilter() {
 			case "filter-lane": searchLaneOrRole($(this)[0].id, 0); break;
 			case "filter-role": searchLaneOrRole($(this)[0].id, 1); break;
 		}
+
+		updateSearchResultsCount();
 	});
 }
 
@@ -411,6 +421,13 @@ function bindChampsClickListener() {
 			champCard.show();
 		}
 	});
+}
+
+function updateSearchResultsCount(showAll) {
+	const text = $("#search__count");
+	if (showAll == null)
+		text.text(champs.visibleItems.length);
+	else text.text(champs.items.length);
 }
 
 /* ---------------------------------------- */

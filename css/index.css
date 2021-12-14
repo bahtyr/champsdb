@@ -486,6 +486,20 @@ p.sidebar-subheading svg {
 	margin-left: 12px;
 }
 
+#search__count {
+	color: #937341;
+	font-size: 18px;
+	font-family: Beaufort-Italic;
+	font-weight: bold;
+	letter-spacing: 0.07em;
+	margin-left: 12px;
+	min-width: 2.1em;
+	background: linear-gradient(180deg, #ECC572 0, #815500);
+	background: linear-gradient(180deg, #93723B 0, #463714);
+	-webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
 /* ---------------------------------------------------------------------------------------- FOOTER */
 
 #footer {

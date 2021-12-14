@@ -73,6 +73,9 @@ h1 {
 	font-family: Beaufort-Bold;
 	font-size: 18px;
 	letter-spacing: 0.05em;
+	background: linear-gradient(180deg, #CDBE91 0, #8E7141);
+	-webkit-background-clip: text;
+  	-webkit-text-fill-color: transparent;
 }
 
 a {
