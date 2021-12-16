@@ -207,13 +207,16 @@ p.sidebar-subheading svg {
 
 #sidebar li {
 	color: #95938e;
-	cursor: pointer;
 	font-family: Spiegel-Regular;
 
 	position: relative;
 	display: flex;
 	align-items: center;
 	overflow: visible;
+}
+
+#sidebar li span {
+	cursor: pointer;
 }
 
 #sidebar li svg {

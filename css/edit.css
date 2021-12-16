@@ -33,6 +33,10 @@ h2.active::before {
 
 /* ---------------------------------------- PAGE */
 
+.edit-page {
+	padding-bottom: 100px;
+}
+
 .edit-page.hide {
 	display: none;
 }
