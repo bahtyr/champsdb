@@ -121,29 +121,7 @@ class ChampionListManager {
 }
 
 class TagsListManager {
-	callback;
-	tagsObj;
-	items;
 
 	constructor() {
-		Tags.loadTags((data) => {
-			this.tagsObj = data;
-			Tags.combineChampsAndTags(this.tagsObj, true);
-			this.items = this.tagsObj.tags; // we only need the actaull tags list
-			// this.tagsObj = null; // we no longer need the full object which contains many lists
-			this.tagsObj.aliases = null // remove aliases
-			this.tagsObj.tags = null; // remove the second "tags" obj/key
-			if (this.callback != null)
-				this.callback();
-		});
-	}
-
-	/**
-	 * Set a callback method to execute when champions data is loaded.
-	 */
-	onLoad(callback) {
-		if (this.items != null)
-			callback();
-		else this.callback = callback;
 	}
 }

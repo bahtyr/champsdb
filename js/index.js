@@ -1,5 +1,5 @@
 let champs = new ChampionListManager();
-let tags = new TagsListManager();
+let tags;
 let champsPrinter;
 let champCard = {
 	card: $("#champcard"),
@@ -57,7 +57,9 @@ $(function() {
 		updateSearchResultsCount(0);
 		initChampionsListDOM();
 	});
-	tags.onLoad(() => {
+	Tags.loadTags((data) => {
+		tags = data;
+		Tags.combineChampsAndTags(tags, true);
 		initSidebarItems()
 		initSidebar();
 	});
@@ -175,12 +177,12 @@ function listenSort() {
  * Returns; 1: if there is match, otherwise -1
  */
 function searchTag(str) {
-	for (let i = 0; i < tags.items.length; i++) { //loop tags
-		if (str == tags.items[i].name.toLowerCase() //on match;
-			&& tags.items[i].champIndexes != null) {
+	for (let i = 0; i < tags.tags.length; i++) { //loop tags
+		if (str == tags.tags[i].name.toLowerCase() //on match;
+			&& tags.tags[i].champIndexes != null) {
 
 			sort.reset();
-			champs.hideAllExcept(tags.items[i].champIndexes);
+			champs.hideAllExcept(tags.tags[i].champIndexes);
 			return 1;
 		}
 	}
@@ -188,13 +190,13 @@ function searchTag(str) {
 }
 
 function searchTagById(id) {
-	for (let i = 0; i < tags.items.length; i++) { //loop tags
-		if (id == tags.items[i].id && tags.items[i].champIndexes != null) {
+	for (let i = 0; i < tags.tags.length; i++) { //loop tags
+		if (id == tags.tags[i].id && tags.tags[i].champIndexes != null) {
 					
 			filters.clearSelection();
 			sort.reset();
 			search.showClearBtn();
-			champs.hideAllExcept(tags.items[i].champIndexes);
+			champs.hideAllExcept(tags.tags[i].champIndexes);
 			updateSearchResultsCount();
 			return;
 		}
@@ -211,7 +213,7 @@ function searchText(str) {
 		}
 	}
 
-	showChampCardForFistVisibleChamps();
+	showChampCardForFirstVisibleChamps();
 }
 
 function searchLaneOrRole(str, type) {
@@ -294,7 +296,7 @@ function bindChampCardActions() {
 /*
  * To be used after a search method, shows champCard of the first champion.
  */
-function showChampCardForFistVisibleChamps() {
+function showChampCardForFirstVisibleChamps() {
 	if (champs.visibleItems.length > 0) {
 		// to allow to go to next champ directly, because first right arrow is 0 element,
 		// since first champ's card will be open, we start i from 0
@@ -532,41 +534,41 @@ function initSidebar() {
 function initSidebarItems() {
 	let filterPrinter = new ElementPrinter("#filters-wrapper");
 
-	for (let i in tags.tagsObj.menu) {
+	for (let i in tags.menu) {
 		
 		let e;
-		if (tags.tagsObj.menu[i].heading != null) { // HEADING
+		if (tags.menu[i].heading != null) { // HEADING
 			e = filterPrinter.useTemplate(".sidebar-heading");
-			e.text(tags.tagsObj.menu[i].heading);
+			e.text(tags.menu[i].heading);
 
-		} else if (tags.tagsObj.menu[i].subheading != null) { // SUBHEADING
+		} else if (tags.menu[i].subheading != null) { // SUBHEADING
 			e = filterPrinter.useTemplate(".sidebar-subheading");
-			e.find("span").text(tags.tagsObj.menu[i].subheading);
+			e.find("span").text(tags.menu[i].subheading);
 
-		} else if (tags.tagsObj.menu[i].list != null) { // LIST
+		} else if (tags.menu[i].list != null) { // LIST
 			e = ElementPrinter.startElement("ul", `class="section"`);
-			for (let ii in tags.tagsObj.menu[i].list) {
-				if (!Array.isArray(tags.tagsObj.menu[i].list[ii])) { // LIST ITEM
+			for (let ii in tags.menu[i].list) {
+				if (!Array.isArray(tags.menu[i].list[ii])) { // LIST ITEM
 					// let li = filterPrinter.useTemplate("#filters-wrapper li");
-					// li.find("a").attr("href", tags.tagsObj.menu[i].list[ii].link);
-					// li.find("span").text(tags.tagsObj.menu[i].list[ii].text);
-					// li.attr("title", tags.tagsObj.menu[i].list[ii].tooltip);
+					// li.find("a").attr("href", tags.menu[i].list[ii].link);
+					// li.find("span").text(tags.menu[i].list[ii].text);
+					// li.attr("title", tags.menu[i].list[ii].tooltip);
 					// e += li[0].outerHTML;
 					let li = filterPrinter.useTemplateAsString("#filters-wrapper li");
-					li = li.replace("$text", tags.tagsObj.menu[i].list[ii].text);
-					li = li.replace("$tooltip", tags.tagsObj.menu[i].list[ii].tooltip);
+					li = li.replace("$text", tags.menu[i].list[ii].text);
+					li = li.replace("$tooltip", tags.menu[i].list[ii].tooltip);
 					e += li;
 				} else { // NESTED LIST
 					e += ElementPrinter.startElement("ul");
-					for (let iii in tags.tagsObj.menu[i].list[ii]) { // NESTED LIST ITEM
+					for (let iii in tags.menu[i].list[ii]) { // NESTED LIST ITEM
 						// let li = filterPrinter.useTemplate("#filters-wrapper li");
-						// li.find("a").attr("href", tags.tagsObj.menu[i].list[ii][iii].link);
-						// li.find("span").text(tags.tagsObj.menu[i].list[ii][iii].text);
-						// li.attr("title", tags.tagsObj.menu[i].list[ii][iii].tooltip);
+						// li.find("a").attr("href", tags.menu[i].list[ii][iii].link);
+						// li.find("span").text(tags.menu[i].list[ii][iii].text);
+						// li.attr("title", tags.menu[i].list[ii][iii].tooltip);
 						// e += li[0].outerHTML;
 						let li = filterPrinter.useTemplateAsString("#filters-wrapper li");
-						li = li.replace("$text", tags.tagsObj.menu[i].list[ii][iii].text);
-						li = li.replace("$tooltip", tags.tagsObj.menu[i].list[ii][iii].tooltip);
+						li = li.replace("$text", tags.menu[i].list[ii][iii].text);
+						li = li.replace("$tooltip", tags.menu[i].list[ii][iii].tooltip);
 						e += li;
 					}
 					e += ElementPrinter.endElemenet("ul");
@@ -592,6 +594,6 @@ function findMenuItemFromDOM(element) {
 	listIndex -= 3; // don't count hidden template elements
 
 	if (!isNestedList)
-		return tags.tagsObj.menu[listIndex].list[itemIndex];
-	else return tags.tagsObj.menu[listIndex].list[nestedListIndex][itemIndex];
+		return tags.menu[listIndex].list[itemIndex];
+	else return tags.menu[listIndex].list[nestedListIndex][itemIndex];
 }
