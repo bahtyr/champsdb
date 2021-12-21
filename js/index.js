@@ -146,6 +146,9 @@ function searchTagById(id) {
 
 	for (let i = 0; i < tags.items.length; i++) { //loop tags
 		if (id == tags.items[i].id && tags.items[i].champIndexes != null) {
+			
+			$(".search-filters svg.active").removeClass("active");
+
 			if (sort.val() != "abc") {
 				sort.val("abc");
 				sort[0].dispatchEvent(event);
@@ -472,7 +475,7 @@ function initSidebar() {
 		let item = findMenuItemFromDOM(this);
 		searchTagById(item.id); // TODO
 
-		// search.val($(this).text());
+		search.val($(this).text());
 		// const event = new Event('keyup');
 		// search[0].dispatchEvent(event);
 	});
