@@ -83,7 +83,7 @@ class ChampionListManager {
 	unhideAll() {
 		for (let i = 0; i < this.items.length; i++) {
 			this.items[i].hide = false;
-			this.printer.elements[i].classList.remove("hide");
+			this.printer.elements[i+1].classList.remove("hide");
 		}
 		
 		this.visibleItems = [];
