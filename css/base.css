@@ -89,6 +89,9 @@ a svg {
 	margin-left: 4px;
 }
 
+a:hover { color: #CCF9F9; }
+a:hover svg path { fill:  #CCF9F9; }
+
 select::-ms-expand { display: none; }
 select {
 	-moz-appearance:none;

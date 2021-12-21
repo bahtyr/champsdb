@@ -412,7 +412,6 @@ function initChampionsListDOM() {
 
 		holder.find("img").attr("src", champs.items[i].portrait);
 		holder.find("span.name").text(champs.items[i].name);
-		holder.find("span.tooltip").text("Patch " + champs.items[i].releasePatch);
 	});
 	
 	champsPrinter.addSpaceItems(20);

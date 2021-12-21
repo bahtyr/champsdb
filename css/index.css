@@ -79,14 +79,16 @@ body {
 	overflow: overlay;
 	overflow-x: hidden;
 	border-right: 1px solid #1a1a1a;
-	background-color: #000;
 	padding: calc(70px + 6px) 6px 40px 16px;
 }
 
 #sidebar,
-.sides-outer.left,
+.sides-outer.left {
+	background: rgba(0, 0, 0, 0.6);
+}
+
 #champcard {
-	background-color: #0C0C0D;
+	background-color: #000;
 }
 
 /* ======================== */
@@ -140,7 +142,7 @@ body {
 #filter-lane {
 	display: flex;
 	justify-content: space-around;
-	background-color: #161618;
+	background-color: #0D0D0D;
 	border-radius: 6px;
 	padding: 4px 4px;
 	margin-right: 18px;
@@ -294,38 +296,6 @@ p.sidebar-subheading svg {
 	position: relative;
 }
 
-.item:hover span.tooltip {
-	opacity: 1;
-	transform: scale(1) translateZ(0px);
-}
-
-.item span.tooltip {
-	position: absolute;
-	top: -12px;
-	left: 60px;
-	z-index: 2;
-	opacity: 0;
-	/*bg*/
-	/*box-shadow: rgb(0 0 0 / 20%) 0px 0px 6px;*/
-	/*background-color: #0C0C0D;*/
-	background-color: #DBD4BF;
-	border-radius: 5px;
-	border: 1px solid #785A28;
-	padding: 4px 12px;
-	/*text*/
-	/*color: #DBD4BF;*/
-	color: #604820;
-	font-family: Spiegel-Regular;
-	font-size: 12px;
-	letter-spacing: 0.04em;
-	white-space: nowrap;
-	/*etc*/
-	pointer-events: none;
-	transform-origin: left bottom;
-	transform: scale(0.90) translateZ(0px);
-	transition: transform .1s linear;
-}
-
 .item span.name {
 	text-align: center;
 	margin-top: 5px;
@@ -344,6 +314,7 @@ p.sidebar-subheading svg {
 	/*border: 1px solid #5B5A56;*/
 	outline: 1px solid #5B5A56;
  	outline-offset: -3px;
+ 	transition: filter .3s ease;
 }
 
 .item .image__wrapper {
@@ -360,6 +331,10 @@ p.sidebar-subheading svg {
 	left: -3;
 	z-index: 1;
 	visibility: hidden;
+}
+
+.item.active img {
+	filter: grayscale(100%);
 }
 
 .item.active .image__wrapper svg {
@@ -452,6 +427,7 @@ p.sidebar-subheading svg {
 	height: 28px;
 	margin-left: 10px;
 	margin-right: 12px;
+	border-radius: 5px;
 }
 
 .ability__line .key {
