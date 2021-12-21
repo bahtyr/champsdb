@@ -21,6 +21,8 @@ let champCard = {
 
 $(function() {
 
+	addPaddingsIfChampItemIsLarge();
+
 	champsPrinter = new ElementPrinter("#champ-list", ".item");
 	champs.printer = champsPrinter;
 	search = $("#search");
@@ -48,6 +50,28 @@ $(function() {
 	listenSearchTimeout();
 	listenPageScroll();
 });
+
+$(window).on("resize", function() {
+	addPaddingsIfChampItemIsLarge();
+});
+
+function addPaddingsIfChampItemIsLarge() {
+	const item = $(".item:not(.js-template)")[0];
+	const list = $("#champ-list");
+
+	if (document.body.clientWidth < 768) {
+		if (item.clientWidth > 120) {
+			list.css("padding-right", "8px");
+			list.css("padding-left", "8px");
+		} else {
+			list.css("padding-right", "");
+			list.css("padding-left", "");
+		}
+	} else {
+		list.css("padding-right", "");
+		list.css("padding-left", "");
+	}
+}
 
 /* ---------------------------------------- SEARCH */
 
