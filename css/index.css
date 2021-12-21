@@ -314,7 +314,8 @@ p.sidebar-subheading svg {
 	/*border: 1px solid #5B5A56;*/
 	outline: 1px solid #5B5A56;
  	outline-offset: -3px;
- 	transition: filter .3s ease;
+ 	opacity: 0;
+ 	transition: filter .3s ease, opacity .3s ease;
 }
 
 .item .image__wrapper {
