@@ -1,7 +1,3 @@
-let stickyAlert = $("#sticky-top");
-let searchInfo = {hasFocus: false, lastFocuTime: 0, canRestartTyping: false, wrapper: null, clearBtn: null};
-let search;
-
 let champs = new ChampionListManager();
 let tags = new TagsListManager();
 let champsPrinter;
@@ -19,15 +15,43 @@ let champCard = {
 	hide: function() { this.card.addClass("hide"); champsPrinter.elements[champs.ii+1].classList.remove("active"); }
 };
 
+let alert = {element: $("#sticky-top"),
+	show: function() {
+		this.element.removeClass("hide");
+		setTimeout(() => alert.element.addClass("hide"), 2000);
+	}};
+let filters = {clearSelection: function() {
+	$(".search-filters svg.active").removeClass("active");
+}}
+let search = {element: null, wrapper: null, clearBtn: null,
+	showClearBtn: function() { this.clearBtn.removeClass("hide");    },
+	hideClearBtn: function() { this.clearBtn.addClass("hide"); },
+	triggerKeyUp: function() {
+		const event = new Event('keyup');
+		this.element[0].dispatchEvent(event);
+	}};
+let searchState = {hasFocus: false, lastFocuTime: 0, canRestartTyping: false};
+let sort = {element: null,
+	reset: function() {
+		// since we only keep "champ index" on our tag list, we have to revert the list before showing results
+		// otherwise "champ index" taglist and the champ list indexes will not match
+		const event = new Event('change');
+		if (this.element.val() != "abc") {
+			this.element.val("abc");
+			this.element[0].dispatchEvent(event);
+		}
+	}};
+
 $(function() {
 
 	addPaddingsIfChampItemIsLarge();
 
 	champsPrinter = new ElementPrinter("#champ-list", ".item");
 	champs.printer = champsPrinter;
-	search = $("#search");
-	searchInfo.wrapper = $("#search__wrapper");
-	searchInfo.clearBtn = $("#search__clear");
+	search.element = $("#search");
+	search.wrapper = $("#search__wrapper");
+	search.clearBtn = $("#search__clear");
+	sort.element =  $("#sort")
 
 	champs.onLoad(() => {
 		updateSearchResultsCount(0);
@@ -38,10 +62,10 @@ $(function() {
 		initSidebar();
 	});
 
-	//search, sidebar, sort...
-	initSearch();
-	initSearchFilter();
-	initSortSelector();
+	//search, filters, sort...
+	listenSearch();
+	listenFilters();
+	listenSort();
 	//champcard
 	bindChampCardActions();
 	//qol
@@ -51,9 +75,7 @@ $(function() {
 	listenPageScroll();
 });
 
-$(window).on("resize", function() {
-	addPaddingsIfChampItemIsLarge();
-});
+$(window).on("resize", () => addPaddingsIfChampItemIsLarge());
 
 function addPaddingsIfChampItemIsLarge() {
 	const item = $(".item:not(.js-template)")[0];
@@ -73,46 +95,41 @@ function addPaddingsIfChampItemIsLarge() {
 	}
 }
 
-/* ---------------------------------------- SEARCH */
+/* ---------------------------------------- SEARCH LISTENERS */
 
-function initSearch() {
+function listenSearch() {
 	let prevLength = 0;
-	search.keyup(function(e) {
-
-		$(".search-filters svg.active").removeClass("active");
+	search.element.keyup(function(e) {
 
 		let s = $(this).val().toLowerCase();
-
-		if (s.length == 0)
-			updateSearchResultsCount(0);
 
 		if (s.length == 0 && prevLength != 0)
 			champCard.hide();
 		
 		if (s.length == 0) {
+			updateSearchResultsCount(0);
 			champs.unhideAll();
-			searchInfo.clearBtn.addClass("hide");
+			search.hideClearBtn();
 			return;
 		}
 
-		searchInfo.clearBtn.removeClass("hide");
-
 		prevLength = s.length;
-
+		filters.clearSelection();
+		search.showClearBtn();
 		champs.unhideAll();
+
 		if (searchTag(s) == -1)
 			searchText(s);
 		updateSearchResultsCount();
 	});
 
-	searchInfo.clearBtn.on("click", function() {
-		search.val("");
-		const event = new Event('keyup');
-		search[0].dispatchEvent(event);
+	search.clearBtn.on("click", function() {
+		search.element.val("");
+		search.triggerKeyUp();
 	});
 }
 
-function initSearchFilter() {
+function listenFilters() {
 	$(".search-filters svg").on("click", function(e) {
 		
 		champCard.hide();
@@ -124,8 +141,8 @@ function initSearchFilter() {
 			return;
 		}
 
-		search.val("");
-		$(".search-filters svg.active").removeClass("active");
+		search.element.val("");
+		filters.clearSelection();
 		$(this).addClass("active");
 
 		switch($(this).parent()[0].id) {
@@ -137,27 +154,33 @@ function initSearchFilter() {
 	});
 }
 
+function listenSort() {
+	sort.element.on("change", function() {
+		champCard.hide();
+
+		switch (this.value) {
+			case "abc": champs.items.sort(Champion.sortByName); break;
+			case "release": champs.items.sort(Champion.sortByReleaseDateDesc); break;
+			case "rework": break;
+		}
+
+		initChampionsListDOM();
+	});
+}
+
+/* ---------------------------------------- SEARCH METHODS */
+
 /**
  * This method hides everything else when there is match, therefore no other search functions should run after this.
  * Returns; 1: if there is match, otherwise -1
  */
 function searchTag(str) {
-	const sort = $("#sort");
-	const event = new Event('change');
-
 	for (let i = 0; i < tags.items.length; i++) { //loop tags
 		if (str == tags.items[i].name.toLowerCase() //on match;
 			&& tags.items[i].champIndexes != null) {
 
-			// since we only keep "champ index" on our tag list, we have to revert the list before showing results
-			// otherwise "champ index" taglist and the champ list indexes will not match
-			if (sort.val() != "abc") {
-				sort.val("abc");
-				sort[0].dispatchEvent(event);
-			}
-
+			sort.reset();
 			champs.hideAllExcept(tags.items[i].champIndexes);
-			// showChampCardForFistVisibleChamps();
 			return 1;
 		}
 	}
@@ -165,20 +188,14 @@ function searchTag(str) {
 }
 
 function searchTagById(id) {
-	const sort = $("#sort");
-	const event = new Event('change');
-
 	for (let i = 0; i < tags.items.length; i++) { //loop tags
 		if (id == tags.items[i].id && tags.items[i].champIndexes != null) {
-			
-			$(".search-filters svg.active").removeClass("active");
-
-			if (sort.val() != "abc") {
-				sort.val("abc");
-				sort[0].dispatchEvent(event);
-			}
-
+					
+			filters.clearSelection();
+			sort.reset();
+			search.showClearBtn();
 			champs.hideAllExcept(tags.items[i].champIndexes);
+			updateSearchResultsCount();
 			return;
 		}
 	}
@@ -259,7 +276,6 @@ function updateChampCard(i) {
 function bindChampCardActions() {
 	$(".ability__line").on("click", function() {
 		let s = "";
-		// s += champs.items[champs.i].name + " ";
 		s += champs.items[champs.i].abilities[$(this).index() - 1].name;
 		switch ($(this).index() - 1) {
 			case 0: s += " (P)"; break;
@@ -299,13 +315,13 @@ function listenKeys() {
 
 	// note down search focus state
 	// while we are at it also trigger fake hover to highlight the element
-	search.on("focusin", () => {
-		searchInfo.hasFocus = true
-		searchInfo.wrapper[0].classList.add("hover");
+	search.element.on("focusin", () => {
+		searchState.hasFocus = true
+		search.wrapper[0].classList.add("hover");
 	});
-	search.on("blur", () => setTimeout(() => {
-		searchInfo.hasFocus = false;
-		searchInfo.wrapper[0].classList.remove("hover");
+	search.element.on("blur", () => setTimeout(() => {
+		searchState.hasFocus = false;
+		search.wrapper[0].classList.remove("hover");
 	}, 200));
 
 
@@ -319,36 +335,36 @@ function listenKeys() {
 
 		// LETTERS
 		if ((e.which > 64 && e.which < 91) || e.which == 8) {
-			if (!searchInfo.hasFocus) {
-				search.focus();
+			if (!searchState.hasFocus) {
+				search.element.focus();
 			}
 
-			if (searchInfo.canRestartTyping) {
-				search.val("")
+			if (searchState.canRestartTyping) {
+				search.element.val("")
 			}
 		}
 
-		searchInfo.canRestartTyping = false;
-		searchInfo.lastFocuTime = Date.now();
+		searchState.canRestartTyping = false;
+		searchState.lastFocuTime = Date.now();
 
 		// ARROW KEYS
 		if (e.which > 36 && e.which < 41) {
 
 			// LEFT
 			if (e.which == 37) {
-				if (!searchInfo.hasFocus) {
+				if (!searchState.hasFocus) {
 					updateChampCard(champs.prevVisibleItem());
 					champCard.show();
 				}
 			}
 			// RIGHT
 			else if (e.which == 39) {
-				if (!searchInfo.hasFocus) {
+				if (!searchState.hasFocus) {
 					updateChampCard(champs.nextVisibleItem());
 					champCard.show();
 				} else {
-					if (search[0].value.length == search[0].selectionEnd) {
-						search.blur();
+					if (search.element[0].value.length == search.element[0].selectionEnd) {
+						search.element.blur();
 						updateChampCard(champs.nextVisibleItem());
 						champCard.show();
 					}
@@ -356,14 +372,14 @@ function listenKeys() {
 			}
 			// DOWN
 			else if (e.which == 40) {
-				if (!searchInfo.hasFocus) {
+				if (!searchState.hasFocus) {
 					if (!champCard.card.hasClass("hide"))
 						e.preventDefault();
 					champCard.hide();
 				} else {
-					if (search[0].value.length == search[0].selectionEnd) {
+					if (search.element[0].value.length == search.element[0].selectionEnd) {
 						e.preventDefault();
-						search.blur();
+						search.element.blur();
 						champCard.hide();
 					}
 				}
@@ -381,7 +397,7 @@ function listenEmptyClicks() {
 		if ((e.target.id == "champ-list__wrapper" || e.target.id == "champ-list" || 
 			e.target.id == "header__main" || e.target.id == "footer" ||
 			e.target.classList.value == "sides-inner right" || e.target.classList.value == "sides-outer right") &&
-			!searchInfo.hasFocus) {
+			!searchState.hasFocus) {
 			champCard.hide();
 		}
 	});
@@ -393,8 +409,8 @@ function listenEmptyClicks() {
  */
 function listenSearchTimeout() {
 	setInterval(function() {
-		if (Date.now() - searchInfo.lastFocuTime > 5000) {
-			searchInfo.canRestartTyping = true;
+		if (Date.now() - searchState.lastFocuTime > 5000) {
+			searchState.canRestartTyping = true;
 		}
 	}, 2000);
 }
@@ -473,7 +489,7 @@ function updateSearchResultsCount(showAll) {
 	else text.text(champs.items.length);
 }
 
-/* ---------------------------------------- */
+/* ---------------------------------------- SIDEBAR */
 
 function initSidebar() {
 	let sidebar = $("#sidebar");
@@ -497,11 +513,8 @@ function initSidebar() {
 		champCard.hide();
 
 		let item = findMenuItemFromDOM(this);
-		searchTagById(item.id); // TODO
-
-		search.val($(this).text());
-		// const event = new Event('keyup');
-		// search[0].dispatchEvent(event);
+		searchTagById(item.id);
+		search.element.val($(this).text());
 	});
 
 	// https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapsible_animate
@@ -581,18 +594,4 @@ function findMenuItemFromDOM(element) {
 	if (!isNestedList)
 		return tags.tagsObj.menu[listIndex].list[itemIndex];
 	else return tags.tagsObj.menu[listIndex].list[nestedListIndex][itemIndex];
-}
-
-function initSortSelector() {
-	$("#sort").on("change", function() {
-		champCard.hide();
-
-		switch (this.value) {
-			case "abc": champs.items.sort(Champion.sortByName); break;
-			case "release": champs.items.sort(Champion.sortByReleaseDateDesc); break;
-			case "rework": break;
-		}
-
-		initChampionsListDOM();
-	});
 }
