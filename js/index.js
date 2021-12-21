@@ -288,8 +288,7 @@ function bindChampCardActions() {
 		}
 
 		navigator.clipboard.writeText(s);
-		stickyAlert.removeClass("hide");
-		setTimeout(() =>  stickyAlert.addClass("hide"), 2000);
+		alert.show();
 	});
 }
 

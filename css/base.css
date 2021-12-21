@@ -152,15 +152,15 @@ select {
 	height: 70px;
 	width: 100%;
 	z-index: 10;
-	background-color: #111318;
+	background-color: #000000;
 	border-bottom: 1px solid #1a1a1a;
-	color: #C4C4C4;
+	color: #C4B998;
 	font-family: Spiegel-Regular;
 	transition: all 300ms ease;
 	-o-transition: all 300ms ease;
-  -ms-transition: all 300ms ease;
-  -moz-transition: all 300ms ease;
-  -webkit-transition: all 300ms ease;
+	-ms-transition: all 300ms ease;
+	-moz-transition: all 300ms ease;
+	-webkit-transition: all 300ms ease;
 }
 
 #sticky-top.hide { top: -70px; }
