@@ -101,19 +101,22 @@ class Tags {
 	static combineChampsAndTags(tagsObj, useChampIndex) {
 		Tags.combineAliasesAndChampTags(tagsObj);
 
-		for (let champ in tagsObj.champs) { // for each champ
-			for (let t in tagsObj.champs[champ].tags) { // loop their tag ids
-				//
-				for (let tt in tagsObj.tags) { // search for the tag
-					if (tagsObj.tags[tt].id == tagsObj.champs[champ].tags[t]) {
-						if (useChampIndex == null) {
-							if (tagsObj.tags[tt].champs == null)
-								tagsObj.tags[tt].champs = [];
-							tagsObj.tags[tt].champs.push(champ);
-						} else {
-							if (tagsObj.tags[tt].champIndexes == null)
-								tagsObj.tags[tt].champIndexes = [];
-							tagsObj.tags[tt].champIndexes.push(tagsObj.champs[champ].index);
+		// for every champion's tag arrays' tags
+		for (let champ in tagsObj.champs) { //champ
+			for (let arr in tagsObj.champs[champ].tagArrays) { //tagArrays = Array(6)
+				for (let champTag in tagsObj.champs[champ].tagArrays[arr]) { //tagArrays[arr] = [tag, ...]
+
+					// loop tags to find matching tags
+					for (let tag in tagsObj.tags) {
+						if (tagsObj.tags[tag].id == tagsObj.champs[champ].tagArrays[arr][champTag]) {
+
+							if (useChampIndex == null) {
+								if (tagsObj.tags[tag].champNames == null) tagsObj.tags[tag].champNames = [];
+								tagsObj.tags[tag].champNames.push(champ);
+							} else {
+								if (tagsObj.tags[tag].champIndexes == null) tagsObj.tags[tag].champIndexes = [];
+								tagsObj.tags[tag].champIndexes.push(tagsObj.champs[champ].index);
+							}
 						}
 					}
 				}
@@ -121,13 +124,23 @@ class Tags {
 		}
 	}
 
+	/**
+	 * For each champion,
+	 * loop their tags,
+	 * for each tag array,
+	 * loop each alias,
+	 * if (tag == alias)
+	 */
 	static combineAliasesAndChampTags(tagsObj) {
-		for (let champ in tagsObj.champs) { // for each champ
-			let tagsLength = tagsObj.champs[champ].tags.length;
-			for (let t = 0; t < tagsLength; t++) { // loop their tag ids
-				for (let a in tagsObj.aliases) { // check if we have an alias for any of the tags
-					if (tagsObj.champs[champ].tags[t] == tagsObj.aliases[a].tagId) {
-						tagsObj.champs[champ].tags.push(tagsObj.aliases[a].aliasId); // add the alias as a tag to the champ
+		for (let champ in tagsObj.champs) { //champ
+			for (let arr in tagsObj.champs[champ].tagArrays) { //tagArrays = Array(6)
+				let tagsLength = tagsObj.champs[champ].tagArrays[arr].length;
+				for (let tag in tagsObj.champs[champ].tagArrays[arr]) { //tagArrays[arr] = [tag, ...]
+
+					//loop aliases to find matching tags
+					for (let alias in tagsObj.aliases) {
+						if (tagsObj.champs[champ].tagArrays[arr][tag] == tagsObj.aliases[alias].tagId)
+							tagsObj.champs[champ].tagArrays[arr].push(tagsObj.aliases[alias].aliasId);
 					}
 				}
 			}

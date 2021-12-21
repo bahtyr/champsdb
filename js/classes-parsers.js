@@ -167,7 +167,6 @@ class WikiApi {
 		});
 	}
 
-
 	matchPatchDates() {
 		let patchHistory;
 		let list = JSON.parse(patchHistory);
@@ -178,6 +177,48 @@ class WikiApi {
 				champions[c].releasePatch = list[champions[c].releaseDate];
 			} else console.log(champions[c].name + " --- " + champions[c].releaseDate);
 		}
+	}
+
+	//
+
+	getChampionListFromText() {
+		let s = textarea.val();
+		let arr = [];
+		for (let i in champions) {
+			if (s.includes(champions[i].name)) {
+				arr.push(champions[i].name);
+			}
+		}
+
+		textarea.val(arr);
+	}
+
+	getChampionAbilitiesFromText() {
+		let s = textarea.val();
+		let arr = [];
+		for (let i in champions) {
+			for (let a in champions[i].abilities) {
+				
+				// some champions abilities have 2 names such as Nidalee's Javelin Toss / Takedown (Q)
+				// split it into two to check separetely
+				let ability = champions[i].abilities[a].name;
+				let ability2 = null;
+				if (ability.includes("/")) {
+					ability2 = ability.split("/")[1];
+					ability = ability.split("/")[0];
+				}
+
+				if (s.includes(ability) || (ability2 != null && s.includes(ability2))) {
+					arr.push(champions[i].name+"#"+a);
+				}
+			}
+		}
+
+		textarea.val(arr);
+
+		let inputLength = s.split("\n").length;
+		if (arr.length != inputLength)
+			console.warn(`Result length does not match input length. Difference: ${inputLength - arr.length}`);
 	}
 }
 

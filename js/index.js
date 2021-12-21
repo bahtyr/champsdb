@@ -140,6 +140,23 @@ function searchTag(str) {
 	return -1;
 }
 
+function searchTagById(id) {
+	const sort = $("#sort");
+	const event = new Event('change');
+
+	for (let i = 0; i < tags.items.length; i++) { //loop tags
+		if (id == tags.items[i].id && tags.items[i].champIndexes != null) {
+			if (sort.val() != "abc") {
+				sort.val("abc");
+				sort[0].dispatchEvent(event);
+			}
+
+			champs.hideAllExcept(tags.items[i].champIndexes);
+			return;
+		}
+	}
+}
+
 function searchText(str) {
 	for (let i = 0; i < champs.items.length; i++) {
 		if (champs.items[i].name.toLowerCase().includes(str) || 
@@ -450,9 +467,15 @@ function initSidebar() {
 
 	// search attribute
 	$("#sidebar li span").on("click", function() {
-		search.val($(this).text());
-		const event = new Event('keyup');
-		search[0].dispatchEvent(event);
+
+		champCard.hide();
+
+		let item = findMenuItemFromDOM(this);
+		searchTagById(item.id); // TODO
+
+		// search.val($(this).text());
+		// const event = new Event('keyup');
+		// search[0].dispatchEvent(event);
 	});
 
 	// https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapsible_animate
@@ -515,6 +538,23 @@ function initSidebarItems() {
 		
 		filterPrinter.parent.append(e);
 	}
+}
+
+function findMenuItemFromDOM(element) {
+	let isNestedList =    $(element).parent().parent().parent().is("ul");
+
+	let itemIndex =       $(element).parent().index()
+	let listIndex =       $(element).parent().parent().index();
+	let nestedListIndex = $(element).parent().parent().index();
+	
+	if (isNestedList)
+		listIndex =       $(element).parent().parent().parent().index();
+
+	listIndex -= 3; // don't count hidden template elements
+
+	if (!isNestedList)
+		return tags.tagsObj.menu[listIndex].list[itemIndex];
+	else return tags.tagsObj.menu[listIndex].list[nestedListIndex][itemIndex];
 }
 
 function initSortSelector() {

@@ -115,15 +115,36 @@ class TagsEditor {
 		console.warn(`Alias#${aliasId} created for Tag#${tagId}`);
 	}
 
-	addTagToChampion(championName, tagId) {
+	addTagToChampion(championName_, tagId) {
+		let s = championName_.split("#");
+		let championName = s[0];
+		let abilityIndex = s.length == 2 ? s[1] : null;
+
 		if (this.data.champs[championName] == null) {
 			console.error(`! Failed to add tag#${tagId} to ${championName}. Champion does not exist.`);
 			return;
 		}
 
-		if (!this.data.champs[championName].tags.includes(tagId))
-			this.data.champs[championName].tags.push(tagId);
-		else console.warn(`! Skipped adding tag to champion. ${championName} already has tag#${tagId}`);
+		if (this.data.champs[championName].tagsAbilities == null) {
+			this.data.champs[championName].tagsAbilities = Array(5);
+			for (let i = 0; i < 5; i++)
+				this.data.champs[championName].tagsAbilities[i] = [];
+		}
+
+
+		if (abilityIndex != null) {
+			// console.log(championName);
+			// console.log(this.data.champs[championName].tagsAbilities);
+			if (!this.data.champs[championName].tagsAbilities[abilityIndex].includes(tagId))
+				this.data.champs[championName].tagsAbilities[abilityIndex].push(tagId);
+			else console.warn(`! Skipped adding tag to champion's ability. ${championName}#${abilityIndex} already has tag#${tagId}`);
+		}
+
+		if (abilityIndex == null) {
+			if (!this.data.champs[championName].tags.includes(tagId))
+				this.data.champs[championName].tags.push(tagId);
+			else console.warn(`! Skipped adding tag to champion. ${championName} already has tag#${tagId}`);
+		}
 	}
 
 	createChamp(name, index) {
@@ -199,5 +220,51 @@ class TagsEditor {
 		if (!matchFound) {
 			textarea.val(`! ${s} not found in Tags.`)
 		}
+	}
+
+	// ETC
+
+	mergeTagsAndTagsAbilities() {
+		for (let champ in this.data.champs) {
+
+			//init tagsAbilities
+			if (this.data.champs[champ].tagsAbilities == null) {
+				this.data.champs[champ].tagsAbilities = Array(5);
+				for (let i = 0; i < 5; i++) this.data.champs[champ].tagsAbilities[i] = [];
+			}
+
+			//init tags
+			if (this.data.champs[champ].tags == null) {
+				this.data.champs[champ].tags = [];
+			}
+
+			let tagsHolder = this.data.champs[champ].tags;
+			this.data.champs[champ].tags = [];
+			this.data.champs[champ].tags.push(tagsHolder);
+			this.data.champs[champ].tags.push(this.data.champs[champ].tagsAbilities[0]);
+			this.data.champs[champ].tags.push(this.data.champs[champ].tagsAbilities[1]);
+			this.data.champs[champ].tags.push(this.data.champs[champ].tagsAbilities[2]);
+			this.data.champs[champ].tags.push(this.data.champs[champ].tagsAbilities[3]);
+			this.data.champs[champ].tags.push(this.data.champs[champ].tagsAbilities[4]);
+			delete this.data.champs[champ].tagsAbilities;
+
+			this.printObject();
+		}
+	}
+
+	findMenuIds() {
+		for (let m in this.data.menu) {
+			if (this.data.menu[m].list != null) {
+				for (let l in this.data.menu[m].list) {
+					if (this.data.menu[m].list[l].text == null) continue;
+					for (let t in this.data.tags) {
+						if (this.data.tags[t].name == this.data.menu[m].list[l].text) {
+							this.data.menu[m].list[l].id = this.data.tags[t].id;
+						}
+					}
+				}
+			}
+		}
+		this.printObject();
 	}
 }

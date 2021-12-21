@@ -19,7 +19,8 @@
 				<h2 id="heading-notes" onclick="showPage(this.id, 'page-notes')" class="edit-heading active">Notes</h2>
 				<h2 id="heading-champs" onclick="showPage(this.id, 'page-champs')" class="edit-heading">Champion</h2>
 				<h2 id="heading-tags" onclick="showPage(this.id, 'page-tags')" class="edit-heading" >Tag</h2>
-				<h2 id="heading-parsers" onclick="showPage(this.id, 'page-parsers')" class="edit-heading">Parsers</h2>
+				<h2 id="heading-riot" onclick="showPage(this.id, 'page-riot')" class="edit-heading">Riot</h2>
+				<h2 id="heading-wiki" onclick="showPage(this.id, 'page-wiki')" class="edit-heading">Wiki</h2>
 			</div>
 		</div>
 
@@ -56,9 +57,12 @@
 			<p class="edit-action" onclick="tagsEditor.createAliasHandler()"><img src="./assets/bullet.svg"/>Create Alias</p>
 			<div style="height:20px;"></div>
 			<p class="edit-action" onclick="tagsEditor.createMissingChampions()"><img src="./assets/bullet.svg"/>Create missing champions</p>
+			<div style="height:20px;"></div>
+			<p class="edit-action" onclick="tagsEditor.mergeTagsAndTagsAbilities()"><img src="./assets/bullet.svg"/>Merge Tags and TagsAbilities</p>
+			<p class="edit-action" onclick="tagsEditor.findMenuIds()"><img src="./assets/bullet.svg"/>Find IDs of menu elements</p>
 		</div>
 
-		<div id="page-parsers" class="max-width-page edit-page hide">
+		<div id="page-riot" class="max-width-page edit-page hide">
 			<p class="edit-heading">RiotApi</p>
 			<p class="edit-action" onclick="riotApi.init()"><img src="./assets/bullet.svg"/>Initialize</p>
 			<p class="edit-desc">Patch version needs to be set before requesting champion information.</p>
@@ -71,10 +75,16 @@
 			<p class="edit-action" onclick="riotApi.findChampAndAdd(champions)"><img src="./assets/bullet.svg"/>Find champion and add it to Champions array</p>
 			<p class="edit-desc">Look up a champion by Name in RiotApi champions and add it to the end of our champions array. Probably requires the array to be sorted.</p>
 			<div style="height:40px;"></div>
-			<p class="edit-heading">WikiApi</p>
+			</p>
+		</div>
+		<div id="page-wiki" class="max-width-page edit-page hide">
 			<p class="edit-action" onclick="wikiApi.loadAll()"><img src="./assets/bullet.svg"/>Load All Champions</p>
 			<p class="edit-action" onclick="wikiApi.matchPatchDates()"><img src="./assets/bullet.svg"/>Match Release Dates</p>
 			<p class="edit-desc"><a href="https://leagueoflegends.fandom.com/wiki/List_of_champions">List of Champions</a><br><a href="https://leagueoflegends.fandom.com/wiki/Patch_(League_of_Legends)">List of Patches</a>
+			<div style="height:40px;"></div>
+			<p class="edit-action" onclick="wikiApi.getChampionListFromText()"><img src="./assets/bullet.svg"/>Get Champions' Names from Text</p>
+			<p class="edit-desc">Note: Pay attention champion names like Viego / Vi and Talon / Xin Zhao (Three Talon Strike).</p>
+			<p class="edit-action" onclick="wikiApi.getChampionAbilitiesFromText()"><img src="./assets/bullet.svg"/>Get Champions' Abilities from Text</p>
 			</p>
 		</div>
 	</body>
