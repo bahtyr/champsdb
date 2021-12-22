@@ -53,9 +53,25 @@ class RiotApi {
 					obj.tags = d[i].tags;
 					obj.portrait = THIS.URL_CHAMP_PORTRAIT + d[i].image.full;
 					obj.splash = THIS.URL_CHAMP_SPLASH + d[i].id + THIS.URL_CHAMP_SPLASH_END;
+					obj.partype = d[i].partype;
+					obj.attackRange = d[i].stats.attackrange;
 					THIS.champions.push(obj);
 				}
 				textarea.val(`Loaded ${THIS.champions.length} champions.`);
+				THIS.champions.sort(Champion.sortByName);
+
+				// let i = -1;
+				// for (let champ in THIS.champions) {
+				// 	i += 1;
+				// 	if (champions[i].id == THIS.champions[champ].id) {
+				// 		champions[i].resource = THIS.champions[champ].partype;
+				// 		champions[i].attackRange = THIS.champions[champ].attackRange;
+				// 	} else {
+				// 		console.log("Failed to find " + champ);
+				// 	}
+				// }
+
+				// console.log(champions);
 			},
 			error: (textStatus, errorThrown) => console.error(errorThrown)
 		});
@@ -148,7 +164,7 @@ class WikiApi {
 				let releaseDate = html.find("#infobox-champion-container > aside > div:nth-child(4) > div").text();
 				let resource = html.find("#infobox-champion-container > aside > div:nth-child(9) > div").text();
 				let rangeType = html.find("#infobox-champion-container > aside > div:nth-child(10) > div > span > a.mw-redirect").text();
-				
+
 				champions[i].releaseDate = releaseDate;
 				champions[i].resource = resource;
 				champions[i].rangeType = rangeType;
