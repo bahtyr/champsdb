@@ -378,11 +378,15 @@ p.sidebar-subheading svg {
 	border: 1px solid #262626;
 	margin: 0 0 16px 14px;
 	padding: 22px 40px calc(22px - 5px) 22px;
+	transform: scale(1) translateY(0px);
+	transform-origin: bottom;
 	transition: all .3s ease-out;
 }
 
 #champcard.hide {
-	bottom: -300px;
+	opacity: 0;
+	transform: translateY(40px);;
+	transition: all .3s ease-in;
 	visibility: hidden;
 }
 
