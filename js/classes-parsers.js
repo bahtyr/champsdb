@@ -138,6 +138,32 @@ class RiotApi {
 			textarea.val(`! ${s} is not found in champions.`);
 		return;
 	}
+
+	loadChampsUniversePages() {
+		textarea.val(`Loading Universe pages for ${champions.length} champions.`);
+		this.loadChampUniversePage(0);
+	}
+
+	arr = [];
+	loadChampUniversePage(i, THIS = this) {
+		$.ajax({type: "GET", url: Champion.getUrlUniverse(champions[i].id),
+			success: function(data, textStatus) {
+				console.log(champions[i].id);
+				let html = $(data);
+				let region = $("div > div.container_1IcS > div.championType_A59o > ul > li.playerFaction_2tnr.right_LBiI > a > div > div.top_1SjP > div.factionText_EnRL > h6 > span").text();
+				This.arr.push({name: champions[i].name, region: region});
+
+				if (i < champions.length - 1) {
+					i++;
+					THIS.loadChampUniversePage(i);
+				} else {
+					textarea.val(`Loaded Universe pages for ${i+1} champions.`);
+					console.log(THIS.arr);
+				}
+			},
+			error: (textStatus, errorThrown) => console.error(textStatus)
+		});
+	}
 }
 
 class WikiApi {
@@ -177,6 +203,44 @@ class WikiApi {
 				} else {
 					textarea.val(`Loaded release dates for ${i+1} champions.`);
 					console.log(THIS.releaseDates);
+				}
+			},
+			error: (textStatus, errorThrown) => console.error(errorThrown)
+		});
+	}
+
+	loadLorePages() {
+		textarea.val(`Loading.`);
+		this.arr = [];
+		this.loadChampLorePage(0);
+	}
+
+	loadChampLorePage(i, THIS = this) {
+		$.ajax({type: "GET", url: Champion.getUrlWikiLore(champions[i].name),
+			success: function(data, textStatus) {
+				let html = $(data);
+				let species;
+				let region;
+
+				html.find("h3").each(function() {
+					switch ($(this).text()) {
+						case "Species": species = $(this).next().text().trim(); break;
+						case "Region(s)": region = $(this).next().text().trim(); break;
+					}
+				})
+
+				// champions[i].releaseDate = releaseDate;
+				// champions[i].resource = resource;
+				// champions[i].rangeType = rangeType;
+				
+				THIS.arr.push({name: champions[i].name, region: region, species: species});
+
+				if (i < champions.length - 1) {
+					i++;
+					THIS.loadChampLorePage(i);
+				} else {
+					textarea.val(`Done.`);
+					console.log(THIS.arr);
 				}
 			},
 			error: (textStatus, errorThrown) => console.error(errorThrown)

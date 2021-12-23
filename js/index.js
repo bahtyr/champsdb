@@ -283,8 +283,14 @@ function updateChampCard(i) {
 	champCard.lines[1].section[1].find("p").text((champs.items[i].tags+"").replace(",", ", "));
 	champCard.lines[2].section[1].find("p").text(champs.items[i].rangeType + " (" + champs.items[i].attackRange + ")");
 	champCard.lines[3].section[1].find("p").text(champs.items[i].resource);
+	champCard.lines[4].section[1].find("p").text(champs.items[i].region + ", " + champs.items[i].species);
 
 	champCard.lines[0].section[2].find("p").text(champs.items[i].releasePatch + " (" + champs.items[i].releaseDate + ")");
+
+	$("#champcard__region").attr("src", "assets/"+champs.items[i].region.replace(" ", "_")+".png");
+	switch (champs.items[i].region) {
+		// case:  break;
+	}
 
 	let lane = champs.items[i].lanes.split(" ")[0];
 	$("#champcard__top").addClass("hide");
@@ -342,7 +348,7 @@ function updateChampCard(i) {
 	const link2 = $("#champcard a:nth-child(3)");
 	const link3 = $("#patchnotes");
 	const link4 = $("#spotlight");
-	link1.attr("href", Champion.getUrlWiki(champs.items[i].name));
+	link1.attr("href", Champion.getUrlWikiLore(champs.items[i].name));
 	link2.attr("href", Champion.getUrlUniverse(champs.items[i].id));
 	link3.attr("href", Champion.getUrlWikiPatchHistory(champs.items[i].name));
 	// link4.attr("href", Champion.getUrlLeague(champs.items[i].name));

@@ -34,12 +34,18 @@ class Champion {
 			case "abilities":
 			case "tags":
 			case "lanes":
+			case "region":
+			case "species":
 			case "releaseDate":
 				break;
 			default: console.error(`! ${attribute} does not match any champion attributes.`); return;
 		}
 
 		champion[attribute] = value;
+	}
+
+	static getUrlWikiLore(champName) {
+		return `https://leagueoflegends.fandom.com/wiki/${champName.replace("\\s","_")}`
 	}
 
 	static getUrlWiki(champName) {
