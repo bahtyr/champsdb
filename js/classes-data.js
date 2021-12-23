@@ -46,6 +46,10 @@ class Champion {
 		return `https://leagueoflegends.fandom.com/wiki/${champName.replace("\\s","_")}/LoL#Abilities`
 	}
 
+	static getUrlWikiPatchHistory(champName) {
+		return `https://leagueoflegends.fandom.com/wiki/${champName.replace("\\s","_")}/LoL/Patch_history`
+	}
+
 	static getUrlUniverse(champId) {
 		return `https://universe.leagueoflegends.com/en_SG/champion/${champId}/`;
 	}

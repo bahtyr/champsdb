@@ -4,12 +4,19 @@ let champsPrinter;
 let champCard = {
 	card: $("#champcard"),
 	name: $("#champcard__name"),
+	lines: [
+		{section: [$(".line:nth-child(3) .section:nth-child(1)"),$(".line:nth-child(3) .section:nth-child(2)"),$(".line:nth-child(3) .section:nth-child(3)"),$(".line:nth-child(3) .section:nth-child(4)")]},
+		{section: [$(".line:nth-child(4) .section:nth-child(1)"),$(".line:nth-child(4) .section:nth-child(2)"),$(".line:nth-child(4) .section:nth-child(3)"),$(".line:nth-child(4) .section:nth-child(4)")]},
+		{section: [$(".line:nth-child(5) .section:nth-child(1)"),$(".line:nth-child(5) .section:nth-child(2)"),$(".line:nth-child(5) .section:nth-child(3)"),$(".line:nth-child(5) .section:nth-child(4)")]},
+		{section: [$(".line:nth-child(6) .section:nth-child(1)"),$(".line:nth-child(6) .section:nth-child(2)"),$(".line:nth-child(6) .section:nth-child(3)"),$(".line:nth-child(6) .section:nth-child(4)")]},
+		{section: [$(".line:nth-child(7) .section:nth-child(1)"),$(".line:nth-child(7) .section:nth-child(2)"),$(".line:nth-child(7) .section:nth-child(3)"),$(".line:nth-child(7) .section:nth-child(4)")]}
+	],
 	abilities: [
-		{name: $(".ability__line:nth-child(2) .name"), img: $(".ability__line:nth-child(2) img")},
-		{name: $(".ability__line:nth-child(3) .name"), img: $(".ability__line:nth-child(3) img")},
-		{name: $(".ability__line:nth-child(4) .name"), img: $(".ability__line:nth-child(4) img")},
-		{name: $(".ability__line:nth-child(5) .name"), img: $(".ability__line:nth-child(5) img")},
-		{name: $(".ability__line:nth-child(6) .name"), img: $(".ability__line:nth-child(6) img")}],
+		{name: $(".line:nth-child(3) .ability__line .name"), img: $(".line:nth-child(3) .ability__line img")},
+		{name: $(".line:nth-child(4) .ability__line .name"), img: $(".line:nth-child(4) .ability__line img")},
+		{name: $(".line:nth-child(5) .ability__line .name"), img: $(".line:nth-child(5) .ability__line img")},
+		{name: $(".line:nth-child(6) .ability__line .name"), img: $(".line:nth-child(6) .ability__line img")},
+		{name: $(".line:nth-child(7) .ability__line .name"), img: $(".line:nth-child(7) .ability__line img")}],
 	index: 0,
 	show: function() { this.card.removeClass("hide");},
 	hide: function() { this.card.addClass("hide"); champsPrinter.elements[champs.ii+1].classList.remove("active"); }
@@ -43,7 +50,7 @@ let sort = {element: null,
 	}};
 
 $(function() {
-
+	setCardWith();
 	addPaddingsIfChampItemIsLarge();
 
 	champsPrinter = new ElementPrinter("#champ-list", ".item");
@@ -78,6 +85,12 @@ $(function() {
 });
 
 $(window).on("resize", () => addPaddingsIfChampItemIsLarge());
+
+function setCardWith() {
+	const list = $("#champ-list__wrapper");
+	const card = $("#champcard");
+	card.css("width", (list[0].clientWidth + 21) + "px");
+}
 
 function addPaddingsIfChampItemIsLarge() {
 	const item = $(".item:not(.js-template)")[0];
@@ -266,20 +279,64 @@ function updateChampCard(i) {
 	champCard.abilities[3].name.text(champs.items[i].abilities[3].name);
 	champCard.abilities[4].name.text(champs.items[i].abilities[4].name);
 
+	champCard.lines[0].section[1].find("p").text(champs.items[i].lanes.replace(" ", ", "));
+	champCard.lines[1].section[1].find("p").text((champs.items[i].tags+"").replace(",", ", "));
+	champCard.lines[2].section[1].find("p").text(champs.items[i].rangeType + " (" + champs.items[i].attackRange + ")");
+	champCard.lines[3].section[1].find("p").text(champs.items[i].resource);
+
+	champCard.lines[0].section[2].find("p").text(champs.items[i].releasePatch + " (" + champs.items[i].releaseDate + ")");
+
+	let lane = champs.items[i].lanes.split(" ")[0];
+	$("#champcard__top").addClass("hide");
+	$("#champcard__jungle").addClass("hide");
+	$("#champcard__mid").addClass("hide");
+	$("#champcard__bot").addClass("hide");
+	$("#champcard__sup").addClass("hide");
+	switch (lane) {
+		case "Top": $("#champcard__top").removeClass("hide");break;
+		case "Jungle": $("#champcard__jungle").removeClass("hide");break;
+		case "Middle": $("#champcard__mid").removeClass("hide");break;
+		case "Bottom": $("#champcard__bot").removeClass("hide");break;
+		case "Support": $("#champcard__sup").removeClass("hide");break;
+	}
+
+	let role = champs.items[i].tags[0];
+	$("#champcard__tank").addClass("hide");
+	$("#champcard__fighter").addClass("hide");
+	$("#champcard__assassin").addClass("hide");
+	$("#champcard__mage").addClass("hide");
+	$("#champcard__marksman").addClass("hide");
+	$("#champcard__support").addClass("hide");
+	switch (role) {
+		case "Tank": $("#champcard__tank").removeClass("hide");break;
+		case "Fighter": $("#champcard__fighter").removeClass("hide");break;
+		case "Assassin": $("#champcard__assassin").removeClass("hide");break;
+		case "Mage": $("#champcard__mage").removeClass("hide");break;
+		case "Marksman": $("#champcard__marksman").removeClass("hide");break;
+		case "Support": $("#champcard__support").removeClass("hide");break;
+	}
+
+	$("#champcard__rangetype").attr("src", champs.items[i].rangeType == "Melee" ? "assets/melee.png" : "assets/ranged.png");
+
+
 	const link1 = $("#champcard a:nth-child(2)");
 	const link2 = $("#champcard a:nth-child(3)");
+	const link3 = $("#patchnotes");
+	const link4 = $("#spotlight");
 	link1.attr("href", Champion.getUrlWiki(champs.items[i].name));
 	link2.attr("href", Champion.getUrlUniverse(champs.items[i].id));
+	link3.attr("href", Champion.getUrlWikiPatchHistory(champs.items[i].name));
+	// link4.attr("href", Champion.getUrlLeague(champs.items[i].name));
 }
 
 /**
  * Copy ability name to clipboard on click.
  */
 function bindChampCardActions() {
-	$(".ability__line").on("click", function() {
+	$("#champcard .line:not(:nth-child(2)) .section:nth-child(1)").on("click", function() {
 		let s = "";
-		s += champs.items[champs.i].abilities[$(this).index() - 1].name;
-		switch ($(this).index() - 1) {
+		s += champs.items[champs.i].abilities[$(this).parent().index() - 2].name;
+		switch ($(this).parent().index() - 2) {
 			case 0: s += " (P)"; break;
 			case 1: s += " (Q)"; break;
 			case 2: s += " (W)"; break;

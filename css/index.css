@@ -373,11 +373,13 @@ p.sidebar-subheading svg {
 	z-index: 2;
 	position: fixed;
 	bottom: 0;
-	min-width: 300px;
+	/*width: 100%;*/
+	/*min-width: 300px;*/
 	box-shadow: 0 -2px 10px rgba(0, 0, 0, 1);
-	border: 1px solid #262626;
-	margin: 0 0 16px 14px;
-	padding: 22px 40px calc(22px - 5px) 22px;
+	border: 1px solid #1a1a1a;
+	/*margin: 0 0 16px 14px;*/
+	margin-left: -21px;
+	/*padding: 22px 40px calc(22px - 5px) 22px;*/
 	transform: scale(1) translateY(0px);
 	transform-origin: bottom;
 	transition: all .3s ease-out;
@@ -393,15 +395,79 @@ p.sidebar-subheading svg {
 /* ---------------------------------------- CHAMPCARD HEADING */
 
 #champcard__heading {
-	display: inline-flex;
-	flex-flow: row;
-	align-items: center;
-	margin-bottom: 12px;
-	padding-left: 10px;
+	height: 46px !important;
+	padding-left: 20px;
 }
 
 #champcard__heading > a { margin-left: 10px; }
 #champcard__heading > a:nth-child(2) { margin-left: 20px; }
+
+/* ---------------------------------------- CHAMPCARD LINE */
+
+#champcard .line {
+	display: flex;
+	flex-flow: row;
+	align-items: center;
+	height: 37px;
+	border-bottom: 1px solid #181818;
+	width: 100%;
+}
+
+#champcard .line.mini {
+	height: 32px;
+}
+
+#champcard .subheading {
+	font-family: Spiegel-Regular;
+	font-weight: bold;
+	font-size: 9px;
+	color: #BBA87B;
+	text-transform: uppercase;
+	letter-spacing: 0.20em;
+}
+
+#champcard .section {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	min-height: 10px;
+	min-width: 10px;
+	flex: 1;
+	padding-left: 20px;
+	border-right: 1px solid #181818;
+	color: #fff;
+}
+
+#champcard .section:nth-child(1) {
+	flex: 1.2;
+}
+
+
+#champcard .line:nth-child(even) { background-color: #090909; }
+#champcard .line:nth-child(2) { background-color: #000; }
+
+#champcard .section svg {
+	margin-right: 10px;
+}
+
+#champcard .section svg.hide {
+	display: none;
+}
+
+#champcard .section img {
+	pointer-events: none;
+	margin-right: 10px;
+	height: 17px;
+	width: 17px;
+}
+
+
+
+
+
+
+
+
 
 /* ---------------------------------------- CHAMPCARD TEXT */
 
@@ -409,9 +475,11 @@ p.sidebar-subheading svg {
 	color: #fff;
 	font-family: Beaufort-Bold;
 	font-size: 18px;
-	font-style: italic;
-	letter-spacing: 0.20em;
+	letter-spacing: 0.05em;
 	text-transform: uppercase;
+	background: linear-gradient(180deg, #CDBE91 0, #8E7141);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
 /* ---------------------------------------- CHAMPCARD ABILITY LINE */
@@ -420,36 +488,55 @@ p.sidebar-subheading svg {
 	display: flex;
 	flex-flow: row;
 	align-items: center;
-	cursor: pointer;
 	padding: 5px 0;
 	transition: all .3s ease-out;
 }
 
+#champcard .line:not(:nth-child(2)) .section:nth-child(1) {
+	cursor: pointer;
+}
+
 .ability__line img {
-	width: 28px;
-	height: 28px;
+	width: 24px !important;
+	height: 24px !important;
 	margin-left: 10px;
-	margin-right: 12px;
+	margin-right: 10px;
 	border-radius: 5px;
 }
 
 .ability__line .key {
 	color: #6F6F6F;
-	font-family: Spiegel-Regular;
+	font-family: monospace;
 	font-size: 10px;
 	font-weight: bold;
 	width: 10px;
+	background: linear-gradient(180deg, #CDBE91 0, #8E7141);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
 }
 
-.ability__line .name {
-	color: #C4B998;
-	font-family: Spiegel-Regular;
-	font-size: 14px;
+.ability__line .name,
+#champcard .section p:not(.subheading) {
+	color: #919191;
+	font-family: monospace;
+	font-size: 12px;
 }
 
-.ability__line:hover {
+#champcard .section:nth-child(1):hover .ability__line {
 	transform: translateX(10px);
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* ---------------------------------------------------------------------------------------- SEARCH */
 
