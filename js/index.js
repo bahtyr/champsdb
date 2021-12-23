@@ -326,14 +326,15 @@ function updateChampCard(i) {
 		case "Mana": resourceImg.attr("src", "assets/mana.png"); break;
 		case "Energy": resourceImg.attr("src", "assets/energy.png"); break;
 		case "Heat": resourceImg.attr("src", "assets/heat.png"); break;
-		case "Courage":
 		case "Shield":
+		case "Blood Well":
 		case "Flow": resourceImg.attr("src", "assets/flow.png"); break;
-		case "Crimson Rush":
 		case "Health": resourceImg.attr("src", "assets/health.png"); break;
-		case "Rage":
+		case "Courage":
+		case "Crimson Rush":
 		case "Ferocity":
 		case "Grit":
+		case "Rage":
 		case "Fury": resourceImg.attr("src", "assets/fury.png"); break;
 	}
 

@@ -125,24 +125,24 @@ class TagsEditor {
 			return;
 		}
 
-		if (this.data.champs[championName].tagsAbilities == null) {
-			this.data.champs[championName].tagsAbilities = Array(5);
+		if (this.data.champs[championName].tagArrays == null) {
+			this.data.champs[championName].tagArrays = Array(5);
 			for (let i = 0; i < 5; i++)
-				this.data.champs[championName].tagsAbilities[i] = [];
+				this.data.champs[championName].tagArrays[i] = [];
 		}
 
 
 		if (abilityIndex != null) {
 			// console.log(championName);
-			// console.log(this.data.champs[championName].tagsAbilities);
-			if (!this.data.champs[championName].tagsAbilities[abilityIndex].includes(tagId))
-				this.data.champs[championName].tagsAbilities[abilityIndex].push(tagId);
+			// console.log(this.data.champs[championName].tagArrays);
+			if (!this.data.champs[championName].tagArrays[abilityIndex].includes(tagId))
+				this.data.champs[championName].tagArrays[abilityIndex].push(tagId);
 			else console.warn(`! Skipped adding tag to champion's ability. ${championName}#${abilityIndex} already has tag#${tagId}`);
 		}
 
 		if (abilityIndex == null) {
-			if (!this.data.champs[championName].tags.includes(tagId))
-				this.data.champs[championName].tags.push(tagId);
+			if (!this.data.champs[championName].tagArrays[0].includes(tagId))
+				this.data.champs[championName].tagArrays[0].push(tagId);
 			else console.warn(`! Skipped adding tag to champion. ${championName} already has tag#${tagId}`);
 		}
 	}
@@ -223,34 +223,6 @@ class TagsEditor {
 	}
 
 	// ETC
-
-	mergeTagsAndTagsAbilities() {
-		for (let champ in this.data.champs) {
-
-			//init tagsAbilities
-			if (this.data.champs[champ].tagsAbilities == null) {
-				this.data.champs[champ].tagsAbilities = Array(5);
-				for (let i = 0; i < 5; i++) this.data.champs[champ].tagsAbilities[i] = [];
-			}
-
-			//init tags
-			if (this.data.champs[champ].tags == null) {
-				this.data.champs[champ].tags = [];
-			}
-
-			let tagsHolder = this.data.champs[champ].tags;
-			this.data.champs[champ].tags = [];
-			this.data.champs[champ].tags.push(tagsHolder);
-			this.data.champs[champ].tags.push(this.data.champs[champ].tagsAbilities[0]);
-			this.data.champs[champ].tags.push(this.data.champs[champ].tagsAbilities[1]);
-			this.data.champs[champ].tags.push(this.data.champs[champ].tagsAbilities[2]);
-			this.data.champs[champ].tags.push(this.data.champs[champ].tagsAbilities[3]);
-			this.data.champs[champ].tags.push(this.data.champs[champ].tagsAbilities[4]);
-			delete this.data.champs[champ].tagsAbilities;
-
-			this.printObject();
-		}
-	}
 
 	findMenuIds() {
 		for (let m in this.data.menu) {
