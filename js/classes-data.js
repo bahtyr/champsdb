@@ -48,7 +48,7 @@ class Champion {
 		return `https://leagueoflegends.fandom.com/wiki/${champName.replace("\\s","_")}`
 	}
 
-	static getUrlWiki(champName) {
+	static getUrlWikiAbilities(champName) {
 		return `https://leagueoflegends.fandom.com/wiki/${champName.replace("\\s","_")}/LoL#Abilities`
 	}
 

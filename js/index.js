@@ -133,14 +133,19 @@ function listenSearch() {
 		search.showClearBtn();
 		champs.unhideAll();
 
-		if (searchTag(s) == -1)
+		if (!searchTag(s))
+		if (!searchChampionAttribute("species", s))
+		if (!searchChampionAttribute("region", s))
 			searchText(s);
+
 		updateSearchResultsCount();
 	});
 
 	search.clearBtn.on("click", function() {
 		search.element.val("");
-		search.triggerKeyUp();
+		search.hideClearBtn();
+		filters.clearSelection();
+		champs.unhideAll();
 	});
 }
 
@@ -157,6 +162,7 @@ function listenFilters() {
 		}
 
 		search.element.val("");
+		search.hideClearBtn();
 		filters.clearSelection();
 		$(this).addClass("active");
 
@@ -196,10 +202,10 @@ function searchTag(str) {
 
 			sort.reset();
 			champs.hideAllExcept(tags.tags[i].champIndexes);
-			return 1;
+			return true;
 		}
 	}
-	return -1;
+	return false;
 }
 
 function searchTagById(id) {
@@ -244,36 +250,35 @@ function searchLaneOrRole(str, type) {
 			}
 		}
 
-		if (matchFound)
+		if (matchFound) {
+			anyMatchFound = true;
 			champs.show(i);
-		else champs.hide(i);
+		} else champs.hide(i);
 	}
 }
 
 function searchChampionAttribute(attr, text) {
+	let anyMatchFound = false;
 	let matchFound = false;
 
 	for (let i = 0; i < champs.items.length; i++, matchFound = false) {
 		
-
-		if (champs.items[i][attr] == text) {
+		if (champs.items[i][attr].toLowerCase() == text) {
 			matchFound = true;
 		}
 
-		// if (type == 0) { // lanes
-		// 	matchFound = champs.items[i].lanes.includes(str);
-		// } else { // roles
-		// 	for (let t in champs.items[i].tags) {
-		// 		if (champs.items[i].tags[t] == str) {
-		// 			matchFound = true;
-		// 		}
-		// 	}
-		// }
-
-		if (matchFound)
+		if (matchFound) {
+			anyMatchFound = true;
 			champs.show(i);
-		else champs.hide(i);
+		} else champs.hide(i);
 	}
+
+	if (anyMatchFound) {
+		filters.clearSelection();
+		sort.reset();
+		search.showClearBtn();
+		return true;
+	} else return false;
 }
 
 /* ---------------------------------------- CHAMPCARD */
@@ -374,7 +379,7 @@ function updateChampCard(i) {
 	const link2 = $("#champcard a:nth-child(3)");
 	const link3 = $("#patchnotes");
 	const link4 = $("#spotlight");
-	link1.attr("href", Champion.getUrlWikiLore(champs.items[i].name));
+	link1.attr("href", Champion.getUrlWikiAbilities(champs.items[i].name));
 	link2.attr("href", Champion.getUrlUniverse(champs.items[i].id));
 	link3.attr("href", Champion.getUrlWikiPatchHistory(champs.items[i].name));
 	// link4.attr("href", Champion.getUrlLeague(champs.items[i].name));
@@ -624,8 +629,8 @@ function initSidebar() {
 		let item = findMenuItemFromDOM(this);
 		switch (item.id) {
 			case -1: return;
-			case -2: searchChampionAttribute("region", item.text); break;
-			case -3: searchChampionAttribute("species", item.text); break;
+			case -2: searchChampionAttribute("region", item.text.toLowerCase()); break;
+			case -3: searchChampionAttribute("species", item.text.toLowerCase()); break;
 			default: searchTagById(item.id); break;
 		}
 		search.element.val($(this).text());

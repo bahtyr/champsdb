@@ -184,7 +184,7 @@ class WikiApi {
 	 * Get a champion's ability name and image.
 	 */
 	loadChampPage(i, THIS = this) {
-		$.ajax({type: "GET", url: Champion.getUrlWiki(champions[i].name),
+		$.ajax({type: "GET", url: Champion.getUrlWikiAbilities(champions[i].name),
 			success: function(data, textStatus) {
 				let html = $(data);
 				let releaseDate = html.find("#infobox-champion-container > aside > div:nth-child(4) > div").text();
