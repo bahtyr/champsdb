@@ -189,6 +189,10 @@ p.sidebar-subheading {
 	cursor: pointer;
 }
 
+p.sidebar-subheading span {
+	cursor: unset; /*clear the default from base.css*/
+}
+
 p.sidebar-subheading:hover {
 	color: #fff;
 }

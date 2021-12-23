@@ -250,6 +250,32 @@ function searchLaneOrRole(str, type) {
 	}
 }
 
+function searchChampionAttribute(attr, text) {
+	let matchFound = false;
+
+	for (let i = 0; i < champs.items.length; i++, matchFound = false) {
+		
+
+		if (champs.items[i][attr] == text) {
+			matchFound = true;
+		}
+
+		// if (type == 0) { // lanes
+		// 	matchFound = champs.items[i].lanes.includes(str);
+		// } else { // roles
+		// 	for (let t in champs.items[i].tags) {
+		// 		if (champs.items[i].tags[t] == str) {
+		// 			matchFound = true;
+		// 		}
+		// 	}
+		// }
+
+		if (matchFound)
+			champs.show(i);
+		else champs.hide(i);
+	}
+}
+
 /* ---------------------------------------- CHAMPCARD */
 
 /**
@@ -279,15 +305,15 @@ function updateChampCard(i) {
 	champCard.abilities[3].name.text(champs.items[i].abilities[3].name);
 	champCard.abilities[4].name.text(champs.items[i].abilities[4].name);
 
-	champCard.lines[0].section[1].find("p").text(champs.items[i].lanes.replace(" ", ", "));
-	champCard.lines[1].section[1].find("p").text((champs.items[i].tags+"").replace(",", ", "));
+	champCard.lines[0].section[1].find("p").text(champs.items[i].lanes.replaceAll(" ", ", "));
+	champCard.lines[1].section[1].find("p").text((champs.items[i].tags+"").replaceAll(",", ", "));
 	champCard.lines[2].section[1].find("p").text(champs.items[i].rangeType + " (" + champs.items[i].attackRange + ")");
 	champCard.lines[3].section[1].find("p").text(champs.items[i].resource);
 	champCard.lines[4].section[1].find("p").text(champs.items[i].region + ", " + champs.items[i].species);
 
 	champCard.lines[0].section[2].find("p").text(champs.items[i].releasePatch + " (" + champs.items[i].releaseDate + ")");
 
-	$("#champcard__region").attr("src", "assets/"+champs.items[i].region.replace(" ", "_")+".png");
+	$("#champcard__region").attr("src", "assets/"+champs.items[i].region.replaceAll(" ", "_")+".png");
 	switch (champs.items[i].region) {
 		// case:  break;
 	}
@@ -596,7 +622,12 @@ function initSidebar() {
 		champCard.hide();
 
 		let item = findMenuItemFromDOM(this);
-		searchTagById(item.id);
+		switch (item.id) {
+			case -1: return;
+			case -2: searchChampionAttribute("region", item.text); break;
+			case -3: searchChampionAttribute("species", item.text); break;
+			default: searchTagById(item.id); break;
+		}
 		search.element.val($(this).text());
 	});
 
