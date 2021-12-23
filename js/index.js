@@ -318,6 +318,24 @@ function updateChampCard(i) {
 
 	$("#champcard__rangetype").attr("src", champs.items[i].rangeType == "Melee" ? "assets/melee.png" : "assets/ranged.png");
 
+	const resourceImg = $("#champcard__resource");
+	resourceImg.css("visibility", "");
+	switch (champs.items[i].resource) {
+		default:
+		case "None": resourceImg.css("visibility", "hidden"); break;
+		case "Mana": resourceImg.attr("src", "assets/mana.png"); break;
+		case "Energy": resourceImg.attr("src", "assets/energy.png"); break;
+		case "Heat": resourceImg.attr("src", "assets/heat.png"); break;
+		case "Courage":
+		case "Shield":
+		case "Flow": resourceImg.attr("src", "assets/flow.png"); break;
+		case "Crimson Rush":
+		case "Health": resourceImg.attr("src", "assets/health.png"); break;
+		case "Rage":
+		case "Ferocity":
+		case "Grit":
+		case "Fury": resourceImg.attr("src", "assets/fury.png"); break;
+	}
 
 	const link1 = $("#champcard a:nth-child(2)");
 	const link2 = $("#champcard a:nth-child(3)");
