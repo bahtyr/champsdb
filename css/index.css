@@ -319,7 +319,14 @@ p.sidebar-subheading svg {
 	outline: 1px solid #5B5A56;
  	outline-offset: -3px;
  	opacity: 0;
- 	transition: filter .3s ease, opacity .3s ease;
+ 	animation: fadeIn 0.5s ease;
+ 	animation-play-state: paused;
+ 	transition: filter .3s ease;
+}
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+100% { opacity: 1; }
 }
 
 .item .image__wrapper {
