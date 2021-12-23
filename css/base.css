@@ -12,6 +12,7 @@ img, svg, .noselect {
 	-khtml-user-select: none;
 	-ms-user-select: none;
 }
+p, span { cursor: default; }
 
 /* ---------------------------------------------------------------------------------------- FONTS */
 

@@ -497,6 +497,10 @@ p.sidebar-subheading svg {
 	transition: all .3s ease-out;
 }
 
+.ability__line > * {
+	cursor: unset;
+}
+
 #champcard .line:not(:nth-child(2)) .section:nth-child(1) {
 	cursor: pointer;
 }
