@@ -4,19 +4,6 @@ let champsPrinter;
 let champCard = {
 	card: $("#champcard"),
 	name: $("#champcard__name"),
-	lines: [
-		{section: [$(".line:nth-child(3) .section:nth-child(1)"),$(".line:nth-child(3) .section:nth-child(2)"),$(".line:nth-child(3) .section:nth-child(3)"),$(".line:nth-child(3) .section:nth-child(4)")]},
-		{section: [$(".line:nth-child(4) .section:nth-child(1)"),$(".line:nth-child(4) .section:nth-child(2)"),$(".line:nth-child(4) .section:nth-child(3)"),$(".line:nth-child(4) .section:nth-child(4)")]},
-		{section: [$(".line:nth-child(5) .section:nth-child(1)"),$(".line:nth-child(5) .section:nth-child(2)"),$(".line:nth-child(5) .section:nth-child(3)"),$(".line:nth-child(5) .section:nth-child(4)")]},
-		{section: [$(".line:nth-child(6) .section:nth-child(1)"),$(".line:nth-child(6) .section:nth-child(2)"),$(".line:nth-child(6) .section:nth-child(3)"),$(".line:nth-child(6) .section:nth-child(4)")]},
-		{section: [$(".line:nth-child(7) .section:nth-child(1)"),$(".line:nth-child(7) .section:nth-child(2)"),$(".line:nth-child(7) .section:nth-child(3)"),$(".line:nth-child(7) .section:nth-child(4)")]}
-	],
-	abilities: [
-		{name: $(".line:nth-child(3) .ability__line .name"), img: $(".line:nth-child(3) .ability__line img")},
-		{name: $(".line:nth-child(4) .ability__line .name"), img: $(".line:nth-child(4) .ability__line img")},
-		{name: $(".line:nth-child(5) .ability__line .name"), img: $(".line:nth-child(5) .ability__line img")},
-		{name: $(".line:nth-child(6) .ability__line .name"), img: $(".line:nth-child(6) .ability__line img")},
-		{name: $(".line:nth-child(7) .ability__line .name"), img: $(".line:nth-child(7) .ability__line img")}],
 	index: 0,
 	show: function() { this.card.removeClass("hide");},
 	hide: function() { this.card.addClass("hide"); champsPrinter.elements[champs.ii+1].classList.remove("active"); }
@@ -58,7 +45,8 @@ $(function() {
 	search.element = $("#search");
 	search.wrapper = $("#search__wrapper");
 	search.clearBtn = $("#search__clear");
-	sort.element =  $("#sort")
+	sort.element =  $("#sort");
+	initChampCard();
 
 	champs.onLoad(() => {
 		updateSearchResultsCount(0);
@@ -283,6 +271,71 @@ function searchChampionAttribute(attr, text) {
 
 /* ---------------------------------------- CHAMPCARD */
 
+function initChampCard() {
+	champCard.table = { 
+		ability: [
+				{key: $(".row:nth-child(2) .ability .key"), img: $(".row:nth-child(2) .ability img"), name: $(".row:nth-child(2) .ability .name")},
+				{key: $(".row:nth-child(3) .ability .key"), img: $(".row:nth-child(3) .ability img"), name: $(".row:nth-child(3) .ability .name")},
+				{key: $(".row:nth-child(4) .ability .key"), img: $(".row:nth-child(4) .ability img"), name: $(".row:nth-child(4) .ability .name")},
+				{key: $(".row:nth-child(5) .ability .key"), img: $(".row:nth-child(5) .ability img"), name: $(".row:nth-child(5) .ability .name")},
+				{key: $(".row:nth-child(6) .ability .key"), img: $(".row:nth-child(6) .ability img"), name: $(".row:nth-child(6) .ability .name")}],
+		col: [
+			{row: [
+				$(".col:nth-child(1) .row:nth-child(2)"),
+				$(".col:nth-child(1) .row:nth-child(3)"),
+				$(".col:nth-child(1) .row:nth-child(4)"),
+				$(".col:nth-child(1) .row:nth-child(5)"),
+				$(".col:nth-child(1) .row:nth-child(6)")]},
+			{row: [
+				$(".col:nth-child(2) .row:nth-child(2)"),
+				$(".col:nth-child(2) .row:nth-child(3)"),
+				$(".col:nth-child(2) .row:nth-child(4)"),
+				$(".col:nth-child(2) .row:nth-child(5)"),
+				$(".col:nth-child(2) .row:nth-child(6)")]},
+			{row: [
+				$(".col:nth-child(3) .row:nth-child(2)"),
+				$(".col:nth-child(3) .row:nth-child(3)"),
+				$(".col:nth-child(3) .row:nth-child(4)"),
+				$(".col:nth-child(3) .row:nth-child(5)"),
+				$(".col:nth-child(3) .row:nth-child(6)")]},
+			{row: [
+				$(".col:nth-child(4) .row:nth-child(2)"),
+				$(".col:nth-child(4) .row:nth-child(3)"),
+				$(".col:nth-child(4) .row:nth-child(4)"),
+				$(".col:nth-child(4) .row:nth-child(5)"),
+				$(".col:nth-child(4) .row:nth-child(6)")]}],
+		icons: {
+			region: $("#champcard__region"),
+			lane: {
+				Top: $("#champcard__top"),
+				Jungle: $("#champcard__jungle"),
+				Middle: $("#champcard__mid"),
+				Bottom: $("#champcard__bot"),
+				Support: $("#champcard__sup")},
+			role: {
+				Tank: $("#champcard__tank"),
+				Fighter: $("#champcard__fighter"),
+				Assassin: $("#champcard__assassin"),
+				Mage: $("#champcard__mage"),
+				Marksman: $("#champcard__marksman"),
+				Support: $("#champcard__support")},
+			rangeType: $("#champcard__rangetype"),
+			resource: $("#champcard__resource")},
+		links: {
+			wiki: $("a#champ_wiki"),
+			universe: $("a#champ_universe"),
+			patchNotes: $("a#champ_patchnotes"),
+			spotlight: $("a#champ_spotlight")},
+		ratings: {
+			damage: $("#champcard__table .bars .bar-wrapper:nth-child(1)"),
+			mobility: $("#champcard__table .bars .bar-wrapper:nth-child(2)"),
+			toughness: $("#champcard__table .bars .bar-wrapper:nth-child(3)"),
+			control: $("#champcard__table .bars .bar-wrapper:nth-child(4)"),
+			utility: $("#champcard__table .bars .bar-wrapper:nth-child(5)"),
+		}
+	};
+}
+
 /**
  * Put champion name, abilities and update links.
  * Does not auto show the card, only updates it.
@@ -298,91 +351,79 @@ function updateChampCard(i) {
 	champCard.index = i;
 	champCard.name.text(champs.items[i].name);
 
-	champCard.abilities[0].img.attr("src", champs.items[i].abilities[0].img);
-	champCard.abilities[1].img.attr("src", champs.items[i].abilities[1].img);
-	champCard.abilities[2].img.attr("src", champs.items[i].abilities[2].img);
-	champCard.abilities[3].img.attr("src", champs.items[i].abilities[3].img);
-	champCard.abilities[4].img.attr("src", champs.items[i].abilities[4].img);
 
-	champCard.abilities[0].name.text(champs.items[i].abilities[0].name);
-	champCard.abilities[1].name.text(champs.items[i].abilities[1].name);
-	champCard.abilities[2].name.text(champs.items[i].abilities[2].name);
-	champCard.abilities[3].name.text(champs.items[i].abilities[3].name);
-	champCard.abilities[4].name.text(champs.items[i].abilities[4].name);
+	// ABILITIES
+	champCard.table.ability[0].img.attr("src", champs.items[i].abilities[0].img);
+	champCard.table.ability[1].img.attr("src", champs.items[i].abilities[1].img);
+	champCard.table.ability[2].img.attr("src", champs.items[i].abilities[2].img);
+	champCard.table.ability[3].img.attr("src", champs.items[i].abilities[3].img);
+	champCard.table.ability[4].img.attr("src", champs.items[i].abilities[4].img);
 
-	champCard.lines[0].section[1].find("p").text(champs.items[i].lanes.replaceAll(" ", ", "));
-	champCard.lines[1].section[1].find("p").text((champs.items[i].tags+"").replaceAll(",", ", "));
-	champCard.lines[2].section[1].find("p").text(champs.items[i].rangeType + " (" + champs.items[i].attackRange + ")");
-	champCard.lines[3].section[1].find("p").text(champs.items[i].resource);
-	champCard.lines[4].section[1].find("p").text(champs.items[i].region + ", " + champs.items[i].species);
+	champCard.table.ability[0].name.text(champs.items[i].abilities[0].name);
+	champCard.table.ability[1].name.text(champs.items[i].abilities[1].name);
+	champCard.table.ability[2].name.text(champs.items[i].abilities[2].name);
+	champCard.table.ability[3].name.text(champs.items[i].abilities[3].name);
+	champCard.table.ability[4].name.text(champs.items[i].abilities[4].name);
 
-	champCard.lines[0].section[2].find("p").text(champs.items[i].releasePatch + " (" + champs.items[i].releaseDate + ")");
+	// TABLE TEXT
+	champCard.table.col[1].row[0].find("p").text(champs.items[i].lanes.replaceAll(" ", ", "));
+	champCard.table.col[1].row[1].find("p").text((champs.items[i].tags+"").replaceAll(",", ", "));
+	champCard.table.col[1].row[2].find("p").text(champs.items[i].rangeType + " (" + champs.items[i].attackRange + ")");
+	champCard.table.col[1].row[3].find("p").text(champs.items[i].resource);
+	champCard.table.col[1].row[4].find("p").text(champs.items[i].region + ", " + champs.items[i].species);
+	champCard.table.col[2].row[0].find("p").text(champs.items[i].releasePatch + " (" + champs.items[i].releaseDate + ")");
 
-	$("#champcard__region").attr("src", "assets/"+champs.items[i].region.replaceAll(" ", "_")+".png");
-	switch (champs.items[i].region) {
-		// case:  break;
-	}
+	// RATINGS
+	champCard.table.ratings["damage"].attr("data-value", champs.items[i].ratings.damage);
+	champCard.table.ratings["toughness"].attr("data-value", champs.items[i].ratings.toughness);
+	champCard.table.ratings["control"].attr("data-value", champs.items[i].ratings.control);
+	champCard.table.ratings["mobility"].attr("data-value", champs.items[i].ratings.mobility);
+	champCard.table.ratings["utility"].attr("data-value", champs.items[i].ratings.utility);
+
+	// ICONS
+	champCard.table.icons["region"].attr("src", "assets/"+champs.items[i].region.replaceAll(" ", "_")+".png");
+	champCard.table.icons["rangeType"].attr("src", "assets/"+champs.items[i].rangeType+".png");
 
 	let lane = champs.items[i].lanes.split(" ")[0];
-	$("#champcard__top").addClass("hide");
-	$("#champcard__jungle").addClass("hide");
-	$("#champcard__mid").addClass("hide");
-	$("#champcard__bot").addClass("hide");
-	$("#champcard__sup").addClass("hide");
-	switch (lane) {
-		case "Top": $("#champcard__top").removeClass("hide");break;
-		case "Jungle": $("#champcard__jungle").removeClass("hide");break;
-		case "Middle": $("#champcard__mid").removeClass("hide");break;
-		case "Bottom": $("#champcard__bot").removeClass("hide");break;
-		case "Support": $("#champcard__sup").removeClass("hide");break;
-	}
+	champCard.table.icons["lane"]["Top"].addClass("hide");
+	champCard.table.icons["lane"]["Jungle"].addClass("hide");
+	champCard.table.icons["lane"]["Middle"].addClass("hide");
+	champCard.table.icons["lane"]["Bottom"].addClass("hide");
+	champCard.table.icons["lane"]["Support"].addClass("hide");
+	champCard.table.icons["lane"][lane].removeClass("hide");
 
 	let role = champs.items[i].tags[0];
-	$("#champcard__tank").addClass("hide");
-	$("#champcard__fighter").addClass("hide");
-	$("#champcard__assassin").addClass("hide");
-	$("#champcard__mage").addClass("hide");
-	$("#champcard__marksman").addClass("hide");
-	$("#champcard__support").addClass("hide");
-	switch (role) {
-		case "Tank": $("#champcard__tank").removeClass("hide");break;
-		case "Fighter": $("#champcard__fighter").removeClass("hide");break;
-		case "Assassin": $("#champcard__assassin").removeClass("hide");break;
-		case "Mage": $("#champcard__mage").removeClass("hide");break;
-		case "Marksman": $("#champcard__marksman").removeClass("hide");break;
-		case "Support": $("#champcard__support").removeClass("hide");break;
-	}
+	champCard.table.icons["role"]["Tank"].addClass("hide");
+	champCard.table.icons["role"]["Fighter"].addClass("hide");
+	champCard.table.icons["role"]["Assassin"].addClass("hide");
+	champCard.table.icons["role"]["Mage"].addClass("hide");
+	champCard.table.icons["role"]["Marksman"].addClass("hide");
+	champCard.table.icons["role"]["Support"].addClass("hide");
+	champCard.table.icons["role"][role].removeClass("hide");
 
-	$("#champcard__rangetype").attr("src", champs.items[i].rangeType == "Melee" ? "assets/melee.png" : "assets/ranged.png");
-
-	const resourceImg = $("#champcard__resource");
-	resourceImg.css("visibility", "");
 	switch (champs.items[i].resource) {
 		default:
-		case "None": resourceImg.css("visibility", "hidden"); break;
-		case "Mana": resourceImg.attr("src", "assets/mana.png"); break;
-		case "Energy": resourceImg.attr("src", "assets/energy.png"); break;
-		case "Heat": resourceImg.attr("src", "assets/heat.png"); break;
+		case "None": champCard.table.icons["resource"].attr("src", "assets/placeholder.png"); break;
+		case "Mana": champCard.table.icons["resource"].attr("src", "assets/mana.png"); break;
+		case "Energy": champCard.table.icons["resource"].attr("src", "assets/energy.png"); break;
+		case "Heat": champCard.table.icons["resource"].attr("src", "assets/heat.png"); break;
 		case "Shield":
 		case "Blood Well":
-		case "Flow": resourceImg.attr("src", "assets/flow.png"); break;
-		case "Health": resourceImg.attr("src", "assets/health.png"); break;
+		case "Flow": champCard.table.icons["resource"].attr("src", "assets/flow.png"); break;
+		case "Health": champCard.table.icons["resource"].attr("src", "assets/health.png"); break;
 		case "Courage":
 		case "Crimson Rush":
 		case "Ferocity":
 		case "Grit":
 		case "Rage":
-		case "Fury": resourceImg.attr("src", "assets/fury.png"); break;
+		case "Fury": champCard.table.icons["resource"].attr("src", "assets/fury.png"); break;
 	}
 
-	const link1 = $("#champcard a:nth-child(2)");
-	const link2 = $("#champcard a:nth-child(3)");
-	const link3 = $("#patchnotes");
-	const link4 = $("#spotlight");
-	link1.attr("href", Champion.getUrlWikiAbilities(champs.items[i].name));
-	link2.attr("href", Champion.getUrlUniverse(champs.items[i].id));
-	link3.attr("href", Champion.getUrlWikiPatchHistory(champs.items[i].name));
-	// link4.attr("href", Champion.getUrlLeague(champs.items[i].name));
+	// LINKS
+	champCard.table.links["wiki"].attr("href", Champion.getUrlWikiAbilities(champs.items[i].name));
+	champCard.table.links["universe"].attr("href", Champion.getUrlUniverse(champs.items[i].id));
+	champCard.table.links["patchNotes"].attr("href", Champion.getUrlWikiPatchHistory(champs.items[i].name));
+	// champCard.table.links["spotlight"].attr("href", Champion.getUrlLeague(champs.items[i].name));
 }
 
 /**
