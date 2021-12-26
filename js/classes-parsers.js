@@ -199,16 +199,19 @@ class WikiApi {
 				// ratings.mobility = parseInt(s[3].substring(s[3].length -1));
 				// ratings.utility = parseInt(s[4].substring(s[4].length -1));
 				// ratings.champion = champions[i].name;
-				// champions[i].ratings = ratings;
+				let b = html.find(".champion_style span:nth-child(2)").attr("title");
+				// let difficulty = parseInt(html.find(".pi-item[data-source='difficulty'] img").attr("alt")[20]);
+				// champions[i].ratings.difficulty = a;
+				champions[i].ratings.style = parseInt(b);
 
-				let a = html.find(".champion_style span:nth-child(2)").attr("title");
+
 
 
 				// champions[i].releaseDate = releaseDate;
 				// champions[i].resource = resource;
 				// champions[i].rangeType = rangeType;
 				
-				THIS.arr.push(a);
+				THIS.arr.push(parseInt(b));
 				// THIS.arr.push({name: champions[i].name, releaseDate: releaseDate, resource: resource, rangeType: rangeType});
 
 				if (i < champions.length - 1) {
@@ -314,6 +317,42 @@ class WikiApi {
 		if (arr.length != inputLength)
 			console.warn(`Result length does not match input length. Difference: ${inputLength - arr.length}`);
 	}
+}
+
+let arr = [];
+
+function loadURLforAllChamps() {
+	arr = [];
+	console.warn("Loading URL for every champ.");
+	laodURLforChamp(1);
+}
+
+function laodURLforChamp(i) {
+	console.warn(i);
+	$.ajax({type: "GET", url: `https://gol.gg/champion/champion-stats/${i}/season-S11/split-ALL/tournament-ALL/`,
+			success: function(data, textStatus) {
+				let html = $(data);
+				let s = html.find("#DmgChart").parent().prev()[0].innerHTML.split(/\r?\n/);
+
+				let obj = {
+					champion: html.find("h1").text().trim(),
+					physical: parseFloat(s[15].replace(/[^0-9.]/g, '')),
+					magic: parseFloat(s[28].replace(/[^0-9.]/g, '')),
+					true: parseFloat(s[41].replace(/[^0-9.]/g, ''))
+				};
+
+				arr.push(obj);
+
+				if (i < champions.length) {
+					i++;
+					laodURLforChamp(i);
+				} else {
+					console.warn("Done");
+					console.log(THIS.arr);
+				}
+			},
+			error: (textStatus, errorThrown) => console.error(errorThrown)
+		});
 }
 
 /*

@@ -510,8 +510,8 @@ p.sidebar-subheading svg {
 }
 
 #champcard__table .ability .key {
-	width: 10px;
-	text-align: center;
+	/*width: 10px;*/
+	/*text-align: center;*/
 	color: #6F6F6F;
 	font-size: 10px;
 	font-weight: bold;
@@ -528,6 +528,78 @@ p.sidebar-subheading svg {
 #champcard__table .ability > * { cursor: unset; }
 
 #champcard__table .col:first-child .row:not(:first-child) { cursor: pointer; }
+
+/* ---------------------------------------- RATINGS */
+
+#champcard__table .col.ratings .row {
+	justify-content: space-between;
+	padding-right: 20px;
+}
+
+/* ---------------------------------------- DAMAGE BAR */
+
+#damage-bar {
+	display: flex;
+	width: 94px;
+	height: 4px;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+#damage-bar .magic { background-color: #494299; width: 33%; }
+#damage-bar .physical { background-color: #8E551F; width: 33%; min-width: 4%; }
+#damage-bar .true { background-color: #D0D0D0; width: 33%; min-width: 4%; }
+
+/* ---------------------------------------- STYLE BAR */
+
+#style-bar-wrapper { display: flex; align-items: center; }
+
+#style-bar-wrapper svg { margin: 0; }
+
+#style-bar {
+	display: flex;
+	width: 58px;
+	height: 4px;
+	margin: 0 6px;
+	border-radius: 4px;
+	background-color: #251B05;
+}
+
+#style-bar .bar {
+	width: 50%;
+	height: 100%;
+	border-radius: 4px;	
+	background-color: #B68E4B;
+}
+#style-bar-wrapper svg path { fill: url(#gradient_table_icon); }
+#style-bar-wrapper[data-majority="attack"] svg:nth-child(1) path { fill: url(#gradient_table_icon); }
+#style-bar-wrapper[data-majority="attack"] svg:nth-child(3) path { fill: #342400; }
+#style-bar-wrapper[data-majority="spell"] svg:nth-child(1) path { fill: #342400; }
+#style-bar-wrapper[data-majority="spell"] svg:nth-child(3) path { fill: url(#gradient_table_icon); }
+
+/* ---------------------------------------- DIFFICULTY BAR */
+
+#difficulty-bar {
+	display: flex;
+	width: 94px;
+	height: 4px;
+	gap: 5px;
+}
+
+#difficulty-bar .bar {
+	flex: 1;
+	background-color: #251B05;
+	width: 94px;
+	height: 4px;
+	border-radius: 4px;
+}
+
+#difficulty-bar[data-value="1"] .bar:nth-child(1),
+#difficulty-bar[data-value="2"] .bar:nth-child(1),
+#difficulty-bar[data-value="2"] .bar:nth-child(2),
+#difficulty-bar[data-value="3"] .bar:nth-child(1),
+#difficulty-bar[data-value="3"] .bar:nth-child(2),
+#difficulty-bar[data-value="3"] .bar:nth-child(3) { background-color: #B68E4B; }
 
 /* ---------------------------------------- RATINGS */
 
@@ -548,9 +620,7 @@ p.sidebar-subheading svg {
 	margin-right: 10px;
 }
 
-.bar-wrapper:nth-child(5) {
-	margin-right: 20px;
-}
+.bar-wrapper:nth-child(5) { margin-right: 0px; }
 
 .bar-wrapper .bar { width: 100%; }
 .bar-wrapper .bar > div {

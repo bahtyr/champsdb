@@ -332,6 +332,17 @@ function initChampCard() {
 			toughness: $("#champcard__table .bars .bar-wrapper:nth-child(3)"),
 			control: $("#champcard__table .bars .bar-wrapper:nth-child(4)"),
 			utility: $("#champcard__table .bars .bar-wrapper:nth-child(5)"),
+			damageType: $("#damage-bar"),
+			difficulty: $("#difficulty-bar"),
+			style: {
+				icons: $("#style-bar-wrapper"),
+				bar: $("#style-bar .bar")},
+			damageBreakdown: {
+				tooltip: $("#damage-bar"),
+				magic: $("#damage-bar .bar.magic"),
+				physical: $("#damage-bar .bar.physical"),
+				true_: $("#damage-bar .bar.true")
+			}
 		}
 	};
 }
@@ -379,6 +390,14 @@ function updateChampCard(i) {
 	champCard.table.ratings["control"].attr("data-value", champs.items[i].ratings.control);
 	champCard.table.ratings["mobility"].attr("data-value", champs.items[i].ratings.mobility);
 	champCard.table.ratings["utility"].attr("data-value", champs.items[i].ratings.utility);
+
+	champCard.table.ratings["difficulty"].attr("data-value", champs.items[i].ratings.difficulty);
+	champCard.table.ratings["style"].icons.attr("data-majority", champs.items[i].ratings.style < 50 ? "attack" : "spell");
+	champCard.table.ratings["style"].bar.css("width", champs.items[i].ratings.style + "%");
+
+	champCard.table.ratings["damageBreakdown"].magic.css("width", champs.items[i].ratings.damageBreakdown.magic + "%");
+	champCard.table.ratings["damageBreakdown"].physical.css("width", champs.items[i].ratings.damageBreakdown.physical + "%");
+	champCard.table.ratings["damageBreakdown"].true_.css("width", champs.items[i].ratings.damageBreakdown.true_ + "%");
 
 	// ICONS
 	champCard.table.icons["region"].attr("src", "assets/"+champs.items[i].region.replaceAll(" ", "_")+".png");

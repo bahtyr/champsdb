@@ -108,7 +108,7 @@
 					</div>
 
 					<!--======= CHAMP CARD =======-->
-					<div id="champcard">
+					<div id="champcard" class="hide">
 						<svg width="0" height="0" viewBox="0 0 0 0" fill="none" xmlns="http://www.w3.org/2000/svg">
 							<defs>
 								<linearGradient id="gradient_table_icon" x1="8.5" y1="0" x2="8.5" y2="17" gradientUnits="userSpaceOnUse"><stop stop-color="#CDBE91"/><stop offset="1" stop-color="#785A28"/></linearGradient>
@@ -165,21 +165,44 @@
 								<div class="row"><p></p></div>
 								<div class="row"><p></p></div>
 							</div>
-							<div class="col">
+							<div class="col ratings">
 								<div class="row"><p>Ratings</p></div>
-								<div class="row"><p>Damage</p></div>
-								<div class="row"><p>Difficulty</p></div>
-								<div class="row"><p>Style</p></div>
+								<div class="row">
+									<p>Damage</p>
+									<div id="damage-bar" title="Magic / Physical / True Damage">
+										<div class="bar magic"></div>
+										<div class="bar physical"></div>
+										<div class="bar true"></div>
+									</div>
+								</div>
+								<div class="row">
+									<p>Difficulty</p>
+									<div id="difficulty-bar" data-value="1">
+										<div class="bar"></div>
+										<div class="bar"></div>
+										<div class="bar"></div>
+									</div>
+								</div>
+								<div class="row">
+									<p>Style</p>
+									<div id="style-bar-wrapper" data-majority="" title="A champion's tendency to deal damage to enemy champions using basic attacks vs. abilities.">
+										<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M3.56734 11.8312C4.05465 11.9416 4.56209 12 5.08333 12C8.81126 12 11.8333 9.01523 11.8333 5.33333C11.8333 4.77162 11.763 4.22614 11.6305 3.705C11.2475 4.56475 10.3632 5.16667 9.33333 5.16667C8.72925 5.16667 8.17521 4.95955 7.74306 4.61478L4.48581 7.81517C4.80945 8.2662 5 8.81918 5 9.41667C5 10.4582 4.42101 11.3645 3.56734 11.8312Z" fill="white"/><path d="M7.62417 3.13247C7.92068 2.83362 7.91879 2.35099 7.61994 2.05448C7.3211 1.75797 6.83847 1.75987 6.54196 2.05871L0 8.65215V10.7136C0.102467 10.6764 0.198531 10.6165 0.280404 10.534L7.62417 3.13247Z" fill="white"/><path d="M0 0H6.75606L5.59851 1.16667H0V0Z" fill="white"/><path d="M0 2.33333V3.5H3.28339L4.44095 2.33333H0Z" fill="white"/><path d="M2.12583 4.66667H0V5.83333H0.968277L2.12583 4.66667Z" fill="white"/></svg>
+										<div id="style-bar">
+											<div class="bar"></div>
+										</div>
+										<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.04169 0.289371C6.6996 0.463041 5.30023 1.81758 3.85581 3.25714L1.19867 5.82857C1.59958 5.82857 3.25581 6 3.25581 6L0 11.9966L5.99867 8.74286V10.8L8.76759 8.11836C11.7271 5.18105 12.0881 4.62704 11.9832 3.18091C11.9018 2.05782 11.4874 1.34079 10.4732 0.568591C9.65275 -0.0560182 7.98958 -0.191371 7.04169 0.289371Z" fill="white"/></svg>
+									</div>
+								</div>
 								<div class="row bars">
 									<div class="bar-wrapper" data-value="1" title="Damage - A champion's ability to deal damage.">
 										<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.41411 1.15384L1.15387 2.41702L3.3593 4.62761L1.9415 6.04869L3.20177 7.31187L4.61955 5.89079L4.89615 6.23743L6.39175 5.03808L5.87979 4.62761L7.29756 3.20653L6.03732 1.94334L4.61955 3.36442L2.41411 1.15384ZM12.4961 1.15384L10.2906 3.36442L8.87286 1.94334L7.61262 3.20653L9.03039 4.62761L1.15387 10.9435V13.7857H3.98941L10.2906 5.89079L11.7084 7.31187L12.9687 6.04869L11.5509 4.62761L13.7563 2.41702L12.4961 1.15384ZM10.2215 8.10909L8.30592 10.5093L10.9209 13.7857H13.7565V10.9435L10.2217 8.10909H10.2215Z" fill="white"/></svg>
 										<div class="bar"><div></div><div></div><div></div></div>
 									</div>									
-									<div class="bar-wrapper" data-value="2" title="Mobility - A champion's ability to move quickly around the map, blink or dash.">
+									<div class="bar-wrapper" data-value="1" title="Mobility - A champion's ability to move quickly around the map, blink or dash.">
 										<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M1.19885 1.18399V2.58749H5.87982C6.20737 1.98251 6.50535 1.43103 6.63949 1.18399H1.19885ZM8.17912 1.18399C8.17912 1.18399 4.73664 7.51833 4.43717 8.17219C4.12704 8.34459 3.87343 8.59767 3.69751 8.912L2.75791 10.5912L5.59311 12.1854L5.98972 11.4767C6.1858 11.6769 6.38339 11.9353 6.57706 12.1881C6.60088 12.2186 6.62734 12.2446 6.65671 12.2672C6.7271 12.3743 6.79114 12.4685 6.84274 12.53C7.22792 12.9885 8.46829 13.816 9.00264 13.816H13.8011V12.4828C13.8011 11.4212 12.9397 10.5582 11.8807 10.5582H11.585C10.6888 10.5582 9.39504 10.173 9.78271 9.21827L12.8185 3.79311L8.17912 1.18399ZM1.19885 3.99093V5.39442H4.36787C4.61344 4.93572 4.85514 4.48435 5.12103 3.99093H1.19885ZM1.19885 6.79787V8.20165H2.54523C2.75428 7.84645 3.04475 7.55286 3.36703 7.29836C3.44245 7.14691 3.52315 6.98751 3.62133 6.79787H1.19885Z" fill="white"/></svg>
 										<div class="bar"><div></div><div></div><div></div></div>
 									</div>									
-									<div class="bar-wrapper" data-value="3" title="Toughness - A champion's ability to survive being focused.">
+									<div class="bar-wrapper" data-value="1" title="Toughness - A champion's ability to survive being focused.">
 										<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.09906 1.15384V5.89079C2.09906 10.8534 7.50001 13.7857 7.50001 13.7857C7.50001 13.7857 12.901 10.8534 12.901 5.89079V1.15384C12.901 1.15384 10.4253 2.95829 9.30026 2.95829L7.50001 1.15384L5.69975 2.95829C4.57451 2.95829 2.09906 1.15384 2.09906 1.15384Z" fill="white"/></svg>
 										<div class="bar"><div></div><div></div><div></div></div>
 									</div>									
@@ -190,8 +213,7 @@
 									<div class="bar-wrapper" data-value="1" title="Utility - A champion's ability to grant beneficial effects to their allies or to provide vision.">
 										<svg width="15" height="15" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M2.99921 1.15384C2.99921 5.89079 6.5999 8.37218 6.5999 8.37218V11.9813C5.92478 11.9813 4.79933 12.8833 4.79933 12.8833V13.7857H10.2006V12.8833C10.2006 12.8833 9.07519 11.9813 8.40002 11.9813V8.37218C8.40002 8.37218 12.0007 5.89079 12.0007 1.15384H2.99921Z" fill="white"/></svg>
 										<div class="bar"><div></div><div></div><div></div></div>
-									</div>									
-
+									</div>
 									<p></p>
 								</div>
 								<!-- <div class="row"><p></p></div> -->
