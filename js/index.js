@@ -442,7 +442,7 @@ function updateChampCard(i) {
 	champCard.table.links["wiki"].attr("href", Champion.getUrlWikiAbilities(champs.items[i].name));
 	champCard.table.links["universe"].attr("href", Champion.getUrlUniverse(champs.items[i].id));
 	champCard.table.links["patchNotes"].attr("href", Champion.getUrlWikiPatchHistory(champs.items[i].name));
-	// champCard.table.links["spotlight"].attr("href", Champion.getUrlLeague(champs.items[i].name));
+	champCard.table.links["spotlight"].attr("href", Champion.getUrlChampionSpotlight(champs.items[i].spotlightVideoID));
 }
 
 /**

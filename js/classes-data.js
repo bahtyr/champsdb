@@ -37,11 +37,14 @@ class Champion {
 			case "region":
 			case "species":
 			case "releaseDate":
+			case "spotlightVideoID":
 				break;
 			default: console.error(`! ${attribute} does not match any champion attributes.`); return;
 		}
 
-		champion[attribute] = value;
+		if (champion[attribute] == null)
+			champion[attribute] = value;
+		// else console.log(value);
 	}
 
 	static getUrlWikiLore(champName) {
@@ -58,6 +61,10 @@ class Champion {
 
 	static getUrlUniverse(champId) {
 		return `https://universe.leagueoflegends.com/en_SG/champion/${champId}/`;
+	}
+
+	static getUrlChampionSpotlight(videoId) {
+		return `https://www.youtube.com/watch?v=${videoId}`;
 	}
 
 	static clipboardTextBuilder(mode, champName, abilityName, abilityNo) {
