@@ -305,6 +305,7 @@ p.sidebar-subheading svg {
 	color: #999485;
 	font-size: 16px;
 	font-family: Spiegel-Regular;
+	cursor: unset;
 }
 
 .item img {

@@ -134,6 +134,7 @@ function listenSearch() {
 		search.hideClearBtn();
 		filters.clearSelection();
 		champs.unhideAll();
+		updateSearchResultsCount(0);
 	});
 }
 
@@ -449,10 +450,10 @@ function updateChampCard(i) {
  * Copy ability name to clipboard on click.
  */
 function bindChampCardActions() {
-	$("#champcard .line:not(:nth-child(2)) .section:nth-child(1)").on("click", function() {
+	$("#champcard .col:nth-child(1) .row").on("click", function() {
 		let s = "";
-		s += champs.items[champs.i].abilities[$(this).parent().index() - 2].name;
-		switch ($(this).parent().index() - 2) {
+		s += champs.items[champs.i].abilities[$(this).index() - 1].name;
+		switch ($(this).index() - 1) {
 			case 0: s += " (P)"; break;
 			case 1: s += " (Q)"; break;
 			case 2: s += " (W)"; break;
