@@ -179,11 +179,9 @@ p.sidebar-heading {
 
 p.sidebar-subheading {
 	color: #DBD4BF;
-	/*color: #cdbd8f;*/
 	font-size: 14px;
-	/*font-weight: bold;*/
 	font-family: Spiegel-Regular;
-	letter-spacing: 0.12em;
+	letter-spacing: 0.07em;
 	padding: 4px 0;
 	margin-top: 8px;
 	cursor: pointer;
@@ -203,7 +201,7 @@ p.sidebar-subheading svg {
 
 #sidebar ul { margin-left: 16px; }
 /*#sidebar ul { margin-left: -2px; }*/
-#sidebar ul ul { margin-left: 20px; }
+#sidebar ul ul { margin-left: 20px; margin-bottom: 2px; }
 #sidebar ul.section {
 	max-height: 0;
 	overflow: hidden;
@@ -218,6 +216,7 @@ p.sidebar-subheading svg {
 	display: flex;
 	align-items: center;
 	overflow: visible;
+	padding-bottom: 1px;
 }
 
 #sidebar li span {
