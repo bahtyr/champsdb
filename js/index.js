@@ -4,9 +4,11 @@ let champsPrinter;
 let champCard = {
 	card: $("#champcard"),
 	name: $("#champcard__name"),
+	title: $("#champcard__title"),
 	index: 0,
 	show: function() { this.card.removeClass("hide");},
-	hide: function() { this.card.addClass("hide"); champsPrinter.elements[champs.ii+1].classList.remove("active"); }
+	hide: function() { this.card.addClass("hide"); champsPrinter.elements[champs.ii+1].classList.remove("active"); },
+	isOpen: function() { return !this.card.hasClass("hide"); }
 };
 
 let alert = {element: $("#sticky-top"),
@@ -17,7 +19,7 @@ let alert = {element: $("#sticky-top"),
 let filters = {clearSelection: function() {
 	$(".search-filters svg.active").removeClass("active");
 }}
-let search = {element: null, wrapper: null, clearBtn: null,
+let search = {element: null, wrapper: null, clearBtn: null, text: null,
 	showClearBtn: function() { this.clearBtn.removeClass("hide");    },
 	hideClearBtn: function() { this.clearBtn.addClass("hide"); },
 	triggerKeyUp: function() {
@@ -105,6 +107,7 @@ function listenSearch() {
 	search.element.keyup(function(e) {
 
 		let s = $(this).val().toLowerCase();
+		search.text = s;
 
 		if (s.length == 0 && prevLength != 0)
 			champCard.hide();
@@ -127,6 +130,8 @@ function listenSearch() {
 			searchText(s);
 
 		updateSearchResultsCount();
+
+		highlightSearchText();
 	});
 
 	search.clearBtn.on("click", function() {
@@ -134,6 +139,7 @@ function listenSearch() {
 		search.hideClearBtn();
 		filters.clearSelection();
 		champs.unhideAll();
+		champCard.hide();
 		updateSearchResultsCount(0);
 	});
 }
@@ -213,8 +219,7 @@ function searchTagById(id) {
 
 function searchText(str) {
 	for (let i = 0; i < champs.items.length; i++) {
-		if (champs.items[i].name.toLowerCase().includes(str) || 
-			champs.items[i].id.toLowerCase().includes(str)) {
+		if (Champion.getChampionAsSearchableText(champs.items[i]).toLowerCase().includes(str)) {
 			champs.show(i);
 		} else {
 			champs.hide(i);
@@ -282,29 +287,29 @@ function initChampCard() {
 				{key: $(".row:nth-child(6) .ability .key"), img: $(".row:nth-child(6) .ability img"), name: $(".row:nth-child(6) .ability .name")}],
 		col: [
 			{row: [
-				$(".col:nth-child(1) .row:nth-child(2)"),
-				$(".col:nth-child(1) .row:nth-child(3)"),
-				$(".col:nth-child(1) .row:nth-child(4)"),
-				$(".col:nth-child(1) .row:nth-child(5)"),
-				$(".col:nth-child(1) .row:nth-child(6)")]},
+				$(".col:nth-child(1) .row:nth-child(2) p.name"),
+				$(".col:nth-child(1) .row:nth-child(3) p.name"),
+				$(".col:nth-child(1) .row:nth-child(4) p.name"),
+				$(".col:nth-child(1) .row:nth-child(5) p.name"),
+				$(".col:nth-child(1) .row:nth-child(6) p.name")]},
 			{row: [
-				$(".col:nth-child(2) .row:nth-child(2)"),
-				$(".col:nth-child(2) .row:nth-child(3)"),
-				$(".col:nth-child(2) .row:nth-child(4)"),
-				$(".col:nth-child(2) .row:nth-child(5)"),
-				$(".col:nth-child(2) .row:nth-child(6)")]},
+				$(".col:nth-child(2) .row:nth-child(2) p"),
+				$(".col:nth-child(2) .row:nth-child(3) p"),
+				$(".col:nth-child(2) .row:nth-child(4) p"),
+				$(".col:nth-child(2) .row:nth-child(5) p"),
+				$(".col:nth-child(2) .row:nth-child(6) p")]},
 			{row: [
-				$(".col:nth-child(3) .row:nth-child(2)"),
-				$(".col:nth-child(3) .row:nth-child(3)"),
-				$(".col:nth-child(3) .row:nth-child(4)"),
-				$(".col:nth-child(3) .row:nth-child(5)"),
-				$(".col:nth-child(3) .row:nth-child(6)")]},
+				$(".col:nth-child(3) .row:nth-child(2) p"),
+				$(".col:nth-child(3) .row:nth-child(3) p"),
+				$(".col:nth-child(3) .row:nth-child(4) p"),
+				$(".col:nth-child(3) .row:nth-child(5) p"),
+				$(".col:nth-child(3) .row:nth-child(6) p")]},
 			{row: [
-				$(".col:nth-child(4) .row:nth-child(2)"),
-				$(".col:nth-child(4) .row:nth-child(3)"),
-				$(".col:nth-child(4) .row:nth-child(4)"),
-				$(".col:nth-child(4) .row:nth-child(5)"),
-				$(".col:nth-child(4) .row:nth-child(6)")]}],
+				$(".col:nth-child(4) .row:nth-child(2) p"),
+				$(".col:nth-child(4) .row:nth-child(3) p"),
+				$(".col:nth-child(4) .row:nth-child(4) p"),
+				$(".col:nth-child(4) .row:nth-child(5) p"),
+				$(".col:nth-child(4) .row:nth-child(6) p")]}],
 		icons: {
 			region: $("#champcard__region"),
 			lane: {
@@ -362,7 +367,7 @@ function updateChampCard(i) {
 
 	champCard.index = i;
 	champCard.name.text(champs.items[i].name);
-
+	champCard.title.text(champs.items[i].title);
 
 	// ABILITIES
 	champCard.table.ability[0].img.attr("src", champs.items[i].abilities[0].img);
@@ -378,12 +383,12 @@ function updateChampCard(i) {
 	champCard.table.ability[4].name.text(champs.items[i].abilities[4].name);
 
 	// TABLE TEXT
-	champCard.table.col[1].row[0].find("p").text(champs.items[i].lanes.replaceAll(" ", ", "));
-	champCard.table.col[1].row[1].find("p").text((champs.items[i].tags+"").replaceAll(",", ", "));
-	champCard.table.col[1].row[2].find("p").text(champs.items[i].rangeType + " (" + champs.items[i].attackRange + ")");
-	champCard.table.col[1].row[3].find("p").text(champs.items[i].resource);
-	champCard.table.col[1].row[4].find("p").text(champs.items[i].region + ", " + champs.items[i].species);
-	champCard.table.col[2].row[0].find("p").text(champs.items[i].releasePatch + " (" + champs.items[i].releaseDate + ")");
+	champCard.table.col[1].row[0].text(champs.items[i].lanes.replaceAll(" ", ", "));
+	champCard.table.col[1].row[1].text((champs.items[i].tags+"").replaceAll(",", ", "));
+	champCard.table.col[1].row[2].text(champs.items[i].rangeType + " (" + champs.items[i].attackRange + ")");
+	champCard.table.col[1].row[3].text(champs.items[i].resource);
+	champCard.table.col[1].row[4].text(champs.items[i].region + ", " + champs.items[i].species);
+	champCard.table.col[2].row[0].text(champs.items[i].releasePatch + " (" + champs.items[i].releaseDate + ")");
 
 	// RATINGS
 	champCard.table.ratings["damage"].attr("data-value", champs.items[i].ratings.damage);
@@ -444,6 +449,8 @@ function updateChampCard(i) {
 	champCard.table.links["universe"].attr("href", Champion.getUrlUniverse(champs.items[i].id));
 	champCard.table.links["patchNotes"].attr("href", Champion.getUrlWikiPatchHistory(champs.items[i].name));
 	champCard.table.links["spotlight"].attr("href", Champion.getUrlChampionSpotlight(champs.items[i].spotlightVideoID));
+
+	highlightSearchText();
 }
 
 /**
@@ -478,6 +485,33 @@ function showChampCardForFirstVisibleChamps() {
 		updateChampCard(champs.i);
 		champCard.show();
 	} else champCard.hide();
+}
+
+function highlightSearchText() {
+	if (!champCard.isOpen()) return;
+
+	highlightElement(champCard.title);
+
+	for (let c = 0; c < 3; c++) {
+		for (let r in champCard.table.col[c].row) {
+			highlightElement(champCard.table.col[c].row[r])
+		}
+	}
+}
+
+function highlightElement(element) {
+	let text = element.text().trim();
+	let text_ = text.toLowerCase();
+
+	if (text_.includes(search.text)) {
+		let a = text_.indexOf(search.text);
+		let b = a + search.text.length;
+		let span = text.substring(0, a) + "<span class='highlight'>" + text.substring(a, b) + "</span>" + text.substring(b, text.length);
+		element.html(span);
+	} else {
+		if (element.has("span"))
+			element.find("span").removeClass("highlight");
+	}
 }
 
 /* ---------------------------------------- QUALITY OF LIFE */

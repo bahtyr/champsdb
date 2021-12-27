@@ -423,8 +423,8 @@ p.sidebar-subheading svg {
 	padding-left: 20px;
 }
 
-#champcard__heading > a { margin-left: 10px; }
-#champcard__heading > a:nth-child(2) { margin-left: 20px; }
+#champcard__heading > a { margin-right: 10px; }
+/*#champcard__heading > a:nth-child(2) { margin-left: 20px; }*/
 
 #champcard__name {
 	font-family: Beaufort-Bold;
@@ -432,6 +432,17 @@ p.sidebar-subheading svg {
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	background: linear-gradient(180deg, #CDBE91 0, #8E7141);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#champcard__title {
+	margin: 2px 15px 0 6px;
+	font-family: Beaufort-Bold;
+	font-weight: bold;
+	font-size: 14px;
+	letter-spacing: 0.03em;
+	background: linear-gradient(180deg, #BEAA6F 0, #5F4B2B);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -654,6 +665,14 @@ p.sidebar-subheading svg {
 }
 
 /* ------------------------------------------------------------------------------------------------------------------------------------------ */
+
+/* ---------------------------------------------------------------------------------------- ETC */
+
+span.highlight {
+	background-color: #B88F4C;
+	color: #000;
+	-webkit-text-fill-color: #000;
+}
 
 /* ---------------------------------------------------------------------------------------- SEARCH */
 

@@ -98,6 +98,14 @@ class Champion {
 		else if (a_ < b_) return 1;
 		return Champion.sortByNameDesc(a, b);
 	}
+
+	static getChampionAsSearchableText(champion) {
+		return `${champion.name} ${champion.id} ${champion.title} ${champion.lanes} ${champion.rangeType}`
+			+ ` ${champion.region} ${champion.releaseDate} ${champion.releasePatch}`
+			+ ` ${champion.resource} ${champion.species} ${champion.lanes} ${champion.tags[0]} ${(champion.tags.length == 2 ? champion.tags[1] : "")}`
+			+ ` ${champion.abilities[0].name} ${champion.abilities[1].name} ${champion.abilities[2].name}`
+			+ ` ${champion.abilities[3].name} ${champion.abilities[4].name}`;
+	}
 }
 
 class Tags {
