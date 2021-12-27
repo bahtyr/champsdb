@@ -309,12 +309,8 @@ p.sidebar-subheading svg {
 
 .item img {
 	position: absolute;
-	/*top: -2px;*/
-	/*left: -2px;*/
 	height: 87px;
 	width: 87px;
-	/*margin: 0 auto;*/
-	/*border: 1px solid #5B5A56;*/
 	outline: 1px solid #5B5A56;
  	outline-offset: -3px;
  	opacity: 0;
@@ -355,8 +351,8 @@ p.sidebar-subheading svg {
 
 .item .image__wrapper svg {
 	position: absolute;
-	top: -3;
-	left: -3;
+	top: -1;
+	left: -1;
 	z-index: 1;
 	visibility: hidden;
 }
@@ -686,6 +682,7 @@ p.sidebar-subheading svg {
 
 .row.highlight {
 	background-color: #241901 !important;
+	border-bottom-color: #32260b !important;
 }
 .row.highlight .name {
 	color: #a78c60 !important;
