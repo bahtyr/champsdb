@@ -84,6 +84,7 @@ class ChampionListManager {
 		for (let i = 0; i < this.items.length; i++) {
 			this.items[i].hide = false;
 			this.printer.elements[i+1].classList.remove("hide");
+			this.printer.elements.eq(i+1).find(".key").text("");
 		}
 		
 		this.visibleItems = [];
@@ -116,6 +117,10 @@ class ChampionListManager {
 			if (indexList[i] != null)
 				this.hide(i);
 			else this.show(i);
+		}
+
+		for (let i = 0; i < this.items.length; i++) {
+			this.printer.elements.eq(i+1).find(".key").text("");
 		}
 	}
 }

@@ -19,7 +19,7 @@ let alert = {element: $("#sticky-top"),
 let filters = {clearSelection: function() {
 	$(".search-filters svg.active").removeClass("active");
 }}
-let search = {element: null, wrapper: null, clearBtn: null, text: null,
+let search = {element: null, wrapper: null, clearBtn: null, text: null, tagId: null,
 	showClearBtn: function() { this.clearBtn.removeClass("hide");    },
 	hideClearBtn: function() { this.clearBtn.addClass("hide"); },
 	triggerKeyUp: function() {
@@ -204,17 +204,22 @@ function searchTag(str) {
 }
 
 function searchTagById(id) {
+
 	for (let i = 0; i < tags.tags.length; i++) { //loop tags
 		if (id == tags.tags[i].id && tags.tags[i].champIndexes != null) {
 					
+			search.tagId = id;
 			filters.clearSelection();
 			sort.reset();
 			search.showClearBtn();
 			champs.hideAllExcept(tags.tags[i].champIndexes);
 			updateSearchResultsCount();
+			showAbilityKeysOnChamps();
 			return;
 		}
 	}
+
+	search.tagId = null;
 }
 
 function searchText(str) {
@@ -280,11 +285,11 @@ function searchChampionAttribute(attr, text) {
 function initChampCard() {
 	champCard.table = { 
 		ability: [
-				{key: $(".row:nth-child(2) .ability .key"), img: $(".row:nth-child(2) .ability img"), name: $(".row:nth-child(2) .ability .name")},
-				{key: $(".row:nth-child(3) .ability .key"), img: $(".row:nth-child(3) .ability img"), name: $(".row:nth-child(3) .ability .name")},
-				{key: $(".row:nth-child(4) .ability .key"), img: $(".row:nth-child(4) .ability img"), name: $(".row:nth-child(4) .ability .name")},
-				{key: $(".row:nth-child(5) .ability .key"), img: $(".row:nth-child(5) .ability img"), name: $(".row:nth-child(5) .ability .name")},
-				{key: $(".row:nth-child(6) .ability .key"), img: $(".row:nth-child(6) .ability img"), name: $(".row:nth-child(6) .ability .name")}],
+				{row:  $(".col:nth-child(1) .row:nth-child(2)"), key: $(".row:nth-child(2) .ability .key"), img: $(".row:nth-child(2) .ability img"), name: $(".row:nth-child(2) .ability .name")},
+				{row:  $(".col:nth-child(1) .row:nth-child(3)"), key: $(".row:nth-child(3) .ability .key"), img: $(".row:nth-child(3) .ability img"), name: $(".row:nth-child(3) .ability .name")},
+				{row:  $(".col:nth-child(1) .row:nth-child(4)"), key: $(".row:nth-child(4) .ability .key"), img: $(".row:nth-child(4) .ability img"), name: $(".row:nth-child(4) .ability .name")},
+				{row:  $(".col:nth-child(1) .row:nth-child(5)"), key: $(".row:nth-child(5) .ability .key"), img: $(".row:nth-child(5) .ability img"), name: $(".row:nth-child(5) .ability .name")},
+				{row:  $(".col:nth-child(1) .row:nth-child(6)"), key: $(".row:nth-child(6) .ability .key"), img: $(".row:nth-child(6) .ability img"), name: $(".row:nth-child(6) .ability .name")}],
 		col: [
 			{row: [
 				$(".col:nth-child(1) .row:nth-child(2) p.name"),
@@ -370,6 +375,12 @@ function updateChampCard(i) {
 	champCard.title.text(champs.items[i].title);
 
 	// ABILITIES
+	champCard.table.ability[0].row.removeClass("highlight");
+	champCard.table.ability[1].row.removeClass("highlight");
+	champCard.table.ability[2].row.removeClass("highlight");
+	champCard.table.ability[3].row.removeClass("highlight");
+	champCard.table.ability[4].row.removeClass("highlight");
+
 	champCard.table.ability[0].img.attr("src", champs.items[i].abilities[0].img);
 	champCard.table.ability[1].img.attr("src", champs.items[i].abilities[1].img);
 	champCard.table.ability[2].img.attr("src", champs.items[i].abilities[2].img);
@@ -451,6 +462,17 @@ function updateChampCard(i) {
 	champCard.table.links["spotlight"].attr("href", Champion.getUrlChampionSpotlight(champs.items[i].spotlightVideoID));
 
 	highlightSearchText();
+
+	// look if this champ has a tag matching currently searched tag
+	if (search.tagId != null) {
+		for (let a = 1; a < 6; a++) {
+			for (let t in tags.champs[champs.items[i].name].tagArrays[a]) {
+				if (search.tagId == tags.champs[champs.items[i].name].tagArrays[a][t]) {
+					champCard.table.ability[a-1].row.addClass("highlight");
+				}
+			}
+		}
+	}
 }
 
 /**
@@ -501,7 +523,8 @@ function highlightElement(element) {
 	let text = element.text().trim();
 	let text_ = text.toLowerCase();
 
-	if (text_.includes(search.text)) {
+	if (search.text != null && search.text.length > 0 && 
+		text_.includes(search.text)) {
 		let a = text_.indexOf(search.text);
 		let b = a + search.text.length;
 		let span = text.substring(0, a) + "<span class='highlight'>" + text.substring(a, b) + "</span>" + text.substring(b, text.length);
@@ -696,6 +719,26 @@ function updateSearchResultsCount(showAll) {
 	else text.text(champs.items.length);
 }
 
+function showAbilityKeysOnChamps() {
+	for (let champ in champs.visibleItems) {
+		for (let a = 1; a < 6; a++) {
+			for (let t in tags.champs[champs.items[champs.visibleItems[champ]].name].tagArrays[a]) {
+				if (search.tagId == tags.champs[champs.items[champs.visibleItems[champ]].name].tagArrays[a][t]) {
+					let s = champsPrinter.elements.eq(champs.visibleItems[champ]+1).find(".key").text()
+					switch (a - 1) {
+						case 0: s += "P "; break;
+						case 1: s += "Q "; break;
+						case 2: s += "W "; break;
+						case 3: s += "E "; break;
+						case 4: s += "R "; break;
+					}
+					champsPrinter.elements.eq(champs.visibleItems[champ]+1).find(".key").text(s);
+				}
+			}
+		}
+	}
+}
+
 /* ---------------------------------------- SIDEBAR */
 
 function initSidebar() {
@@ -806,4 +849,14 @@ function findMenuItemFromDOM(element) {
 	if (!isNestedList)
 		return tags.menu[listIndex].list[itemIndex];
 	else return tags.menu[listIndex].list[nestedListIndex][itemIndex];
+}
+
+/* ---------------------------------------- HELPER FUNCTIONS */
+
+function getCurrentChamp() {
+	console.log(champs.items[champCard.index]);
+}
+
+function getCurrentChampIndex() {
+	console.log(champCard.index);
 }
