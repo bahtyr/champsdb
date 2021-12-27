@@ -488,8 +488,6 @@ function showChampCardForFirstVisibleChamps() {
 }
 
 function highlightSearchText() {
-	if (!champCard.isOpen()) return;
-
 	highlightElement(champCard.title);
 
 	for (let c = 0; c < 3; c++) {
