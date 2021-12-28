@@ -59,6 +59,8 @@ $(function() {
 		Tags.combineChampsAndTags(tags, true);
 		initSidebarItems()
 		initSidebar();
+
+		listenSidebarMenu();
 	});
 
 	//search, filters, sort...
@@ -109,10 +111,9 @@ function listenSearch() {
 		let s = $(this).val().toLowerCase();
 		search.text = s;
 
-		if (s.length == 0 && prevLength != 0)
-			champCard.hide();
-		
 		if (s.length == 0) {
+			if (prevLength != 0)
+				champCard.hide();
 			updateSearchResultsCount(0);
 			champs.unhideAll();
 			search.hideClearBtn();
@@ -124,7 +125,7 @@ function listenSearch() {
 		search.showClearBtn();
 		champs.unhideAll();
 
-		if (!searchTag(s))
+		if (!searchTagByText(s))
 		if (!searchChampionAttribute("species", s))
 		if (!searchChampionAttribute("region", s))
 			searchText(s);
@@ -152,12 +153,12 @@ function listenFilters() {
 
 		if ($(this).hasClass("active")) {
 			$(this).removeClass("active");
+			search.element.val("");
+			search.hideClearBtn();
 			updateSearchResultsCount(0);
 			return;
 		}
 
-		search.element.val("");
-		search.hideClearBtn();
 		filters.clearSelection();
 		$(this).addClass("active");
 
@@ -166,6 +167,29 @@ function listenFilters() {
 			case "filter-role": searchLaneOrRole($(this)[0].id, 1); break;
 		}
 
+		search.element.val($(this)[0].id);
+		search.showClearBtn();
+		updateSearchResultsCount();
+	});
+}
+
+function listenSidebarMenu() {
+	$("#sidebar li span").on("click", function() {
+
+		champCard.hide();
+		champs.unhideAll();
+		filters.clearSelection();
+
+		let item = findMenuItemFromDOM(this);
+		switch (item.id) {
+			case -1: return;
+			case -2: searchChampionAttribute("region", item.text.toLowerCase()); break;
+			case -3: searchChampionAttribute("species", item.text.toLowerCase()); break;
+			default: searchTagById(item.id); break;
+		}
+
+		search.element.val(item.text);
+		search.showClearBtn();
 		updateSearchResultsCount();
 	});
 }
@@ -185,12 +209,29 @@ function listenSort() {
 }
 
 /* ---------------------------------------- SEARCH METHODS */
-
 /**
- * This method hides everything else when there is match, therefore no other search functions should run after this.
- * Returns; 1: if there is match, otherwise -1
+ * Search methods return TRUE when the method is successful. (This currently only matters when the user is searching by typing (@listenSearch()))
+ * The methods either;
+ *   - loop through champions and lookup their attributes, then use champ.show(i) / champ.hide(i) methods.
+ *   - loop through tags then use champs.hideAllExcept(arr) function
+ * These methods are only responsible for showing / hiding champions, things like showing the clear button, updating the results count and etc. 
+ * are handled by event handlers (see @listen() functions).
+ * * Only exception is sort.reset() which needs to be executed before champs.hideAllExcept(arr) method.
  */
-function searchTag(str) {
+
+function searchText(str) {
+	for (let i = 0; i < champs.items.length; i++) {
+		if (Champion.getChampionAsSearchableText(champs.items[i]).toLowerCase().includes(str)) {
+			champs.show(i);
+		} else {
+			champs.hide(i);
+		}
+	}
+
+	showChampCardForFirstVisibleChamp();
+}
+
+function searchTagByText(str) {
 	for (let i = 0; i < tags.tags.length; i++) { //loop tags
 		if (str == tags.tags[i].name.toLowerCase() //on match;
 			&& tags.tags[i].champIndexes != null) {
@@ -209,51 +250,36 @@ function searchTagById(id) {
 		if (id == tags.tags[i].id && tags.tags[i].champIndexes != null) {
 					
 			search.tagId = id;
-			filters.clearSelection();
 			sort.reset();
-			search.showClearBtn();
 			champs.hideAllExcept(tags.tags[i].champIndexes);
-			updateSearchResultsCount();
 			showAbilityKeysOnChamps();
-			return;
+			return true;
 		}
 	}
 
 	search.tagId = null;
-}
-
-function searchText(str) {
-	for (let i = 0; i < champs.items.length; i++) {
-		if (Champion.getChampionAsSearchableText(champs.items[i]).toLowerCase().includes(str)) {
-			champs.show(i);
-		} else {
-			champs.hide(i);
-		}
-	}
-
-	showChampCardForFirstVisibleChamps();
+	return false;
 }
 
 function searchLaneOrRole(str, type) {
+	let anyMatchFound = false;
 	let matchFound = false;
 
 	for (let i = 0; i < champs.items.length; i++, matchFound = false) {
 		
-		if (type == 0) { // lanes
+		if (type == 0)
 			matchFound = champs.items[i].lanes.includes(str);
-		} else { // roles
-			for (let t in champs.items[i].tags) {
-				if (champs.items[i].tags[t] == str) {
-					matchFound = true;
-				}
-			}
-		}
+		else matchFound = champs.items[i].tags.includes(str);
 
 		if (matchFound) {
 			anyMatchFound = true;
 			champs.show(i);
 		} else champs.hide(i);
 	}
+
+	if (anyMatchFound)
+		return true;
+	else return false;
 }
 
 function searchChampionAttribute(attr, text) {
@@ -264,20 +290,14 @@ function searchChampionAttribute(attr, text) {
 		
 		if (champs.items[i][attr].toLowerCase() == text) {
 			matchFound = true;
-		}
-
-		if (matchFound) {
 			anyMatchFound = true;
 			champs.show(i);
 		} else champs.hide(i);
 	}
 
-	if (anyMatchFound) {
-		filters.clearSelection();
-		sort.reset();
-		search.showClearBtn();
+	if (anyMatchFound)
 		return true;
-	} else return false;
+	else return false;
 }
 
 /* ---------------------------------------- CHAMPCARD */
@@ -498,7 +518,7 @@ function bindChampCardActions() {
 /*
  * To be used after a search method, shows champCard of the first champion.
  */
-function showChampCardForFirstVisibleChamps() {
+function showChampCardForFirstVisibleChamp() {
 	if (champs.visibleItems.length > 0) {
 		// to allow to go to next champ directly, because first right arrow is 0 element,
 		// since first champ's card will be open, we start i from 0
@@ -676,6 +696,7 @@ function listenPageScroll() {
 /* ---------------------------------------- CHAMPIONS LIST */
 
 function initChampionsListDOM() {
+	champs.reset();
 	champsPrinter.removaAllItems();
 	champsPrinter.addAll(champs.items.length, (holder, i) => {
 
@@ -755,21 +776,6 @@ function initSidebar() {
 	sidebarOverlay.on("click", function() {
 		sidebar.toggleClass("show");
 		sidebarOverlay.toggleClass("show");
-	});
-
-	// search attribute
-	$("#sidebar li span").on("click", function() {
-
-		champCard.hide();
-
-		let item = findMenuItemFromDOM(this);
-		switch (item.id) {
-			case -1: return;
-			case -2: searchChampionAttribute("region", item.text.toLowerCase()); break;
-			case -3: searchChampionAttribute("species", item.text.toLowerCase()); break;
-			default: searchTagById(item.id); break;
-		}
-		search.element.val($(this).text());
 	});
 
 	// https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapsible_animate
