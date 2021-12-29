@@ -296,6 +296,7 @@ p.sidebar-subheading svg {
 	align-items: center;
 	cursor: pointer;
 	position: relative;
+ 	transition: all .3s ease;
 }
 
 .item span.name {
@@ -357,13 +358,17 @@ p.sidebar-subheading svg {
 	visibility: hidden;
 }
 
-.item.active img {
-	filter: grayscale(100%);
-}
+/* active item */
+
+.item.active img { }
 
 .item.active .image__wrapper svg {
 	visibility: visible;
 }
+
+/* hide item */
+
+.item.hide { display: none; }
 
 .item.hidden {
 	visibility: hidden;
@@ -371,9 +376,7 @@ p.sidebar-subheading svg {
 	margin-bottom: 0;
 }
 
-.item.hide {
-	display: none;
-}
+/* item hover */
 
 .item:hover img {
 	outline: 1px solid #937341;
@@ -388,6 +391,13 @@ p.sidebar-subheading svg {
 	opacity: 0.07;
 	height: 100%;
 	width: 100%;
+}
+
+/* item spotlight */
+
+#champ-list.spotlight .item:not(.active) {
+	opacity: 0.7;
+	filter: grayscale(100%);
 }
 
 /* ---------------------------------------------------------------------------------------- CHAMPCARD */
@@ -414,6 +424,8 @@ p.sidebar-subheading svg {
 		margin-left: 0;
 		width: 100%;
 	}
+	
+	#champcard__heading,
 	#champcard__table {
 		min-width: 1100px;
 	}
@@ -431,16 +443,15 @@ p.sidebar-subheading svg {
 #champcard__heading {
 	display: flex;
 	align-items: center;
-	height: 46px;
+	padding: 12px 0;
 	padding-left: 20px;
 }
 
 #champcard__heading > a { margin-right: 10px; }
-/*#champcard__heading > a:nth-child(2) { margin-left: 20px; }*/
 
 #champcard__name {
 	font-family: Beaufort-Bold;
-	font-size: 18px;
+	font-size: 20px;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
 	background: linear-gradient(180deg, #CDBE91 0, #8E7141);
@@ -449,7 +460,7 @@ p.sidebar-subheading svg {
 }
 
 #champcard__title {
-	margin: 2px 15px 0 6px;
+	margin: 0px 19px 0 6px;
 	font-family: Beaufort-Bold;
 	font-weight: bold;
 	font-size: 14px;

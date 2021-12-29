@@ -6,8 +6,8 @@ let champCard = {
 	name: $("#champcard__name"),
 	title: $("#champcard__title"),
 	index: 0,
-	show: function() { this.card.removeClass("hide");},
-	hide: function() { this.card.addClass("hide"); champsPrinter.elements[champs.ii+1].classList.remove("active"); },
+	show: function() { this.card.removeClass("hide"); champsPrinter.parent.addClass("spotlight"); },
+	hide: function() { this.card.addClass("hide"); champsPrinter.parent.removeClass("spotlight"); champsPrinter.elements[champs.ii+1].classList.remove("active"); },
 	isOpen: function() { return !this.card.hasClass("hide"); }
 };
 
