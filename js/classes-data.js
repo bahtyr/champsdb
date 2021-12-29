@@ -171,4 +171,12 @@ class Tags {
 			}
 		}
 	}
+
+	static getTagById(tags, tagId) {
+		for (let i in tags.tags) {
+			if (tagId == tags.tags[i].id)
+				return tags.tags[i];
+		}
+		return -1;
+	}
 }

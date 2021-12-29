@@ -6,6 +6,7 @@ let champCard = {
 	name: $("#champcard__name"),
 	title: $("#champcard__title"),
 	index: 0,
+	activeAbility: 0,
 	show: function() { this.card.removeClass("hide"); champsPrinter.parent.addClass("spotlight"); },
 	hide: function() { this.card.addClass("hide"); champsPrinter.parent.removeClass("spotlight"); champsPrinter.elements[champs.ii+1].classList.remove("active"); },
 	isOpen: function() { return !this.card.hasClass("hide"); }
@@ -303,13 +304,19 @@ function searchChampionAttribute(attr, text) {
 /* ---------------------------------------- CHAMPCARD */
 
 function initChampCard() {
-	champCard.table = { 
+	champCard.table = {
+		activeAbility: {
+			indicator: $("#champcard__active-ability-indicator"),
+			description: $("#ability-desc"),
+			tags: $("#ability-tags"),
+			scaling: $("#ability-scalings")},
 		ability: [
 				{row:  $(".col:nth-child(1) .row:nth-child(2)"), key: $(".row:nth-child(2) .ability .key"), img: $(".row:nth-child(2) .ability img"), name: $(".row:nth-child(2) .ability .name")},
 				{row:  $(".col:nth-child(1) .row:nth-child(3)"), key: $(".row:nth-child(3) .ability .key"), img: $(".row:nth-child(3) .ability img"), name: $(".row:nth-child(3) .ability .name")},
 				{row:  $(".col:nth-child(1) .row:nth-child(4)"), key: $(".row:nth-child(4) .ability .key"), img: $(".row:nth-child(4) .ability img"), name: $(".row:nth-child(4) .ability .name")},
 				{row:  $(".col:nth-child(1) .row:nth-child(5)"), key: $(".row:nth-child(5) .ability .key"), img: $(".row:nth-child(5) .ability img"), name: $(".row:nth-child(5) .ability .name")},
 				{row:  $(".col:nth-child(1) .row:nth-child(6)"), key: $(".row:nth-child(6) .ability .key"), img: $(".row:nth-child(6) .ability img"), name: $(".row:nth-child(6) .ability .name")}],
+
 		col: [
 			{row: [
 				$(".col:nth-child(1) .row:nth-child(2) p.name"),
@@ -489,20 +496,30 @@ function updateChampCard(i) {
 			for (let t in tags.champs[champs.items[i].name].tagArrays[a]) {
 				if (search.tagId == tags.champs[champs.items[i].name].tagArrays[a][t]) {
 					champCard.table.ability[a-1].row.addClass("highlight");
+					champCard.activeAbility = a - 1;
 				}
 			}
 		}
-	}
+	} 
+
+	champCardShowAbilityDetails(champCard.index, champCard.activeAbility);
 }
 
 /**
  * Copy ability name to clipboard on click.
  */
 function bindChampCardActions() {
-	$("#champcard .col:nth-child(1) .row").on("click", function() {
+	//show ability
+	$("#champcard .ability-wrapper").on("click", function() {
+		champCard.activeAbility = $(this).index() - 1;
+		champCardShowAbilityDetails(champCard.index, champCard.activeAbility);
+	});
+	// copy
+	$("#champcard .ability-wrapper .action").on("click", function() {
+		let i = $(this).parent().index() - 1;
 		let s = "";
-		s += champs.items[champs.i].abilities[$(this).index() - 1].name;
-		switch ($(this).index() - 1) {
+		s += champs.items[champs.i].abilities[i].name;
+		switch (i) {
 			case 0: s += " (P)"; break;
 			case 1: s += " (Q)"; break;
 			case 2: s += " (W)"; break;
@@ -513,6 +530,17 @@ function bindChampCardActions() {
 		navigator.clipboard.writeText(s);
 		alert.show();
 	});
+}
+
+function champCardShowAbilityDetails(champIndex, abilityIndex) {
+	champCard.table.activeAbility.indicator.css("transform", `translateY(${36*abilityIndex + (abilityIndex*1)}px)`)
+	champCard.table.activeAbility.description.html(champs.items[champIndex].abilities[abilityIndex].description);
+	// let s = "";
+	// for (let t in tags.champs[champs.items[champIndex].name].tagArrays[abilityIndex+1])
+		// s += Tags.getTagById(tags, tags.champs[champs.items[champIndex].name].tagArrays[abilityIndex+1][t]).name + ",";
+	// if (s == "") s = "N/A";
+	// champCard.table.activeAbility.tags.text(s);
+	// champCard.table.activeAbility.scaling.text(champIndex + " " + abilityIndex);
 }
 
 /*
@@ -865,4 +893,10 @@ function getCurrentChamp() {
 
 function getCurrentChampIndex() {
 	console.log(champCard.index);
+}
+
+function splitAbilityToTwoLines(s) {
+	// if (s.length > 23)
+		// return s.replace(" / ", `\n`);
+	return s;
 }

@@ -470,6 +470,80 @@ p.sidebar-subheading svg {
 	-webkit-text-fill-color: transparent;
 }
 
+/* ---------------------------------------------------------------------------------------- CHAMPCARD FOOTER */
+
+#champcard__footer {
+	padding: 14 20px;
+	/*padding-bottom: 36px;*/
+	min-height: 130px;
+}
+
+#champcard__footer .header-row {
+	display: flex;
+	align-items: center;
+}
+
+#champcard__footer .heading {
+	font-family: Spiegel-Regular;
+  font-weight: bold;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.20em;
+  color: #BBA87B;
+	line-height: 1.1;
+}
+
+.heading-min-width {
+	min-width: 132px;
+}
+
+#champcard__footer .text-icon-wrapper:hover {
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 4px;
+
+}
+#champcard__footer .text-icon-wrapper:hover * {
+	stroke: #CDBF9D;
+	color: #DED5BF;
+}
+
+/* text & icon */
+
+.text-icon-wrapper {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	padding: 4px 8px;
+}
+
+.text-icon-wrapper p,
+.text-icon-wrapper span {
+	cursor: unset;
+	line-height: 1.1;
+}
+
+.text-icon-wrapper svg {
+	margin-right: 6px;
+	margin-left: 4px;
+}
+
+/* ---------------------------------------------- */
+
+#champcard__footer .text {
+	color: #919191;
+	font-family: monospace;
+	font-size: 12px;
+	margin-top: 6px;
+}
+
+#champcard__footer #ability-desc {
+	/*font-size: 14px;*/
+	margin-top: 2px;
+	/*margin-bottom: 22px;*/
+	line-height: 1.4;
+	padding-bottom: 10px;
+}
+
 /* ---------------------------------------------------------------------------------------- CHAMPCARD TABLE */
 
 #champcard__table {
@@ -481,6 +555,7 @@ p.sidebar-subheading svg {
 #champcard__table .col:first-child { flex: 1.2; }
 
 #champcard__table .row {
+	position: relative;
 	display: flex;
 	height: 37px;
 	align-items: center;
@@ -530,10 +605,15 @@ p.sidebar-subheading svg {
 
 /* ---------------------------------------- ABILITY */
 
+#champcard__table .ability-wrapper {
+	justify-content: space-between;
+	padding-right: 16px;
+}
+
 #champcard__table .ability {
 	display: flex;
 	align-items: center;
-	transition: all .3s ease-out;
+	transition: all .3s ease-out 0.1s;
 }
 
 #champcard__table .ability img {
@@ -556,9 +636,45 @@ p.sidebar-subheading svg {
 	-webkit-text-fill-color: transparent;
 }
 
+#champcard__table .ability .name {
+	white-space: pre-line;
+}
+
+
+/* LINE */
+
+#champcard__table .ability-wrapper .line {
+	position: absolute;
+	left: 1;
+	/*background-color: #BBA87B;*/
+	background-color: #8a7647;
+	height: 100%;
+	width: 4px;
+	transition: all 0.3s ease;
+	z-index: 1;
+}
+
 /* hover */
 
-#champcard__table .row:hover .ability { transform: translateX(10px); }
+#champcard__table .ability-wrapper:hover .ability { transform: translateX(10px); }
+#champcard__table .ability-wrapper .action { 
+	opacity: 0;
+	transition: none;
+	transition: all 0.5s ease 0.1s;
+	/*margin-right: 4px;*/
+	/*margin-left: 10px;*/
+	margin-right: 0;
+	padding: 4px;
+	box-sizing: content-box;
+}
+
+#champcard__table .action path {
+	stroke: #616161;
+}
+#champcard__table .ability-wrapper:hover .action { opacity: 1; }
+#champcard__table .ability-wrapper .action:hover path { stroke: #fff; }
+
+
 
 #champcard__table .ability > * { cursor: unset; }
 
@@ -692,8 +808,8 @@ p.sidebar-subheading svg {
 /* ---------------------------------------------------------------------------------------- ETC */
 
 .row.highlight {
-	background-color: #241901 !important;
-	border-bottom-color: #32260b !important;
+	background-color: #160f01 !important;
+  border-bottom-color: #261d08 !important;
 }
 .row.highlight .name {
 	color: #a78c60 !important;
@@ -807,3 +923,23 @@ span.highlight {
 	color: #7e7e7e;
 	pointer-events: none;
 }
+
+/* ---------------------------------------------------------------------------------------- RIOT */
+/* ability description elements */
+active           { font-weight: bold; color: #F7AC18; }  /* Tahm Kench */
+passive          { font-weight: bold; color: #F8EDD8; }  /* Tahm Kench */
+physicalDamage   { font-weight: bold; color: #D95D21; }  /* Aatrox P */
+magicDamage      { font-weight: bold; color: #0ADAF6; }  /* Corki*/
+spellActive      { font-weight: bold; color: #F8EDD8; }  /* Rell */
+spellName        { font-weight: bold; color: #0BFEE4; }  /* Tahm Kench - Acquired Taste */
+spellPassive     { font-weight: bold; color: #F8EDD8; }  /* Rell */
+scaleArmor       { font-weight: bold; color: #FDC35B; }  /* Rell */
+scaleMR          { font-weight: bold; color: #53E9FF; }  /* Rell */
+keywordName      { font-weight: bold; color: #E8E87C; }  /* Velkoz Organic Deconstruction*/
+keywordMajor     { font-weight: bold; color: #CBCC6F; }  /* Amumu Curse*/
+mainText         { font-weight: bold; color: unset;   }  /* Ryze's spells deal extra damage...*/
+OnHit            { font-weight: bold; color: #F3E9D5; }  /* Viego */
+speed            { font-weight: bold; color: #F3E9D5; }  /* Vayne */
+/*status           { font-weight: bold; color: #9367A9; }*/  /*Rell Stun */
+status           { font-weight: bold; color: #6655CC; }  /*  official */
+factionIonia1    { font-weight: bold; color: #F2E8D4; }  /* Yasuo R Airborne */

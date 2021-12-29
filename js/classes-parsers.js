@@ -97,16 +97,32 @@ class RiotApi {
 			success: function(data, textStatus) {
 				let d = data.data[THIS.champions[i].id];
 				THIS.champions[i].abilities = [];
-				THIS.champions[i].abilities.push({name: d.passive.name, img: THIS.URL_IMG_PASSIVE + d.passive.image.full});
+				// THIS.champions[i].abilities.push({name: d.passive.name, img: THIS.URL_IMG_PASSIVE + d.passive.image.full});
+				THIS.champions[i].abilities.push({description: d.passive.description});
 				
 				for (let s in d.spells) {
-					THIS.champions[i].abilities.push({name: d.spells[s].name, img: THIS.URL_IMG_SPELL + d.spells[s].image.full});
+					// THIS.champions[i].abilities.push({name: d.spells[s].name, img: THIS.URL_IMG_SPELL + d.spells[s].image.full});
+					THIS.champions[i].abilities.push({description: d.spells[s].description});
 				}
 
 				if (i < THIS.champions.length - 1) {
 					i++;
 					THIS.loadChampAbilities(i);
 				} else {
+					THIS.champions.sort(Champion.sortByName);
+					console.log(THIS.champions);
+					for (let i in champions) {
+						if (champions[i].id == THIS.champions[i].id) {
+							champions[i].abilities[0].description = THIS.champions[i].abilities[0].description;
+							champions[i].abilities[1].description = THIS.champions[i].abilities[1].description;
+							champions[i].abilities[2].description = THIS.champions[i].abilities[2].description;
+							champions[i].abilities[3].description = THIS.champions[i].abilities[3].description;
+							champions[i].abilities[4].description = THIS.champions[i].abilities[4].description;
+						} else {
+							console.erro(champions[i].id);
+						}
+					}
+					console.log(champions);
 					textarea.val(`Loaded abilities for ${i+1} champions.`);
 				}
 			},
