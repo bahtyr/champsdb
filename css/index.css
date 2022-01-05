@@ -284,6 +284,7 @@ p.sidebar-subheading svg {
 	display: flex;
 	flex-flow: row wrap;
 	padding-top: 15px;
+	padding-bottom: 250px;
 	width: 100%;
 }
 

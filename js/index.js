@@ -7,9 +7,26 @@ let champCard = {
 	title: $("#champcard__title"),
 	index: 0,
 	activeAbility: 0,
-	show: function() { this.card.removeClass("hide"); champsPrinter.parent.addClass("spotlight"); },
-	hide: function() { this.card.addClass("hide"); champsPrinter.parent.removeClass("spotlight"); champsPrinter.elements[champs.ii+1].classList.remove("active"); },
-	isOpen: function() { return !this.card.hasClass("hide"); }
+	show: function(elementPosY) { 
+		this.card.removeClass("hide"); 
+		champsPrinter.parent.addClass("spotlight");
+
+		if (elementPosY == null) return;
+		if (elementPosY = -11) // is called by arrow keys
+			elementPosY = champsPrinter.elements[champs.i+1].getBoundingClientRect().bottom;
+
+		champCard.preventHide = true;
+		scrollForOverflowingChamp(elementPosY);
+		setTimeout(() => champCard.preventHide = false, 500);
+	},
+	hide: function() {
+		this.card.addClass("hide");
+		champsPrinter.parent.removeClass("spotlight");
+		champsPrinter.elements[champs.ii+1].classList.remove("active");
+	},
+	isOpen: function() { return !this.card.hasClass("hide"); },
+	nextAbility: function() { if (this.activeAbility +1 < +5) this.activeAbility++; return this.activeAbility; },
+	prevAbility: function() { if (this.activeAbility -1 > -1) this.activeAbility--; return this.activeAbility;; }
 };
 
 let alert = {element: $("#sticky-top"),
@@ -79,30 +96,6 @@ $(function() {
 
 $(window).on("resize", () => addPaddingsIfChampItemIsLarge());
 
-function setCardWith() {
-	const list = $("#champ-list__wrapper");
-	const card = $("#champcard");
-	card.css("width", (list[0].clientWidth + 21) + "px");
-}
-
-function addPaddingsIfChampItemIsLarge() {
-	const item = $(".item:not(.js-template)")[0];
-	const list = $("#champ-list");
-
-	if (document.body.clientWidth < 768) {
-		if (item.clientWidth > 120) {
-			list.css("padding-right", "8px");
-			list.css("padding-left", "8px");
-		} else {
-			list.css("padding-right", "");
-			list.css("padding-left", "");
-		}
-	} else {
-		list.css("padding-right", "");
-		list.css("padding-left", "");
-	}
-}
-
 /* ---------------------------------------- SEARCH LISTENERS */
 
 function listenSearch() {
@@ -121,6 +114,7 @@ function listenSearch() {
 			return;
 		}
 
+		window.scrollTo({top: 0});
 		prevLength = s.length;
 		filters.clearSelection();
 		search.showClearBtn();
@@ -149,6 +143,7 @@ function listenSearch() {
 function listenFilters() {
 	$(".search-filters svg").on("click", function(e) {
 		
+		window.scrollTo({top: 0});
 		champCard.hide();
 		champs.unhideAll();
 
@@ -177,6 +172,7 @@ function listenFilters() {
 function listenSidebarMenu() {
 	$("#sidebar li span").on("click", function() {
 
+		window.scrollTo({top: 0});
 		champCard.hide();
 		champs.unhideAll();
 		filters.clearSelection();
@@ -533,6 +529,7 @@ function bindChampCardActions() {
 }
 
 function champCardShowAbilityDetails(champIndex, abilityIndex) {
+	if (abilityIndex > 6) return;
 	champCard.table.activeAbility.indicator.css("transform", `translateY(${36*abilityIndex + (abilityIndex*1)}px)`)
 	champCard.table.activeAbility.description.html(champs.items[champIndex].abilities[abilityIndex].description);
 	// let s = "";
@@ -632,14 +629,14 @@ function listenKeys() {
 			if (e.which == 37) {
 				if (!searchState.hasFocus) {
 					updateChampCard(champs.prevVisibleItem());
-					champCard.show();
+					champCard.show(-11);
 				}
 			}
 			// RIGHT
 			else if (e.which == 39) {
 				if (!searchState.hasFocus) {
 					updateChampCard(champs.nextVisibleItem());
-					champCard.show();
+					champCard.show(-11);
 				} else {
 					if (search.element[0].value.length == search.element[0].selectionEnd) {
 						search.element.blur();
@@ -648,19 +645,27 @@ function listenKeys() {
 					}
 				}
 			}
+			// UP
+			else if (e.which == 38) {
+				e.preventDefault();
+				champCardShowAbilityDetails(champCard.index, champCard.prevAbility());
+			}
 			// DOWN
 			else if (e.which == 40) {
-				if (!searchState.hasFocus) {
-					if (!champCard.card.hasClass("hide"))
-						e.preventDefault();
-					champCard.hide();
-				} else {
-					if (search.element[0].value.length == search.element[0].selectionEnd) {
-						e.preventDefault();
-						search.element.blur();
-						champCard.hide();
-					}
-				}
+				e.preventDefault();
+				champCardShowAbilityDetails(champCard.index, champCard.nextAbility());
+				// hide champCard 
+				// if (!searchState.hasFocus) {
+				// 	if (!champCard.card.hasClass("hide"))
+				// 		e.preventDefault();
+				// 	champCard.hide();
+				// } else {
+				// 	if (search.element[0].value.length == search.element[0].selectionEnd) {
+				// 		e.preventDefault();
+				// 		search.element.blur();
+				// 		champCard.hide();
+				// 	}
+				// }
 			}
 		}
 	});
@@ -674,6 +679,7 @@ function listenEmptyClicks() {
 	$("body").on("click", function(e) {
 		if ((e.target.id == "champ-list__wrapper" || e.target.id == "champ-list" || 
 			e.target.id == "header__main" || e.target.id == "footer" ||
+			e.target.classList.value == "sides-inner left" || 
 			e.target.classList.value == "sides-inner right" || e.target.classList.value == "sides-outer right") &&
 			!searchState.hasFocus) {
 			champCard.hide();
@@ -707,7 +713,7 @@ function listenPageScroll() {
 	    window.requestAnimationFrame(function() {
 	      if (window.scrollY > 1) {
 	      	if (champList.outerHeight() > champListWrapper.outerHeight() - cardHeight && //if list height is bigger than visible area
-	      		window.scrollY > lastKnownScrollPosition) { //only on scroll down
+	      		window.scrollY > lastKnownScrollPosition && !champCard.preventHide) { //only on scroll down
 	      		champCard.hide();
 	      	}
 	      }
@@ -745,7 +751,7 @@ function initChampionsListDOM() {
  */
 function bindChampsClickListener() {
 	$(champsPrinter.itemSelector).off("click");
-	$(champsPrinter.itemSelector).on("click", function() {
+	$(champsPrinter.itemSelector).on("click", function(e) {
 
 		champs.i = $(this).index() - 1;
 		champs.findIndexInVisibleItems(champs.i);
@@ -756,7 +762,7 @@ function bindChampsClickListener() {
 			champsPrinter.elements[champs.i+1].classList.remove("active");
 		} else {
 			updateChampCard(champs.i);
-			champCard.show();
+			champCard.show(this.getBoundingClientRect().bottom);
 		}
 	});
 }
@@ -883,6 +889,40 @@ function findMenuItemFromDOM(element) {
 	if (!isNestedList)
 		return tags.menu[listIndex].list[itemIndex];
 	else return tags.menu[listIndex].list[nestedListIndex][itemIndex];
+}
+
+/* ---------------------------------------- WINDOW FUNCTIONS */
+
+function setCardWith() {
+	const list = $("#champ-list__wrapper");
+	const card = $("#champcard");
+	card.css("width", (list[0].clientWidth + 21) + "px");
+}
+
+function addPaddingsIfChampItemIsLarge() {
+	const item = $(".item:not(.js-template)")[0];
+	const list = $("#champ-list");
+
+	if (document.body.clientWidth < 768) {
+		if (item.clientWidth > 120) {
+			list.css("padding-right", "8px");
+			list.css("padding-left", "8px");
+		} else {
+			list.css("padding-right", "");
+			list.css("padding-left", "");
+		}
+	} else {
+		list.css("padding-right", "");
+		list.css("padding-left", "");
+	}
+}
+
+function scrollForOverflowingChamp(y) {
+	if (y > window.innerHeight - 350) {
+		window.scrollTo(0, window.scrollY + y - (window.innerHeight - 400));
+	} else if (y < 100) {
+		window.scrollTo(0, window.scrollY - (120 - y));
+	}
 }
 
 /* ---------------------------------------- HELPER FUNCTIONS */
