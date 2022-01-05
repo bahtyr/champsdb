@@ -526,6 +526,10 @@ function bindChampCardActions() {
 		navigator.clipboard.writeText(s);
 		alert.show();
 	});
+
+	$("#video-btn").on("click", function() {
+		window.open(champs.items[champs.visibleItems[champs.v]].abilities[champCard.activeAbility].video, '_blank').focus();
+	})
 }
 
 function champCardShowAbilityDetails(champIndex, abilityIndex) {

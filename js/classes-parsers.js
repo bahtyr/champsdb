@@ -335,42 +335,6 @@ class WikiApi {
 	}
 }
 
-let arr = [];
-
-function loadURLforAllChamps() {
-	arr = [];
-	console.warn("Loading URL for every champ.");
-	laodURLforChamp(1);
-}
-
-function laodURLforChamp(i) {
-	console.warn(i);
-	$.ajax({type: "GET", url: `https://gol.gg/champion/champion-stats/${i}/season-S11/split-ALL/tournament-ALL/`,
-			success: function(data, textStatus) {
-				let html = $(data);
-				let s = html.find("#DmgChart").parent().prev()[0].innerHTML.split(/\r?\n/);
-
-				let obj = {
-					champion: html.find("h1").text().trim(),
-					physical: parseFloat(s[15].replace(/[^0-9.]/g, '')),
-					magic: parseFloat(s[28].replace(/[^0-9.]/g, '')),
-					true: parseFloat(s[41].replace(/[^0-9.]/g, ''))
-				};
-
-				arr.push(obj);
-
-				if (i < champions.length) {
-					i++;
-					laodURLforChamp(i);
-				} else {
-					console.warn("Done");
-					console.log(THIS.arr);
-				}
-			},
-			error: (textStatus, errorThrown) => console.error(errorThrown)
-		});
-}
-
 /*
  * to be used manually..
  */
@@ -387,4 +351,259 @@ function printPatchDates() {
 	}
 
 	console.log(JSON.stringify(data));
+}
+
+/**
+ * Load a URL for every champion method.
+ */
+
+let arr = [];
+let loadURL = "";
+let loadURLlist = [];
+let loadURLonLoad = function () {};
+let loadURLonComplete = function () {};
+
+function loadURLforAllChamps(idType, url, fn) {
+	arr = [];
+	loadURL = url;
+	loadURLonLoad = fn || loadURLonLoad;
+	console.warn("Loading URL for every champ.");
+	laodURLforChamp(idType, 0);
+}
+
+function laodURLforChamp(idType, i) {
+	console.warn(i);
+	let id;
+	switch (idType) {
+		case "int": id = i; break;
+		case "name": id = champions[i].name; break;
+		case "id": id = champions[i].id; break;
+		case "url": id = loadURLlist[i]; break;
+	}
+	$.ajax({type: "GET", url: loadURL.replace("${id}", id),
+			success: function(data, textStatus) {
+				
+				loadURLonLoad(data, id);
+
+				if (i+1 < champions.length) {
+					i++;
+					laodURLforChamp(idType, i);
+					// console.warn("Done");
+					// console.log(arr);
+				} else {
+					console.warn("Done");
+					console.log(arr);
+					loadURLonComplete();
+				}
+			},
+			error: (textStatus, errorThrown) => console.error(errorThrown)
+		});
+}
+
+/**
+ * Iterations.
+ */
+
+function loadDamageBreakdown() {
+	loadURLforAllChamps("name", "https://gol.gg/champion/champion-stats/${id}/season-S11/split-ALL/tournament-ALL/", function(data) {
+		let html = $(data);
+		let s = html.find("#DmgChart").parent().prev()[0].innerHTML.split(/\r?\n/);
+
+		let obj = {
+			champion: html.find("h1").text().trim(),
+			physical: parseFloat(s[15].replace(/[^0-9.]/g, '')),
+			magic: parseFloat(s[28].replace(/[^0-9.]/g, '')),
+			true: parseFloat(s[41].replace(/[^0-9.]/g, ''))
+		};
+
+		arr.push(obj);
+	});
+}
+
+loadAbilityVideos();
+function loadAbilityVideos() {
+	loadURLlist = [
+		"/champion/266/Aatrox",
+		"/champion/103/Ahri",
+		"/champion/84/Akali",
+		"/champion/166/Akshan",
+		"/champion/12/Alistar",
+		"/champion/32/Amumu",
+		"/champion/34/Anivia",
+		"/champion/1/Annie",
+		"/champion/523/Aphelios",
+		"/champion/22/Ashe",
+		"/champion/136/Aurelion-Sol",
+		"/champion/268/Azir",
+		"/champion/432/Bard",
+		"/champion/53/Blitzcrank",
+		"/champion/63/Brand",
+		"/champion/201/Braum",
+		"/champion/51/Caitlyn",
+		"/champion/164/Camille",
+		"/champion/69/Cassiopeia",
+		"/champion/31/Cho'Gath",
+		"/champion/42/Corki",
+		"/champion/122/Darius",
+		"/champion/131/Diana",
+		"/champion/36/Dr.-Mundo",
+		"/champion/119/Draven",
+		"/champion/245/Ekko",
+		"/champion/60/Elise",
+		"/champion/28/Evelynn",
+		"/champion/81/Ezreal",
+		"/champion/9/Fiddlesticks",
+		"/champion/114/Fiora",
+		"/champion/105/Fizz",
+		"/champion/3/Galio",
+		"/champion/41/Gangplank",
+		"/champion/86/Garen",
+		"/champion/150/Gnar",
+		"/champion/79/Gragas",
+		"/champion/104/Graves",
+		"/champion/887/Gwen",
+		"/champion/120/Hecarim",
+		"/champion/74/Heimerdinger",
+		"/champion/420/Illaoi",
+		"/champion/39/Irelia",
+		"/champion/427/Ivern",
+		"/champion/40/Janna",
+		"/champion/59/Jarvan-IV",
+		"/champion/24/Jax",
+		"/champion/126/Jayce",
+		"/champion/202/Jhin",
+		"/champion/222/Jinx",
+		"/champion/145/Kai'Sa",
+		"/champion/429/Kalista",
+		"/champion/43/Karma",
+		"/champion/30/Karthus",
+		"/champion/38/Kassadin",
+		"/champion/55/Katarina",
+		"/champion/10/Kayle",
+		"/champion/141/Kayn",
+		"/champion/85/Kennen",
+		"/champion/121/Kha'Zix",
+		"/champion/203/Kindred",
+		"/champion/240/Kled",
+		"/champion/96/Kog'Maw",
+		"/champion/7/LeBlanc",
+		"/champion/64/Lee-Sin",
+		"/champion/89/Leona",
+		"/champion/876/Lillia",
+		"/champion/127/Lissandra",
+		"/champion/236/Lucian",
+		"/champion/117/Lulu",
+		"/champion/99/Lux",
+		"/champion/54/Malphite",
+		"/champion/90/Malzahar",
+		"/champion/57/Maokai",
+		"/champion/11/Master-Yi",
+		"/champion/21/Miss-Fortune",
+		"/champion/82/Mordekaiser",
+		"/champion/25/Morgana",
+		"/champion/267/Nami",
+		"/champion/75/Nasus",
+		"/champion/111/Nautilus",
+		"/champion/518/Neeko",
+		"/champion/76/Nidalee",
+		"/champion/56/Nocturne",
+		"/champion/20/Nunu-Willump",
+		"/champion/2/Olaf",
+		"/champion/61/Orianna",
+		"/champion/516/Ornn",
+		"/champion/80/Pantheon",
+		"/champion/78/Poppy",
+		"/champion/555/Pyke",
+		"/champion/246/Qiyana",
+		"/champion/133/Quinn",
+		"/champion/497/Rakan",
+		"/champion/33/Rammus",
+		"/champion/421/Rek'Sai",
+		"/champion/526/Rell",
+		"/champion/58/Renekton",
+		"/champion/107/Rengar",
+		"/champion/92/Riven",
+		"/champion/68/Rumble",
+		"/champion/13/Ryze",
+		"/champion/360/Samira",
+		"/champion/113/Sejuani",
+		"/champion/235/Senna",
+		"/champion/147/Seraphine",
+		"/champion/875/Sett",
+		"/champion/35/Shaco",
+		"/champion/98/Shen",
+		"/champion/102/Shyvana",
+		"/champion/27/Singed",
+		"/champion/14/Sion",
+		"/champion/15/Sivir",
+		"/champion/72/Skarner",
+		"/champion/37/Sona",
+		"/champion/16/Soraka",
+		"/champion/50/Swain",
+		"/champion/517/Sylas",
+		"/champion/134/Syndra",
+		"/champion/223/Tahm-Kench",
+		"/champion/163/Taliyah",
+		"/champion/91/Talon",
+		"/champion/44/Taric",
+		"/champion/17/Teemo",
+		"/champion/412/Thresh",
+		"/champion/18/Tristana",
+		"/champion/48/Trundle",
+		"/champion/23/Tryndamere",
+		"/champion/4/Twisted-Fate",
+		"/champion/29/Twitch",
+		"/champion/77/Udyr",
+		"/champion/6/Urgot",
+		"/champion/110/Varus",
+		"/champion/67/Vayne",
+		"/champion/45/Veigar",
+		"/champion/161/Vel'Koz",
+		"/champion/711/Vex",
+		"/champion/254/Vi",
+		"/champion/234/Viego",
+		"/champion/112/Viktor",
+		"/champion/8/Vladimir",
+		"/champion/106/Volibear",
+		"/champion/19/Warwick",
+		"/champion/62/Wukong",
+		"/champion/498/Xayah",
+		"/champion/101/Xerath",
+		"/champion/5/Xin-Zhao",
+		"/champion/157/Yasuo",
+		"/champion/777/Yone",
+		"/champion/83/Yorick",
+		"/champion/350/Yuumi",
+		"/champion/154/Zac",
+		"/champion/238/Zed",
+		"/champion/115/Ziggs",
+		"/champion/26/Zilean",
+		"/champion/142/Zoe",
+		"/champion/143/Zyra"
+	];
+	loadURLforAllChamps("url", "https://www.lolrift.com/${id}"); 
+
+	loadURLonLoad = function(data, id) {
+		let html = $(data);
+		let videos = [];
+		html.find("video").each(function() {
+			videos.push($(this).find("source").attr("src"));
+		})
+
+		arr.push({champ: id.substr(id.lastIndexOf("/")+1), videos: videos});
+	};
+
+	loadURLonComplete = function() {
+		for (let i = 0; i < champions.length; i++) {
+			if (arr[i].champ != champions[i].name)
+				console.warn(`${arr[i].champ} != ${champions[i].name}`);
+			champions[i].abilities[0].video = arr[i].videos[0];
+			champions[i].abilities[1].video = arr[i].videos[1];
+			champions[i].abilities[2].video = arr[i].videos[2];
+			champions[i].abilities[3].video = arr[i].videos[3];
+			champions[i].abilities[4].video = arr[i].videos[4];
+		}
+
+		console.log(champions[0]);
+	};
 }
