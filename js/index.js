@@ -305,14 +305,14 @@ function initChampCard() {
 			indicator: $("#champcard__active-ability-indicator"),
 			description: $("#ability-desc"),
 			tags: $("#ability-tags"),
-			scaling: $("#ability-scalings")},
+			scaling: $("#ability-scalings"),
+			video: $("video")},
 		ability: [
 				{row:  $(".col:nth-child(1) .row:nth-child(2)"), key: $(".row:nth-child(2) .ability .key"), img: $(".row:nth-child(2) .ability img"), name: $(".row:nth-child(2) .ability .name")},
 				{row:  $(".col:nth-child(1) .row:nth-child(3)"), key: $(".row:nth-child(3) .ability .key"), img: $(".row:nth-child(3) .ability img"), name: $(".row:nth-child(3) .ability .name")},
 				{row:  $(".col:nth-child(1) .row:nth-child(4)"), key: $(".row:nth-child(4) .ability .key"), img: $(".row:nth-child(4) .ability img"), name: $(".row:nth-child(4) .ability .name")},
 				{row:  $(".col:nth-child(1) .row:nth-child(5)"), key: $(".row:nth-child(5) .ability .key"), img: $(".row:nth-child(5) .ability img"), name: $(".row:nth-child(5) .ability .name")},
 				{row:  $(".col:nth-child(1) .row:nth-child(6)"), key: $(".row:nth-child(6) .ability .key"), img: $(".row:nth-child(6) .ability img"), name: $(".row:nth-child(6) .ability .name")}],
-
 		col: [
 			{row: [
 				$(".col:nth-child(1) .row:nth-child(2) p.name"),
@@ -526,16 +526,13 @@ function bindChampCardActions() {
 		navigator.clipboard.writeText(s);
 		alert.show();
 	});
-
-	$("#video-btn").on("click", function() {
-		window.open(champs.items[champs.visibleItems[champs.v]].abilities[champCard.activeAbility].video, '_blank').focus();
-	})
 }
 
 function champCardShowAbilityDetails(champIndex, abilityIndex) {
 	if (abilityIndex > 6) return;
 	champCard.table.activeAbility.indicator.css("transform", `translateY(${36*abilityIndex + (abilityIndex*1)}px)`)
 	champCard.table.activeAbility.description.html(champs.items[champIndex].abilities[abilityIndex].description);
+	champCard.table.activeAbility.video.attr("src", champs.items[champIndex].abilities[abilityIndex].video);
 	// let s = "";
 	// for (let t in tags.champs[champs.items[champIndex].name].tagArrays[abilityIndex+1])
 		// s += Tags.getTagById(tags, tags.champs[champs.items[champIndex].name].tagArrays[abilityIndex+1][t]).name + ",";
