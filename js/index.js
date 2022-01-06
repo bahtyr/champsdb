@@ -125,6 +125,7 @@ function listenSearch() {
 		if (!searchChampionAttribute("region", s))
 			searchText(s);
 
+		showChampCardForFirstVisibleChamp();
 		updateSearchResultsCount();
 
 		highlightSearchText();
@@ -224,8 +225,6 @@ function searchText(str) {
 			champs.hide(i);
 		}
 	}
-
-	showChampCardForFirstVisibleChamp();
 }
 
 function searchTagByText(str) {
@@ -233,8 +232,10 @@ function searchTagByText(str) {
 		if (str == tags.tags[i].name.toLowerCase() //on match;
 			&& tags.tags[i].champIndexes != null) {
 
+			search.tagId = tags.tags[i].id;
 			sort.reset();
 			champs.hideAllExcept(tags.tags[i].champIndexes);
+			showAbilityKeysOnChamps();
 			return true;
 		}
 	}
@@ -242,7 +243,6 @@ function searchTagByText(str) {
 }
 
 function searchTagById(id) {
-
 	for (let i = 0; i < tags.tags.length; i++) { //loop tags
 		if (id == tags.tags[i].id && tags.tags[i].champIndexes != null) {
 					

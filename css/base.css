@@ -129,6 +129,7 @@ select {
 	position: absolute;
 	pointer-events: none;
 	height: calc(100% - 2px);
+	padding: 6px;
 }
 
 .input-wrapper .svg-wrapper.left  { left: 0px;  padding-left: 12px;  }

@@ -420,7 +420,6 @@ function loadDamageBreakdown() {
 	});
 }
 
-loadAbilityVideos();
 function loadAbilityVideos() {
 	loadURLlist = [
 		"/champion/266/Aatrox",
@@ -606,4 +605,20 @@ function loadAbilityVideos() {
 
 		console.log(champions[0]);
 	};
+}
+
+function getVideoLinksFromRiotChampPage() {
+	var em = document.querySelectorAll("video source");
+	em.forEach(function(item) {
+		if (item.getAttribute("src").includes("webm"))
+			console.log(item.getAttribute("src"));
+	});
+
+	//
+	for (let i in champions) {
+		for (let a in champions[i].abilities) {
+			if (!champions[i].abilities[a].video)
+				console.log(`${champions[i].name} ${a}`);
+		}
+	}
 }
