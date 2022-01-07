@@ -306,6 +306,7 @@ function initChampCard() {
 			description: $("#ability-desc"),
 			tags: $("#ability-tags"),
 			scaling: $("#ability-scalings"),
+			videoBtn: $("#video-btn"),
 			video: $("video")},
 		ability: [
 				{row:  $(".col:nth-child(1) .row:nth-child(2)"), key: $(".row:nth-child(2) .ability .key"), img: $(".row:nth-child(2) .ability img"), name: $(".row:nth-child(2) .ability .name")},
@@ -403,6 +404,12 @@ function updateChampCard(i) {
 	champCard.table.ability[2].row.removeClass("highlight");
 	champCard.table.ability[3].row.removeClass("highlight");
 	champCard.table.ability[4].row.removeClass("highlight");
+
+	champCard.table.ability[0].img.attr("src", "assets/placeholder.png");
+	champCard.table.ability[1].img.attr("src", "assets/placeholder.png");
+	champCard.table.ability[2].img.attr("src", "assets/placeholder.png");
+	champCard.table.ability[3].img.attr("src", "assets/placeholder.png");
+	champCard.table.ability[4].img.attr("src", "assets/placeholder.png");
 
 	champCard.table.ability[0].img.attr("src", champs.items[i].abilities[0].img);
 	champCard.table.ability[1].img.attr("src", champs.items[i].abilities[1].img);
@@ -533,6 +540,11 @@ function champCardShowAbilityDetails(champIndex, abilityIndex) {
 	champCard.table.activeAbility.indicator.css("transform", `translateY(${36*abilityIndex + (abilityIndex*1)}px)`)
 	champCard.table.activeAbility.description.html(champs.items[champIndex].abilities[abilityIndex].description);
 	champCard.table.activeAbility.video.attr("src", champs.items[champIndex].abilities[abilityIndex].video);
+	// disable video button if there is no video
+	if (!champs.items[champIndex].abilities[abilityIndex].video || 
+		champs.items[champIndex].abilities[abilityIndex].video == " ")
+		champCard.table.activeAbility.videoBtn.addClass("disabled");
+	else champCard.table.activeAbility.videoBtn.removeClass("disabled");
 	// let s = "";
 	// for (let t in tags.champs[champs.items[champIndex].name].tagArrays[abilityIndex+1])
 		// s += Tags.getTagById(tags, tags.champs[champs.items[champIndex].name].tagArrays[abilityIndex+1][t]).name + ",";

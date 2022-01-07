@@ -473,18 +473,18 @@ p.sidebar-subheading svg {
 
 /* ---------------------------------------------------------------------------------------- CHAMPCARD FOOTER */
 
-#champcard__footer {
+.champcard__footer {
 	padding: 14 20px;
 	/*padding-bottom: 36px;*/
 	min-height: 130px;
 }
 
-#champcard__footer .header-row {
+.champcard__footer .header-row {
 	display: flex;
 	align-items: center;
 }
 
-#champcard__footer .heading {
+.champcard__footer .heading {
 	font-family: Spiegel-Regular;
   font-weight: bold;
   font-size: 9px;
@@ -498,15 +498,17 @@ p.sidebar-subheading svg {
 	min-width: 132px;
 }
 
-#champcard__footer .text-icon-wrapper:hover {
+.champcard__footer .text-icon-wrapper:not(.disabled):hover {
 	background-color: rgba(255, 255, 255, 0.1);
 	border-radius: 4px;
 
 }
-#champcard__footer .text-icon-wrapper:hover * {
+.champcard__footer .text-icon-wrapper:not(.disabled):hover * {
 	stroke: #CDBF9D;
 	color: #DED5BF;
 }
+
+
 
 /* text & icon */
 
@@ -528,16 +530,29 @@ p.sidebar-subheading svg {
 	margin-left: 4px;
 }
 
+.text-icon-wrapper.disabled {
+	cursor: default;
+}
+
+.text-icon-wrapper.disabled p,
+.text-icon-wrapper.disabled span {
+	color: #68604b;
+}
+
+.text-icon-wrapper.disabled svg path {
+	stroke: #3e392b;
+}
+
 /* ---------------------------------------------- */
 
-#champcard__footer .text {
+.champcard__footer .text {
 	color: #919191;
 	font-family: monospace;
 	font-size: 12px;
 	margin-top: 6px;
 }
 
-#champcard__footer #ability-desc {
+.champcard__footer #ability-desc {
 	/*font-size: 14px;*/
 	margin-top: 2px;
 	/*margin-bottom: 22px;*/
@@ -551,36 +566,22 @@ p.sidebar-subheading svg {
 	position: relative;
 }
 
-#video-btn:hover .tooltip {
+#video-btn:not(.disabled):hover .tooltip {
 	opacity: 1;
 	transform: scale(1) translateZ(0px);
 }
 
 #video-btn .tooltip {
+	opacity: 0;
+	z-index: 2;
 	position: absolute;
 	bottom: 25px;
 	left: 0px;
-	/*z-index: 2;*/
-	opacity: 0;
-
-
 	/*bg*/
-	/*box-shadow: rgb(0 0 0 / 20%) 0px 0px 6px;*/
-	/*background-color: #0C0C0D;*/
+	box-shadow: rgb(0 0 0 / 20%) 0px 0px 6px;
 	background-color: #000;
-	/*border-radius: 5px;*/
 	border: 1px solid #181818;
-
-	/*border: 1px solid #785A28;*/
-	/*padding: 4px 12px;*/
-	/*text*/
-	/*color: #DBD4BF;*/
-	/*color: #604820;*/
-	/*font-family: Spiegel-Regular;*/
-	/*font-size: 12px;*/
-	/*letter-spacing: 0.04em;*/
-	/*white-space: nowrap;*/
-	/*etc*/
+	/*anim*/
 	pointer-events: none;
 	transform-origin: left bottom;
 	transform: scale(0.90) translateZ(0px);
@@ -588,32 +589,28 @@ p.sidebar-subheading svg {
 }
 
 #video-btn .tooltip::after {
+	/*video gradient overlay*/
+	content: '';
   position: absolute;
   bottom: 0;
-  /*bottom: -1;*/
   left: 0;
   width: 100%;
   height: 100%;
-  content: '';
-  /*background-image: radial-gradient(
-    circle at 36% 48%,
-    #000000,
-    rgba(11, 39, 65, 0.32) 87%,
-    rgba(0, 0, 0, 0)
-  );*/
   background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.8) 100%);
 }
 
 #video-btn .tooltip video {
-	/*height: 200px;*/
 	width: 400px;
-	/*border: 1px solid #181818;*/
-	/*border-radius: 5px;*/
-  /*outline: 1px solid #181818;*/
+	/*height: 200px;*/
 }
 
-
-
+#video-btn .loader {
+	position: absolute;
+	top: 45%;
+	left: 45%;
+	opacity: 0.5;
+	z-index: -1;
+}
 
 /* ---------------------------------------------------------------------------------------- CHAMPCARD TABLE */
 
