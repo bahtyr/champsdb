@@ -714,29 +714,32 @@ function listenSearchTimeout() {
 
 function listenPageScroll() {
 	//https://developer.mozilla.org/en-US/docs/Web/API/Document/scroll_event#scroll_event_throttling
-	let lastKnownScrollPosition = 0;
 	let ticking = false;
+	let scrollPosOnStart = 0;
+	let timer = null;
+	let timerFn = function() { scrollPosOnStart = window.scrollY; console.log("done?"); } //after a while, make current scroll pos. as starting position
 
 	let cardHeight = champCard.card.outerHeight() - 30; //reducition is to allow for the champ item to be slighlty hidden
 	let champList = $("#champ-list");
 	let champListWrapper = $("#champ-list__wrapper");
 
 	document.addEventListener('scroll', function(e) {
-	  if (!ticking) {
-	    window.requestAnimationFrame(function() {
-	      if (window.scrollY > 1) {
-	      	if (champList.outerHeight() > champListWrapper.outerHeight() - cardHeight && //if list height is bigger than visible area
-	      		window.scrollY > lastKnownScrollPosition && !champCard.preventHide) { //only on scroll down
-	      		champCard.hide();
-	      	}
-	      }
+		if (!ticking) {
 
-	      lastKnownScrollPosition = window.scrollY;
-	      ticking = false;
-	    });
+			if(timer !== null) clearTimeout(timer);
 
-	    ticking = true;
-	  }
+			window.requestAnimationFrame(function() {
+				if (window.scrollY > 1) {
+					if (champList.outerHeight() > champListWrapper.outerHeight() - cardHeight && //if list height is bigger than visible area
+						window.scrollY - scrollPosOnStart > 170 && !champCard.preventHide) { //if scroll down diff is bigger than a champ's height
+						champCard.hide();
+					}
+				}
+				ticking = false;
+			});
+			timer = setTimeout(timerFn, 400);
+			ticking = true;
+		}
 	});
 }
 
@@ -934,10 +937,20 @@ function addPaddingsIfChampItemIsLarge() {
 }
 
 function scrollForOverflowingChamp(y) {
+	/**
+	 * this situation is relates to following methods;
+	 * champcard.show()
+	 *   enables champcard.prevenHide briefly, so if we were to scroll down the card doesn't hide
+	 * listenPageScroll()
+	 *   is somewhat related becaue, this method can scrollDown to show the champ,
+	 *   but there we hide the champcard onScrollDown,
+	 *   to preventt this contradiction, we require a certain amount of scroll before hiding the card
+	 */
+
 	if (y > window.innerHeight - 350) {
-		window.scrollTo(0, window.scrollY + y - (window.innerHeight - 400));
+		window.scroll({behavior: 'smooth', top: window.scrollY + y - (window.innerHeight - 400)});
 	} else if (y < 100) {
-		window.scrollTo(0, window.scrollY - (120 - y));
+		window.scroll({behavior: 'smooth', top: window.scrollY - (120 - y)});
 	}
 }
 
