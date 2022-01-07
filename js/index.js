@@ -812,17 +812,20 @@ function showAbilityKeysOnChamps() {
 function initSidebar() {
 	let sidebar = $("#sidebar");
 	let sidebarOverlay = $("#sidebar__content-overlay");
+	let htmlBody = $("html, body");
 
 	// show sidebar
-	$("#site-icon").on("click", function() {
-		sidebar.toggleClass("show");
-		sidebarOverlay.toggleClass("show");
+	$("#site-header__hamburger, #site-icon").on("click", function() {
+		sidebar.addClass("show");
+		sidebarOverlay.addClass("show");
+		htmlBody.css("overflow", "hidden");
 	});
 
 	// hide sidebar upon clicking "empty area"
 	sidebarOverlay.on("click", function() {
-		sidebar.toggleClass("show");
-		sidebarOverlay.toggleClass("show");
+		sidebar.removeClass("show");
+		sidebarOverlay.removeClass("show");
+		htmlBody.css("overflow", "");
 	});
 
 	// https://www.w3schools.com/howto/tryit.asp?filename=tryhow_js_collapsible_animate

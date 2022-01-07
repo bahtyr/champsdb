@@ -1,3 +1,7 @@
+.heading__smallest {
+	display: none;
+}
+
 @media only screen and (max-width: 768px) {
 
 	#header__main {
@@ -60,16 +64,48 @@
 	}
 }
 
+@media only screen and (max-width: 425px) {
+	
+	/* sidebar */
+	#sidebar {
+		width: 280px;
+		padding-bottom: 140px; /*if safari's tab is open & at the bottom of the scren, since they can't scroll the page it won't go away obscuring the sideabar elements */
+	}
+
+	/* heading */
+	#header__main {
+		flex-wrap: wrap;
+		height: 140px;
+		padding-top: 15px;
+		padding-right: 16px;
+	}
+
+	.center { margin-top: 140px; }
+
+	/* elements  */
+	.heading__smallest { display: unset; }
+
+	#site-heading-wrapper {
+		display: flex; 
+		align-items: flex-end;
+		justify-content: center;
+		flex: 1;
+		min-width: 140px; /*so that enemies dont prevent this from taking the whole space*/
+	}
+
+	#sort { font-size: 12px; }
+
+	#site-icon { display: none; }
+	
+	/* order */
+	#search__count { order: 1; margin-left: 0; text-align: right; }
+	#search__wrapper { order: 2; width: unset; flex: auto; }
+	#sort__wrapper { order: 3; }
+}
+
 @media only screen and (max-width: 390px) {
-	#site-icon {
-		padding: 4px;
-	}
-
-	#sort {
-		font-size: 12px;
-	}
-
-	#search__count {
-		font-size: 14px;
+	#header__main {
+		padding-left: 30px;
+		padding-right: 25px;
 	}
 }
