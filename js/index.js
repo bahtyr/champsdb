@@ -717,7 +717,7 @@ function listenPageScroll() {
 	let ticking = false;
 	let scrollPosOnStart = 0;
 	let timer = null;
-	let timerFn = function() { scrollPosOnStart = window.scrollY; console.log("done?"); } //after a while, make current scroll pos. as starting position
+	let timerFn = function() { scrollPosOnStart = window.scrollY; } //after a while, make current scroll pos. as starting position
 
 	let cardHeight = champCard.card.outerHeight() - 30; //reducition is to allow for the champ item to be slighlty hidden
 	let champList = $("#champ-list");
