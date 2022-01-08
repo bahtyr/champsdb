@@ -27,6 +27,7 @@ body {
 	/*min-width: 1100px;*/
 	max-width: 1100px;
 	margin-top: 70px;
+	margin-bottom: 255px;
 	margin-left: 260px;
 	padding-left: 20px;
 }
@@ -277,14 +278,14 @@ p.sidebar-subheading svg {
 /* ---------------------------------------------------------------------------------------- CHAMPLIST */
 
 #champ-list__wrapper {
-	min-height: calc(100vh - 90px);
+	min-height: calc(100vh - 70px);
 }
 
 #champ-list {
 	display: flex;
 	flex-flow: row wrap;
 	padding-top: 15px;
-	padding-bottom: 250px;
+	padding-bottom: 150px;
 	width: 100%;
 }
 
@@ -962,34 +963,84 @@ span.highlight {
 /* ---------------------------------------------------------------------------------------- FOOTER */
 
 #footer {
-	padding: 20px;
-	/*max-width: 1000px;*/
+	/*
+	 * related paddings margins: 
+	 *   .center / margin-bottom
+	 *   #champ-list__wrapper / min-height
+	 *   #champ-list / padding-bottom
+	 */
+	position: absolute;
+	background-color: #111;
+	background-color: #000;
+	border-top: 1px solid #1a1a1a;
+	padding: 60px 40px;
+	width: 100%;
+	margin-left: -20px; /*undo .center padding*/
 }
 
-#footer a {
-	font-family: Spiegel-Regular;
-	font-size: 14px;
-	font-weight: bold;
-	color: #088a9f;
-	display: inline-block;
-	font-size: 14px;
-	margin-right: 14px;
-	margin-bottom: 10px;
-	letter-spacing: 0.6px;
+/* wrapper & columns */
+
+.footer .wrapper {
+	margin: 0;
+	max-width: 1000px;
+	display: flex;
+	justify-content: space-between;
 }
 
-#footer .disclaimer {
-	/*font-family: "FF Mark W05",Arial,sans-serif;*/
+.footer .col {
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+}
+
+.footer .col:nth-child(1) { flex: 2; }
+.footer .col:nth-child(2) { flex: .75; }
+.footer .col:nth-child(3) { flex: 1; }
+.footer .col:nth-child(4) { flex: 1.25; }
+
+/* text */
+
+.footer a,
+.footer p {
+	cursor: pointer;
 	font-family: Spiegel-Regular;
-	font-weight: 500;
-	font-size: 12px;
-	line-height: 1.316;
-	letter-spacing: 0.1px;
-	margin: 0 auto;
-	/*max-width: 600px;*/
-	/*text-align: center;*/
-	color: #7e7e7e;
-	pointer-events: none;
+	font-size: 14px;
+	color: #888;
+	letter-spacing: 0.05em;
+	transition: all	.2s ease;
+}
+
+.footer a:hover,
+.footer p:hover { color: #FFF; }
+
+.footer #creator { color: #FFF; font-size: 16px; letter-spacing: 0.06em;}
+
+.footer a,
+.footer p { padding: 6px 6px; }
+
+.footer .disclaimer {
+	line-height: 1.3;
+	letter-spacing: 0.02em;
+}
+
+.footer .disclaimer span { cursor: pointer; }
+.footer .disclaimer:hover { color: #888; }
+.footer .disclaimer:hover span { color: #FFF; }
+
+/* tooltip */
+
+.footer .tooltip {
+	background-color: #111;
+	top: unset;
+	bottom: 26;
+	left: 6;
+	padding: 12px 22px;
+}
+
+.footer .tooltip p {
+	color: #888;
+	padding: unset;
+	padding: 3px 0;
 }
 
 /* ---------------------------------------------------------------------------------------- RIOT */

@@ -187,3 +187,35 @@ select {
   0% { -webkit-transform: rotate(0deg); }
   100% { -webkit-transform: rotate(360deg); }
 }
+
+/* ---------------------------------------- */
+
+.tooltip-parent {
+	position: relative;
+}
+
+.tooltip-parent:hover .tooltip {
+	opacity: 1;
+	transform: scale(1) translateZ(0px);
+}
+
+.tooltip {
+	/* !define top/left */
+	position: absolute;
+	z-index: 2;
+	opacity: 0;
+	/* bg */
+	box-shadow: rgb(0 0 0 / 20%) 0px 0px 6px;
+	border-radius: 5px;
+	padding: 4px 12px;
+	/* text */
+	font-family: Spiegel-Regular;
+	font-size: 12px;
+	letter-spacing: 0.04em;
+	white-space: nowrap;
+	/* etc */
+	pointer-events: none;
+	transform-origin: left bottom;
+	transform: scale(0.90) translateZ(0px);
+	transition: all .1s linear;
+}
