@@ -954,6 +954,12 @@ function scrollForOverflowingChamp(y) {
 	}
 }
 
+/* ---------------------------------------- ANALYTICS FUNCTIONS */
+
+function track(eventValue, eventType) {
+	window.umami.trackEvent(eventValue, eventType);
+}
+
 /* ---------------------------------------- HELPER FUNCTIONS */
 
 function getCurrentChamp() {
