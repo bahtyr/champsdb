@@ -1008,6 +1008,7 @@ span.highlight {
 	color: #888;
 	letter-spacing: 0.05em;
 	transition: all	.2s ease;
+	display: block;
 }
 
 .footer a:hover,
@@ -1041,6 +1042,13 @@ span.highlight {
 	color: #888;
 	padding: unset;
 	padding: 3px 0;
+}
+
+@media (hover: none) {
+	/* don't show email tooltip on mobile */
+	.tooltip.contact {
+		opacity: 0 !important;
+	}
 }
 
 /* ---------------------------------------------------------------------------------------- RIOT */
