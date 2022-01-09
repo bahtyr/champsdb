@@ -27,6 +27,9 @@ p, span { cursor: default; }
 
 .js-template { display: none !important; }
 .max-width-page { max-width: 1100px; margin: auto; }
+.cursor-help { cursor: help; }
+.cursor-help p,
+.cursor-help span { cursor: unset; }
 
 /* ---------------------------------------------------------------------------------------- SCROLLBAR */
 
