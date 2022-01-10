@@ -660,10 +660,10 @@ function getChampionPageData() {
 	loadURLforAllChamps("kebab", "https://www.leagueoflegends.com/page-data/en-us/champions/${id}/page-data.json", function(data, i) {
 		// console.log(data);
 		data = data.result.data.all.nodes[0];
-		champions[0].abilities[0].video = data.champion_passive.champion_passive_video_webm;
-		champions[0].abilities[1].video = data.champion_q.champion_q_video_webm;
-		champions[0].abilities[2].video = data.champion_w.champion_w_video_webm;
-		champions[0].abilities[3].video = data.champion_e.champion_e_video_webm;
-		champions[0].abilities[4].video = data.champion_r.champion_r_video_webm;
+		champions[i].abilities[0].video = data.champion_passive.champion_passive_video_webm;
+		champions[i].abilities[1].video = data.champion_q.champion_q_video_webm;
+		champions[i].abilities[2].video = data.champion_w.champion_w_video_webm;
+		champions[i].abilities[3].video = data.champion_e.champion_e_video_webm;
+		champions[i].abilities[4].video = data.champion_r.champion_r_video_webm;
 	});
 }
