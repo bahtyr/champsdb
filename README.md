@@ -1,7 +1,8 @@
-# ChampsDB
-A simple database website to easily lookup League of Legends' Champions and search by their ability attributes.
+# [ChampsDB.GG](http://champsdb.gg/)
+An advanced search and filtering tool to find Champion and ability information including playstyle, difficulty, resource type and more.
 
-Please refer to Wiki pages for up-to-date information on currently supported [Ability Attributes](https://github.com/bahtyr/champsdb/wiki/Ability-Attributes) and complete [Features](https://github.com/bahtyr/champsdb/wiki/Features) list.
+Please refer to [Wiki pages](https://github.com/bahtyr/champsdb/wiki/) for [Planned / Existing Features](https://github.com/bahtyr/champsdb/wiki/Features) list and [Data Sources](https://github.com/bahtyr/champsdb/wiki/Sources__Main) information.
 
-## Legal Disclaimer
+### Legal Disclaimer
+
 > ChampsDB was created under Riot Games' "Legal Jibber Jabber" policy using assets owned by Riot Games.  Riot Games does not endorse or sponsor this project.
