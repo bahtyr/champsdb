@@ -108,3 +108,19 @@ function test() {
 	console.log("hello");
 	wikiApi.loadReleaseDates();
 }
+
+function setChampIds() {
+	champions.map(function(champ) {
+		// champ.id_.pascal = champ.name.replace(/\W+/g, '');
+		// champ.id_.kebab = champ.name.replace(/\W+/g, '-').toLowerCase();
+		// champ.id_.ddragon = champ.id;
+		// champ.id_.cdragon = champ.id_.game;
+		// if (champ.id === "Nunu") {
+		// 	champ.id_.pascal = "Nunu";
+		// 	champ.id_.kebab = "nunu";
+		// }
+		// delete champ.id_.alias;
+		// delete champ.id_.game;
+	});
+	console.log(champions);
+}

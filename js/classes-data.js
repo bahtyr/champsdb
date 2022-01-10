@@ -106,6 +106,14 @@ class Champion {
 			+ ` ${champion.abilities[0].name} ${champion.abilities[1].name} ${champion.abilities[2].name}`
 			+ ` ${champion.abilities[3].name} ${champion.abilities[4].name}`;
 	}
+
+	static getChampionByName(champs, name) {
+		for (let i in champs) {
+			if (champs[i].name == name)
+				return champs[i];
+		}
+		return null;
+	}
 }
 
 class Tags {

@@ -335,6 +335,15 @@ class WikiApi {
 	}
 }
 
+function laodURL(url_, fn) {
+	$.ajax({type: "GET", url: url_,
+			success: function(data, textStatus) {
+				fn(data);
+			},
+			error: (textStatus, errorThrown) => console.error(errorThrown)
+		});
+}
+
 /*
  * to be used manually..
  */
@@ -372,18 +381,21 @@ function loadURLforAllChamps(idType, url, fn) {
 }
 
 function laodURLforChamp(idType, i) {
-	console.warn(i);
+	// console.warn(i);
 	let id;
 	switch (idType) {
 		case "int": id = i; break;
 		case "name": id = champions[i].name; break;
+		case "pascal": id = champions[i].id_.pascal; break;
+		case "kebab": id = champions[i].id_.kebab; break;
 		case "id": id = champions[i].id; break;
 		case "url": id = loadURLlist[i]; break;
 	}
+	console.warn(loadURL.replace("${id}", id));
 	$.ajax({type: "GET", url: loadURL.replace("${id}", id),
 			success: function(data, textStatus) {
 				
-				loadURLonLoad(data, id);
+				loadURLonLoad(data, i, id);
 
 				if (i+1 < champions.length) {
 					i++;
@@ -621,4 +633,37 @@ function getVideoLinksFromRiotChampPage() {
 				console.log(`${champions[i].name} ${a}`);
 		}
 	}
+}
+
+// 
+
+function getChampionSummary() {
+	let link = "https://raw.communitydragon.org/pbe/plugins/rcp-be-lol-game-data/global/default/v1/champion-summary.json";
+
+	laodURL(link, function(data) {
+
+		for (let i = 0; i < data.length; i++) {
+			let champ = Champion.getChampionByName(champions, data[i].name);
+			if (champ == null) continue;
+			champ.id_ = {};
+			champ.id_.alias = data[i].alias;
+			champ.id_.game = data[i].id;
+		}
+
+		console.log("done?");
+	});
+}
+
+function getChampionPageData() {
+	let link = "https://www.leagueoflegends.com/page-data/en-us/champions/aatrox/page-data.json";
+
+	loadURLforAllChamps("kebab", "https://www.leagueoflegends.com/page-data/en-us/champions/${id}/page-data.json", function(data, i) {
+		// console.log(data);
+		data = data.result.data.all.nodes[0];
+		champions[0].abilities[0].video = data.champion_passive.champion_passive_video_webm;
+		champions[0].abilities[1].video = data.champion_q.champion_q_video_webm;
+		champions[0].abilities[2].video = data.champion_w.champion_w_video_webm;
+		champions[0].abilities[3].video = data.champion_e.champion_e_video_webm;
+		champions[0].abilities[4].video = data.champion_r.champion_r_video_webm;
+	});
 }
