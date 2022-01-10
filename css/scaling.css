@@ -89,6 +89,8 @@
 	/* elements  */
 	.heading__smallest { display: unset; }
 
+	.header__content-right { display: none; }
+
 	#site-heading-wrapper {
 		display: flex; 
 		align-items: flex-end;

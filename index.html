@@ -74,15 +74,13 @@
 		<!--           BODY WRAPPER          -->
 		<!------------------------------------->
 		<div id="body-wrapper">
-			<div class="sides-outer left">
-				<div class="header" id="header__sidebar-2"></div>
-			</div>
+			<div class="sides-outer left"></div>
 			<div id="center-wrapper">
 				<!------------------------------------->
 				<!--            SIDEBAR              -->
 				<!------------------------------------->
 				<div class="sides-inner left" id="sidebar">
-					<div id="header__sidebar" class="header noselect umami--click--Site-Logo">
+					<div id="header__sidebar" class="page-header noselect umami--click--Site-Logo">
 						<svg id="site-icon__small" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.1502 8.95742V5.11853C14.1502 5.11853 14.3606 1.173 8.04852 0H7.94332C1.63121 1.173 1.84161 5.11853 1.84161 5.11853V8.95742C1.84161 10.9835 1 11.6233 1 11.6233C2.26242 16.3153 5.41848 15.9954 5.41848 15.9954C3.73525 13.756 5.41848 9.81051 5.41848 9.81051C2.99883 9.4906 3.41964 6.93134 3.63005 6.18489C3.63005 6.18489 5.94448 6.07825 7.1017 7.89106V12.3698L8.04852 13.3295L8.89014 12.4764V7.9977C10.1526 6.07825 12.3618 6.18489 12.3618 6.29152C12.5722 7.03797 12.993 9.59724 10.5734 9.81051C10.5734 9.81051 12.2566 13.8627 10.5734 15.9954C10.5734 15.9954 13.7294 16.3153 14.9918 11.6233C15.097 11.6233 14.1502 10.9835 14.1502 8.95742Z" fill="url(#paint0_linear_358_4)"/><defs><linearGradient id="paint0_linear_358_4" x1="15.1111" y1="1.57355e-07" x2="17.2162" y2="15.7181" gradientUnits="userSpaceOnUse"><stop stop-color="#CDBE91"/><stop offset="1" stop-color="#785A28"/></linearGradient></defs></svg>
 						<h1 id="heading__site">ChampsDB</h1>
 					</div>
@@ -120,7 +118,7 @@
 				<div class="center" id="content-wrapper">
 					
 					<!--======= HEADER =====-->
-					<div class="header" id="header__main">
+					<div class="page-header" id="header__main">
 						<!-- mobile version elements, hamburger and site 'logo' -->
 						<div><svg id="site-header__hamburger" class="heading__smallest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6" stroke="#755b2c"></line><line x1="3" y1="12" x2="21" y2="12" stroke="#5d4920"></line><line x1="3" y1="18" x2="21" y2="18" stroke="#463714"></line></svg></div>
 						<div id="site-heading-wrapper" class="heading__smallest noselect">
@@ -143,6 +141,9 @@
 							</select>
 						</div>
 						<p id="search__count" class="noselect"></p>
+						<div class="header__content-right">
+							<svg id="info-btn" onclick="modal.show()" style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="#555" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
+						</div>
 					</div>
 					
 					<!--======= Hidden Focus Element =====-->
@@ -346,7 +347,9 @@
 						</div>
 					</div>
 				</div>
-				<div class="sides-inner right"></div>
+				<div class="sides-inner right">
+					<div class="page-header" id="header__right"></div>
+				</div>
 			</div>
 			<div class="sides-outer right"></div>
 		</div>

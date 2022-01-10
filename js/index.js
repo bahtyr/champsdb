@@ -694,7 +694,8 @@ function listenKeys() {
 function listenEmptyClicks() {
 	$("body").on("click", function(e) {
 		if ((e.target.id == "champ-list__wrapper" || e.target.id == "champ-list" || 
-			e.target.id == "header__main" || e.target.id == "footer" ||
+			e.target.id == "footer" ||
+			e.target.classList.value == "page-header" || 
 			e.target.classList.value == "sides-inner left" || 
 			e.target.classList.value == "sides-inner right" || e.target.classList.value == "sides-outer right") &&
 			!searchState.hasFocus) {
