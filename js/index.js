@@ -29,6 +29,7 @@ let champCard = {
 	prevAbility: function() { if (this.activeAbility -1 > -1) this.activeAbility--; return this.activeAbility;; }
 };
 
+let modal;
 let alert = {element: $("#sticky-top"),
 	show: function() {
 		this.element.removeClass("hide");
@@ -57,6 +58,8 @@ let sort = {element: null,
 	}};
 
 $(function() {
+	modal = new Modal();
+
 	setCardWith();
 	addPaddingsIfChampItemIsLarge();
 

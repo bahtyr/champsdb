@@ -72,3 +72,33 @@ class ElementPrinter {
 		return `<${tagname}>${content == null ? "" : content}</${tagname}>`;
 	}
 }
+
+class Modal {
+	html;
+	modal;
+
+	constructor() {
+		this.html = $("html, body");
+		this.modal = $(".modal");
+
+		$(".modal").on("click", () => this.close());
+		$(".modal .close").on("click", () => this.close());
+		$(".modal-content").on("click", function(event) {
+			event.stopPropagation();
+		});
+	}
+
+	show() {
+		this.html.addClass("preventScroll");
+		this.modal.addClass("show");
+	}
+
+	close() {
+		this.modal.removeClass("show");
+		this.html.removeClass("preventScroll");
+	}
+
+	hasFocus() {
+		return this.modal.hasClass("show");
+	}
+}
