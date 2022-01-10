@@ -617,6 +617,7 @@ function listenKeys() {
 
 
 	let prevKey;
+	let keyPressTime;
 	$(document).keydown(function(e) {
 		
 		// COPY (CTRL + C)
@@ -637,6 +638,23 @@ function listenKeys() {
 
 		searchState.canRestartTyping = false;
 		searchState.lastFocuTime = Date.now();
+
+		// ESC KEY
+		if (e.which == 27) {
+			if (modal.hasFocus()) modal.close();
+			else if (champCard.isOpen()) {
+				if (searchState.hasFocus) search.element.blur()
+				champCard.hide();
+			}
+			else {
+				// console.lo()
+				if (Date.now() - keyPressTime < 500) {
+					search.clearBtn.click();
+				}
+			}
+			keyPressTime = Date.now();
+			console.log(keyPressTime);
+		}
 
 		// ARROW KEYS
 		if (e.which > 36 && e.which < 41) {
