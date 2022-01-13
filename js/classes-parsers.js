@@ -386,26 +386,28 @@ function laodURLforChamp(idType, i) {
 	switch (idType) {
 		case "int": id = i; break;
 		case "name": id = champions[i].name; break;
+		case "ddragon": id = champions[i].id_.ddragon.toLowerCase(); break;
 		case "pascal": id = champions[i].id_.pascal; break;
 		case "kebab": id = champions[i].id_.kebab; break;
 		case "id": id = champions[i].id; break;
 		case "url": id = loadURLlist[i]; break;
 	}
-	console.warn(loadURL.replace("${id}", id));
-	$.ajax({type: "GET", url: loadURL.replace("${id}", id),
+	console.warn(loadURL.replaceAll("${id}", id));
+	$.ajax({type: "GET", url: loadURL.replaceAll("${id}", id),
 			success: function(data, textStatus) {
 				
 				loadURLonLoad(data, i, id);
 
 				if (i+1 < champions.length) {
+				// if (i+1 < 10) {
 					i++;
 					laodURLforChamp(idType, i);
 					// console.warn("Done");
 					// console.log(arr);
 				} else {
 					console.warn("Done");
-					console.log(arr);
-					loadURLonComplete();
+					// console.log(arr);
+					// loadURLonComplete();
 				}
 			},
 			error: (textStatus, errorThrown) => console.error(errorThrown)
@@ -665,5 +667,98 @@ function getChampionPageData() {
 		champions[i].abilities[2].video = data.champion_w.champion_w_video_webm;
 		champions[i].abilities[3].video = data.champion_e.champion_e_video_webm;
 		champions[i].abilities[4].video = data.champion_r.champion_r_video_webm;
+	});
+}
+
+
+function getGameDate() {
+	// let link = "https://raw.communitydragon.org/latest/game/data/characters/nunusnowball/nunusnowball.bin.json";
+	let link = "https://raw.communitydragon.org/latest/game/data/characters/aatrox/aatrox.bin.json";
+	// let link = "https://raw.communitydragon.org/latest/game/data/characters/${id}/${id}.bin.json";
+
+	let find = [
+		"mTargetingTypeData",
+		"mSpellTags",
+		"purchaseIdentities",
+		"mRequiredUnitTags",
+		"cantCastWhileRooted",
+		"bIsToggleSpell",
+
+		// "mCastType",
+		// "mAffectsTypeFlags",
+		// "mAttackDelayCastOffsetPercent"
+	];
+
+	// laodURL(link, function(data) {
+	loadURLforAllChamps("ddragon", "https://raw.communitydragon.org/latest/game/data/characters/${id}/${id}.bin.json", function(data, i) {
+
+		new Promise((resolve, reject) => {
+			let name = champions[i].name;
+			// let name = "aatrox";
+			let arr = [];
+			find.forEach(s => getKey(data, s, "", arr));
+			champsArr[name] = arr;
+			console.log(champsArr);
+			stringify(champsArr);
+			resolve();
+		}).then(console.log("promise end"));
+
+	});
+
+	// });
+}
+
+let champsArr = {};
+function getKey(obj, find, path = "", arr) {
+	if (obj[find]) {
+		arr.push([path, find, obj[find]]);
+		// console.log(path);
+		// console.log(obj[find]);
+	} else {
+		if (obj instanceof Object) { // if it is an actual object with keys, rather than string and it's chars
+
+			Object.keys(obj).forEach(k => {
+				getKey(obj[k], find, path + "  /" + k, arr)
+			});
+
+		}
+		else {
+			// console.log("p:---"+path);
+			// path = "";
+			// console.log(obj);
+		}
+	}
+}
+
+let arrX = [];
+function getKey2(obj, find, path = "") {
+	if (obj[find]) {
+		arr.push([path, find, obj[find]]);
+		addAll(obj)
+	} else {
+		if (obj instanceof Object) {
+
+			Object.keys(obj).forEach(k => {
+				getKey(obj[k], find, path + "  /" + k, arr)
+			});
+		}
+		else { }
+	}
+};
+
+function addAll(arr) {
+	arr.forEach(i => {
+		if (!arrX.includes(i))
+			arrX.push(i);
+	});
+	// if (arrX.)
+}
+
+function sss() {
+
+	d.forEach(i => getKey2(i, "mSpellTags"))
+
+	laodURL("https://champsdb.gg/gamedata.json", function(data) {
+		// console.log(data);
 	});
 }
