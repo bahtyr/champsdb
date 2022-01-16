@@ -13,6 +13,7 @@ img, svg, .noselect {
 	-ms-user-select: none;
 }
 p, span { cursor: default; }
+svg * { pointer-events: none; }
 
 /* ---------------------------------------------------------------------------------------- FONTS */
 
@@ -239,7 +240,7 @@ select {
 	align-items: center;
 }
 
-.modal.show { display: flex; }
+.modal.show { display: flex; animation: fadeIn 0.2s ease; }
 
 .modal-content {
 	position: relative;

@@ -161,7 +161,7 @@ body {
 	justify-content: space-around;
 	background-color: #0D0D0D;
 	border-radius: 6px;
-	padding: 4px 4px;
+	padding: 0 4px;
 	margin-right: 18px;
 	margin-left: -8px;
 }
@@ -172,12 +172,12 @@ body {
 	margin: 16px 26px 32px 0;
 }
 
-#filter-lane svg { padding: 0 2px; }
-#filter-role svg { padding: 0 6px; }
+#filter-lane svg { flex: 1; padding: 4px 0; }
+#filter-role svg { flex: 1; }
 
 .search-filters svg { cursor: pointer; box-sizing: content-box; }
-#filter-lane svg path { fill: #5a5a5a; }
-#filter-role svg path { fill: #444444; }
+#filter-lane svg path { fill: #5a5a5a; pointer-events: none; }
+#filter-role svg path { fill: #444444; pointer-events: none; }
 #filter-lane svg.active path { fill: #fff; }
 #filter-role svg.active path { fill: #fff; }
 
@@ -219,7 +219,7 @@ p.sidebar-subheading svg {
 #sidebar ul { margin-left: 16px; }
 /*#sidebar ul { margin-left: -2px; }*/
 #sidebar ul ul { margin-left: 20px; margin-bottom: 2px; }
-#sidebar ul.section {
+#sidebar ul.sidebar-section {
 	max-height: 0;
 	overflow: hidden;
 	transition: max-height 0.2s ease-out;
@@ -309,7 +309,7 @@ p.sidebar-subheading svg {
 	flex: 1;
 	display: flex;
 	flex-flow: column;
-	margin-bottom: 16px;
+	padding-bottom: 16px;
 	min-width: 120px;
 	align-items: center;
 	cursor: pointer;
@@ -735,7 +735,7 @@ p.sidebar-subheading svg {
 	/*margin-right: 4px;*/
 	/*margin-left: 10px;*/
 	margin-right: 0;
-	padding: 4px;
+	padding: 10px 4px;
 	box-sizing: content-box;
 }
 

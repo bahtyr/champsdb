@@ -1,0 +1,658 @@
+[
+  {
+    "heading": "Basics"
+  },
+  {
+    "subheading": "Attack Range"
+  },
+  {
+    "list": [
+      {
+        "text": "Melee",
+        "link": "",
+        "tooltip": "",
+        "id": 69
+      },
+      {
+        "text": "Ranged",
+        "link": "",
+        "tooltip": "",
+        "id": 68
+      }
+    ]
+  },
+  {
+    "subheading": "Resource Type"
+  },
+  {
+    "list": [
+      {
+        "text": "Mana",
+        "link": "",
+        "tooltip": "",
+        "id": 67
+      },
+      {
+        "text": "Energy",
+        "link": "",
+        "tooltip": "",
+        "id": 63
+      },
+      {
+        "text": "Fury",
+        "link": "",
+        "tooltip": "",
+        "id": 64
+      },
+      {
+        "text": "Health",
+        "link": "",
+        "tooltip": "",
+        "id": 65
+      },
+      {
+        "text": "Flow",
+        "link": "",
+        "tooltip": "",
+        "id": 66
+      },
+      {
+        "text": "None",
+        "link": "",
+        "tooltip": "",
+        "id": 62
+      }
+    ]
+  },
+  {
+    "heading": "Lore"
+  },
+  {
+    "subheading": "Region"
+  },
+  {
+    "list": [
+      {
+        "text": "Runeterra",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      },
+      {
+        "text": "Bandle City",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      },
+      {
+        "text": "Bilgewater",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      },
+      {
+        "text": "Demacia",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      },
+      {
+        "text": "Freljord",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      },
+      {
+        "text": "Ionia",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      },
+      {
+        "text": "Ixtal",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      },
+      {
+        "text": "Noxus",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      },
+      {
+        "text": "Piltover",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      },
+      {
+        "text": "Zaun",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      },
+      {
+        "text": "Shadow Isles",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      },
+      {
+        "text": "Blessed Isles",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      },
+      {
+        "text": "Shurima",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      },
+      {
+        "text": "Targon",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      },
+      {
+        "text": "Void",
+        "link": "",
+        "tooltip": "",
+        "id": -2
+      }
+    ]
+  },
+  {
+    "subheading": "Species"
+  },
+  {
+    "list": [
+      {
+        "text": "Sapient",
+        "link": "",
+        "tooltip": "",
+        "id": -1
+      },
+      [
+        {
+          "text": "Human",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Vastayan",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Voidborn",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Cat",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Plague Rat",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Troll",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        }
+      ],
+      {
+        "text": "Ascended",
+        "link": "",
+        "tooltip": "",
+        "id": -1
+      },
+      [
+        {
+          "text": "Aspect Host",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Baccai",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Darkin",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "God-Warrior",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        }
+      ],
+      {
+        "text": "Spirit",
+        "link": "",
+        "tooltip": "",
+        "id": -3
+      },
+      [
+        {
+          "text": "Demon",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Yordle",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Spirit",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Spirit God",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        }
+      ],
+      {
+        "text": "Celestial",
+        "link": "",
+        "tooltip": "",
+        "id": -3
+      },
+      [
+        {
+          "text": "Aspect Host",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Terrestrial Dragon",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        }
+      ],
+      {
+        "text": "Undead",
+        "link": "",
+        "tooltip": "",
+        "id": -1
+      },
+      [
+        {
+          "text": "Wraith",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Revenant",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        }
+      ],
+      {
+        "text": "Other",
+        "link": "",
+        "tooltip": "",
+        "id": -1
+      },
+      [
+        {
+          "text": "Minotaur",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Golem",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Brackern",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        },
+        {
+          "text": "Unknown",
+          "link": "",
+          "tooltip": "",
+          "id": -3
+        }
+      ]
+    ]
+  },
+  {
+    "heading": "Crowd Control"
+  },
+  {
+    "subheading": "Soft CC"
+  },
+  {
+    "list": [
+      {
+        "text": "Blind",
+        "link": "",
+        "tooltip": "",
+        "id": 30
+      },
+      {
+        "text": "Cripple",
+        "link": "",
+        "tooltip": "Reduces Attack Speed",
+        "id": 9
+      },
+      {
+        "text": "Disarm",
+        "link": "",
+        "tooltip": "",
+        "id": 10
+      },
+      {
+        "text": "Disrupt",
+        "link": "",
+        "tooltip": "Stops Channels",
+        "id": 11
+      },
+      {
+        "text": "Drowsy",
+        "link": "",
+        "tooltip": "State before Sleep",
+        "id": 24
+      },
+      {
+        "text": "Ground",
+        "link": "",
+        "tooltip": "Prevents casting Movement abilities",
+        "id": 19
+      },
+      {
+        "text": "Root",
+        "link": "",
+        "tooltip": "Prevents casting Movement abilities",
+        "id": 27
+      },
+      {
+        "text": "Kinematics",
+        "link": "",
+        "tooltip": "",
+        "id": 20
+      },
+      {
+        "text": "Nearsight",
+        "link": "",
+        "tooltip": "",
+        "id": 21
+      },
+      {
+        "text": "Polymorph",
+        "link": "",
+        "tooltip": "",
+        "id": 23
+      },
+      {
+        "text": "Silence",
+        "link": "",
+        "tooltip": "Prevents casting abilities",
+        "id": 22
+      },
+      {
+        "text": "Slow",
+        "link": "",
+        "tooltip": "",
+        "id": 26
+      }
+    ]
+  },
+  {
+    "subheading": "Hard CC"
+  },
+  {
+    "list": [
+      {
+        "text": "Airborne",
+        "link": "https://leagueoflegends.fandom.com/wiki/Types_of_Crowd_Control#Airborne",
+        "tooltip": "",
+        "id": -1
+      },
+      [
+        {
+          "id": 3,
+          "text": "Knock Aside",
+          "link": "",
+          "tooltip": ""
+        },
+        {
+          "id": 4,
+          "text": "Knock Back",
+          "link": "",
+          "tooltip": ""
+        },
+        {
+          "id": 5,
+          "text": "Knock Up",
+          "link": "",
+          "tooltip": ""
+        },
+        {
+          "id": 1,
+          "text": "Pull",
+          "link": "",
+          "tooltip": ""
+        }
+      ],
+      {
+        "text": "Knockdown",
+        "link": "https://leagueoflegends.fandom.com/wiki/Types_of_Crowd_Control#Knockdown",
+        "tooltip": "Stops dashes",
+        "id": 8
+      },
+      {
+        "text": "Forced Action",
+        "link": "",
+        "tooltip": "",
+        "id": -1
+      },
+      [
+        {
+          "id": 12,
+          "text": "Charm",
+          "link": "",
+          "tooltip": ""
+        },
+        {
+          "id": 13,
+          "text": "Fear",
+          "link": "",
+          "tooltip": ""
+        },
+        {
+          "id": 14,
+          "text": "Taunt",
+          "link": "",
+          "tooltip": ""
+        }
+      ],
+      {
+        "text": "Sleep",
+        "link": "",
+        "tooltip": "",
+        "id": 25
+      },
+      {
+        "text": "Stun",
+        "link": "",
+        "tooltip": "",
+        "id": 2
+      },
+      {
+        "text": "Stasis",
+        "link": "",
+        "tooltip": "",
+        "id": 28
+      },
+      {
+        "text": "Suppression",
+        "link": "",
+        "tooltip": "",
+        "id": 29
+      }
+    ]
+  },
+  {
+    "heading": "Other"
+  },
+  {
+    "subheading": "Champion Status"
+  },
+  {
+    "list": [
+      {
+        "text": "Invulnerable",
+        "link": "",
+        "tooltip": "",
+        "id": 31
+      },
+      {
+        "text": "Stasis",
+        "link": "",
+        "tooltip": "",
+        "id": 28
+      },
+      {
+        "text": "Untargetable",
+        "link": "",
+        "tooltip": "",
+        "id": 32
+      },
+      {
+        "text": "Immunity",
+        "link": "",
+        "tooltip": "",
+        "id": -1
+      },
+      [
+        {
+          "id": 33,
+          "text": "Total Immunity",
+          "link": "",
+          "tooltip": ""
+        },
+        {
+          "id": 34,
+          "text": "Displacement Immunity",
+          "link": "",
+          "tooltip": ""
+        },
+        {
+          "id": 35,
+          "text": "Immobilize Immunity",
+          "link": "",
+          "tooltip": ""
+        },
+        {
+          "id": 36,
+          "text": "Slow Immunity",
+          "link": "",
+          "tooltip": ""
+        },
+        {
+          "id": 37,
+          "text": "Cripple Immunity",
+          "link": "",
+          "tooltip": ""
+        }
+      ],
+      {
+        "text": "Spell Shield",
+        "link": "",
+        "tooltip": "",
+        "id": 38
+      },
+      {
+        "text": "CC Removal",
+        "link": "",
+        "tooltip": "",
+        "id": 39
+      },
+      {
+        "text": "Resurrection",
+        "link": "",
+        "tooltip": "",
+        "id": 47
+      },
+      {
+        "text": "Zombie",
+        "link": "",
+        "tooltip": "",
+        "id": 48
+      }
+    ]
+  },
+  {
+    "subheading": "Empowered Basic Attack"
+  },
+  {
+    "list": [
+      {
+        "text": "Modified Damage",
+        "link": "",
+        "tooltip": "",
+        "id": 52
+      },
+      {
+        "text": "Bonus Damage",
+        "link": "",
+        "tooltip": "",
+        "id": 53
+      },
+      {
+        "text": "Damage over Time",
+        "link": "",
+        "tooltip": "",
+        "id": 54
+      },
+      {
+        "text": "Magic Damage Only",
+        "link": "",
+        "tooltip": "",
+        "id": 56
+      },
+      {
+        "text": "Others",
+        "link": "",
+        "tooltip": "",
+        "id": 55
+      }
+    ]
+  }
+]

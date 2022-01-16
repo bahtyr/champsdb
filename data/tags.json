@@ -1,0 +1,352 @@
+[
+  {
+    "id": 0,
+    "name": "CC",
+    "champIndexes": []
+  },
+  {
+    "id": 1,
+    "name": "Pull",
+    "champIndexes": []
+  },
+  {
+    "id": 2,
+    "name": "Stun",
+    "champIndexes": []
+  },
+  {
+    "id": 3,
+    "name": "Knock Aside",
+    "champIndexes": []
+  },
+  {
+    "id": 4,
+    "name": "Knock Back",
+    "champIndexes": []
+  },
+  {
+    "id": 5,
+    "name": "Knock Up",
+    "champIndexes": []
+  },
+  {
+    "id": 6,
+    "name": "Knock",
+    "champIndexes": []
+  },
+  {
+    "id": 7,
+    "name": "Airborne",
+    "champIndexes": []
+  },
+  {
+    "id": 8,
+    "name": "Knockdown",
+    "champIndexes": []
+  },
+  {
+    "id": 9,
+    "name": "Cripple",
+    "champIndexes": []
+  },
+  {
+    "id": 10,
+    "name": "Disarm",
+    "champIndexes": []
+  },
+  {
+    "id": 11,
+    "name": "Disrupt",
+    "champIndexes": []
+  },
+  {
+    "id": 12,
+    "name": "Charm",
+    "champIndexes": []
+  },
+  {
+    "id": 13,
+    "name": "Fear",
+    "champIndexes": []
+  },
+  {
+    "id": 14,
+    "name": "Taunt",
+    "champIndexes": []
+  },
+  {
+    "id": 15,
+    "name": "Forced",
+    "champIndexes": []
+  },
+  {
+    "id": 16,
+    "name": "Flee",
+    "champIndexes": []
+  },
+  {
+    "id": 17,
+    "name": "Berserk",
+    "champIndexes": []
+  },
+  {
+    "id": 18,
+    "name": "Forced Action",
+    "champIndexes": []
+  },
+  {
+    "id": 19,
+    "name": "Ground",
+    "champIndexes": []
+  },
+  {
+    "id": 20,
+    "name": "Kinematics",
+    "champIndexes": []
+  },
+  {
+    "id": 21,
+    "name": "Nearsight",
+    "champIndexes": []
+  },
+  {
+    "id": 22,
+    "name": "Silence",
+    "champIndexes": []
+  },
+  {
+    "id": 23,
+    "name": "Polymorph",
+    "champIndexes": []
+  },
+  {
+    "id": 24,
+    "name": "Drowsy",
+    "champIndexes": []
+  },
+  {
+    "id": 25,
+    "name": "Sleep",
+    "champIndexes": []
+  },
+  {
+    "id": 26,
+    "name": "Slow",
+    "champIndexes": []
+  },
+  {
+    "id": 27,
+    "name": "Root",
+    "champIndexes": []
+  },
+  {
+    "id": 28,
+    "name": "Stasis",
+    "champIndexes": []
+  },
+  {
+    "id": 29,
+    "name": "Suppression",
+    "champIndexes": []
+  },
+  {
+    "id": 30,
+    "name": "Blind",
+    "champIndexes": []
+  },
+  {
+    "id": 31,
+    "name": "Invulnerable",
+    "champIndexes": []
+  },
+  {
+    "id": 32,
+    "name": "Untargetable",
+    "champIndexes": []
+  },
+  {
+    "id": 33,
+    "name": "Total Immunity",
+    "champIndexes": []
+  },
+  {
+    "id": 34,
+    "name": "Displacement Immunity",
+    "champIndexes": []
+  },
+  {
+    "id": 35,
+    "name": "Immobilize Immunity",
+    "champIndexes": []
+  },
+  {
+    "id": 36,
+    "name": "Slow Immunity",
+    "champIndexes": []
+  },
+  {
+    "id": 37,
+    "name": "Cripple Immunity",
+    "champIndexes": []
+  },
+  {
+    "id": 38,
+    "name": "Spell Shield",
+    "champIndexes": []
+  },
+  {
+    "id": 39,
+    "name": "CC Removal",
+    "champIndexes": []
+  },
+  {
+    "id": 40,
+    "name": "CC Remove",
+    "champIndexes": []
+  },
+  {
+    "id": 41,
+    "name": "Spellshield",
+    "champIndexes": []
+  },
+  {
+    "id": 42,
+    "name": "Unstoppable",
+    "champIndexes": []
+  },
+  {
+    "id": 43,
+    "name": "Immunity",
+    "champIndexes": []
+  },
+  {
+    "id": 44,
+    "name": "Immune",
+    "champIndexes": []
+  },
+  {
+    "id": 45,
+    "name": "Damage Immunity",
+    "champIndexes": []
+  },
+  {
+    "id": 46,
+    "name": "Cleanse",
+    "champIndexes": []
+  },
+  {
+    "id": 47,
+    "name": "Resurrection",
+    "champIndexes": []
+  },
+  {
+    "id": 48,
+    "name": "Zombie",
+    "champIndexes": []
+  },
+  {
+    "id": 49,
+    "name": "Resurrect",
+    "champIndexes": []
+  },
+  {
+    "id": 50,
+    "name": "Revive",
+    "champIndexes": []
+  },
+  {
+    "id": 51,
+    "name": "Zombie State",
+    "champIndexes": []
+  },
+  {
+    "id": 52,
+    "name": "Empowered Basic Attack Modified Damage",
+    "champIndexes": []
+  },
+  {
+    "id": 53,
+    "name": "Empowered Basic Attack Bonus Damage",
+    "champIndexes": []
+  },
+  {
+    "id": 54,
+    "name": "Empowered Basic Attack Damage over Time",
+    "champIndexes": []
+  },
+  {
+    "id": 55,
+    "name": "Empowered Basic Attack Others",
+    "champIndexes": []
+  },
+  {
+    "id": 56,
+    "name": "Empowered Basic Attack Magic Damage Only",
+    "champIndexes": []
+  },
+  {
+    "id": 57,
+    "name": "Modified Damage",
+    "champIndexes": []
+  },
+  {
+    "id": 58,
+    "name": "Bonus Damage",
+    "champIndexes": []
+  },
+  {
+    "id": 59,
+    "name": "Damage over Time",
+    "champIndexes": []
+  },
+  {
+    "id": 60,
+    "name": "Others",
+    "champIndexes": []
+  },
+  {
+    "id": 61,
+    "name": "Magic Damage Only",
+    "champIndexes": []
+  },
+  {
+    "id": 62,
+    "name": "None",
+    "champIndexes": []
+  },
+  {
+    "id": 63,
+    "name": "Energy",
+    "champIndexes": []
+  },
+  {
+    "id": 64,
+    "name": "Fury",
+    "champIndexes": []
+  },
+  {
+    "id": 65,
+    "name": "Health",
+    "champIndexes": []
+  },
+  {
+    "id": 66,
+    "name": "Flow",
+    "champIndexes": []
+  },
+  {
+    "id": 67,
+    "name": "Mana",
+    "champIndexes": []
+  },
+  {
+    "id": 68,
+    "name": "Ranged",
+    "champIndexes": []
+  },
+  {
+    "id": 69,
+    "name": "Melee",
+    "champIndexes": []
+  }
+]
