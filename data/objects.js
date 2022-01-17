@@ -1,15 +1,15 @@
 var ChampionFunctions = {
 	searchableText: function() {
-		return (`${this.name} ${this.id} ${this.title} ${this.lanes} ${this.rangeType} ${this.attackRange}`
+		return (`${this.name} ${this.title} ${this.lanes} ${this.rangeType} ${this.attackRange}`
 			+ ` ${this.resource} ${this.releaseDate} ${this.releasePatch}`
 			+ ` ${this.region} ${this.species} ${this.lanes} ${this.tags[0]} ${(this.tags.length == 2 ? this.tags[1] : "")}`
 			+ ` ${this.abilities[0].name} ${this.abilities[1].name} ${this.abilities[2].name}`
 			+ ` ${this.abilities[3].name} ${this.abilities[4].name}`).toLowerCase();
 	},
-	getUrlWikiLore() { return `https://leagueoflegends.fandom.com/wiki/${this.name.replace("\\s","_")}`; },
-	getUrlWikiAbilities() { return `https://leagueoflegends.fandom.com/wiki/${this.name.replace("\\s","_")}/LoL#Abilities`; },
-	getUrlWikiPatchHistory() { return `https://leagueoflegends.fandom.com/wiki/${this.name.replace("\\s","_")}/LoL/Patch_history`; },
-	getUrlUniverse() { return `https://universe.leagueoflegends.com/en_SG/champion/${this.id_.ddragon}/`;; },
+	getUrlWikiLore() { return `https://leagueoflegends.fandom.com/wiki/${this.ids.wiki}`; },
+	getUrlWikiAbilities() { return `https://leagueoflegends.fandom.com/wiki/${this.ids.wiki}/LoL#Abilities`; },
+	getUrlWikiPatchHistory() { return `https://leagueoflegends.fandom.com/wiki/${this.ids.wiki}/LoL/Patch_history`; },
+	getUrlUniverse() { return `https://universe.leagueoflegends.com/en_SG/champion/${this.ids.ddragon}/`;; },
 	getUrlChampionSpotlight() { return `https://www.youtube.com/watch?v=${this.spotlightVideoID}`; },
 	transfer: function(obj) {
 		obj.searchableText = this.searchableText;
