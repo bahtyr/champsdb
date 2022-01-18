@@ -172,6 +172,15 @@
 						</div>
 						<p id="search__count" class="noselect"></p>
 						<div class="header__content-right">
+							<div class="tooltip-parent">
+								<p id="patch-version" class="noselect"></p>
+								<div class="tooltip patch-version-tooltip extended noselect">
+									<p></p>
+									<p>Next Patch: </p>
+									<a href="" target="_blank" onclick="track('Patch Notes', 'click')">Patch Notes</a><br/>
+									<a href="https://support-leagueoflegends.riotgames.com/hc/en-us/articles/360018987893-Patch-Schedule-League-of-Legends" target="_blank" onclick="track('Patch Schedule', 'click')">Patch Schedule</a>
+								</div>
+							</div>
 							<svg id="info-btn" onclick="modal.show()" style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="#555" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
 						</div>
 						<div class="flex-newline"></div>
@@ -366,7 +375,7 @@
 							<div class="col">
 								<a onmouseenter="track('Riot', 'footer')" href="https://www.riotgames.com/en/legal" class="disclaimer" target="_blank">ChampsDB was created under Riot Games' <span>"Legal Jibber Jabber"</span> policy using assets owned by Riot Games. Riot Games does not endorse or sponsor this project.</a>
 								<div class="tooltip-parent">
-									<div class="tooltip">
+									<div class="tooltip extended">
 										<p>CommunityDragon</p>
 										<p>League of Legends Wiki | Fandom</p>
 										<p>Liquipedia</p>

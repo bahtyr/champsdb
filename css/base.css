@@ -206,6 +206,13 @@ select {
 	transform: scale(1) translateZ(0px);
 }
 
+.tooltip-parent:hover .tooltip,
+.tooltip-parent .tooltip:hover {
+	opacity: 1;
+	transition: unset;
+	animation: tooltipScaleUp .1s linear;
+}
+
 .tooltip {
 	/* !define top/left */
 	position: absolute;
@@ -227,6 +234,16 @@ select {
 	transition: all .1s linear;
 }
 
+.tooltip.extended {
+	pointer-events: unset;
+	transform: scale(0) translateZ(0px);
+	transition: unset;
+}
+
+@keyframes tooltipScaleUp {
+  0% { transform: scale(0.90) translateZ(0px); }
+  100% { transform: scale(1) translateZ(0px); }
+}
 /* ---------------------------------------------------------------------------------------- */
 
 .modal {

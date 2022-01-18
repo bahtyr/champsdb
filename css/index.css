@@ -133,12 +133,31 @@ body {
 .header__content-right {
 	margin-left: auto;
 	margin-right: 20px;
+	display: flex;
+	grid-column-gap: 16px;
+	align-items: center;
 }
 
 #info-btn {
 	cursor: pointer;
 }
 
+#patch-version {
+	color: #919191;
+  font-family: monospace;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: help;
+}
+
+.patch-version-tooltip {
+	transform-origin: right top;
+	background-color: #111;
+	color: #888;
+	line-height: 1.6;
+	padding: 12px 22px;
+	right: -5;
+}
 
 /* ---------------------------------------------------------------------------------------- SIDEBAR CONTENT */
 
