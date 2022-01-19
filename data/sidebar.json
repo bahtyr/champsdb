@@ -654,5 +654,64 @@
         "id": 55
       }
     ]
+  },
+  {
+    "subheading": "Misc."
+  },
+  {
+    "list": [
+      {
+        "id": 70,
+        "text": "Size Modifiers",
+        "link": "",
+        "tooltip": ""
+      },
+      {
+        "id": 71,
+        "text": "Transformers",
+        "link": "",
+        "tooltip": ""
+      },
+      [
+        {
+          "id": 72,
+          "text": "Transformers Other",
+          "link": "",
+          "tooltip": ""
+        }
+      ],
+      {
+        "id": 73,
+        "text": "Infinitly Stacking",
+        "link": "",
+        "tooltip": ""
+      },
+      {
+        "id": 74,
+        "text": "Evolving Abilities",
+        "link": "",
+        "tooltip": ""
+      },
+      {
+        "id": 75,
+        "text": "Empowered Abilities",
+        "link": "",
+        "tooltip": ""
+      },
+      {
+        "id": 76,
+        "text": "Special HUD",
+        "link": "",
+        "tooltip": ""
+      },
+      [
+        {
+          "id": 77,
+          "text": "Special HUD Other",
+          "link": "",
+          "tooltip": ""
+        }
+      ]
+    ]
   }
 ]
