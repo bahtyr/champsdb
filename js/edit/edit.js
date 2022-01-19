@@ -9,7 +9,18 @@ fetch("data/tags.json").then(data => data.json()).then(json => {
 	tags = json;
 });
 
-/****************************************** RANDOM FUNCTIONS *************************************/
+/****************************************** UPDATE DATA ******************************************/
+
+function updateChamps() { updateData("champions", champions); }
+function updateData(fileName, data) {
+	let xhr = new XMLHttpRequest();
+	xhr.onreadystatechange = () => (xhr.readyState === 4) && console.log(xhr.responseText);
+	xhr.open("POST", "./js/server/update.php?file="+fileName, true);
+	xhr.setRequestHeader("Content-type", "application/json");
+	xhr.send(JSON.stringify(data, null, 2));
+}
+
+/****************************************** TAGS *************************************************/
 
 function _addTagToChamps(tagId) {
 	if (tagId == null) return;
@@ -22,11 +33,19 @@ function _addTagToChamp(tagId, champString) {
 	let champName = s[0];
 	let tagArraysIndex = s.length == 2 ? parseInt(s[1])+1 : 0;
 
-	champ = champions.find(({ids}) => ids.pascal.toLowerCase() === champName.toLowerCase());
-	if (champ)
-		champ.tagArrays[tagArraysIndex].push(tagId);
-	else console.error("Champion not found: " + champString);
+	// champ = champions.find(({ids}) => ids.pascal.toLowerCase() === champName.toLowerCase());
+	champ = champions.find(({name}) => name === champName);
+
+
+	// champ not found
+	if (!champ) console.error("Champion not found: " + champString);
+	// champ has the tag
+	else if (champ.tagArrays[tagArraysIndex].includes(tagId)) console.warn("Champion already has the tag. " + champString + "  " + tagId);
+	// success
+	else champ.tagArrays[tagArraysIndex].push(tagId);
 }
+
+/****************************************** RANDOM FUNCTIONS *************************************/
 
 function _readGameData() {
 	fetch("gamedata.json").then(data => data.json()).then(json => {
@@ -49,5 +68,23 @@ function _readGameData() {
 			})
 		}
 		console.log(newData);
+		findValueInJson(newData, "Trait_");
 	});
+}
+
+function findValueInJson(json, value) {
+	console.log("he");
+	let champsOnly = [];
+	let newArr = {};
+	for (champ in json) {
+		for (section in json[champ]) {
+			if (!json[champ][section].mSpellTags) continue;
+			if (!json[champ][section].mSpellTags.includes(value)) continue;
+			if (!newArr[champ]) newArr[champ] = [];
+			newArr[champ].push(section);
+			if (!champsOnly.includes(champ)) champsOnly.push(champ);
+		}
+	}
+	console.log(newArr);
+	console.log(champsOnly);
 }
