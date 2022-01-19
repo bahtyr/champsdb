@@ -6,12 +6,20 @@
 		<link rel="stylesheet" href="./css/edit.css">
 	</head>
 	<body class="edit">
-		<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
-		<script src="./js/classes.js"></script>
-		<script src="./js/classes-data.js"></script>
-		<script src="./js/classes-editors.js"></script>
-		<script src="./js/classes-parsers.js"></script>
-		<script src="./js/edit.js"></script>
+		<!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script> -->
+		<!-- <script src="./js/classes.js"></script> -->
+		<!-- <script src="./js/classes-data.js"></script> -->
+		<!-- <script src="./js/classes-editors.js"></script> -->
+		<!-- <script src="./js/classes-parsers.js"></script> -->
+		<!-- <script src="./js/edit.js"></script> -->
+
+		<div class="modal">
+			<div class="modal-content">
+				<div class="close">
+					<svg style="width:16px;height:16px" viewBox="0 0 24 24"><path fill="#666" d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" /></svg>
+				</div>
+			</div>
+		</div>
 
 		<div id="header__edit">
 			<div class="max-width-page">
@@ -88,5 +96,9 @@
 			<p class="edit-action" onclick="wikiApi.getChampionAbilitiesFromText()"><img src="./assets/bullet.svg"/>Get Champions' Abilities from Text</p>
 			</p>
 		</div>
+
+		<script src="./js/main.js"></script>
+		<script src="./data/objects.js"></script>
+		<script src="./js/edit/edit.js"></script>
 	</body>
 </html>
