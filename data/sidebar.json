@@ -681,23 +681,31 @@
         }
       ],
       {
-        "id": 73,
-        "text": "Infinitly Stacking",
+        "id": -1,
+        "text": "Abilities",
         "link": "",
         "tooltip": ""
       },
-      {
-        "id": 74,
-        "text": "Evolving Abilities",
-        "link": "",
-        "tooltip": ""
-      },
-      {
-        "id": 75,
-        "text": "Empowered Abilities",
-        "link": "",
-        "tooltip": ""
-      },
+      [
+        {
+          "id": 73,
+          "text": "Infinitely Stacking",
+          "link": "",
+          "tooltip": ""
+        },
+        {
+          "id": 74,
+          "text": "Evolving Abilities",
+          "link": "",
+          "tooltip": ""
+        },
+        {
+          "id": 75,
+          "text": "Empowered Abilities",
+          "link": "",
+          "tooltip": ""
+        }
+      ],
       {
         "id": 76,
         "text": "Special HUD",
@@ -712,6 +720,34 @@
           "tooltip": ""
         }
       ]
+    ]
+  },
+  {
+    "heading": "Internal"
+  },
+  {
+    "subheading": "Spell Tags"
+  },
+  {
+    "list": [
+      {
+        "id": 78,
+        "text": "PositiveEffect_MoveBlock",
+        "link": "",
+        "tooltip": ""
+      },
+      {
+        "id": 79,
+        "text": "Trait_ChannelSpell",
+        "link": "",
+        "tooltip": ""
+      },
+      {
+        "id": 80,
+        "text": "Trait_ImmobilizingCCSpell",
+        "link": "",
+        "tooltip": ""
+      }
     ]
   }
 ]

@@ -366,7 +366,7 @@
   },
   {
     "id": 73,
-    "name": "Infinitly Stacking",
+    "name": "Infinitely Stacking",
     "champIndexes": []
   },
   {
@@ -387,6 +387,21 @@
   {
     "id": 77,
     "name": "Special HUD Other",
+    "champIndexes": []
+  },
+  {
+    "id": 78,
+    "name": "PositiveEffect_MoveBlock",
+    "champIndexes": []
+  },
+  {
+    "id": 79,
+    "name": "Trait_ChannelSpell",
+    "champIndexes": []
+  },
+  {
+    "id": 80,
+    "name": "Trait_ImmobilizingCCSpell",
     "champIndexes": []
   }
 ]
