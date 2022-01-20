@@ -61,6 +61,12 @@ $id("search").addEventListener("blur", () => setTimeout(() => {
 	$id("search__wrapper").classList.remove("hover");
 }, 200));
 
+/****************************************** SEARCH ***********************************************/
+
+$queryAll(".export-tooltip a").forEach(el => el.addEventListener("click", e => {
+	champlist.exportVisibleItems(e.target.id);
+}));
+
 /****************************************** SIDEBAR **********************************************/
 
 $id("sidebar__roles").addEventListener("click", e => {

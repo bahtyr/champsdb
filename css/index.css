@@ -142,7 +142,8 @@ body {
 	cursor: pointer;
 }
 
-#patch-version {
+#patch-version,
+#export-btn {
 	color: #919191;
   font-family: monospace;
   font-size: 14px;
@@ -150,7 +151,11 @@ body {
   cursor: help;
 }
 
-.patch-version-tooltip {
+#export-btn { text-transform: uppercase; cursor: pointer; }
+#export-btn:hover { background-color: rgba(255, 255, 255, 0.12); border-radius: 4px; }
+
+.patch-version-tooltip,
+.export-tooltip {
 	transform-origin: right top;
 	background-color: #111;
 	color: #888;
@@ -159,6 +164,12 @@ body {
 	right: -5;
 	text-align: right;
 }
+
+.export-tooltip {
+	text-align: left;
+}
+
+.export-tooltip a { cursor: pointer; } /* we use them as buttons */
 
 .patch-version-tooltip a span { cursor: unset; }
 .patch-version-tooltip .disabled { color: #888; pointer-events: none; }

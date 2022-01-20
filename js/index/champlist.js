@@ -222,4 +222,43 @@ class ChampListManager {
 			else this.elements[i].children[0].children[2].textContent = "";
 		});
 	}
+
+	exportVisibleItems(mode = "export-name-only") {
+		if (!champlist.elements) return;
+		let arr = [];
+
+		// name only
+		if (mode === "export-name-only") {
+			champions.forEach(champ => !champ.hide && arr.push(champ.name));
+		}
+
+		else if (mode === "export-with-keys") {
+			// only visibile abilities
+			if (search.tagId) {
+				champions.forEach((champ, i) => {
+					if (!champ.hide) {
+						let keys = this.elements[i].children[0].children[2].textContent.trim();
+						if (keys.length == 0) arr.push(champ.name);
+						else keys.split(" ").forEach(key => arr.push(`${champ.name} (${key})`));
+					}
+				});
+			}
+
+			// all abilities
+			else {
+				champions.forEach((champ, i) => {
+					if (!champ.hide) {
+						arr.push(champ.name + " (P)");
+						arr.push(champ.name + " (Q)");
+						arr.push(champ.name + " (W)");
+						arr.push(champ.name + " (E)");
+						arr.push(champ.name + " (R)");
+					}
+				});
+			}
+		}
+
+		navigator.clipboard.writeText(arr.join('\r\n'));
+		alert.show();
+	}
 }
