@@ -35,7 +35,7 @@
 				<div class="inline-icon">
 					<div><svg style="width:24px;height:24px" viewBox="0 0 24 24"><path fill="currentColor" d="M3 7A2 2 0 0 0 1 9V17H3V13H5V17H7V9A2 2 0 0 0 5 7H3M3 9H5V11H3M15 10.5V9A2 2 0 0 0 13 7H9V17H13A2 2 0 0 0 15 15V13.5A1.54 1.54 0 0 0 13.5 12A1.54 1.54 0 0 0 15 10.5M13 15H11V13H13V15M13 11H11V9H13M19 7A2 2 0 0 0 17 9V15A2 2 0 0 0 19 17H21A2 2 0 0 0 23 15V14H21V15H19V9H21V10H23V9A2 2 0 0 0 21 7Z" /></svg></div>
 					<div><svg style="width:24px;height:24px" viewBox="0 0 24 24"></svg></div>
-					<span>To search simply start typing, no need to click on the search field. Search will be auto-cleared when you start typing again after a while.</span>
+					<span>To search simply start typing, no need to click on the search field.</span>
 				</div>
 				<div style="height: 4px;"></div>
 				<div class="inline-icon">
@@ -175,10 +175,11 @@
 							<div class="tooltip-parent">
 								<p id="patch-version" class="noselect"></p>
 								<div class="tooltip patch-version-tooltip extended noselect">
-									<p></p>
-									<p>Next Patch: </p>
-									<a href="" target="_blank" onclick="track('Patch Notes', 'click')">Patch Notes</a><br/>
-									<a href="https://support-leagueoflegends.riotgames.com/hc/en-us/articles/360018987893-Patch-Schedule-League-of-Legends" target="_blank" onclick="track('Patch Schedule', 'click')">Patch Schedule</a>
+									<a id="patch-notes-current" href="" target="_blank" onclick="track('Patch Notes Current', 'click')"><span>Current Patch Notes</span><svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 1.51725V4.506H6V0H1.5V0.747H4.5L0 5.253V6H0.75L5.25 1.51725Z" fill="#0BC4E2"/></svg></a>
+									<br/>
+									<a id="patch-notes-next" href="" target="_blank" onclick="track('Patch Notes Next', 'click')" class="disabled"><span id="next-patch-date">Date</span> &mdash; <span>Next Patch Notes</span><svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 1.51725V4.506H6V0H1.5V0.747H4.5L0 5.253V6H0.75L5.25 1.51725Z" fill="#0BC4E2"/></svg></a>
+									<br/>
+									<a href="https://support-leagueoflegends.riotgames.com/hc/en-us/articles/360018987893-Patch-Schedule-League-of-Legends" target="_blank" onclick="track('Patch Schedule', 'click')">Patch Schedule<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 1.51725V4.506H6V0H1.5V0.747H4.5L0 5.253V6H0.75L5.25 1.51725Z" fill="#0BC4E2"/></svg></a>
 								</div>
 							</div>
 							<svg id="info-btn" onclick="modal.show()" style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="#555" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>

@@ -157,7 +157,12 @@ body {
 	line-height: 1.6;
 	padding: 12px 22px;
 	right: -5;
+	text-align: right;
 }
+
+.patch-version-tooltip a span { cursor: unset; }
+.patch-version-tooltip .disabled { color: #888; pointer-events: none; }
+.patch-version-tooltip .disabled path { fill: #888; }
 
 /* ---------------------------------------------------------------------------------------- SIDEBAR CONTENT */
 

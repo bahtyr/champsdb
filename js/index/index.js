@@ -57,13 +57,21 @@ function printPatchInfo() {
 	while (patches[current].start * 1000 > today) current--;
 
 	let next = current == patches.length ? current : current + 1;
-
 	let nextPatchDate = new Date(patches[next].start * 1000).toLocaleDateString("en-US", {month: "short", weekday: "short", day: "numeric"});
-	let tooltip = $class("patch-version-tooltip")[0];
+
 	$id("patch-version").textContent = "V" + patches[current].version;
-	tooltip.children[0].textContent = "V" + patches[current].version;
-	tooltip.children[1].textContent = "Next Patch: " + (next == current ? "N/A" : nextPatchDate);
-	tooltip.children[2].setAttribute("href", patches[current].link);
+	$id("patch-notes-current").children[0].textContent = "Patch " + patches[current].version + " Notes";
+	$id("patch-notes-current").setAttribute("href", patches[current].link);
+
+	if (next === current) $id("patch-notes-next").setAttribute("display", "none");
+	if (next === current) return;
+
+	// enable the link one day before patch is released
+	if ((patches[next].start * 1000) - today <= 86400000)
+		$id("patch-notes-next").classList.remove("disabled");
+	$id("next-patch-date").textContent = nextPatchDate;
+	$id("patch-notes-next").children[1].textContent = "Patch " + patches[next].version + " Notes";
+	$id("patch-notes-next").setAttribute("href", patches[next].link);
 }
 
 /*************************************************************************************************/
