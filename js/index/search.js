@@ -34,14 +34,12 @@ var search = {
 	clear: function() {
 		$id("search").value = "";
 		$id("search__clear").classList.add("hide");
+		search.text = "";
+		search.tagId = null;
 		sidebar.clearSelection();
 		champlist.deselect();
 		champlist.unhideAll();
 		champlist.updateItemCount();
-	},
-	clearInput: function() {
-		$id("search").value = "";
-		$id("search__clear").classList.add("hide");
 	},
 	fakeInput: function(s) {
 		this.text = s.toLowerCase();
