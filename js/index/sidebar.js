@@ -99,6 +99,7 @@ class SidebarManager {
 		search.fakeInput(tag.text);
 
 		switch (tag.id) {
+			case -1: break; //ignore
 			case -2: search.byAttr("region", tag.text); break;
 			case -3: search.byAttr("species", tag.text); break;
 			default: search.byTagId(tag.id); break;

@@ -41,6 +41,7 @@ $id("sort").addEventListener("change", e => {
 
 	champlist.deselect();
 	champlist.print();
+	champlist.showAbilityKeysOnChamps();
 });
 
 /****************************************** SEARCH ***********************************************/

@@ -63,6 +63,7 @@ var search = {
 	 */
 
 	byText: function(s) {
+		search.tagId = null;
 		champions.forEach((champ, i) => {
 			if (champ.searchableText().toLowerCase().includes(s))
 				champlist.show(i);
@@ -70,6 +71,7 @@ var search = {
 		});
 	},
 	byAttr: function(attr, text, toLowerCase) {
+		search.tagId = null;
 		let anyMatchFound = false;
 		champions.forEach((champ, i) => {
 			if (toLowerCase 
