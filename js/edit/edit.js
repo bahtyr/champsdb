@@ -36,13 +36,39 @@ function _addTagToChamp(tagId, champString) {
 	// champ = champions.find(({ids}) => ids.pascal.toLowerCase() === champName.toLowerCase());
 	champ = champions.find(({name}) => name === champName);
 
-
 	// champ not found
 	if (!champ) console.error("Champion not found: " + champString);
 	// champ has the tag
 	else if (champ.tagArrays[tagArraysIndex].includes(tagId)) console.warn("Champion already has the tag. " + champString + "  " + tagId);
 	// success
 	else champ.tagArrays[tagArraysIndex].push(tagId);
+}
+
+function _removeTagFromChamps(tagId) {
+	if (tagId == null) return;
+	let input = $tag("textarea")[0].value.split(/\r|\n/);
+	input.forEach(e => _removeTagFromChamp(tagId, e));
+}
+
+function _removeTagFromChamp(tagId, champString) {
+	let s = champString.split("#");
+	let champName = s[0];
+	let tagArraysIndex = s.length == 2 ? parseInt(s[1])+1 : 0;
+
+	// champ = champions.find(({ids}) => ids.pascal.toLowerCase() === champName.toLowerCase());
+	champ = champions.find(({name}) => name === champName);
+
+	// champ not found
+	if (!champ) {
+		console.error("Champion not found: " + champString);
+		return;
+	}
+
+	// champ has the tag
+	let indexOf = champ.tagArrays[tagArraysIndex].indexOf(tagId);
+	if (indexOf != -1) {
+		champ.tagArrays[tagArraysIndex].splice(indexOf, 1);
+	} else console.warn("Champion does not have the tag. " + champString + "  " + tagId);
 }
 
 /****************************************** RANDOM FUNCTIONS *************************************/
@@ -68,7 +94,7 @@ function _readGameData() {
 			})
 		}
 		console.log(newData);
-		findValueInJson(newData, "Trait_");
+		findValueInJson(newData, "PositiveEffect_MoveBlock");
 	});
 }
 
