@@ -39,7 +39,7 @@ $id("sort").addEventListener("change", e => {
 		case "rework": break;
 	}
 
-	champlist.unhideAll();
+	champlist.deselect();
 	champlist.print();
 });
 

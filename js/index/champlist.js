@@ -18,6 +18,12 @@ class ChampListManager {
 	/****************************************** PRINT ************************************************/
 
 	print() {
+		// reset
+		this.i  = -1;
+		this.ii = -1;
+		this.elements = [];
+		this.visibleItems = [];
+
 		// remove any item that is not template 
 		// (there are filler items to list width / height && remove existing items when used after sort())
 		$queryAll(".item:not(.js-template)").forEach(e => e.remove());
@@ -25,8 +31,6 @@ class ChampListManager {
 		// prepare item cloning
 		const node = $class("item")[0];
 		let item;
-		this.elements = [];
-		this.visibleItems = [];
 
 		champions.forEach((element, index) => {
 			item = node.cloneNode(true);
