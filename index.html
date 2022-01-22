@@ -338,18 +338,22 @@
 						<div class="champcard__footer">
 
 							<div class="header-row">
-								<p class="heading heading-min-width">Ability Description</p>
+								<p class="heading heading-min-width">Tags</p>
 								<div class="text-icon-wrapper noselect tooltip-parent" id="video-btn" onmouseenter="track('Video', 'champcard')">
 									<div class="tooltip">
+										<p id="ability-desc"></p>
+										<div class="video-shadow"></div>
 										<video loop="" autoplay="" muted="" src=""></video>
 										<div class="loader"></div>
 									</div>
 									<svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M9.10002 6.76666L12.8334 4.08332V9.91666L9.10002 7.29166V6.70832V6.76666ZM2.33335 2.91666H7.58335C7.89277 2.91666 8.18952 3.03957 8.40831 3.25837C8.6271 3.47716 8.75002 3.7739 8.75002 4.08332V9.91666C8.75002 10.2261 8.6271 10.5228 8.40831 10.7416C8.18952 10.9604 7.89277 11.0833 7.58335 11.0833H2.33335C2.02393 11.0833 1.72719 10.9604 1.5084 10.7416C1.2896 10.5228 1.16669 10.2261 1.16669 9.91666V4.08332C1.16669 3.44166 1.69169 2.91666 2.33335 2.91666Z" stroke="#8a7647" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
-									<p class="heading">Video</p>
+									<p class="heading">Ability Preview</p>
 								</div>
 							</div>
 
-							<p id="ability-desc" class="text">Aatrox slams his greatsword down, dealing physical damage. He can swing three times, each with a different area of effect.</p>
+							<p id="ability-tags" class="text"></p>
+
+							<!-- <p id="ability-desc" class="text">Aatrox slams his greatsword down, dealing physical damage. He can swing three times, each with a different area of effect.</p> -->
 
 							<div style="display: inline-block; margin-right: 28px; display: none;">
 								<p class="heading heading-min-width">Scaling</p>
@@ -358,7 +362,7 @@
 							<div style="display: inline-block; display: none;">
 								<p class="heading">Tags</p>
 								<!-- <p id="ability-tags" class="text">Multicast &bull; AOE &bull; Knock Up</p> -->
-								<p id="ability-tags" class="text">N/A</p>
+								<!-- <p id="ability-tags" class="text">N/A</p> -->
 							</div>
 						</div>
 					</div>

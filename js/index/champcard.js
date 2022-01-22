@@ -155,14 +155,13 @@ class ChampCardManager {
 		this.table.activeAbility.description.innerHTML = champions[champIndex].abilities[abilityIndex].description;
 		this.table.activeAbility.video.setAttribute("src", champions[champIndex].abilities[abilityIndex].video);
 
-		// disable video button if there is no video
-		if (!champions[champIndex].abilities[abilityIndex].video || 
-			champions[champIndex].abilities[abilityIndex].video == " ")
-			this.table.activeAbility.videoBtn.classList.add("disabled");
-		else this.table.activeAbility.videoBtn.classList.remove("disabled");
+		// handle case: no ability video
+
 
 		// show tags
-		// this.table.activeAbility.tags.text(s);
+		let tagsText = champions[champIndex].tagArrays[abilityIndex + 1].map(tag => tags.find(({id}) => id === tag).name).join(", ");
+		if (tagsText.length == 0) tagsText = "N/A";
+		this.table.activeAbility.tags.textContent = tagsText;
 		// this.table.activeAbility.scaling.text(champIndex + " " + abilityIndex);
 	}
 

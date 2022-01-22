@@ -528,7 +528,7 @@ p.sidebar-subheading svg {
 .champcard__footer {
 	padding: 14 20px;
 	/*padding-bottom: 36px;*/
-	min-height: 130px;
+	min-height: 100px;
 }
 
 .champcard__footer .header-row {
@@ -547,17 +547,18 @@ p.sidebar-subheading svg {
 }
 
 .heading-min-width {
-	min-width: 132px;
+	min-width: 56px;
 }
 
 .champcard__footer .text-icon-wrapper:not(.disabled):hover {
 	background-color: rgba(255, 255, 255, 0.1);
 	border-radius: 4px;
+	/*color: #DED5BF;*/
+	/*color: red;*/
 
 }
 .champcard__footer .text-icon-wrapper:not(.disabled):hover * {
 	stroke: #CDBF9D;
-	color: #DED5BF;
 }
 
 
@@ -605,11 +606,17 @@ p.sidebar-subheading svg {
 }
 
 .champcard__footer #ability-desc {
-	/*font-size: 14px;*/
-	margin-top: 2px;
-	/*margin-bottom: 22px;*/
+	position: absolutes;
+	padding: 14px 16px;
+
+	color: #777;
 	line-height: 1.4;
-	padding-bottom: 10px;
+	letter-spacing: 0.07em;
+
+	text-shadow: 1px 1px #000;
+	white-space: normal;
+	width: 70%;
+	z-index: 10;
 }
 
 /* ---------------------------------------------------------------------------------------- VIDEO TOOLTIP */
@@ -617,37 +624,44 @@ p.sidebar-subheading svg {
 #video-btn.disabled:hover .tooltip { opacity: 0; } /* dont show tooltip if disabled */
 
 #video-btn .tooltip {
-	bottom: 25px;
-	left: 0px;
-	padding: 0;
+	/*pointer-events: initial;*/
+	/*opacity: 1;*/
 	/*bg*/
 	background-color: #000;
-	border: 1px solid #181818;
+	outline: 1px solid #181818;
+	color: unset;
+	/*size*/
+	padding: 0;
+	bottom: 25px;
+	height: 240px;
+	width: 510px;
 }
 
-#video-btn .tooltip::after {
-	/*video gradient overlay*/
-	content: '';
+.video-shadow {
   position: absolute;
-  bottom: 0;
-  left: 0;
-  width: 100%;
+  top: 0;
+  right: 0;
+  width: 70%;
   height: 100%;
-  background: linear-gradient(180deg, rgba(0,0,0,0) 35%, rgba(0,0,0,0.8) 100%);
-  border-radius: 5px;
+  background: linear-gradient(270deg, rgba(0,0,0,0) -40%, rgba(0,0,0,1) 100%);
+  z-index: -1;
 }
 
 #video-btn .tooltip video {
+	top: 0;
+	right: 0;
+	position: absolute;
 	border-radius: 5px;
-	width: 400px;
+	height: 100%;
+	z-index: -2;
 }
 
 #video-btn .loader {
 	position: absolute;
-	top: 45%;
-	left: 45%;
+	top: 46%;
+	right: 18%;
 	opacity: 0.5;
-	z-index: -1;
+	z-index: -3;
 }
 
 /* ---------------------------------------------------------------------------------------- CHAMPCARD TABLE */
