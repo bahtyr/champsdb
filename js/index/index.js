@@ -26,7 +26,7 @@ fetch("data/tags.json").then(data => data.json()).then(json => {
 
 fetch("data/patches.json").then(data => data.json()).then(json => {
 	patches = json;
-	printPatchInfo();
+	// printPatchInfo();
 });
 
 /* wait for both champions & tags to be initiated, then run only once */

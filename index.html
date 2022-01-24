@@ -15,7 +15,7 @@
 		<meta property="og:type" content="website"/>
 		<script async defer data-website-id="b96bd857-2eb1-41f0-bf35-4fb68cf185d9" data-host-url="https://umami.bahtyr.com" src="https://champsdb.gg/umamii.js"></script>
 	</head>
-	<body>
+	<body class="noselect">
 		<!-- Define SVG Gradients -->
 		<svg width="0" height="0" viewBox="0 0 0 0" fill="none" xmlns="http://www.w3.org/2000/svg">
 			<defs>
@@ -146,32 +146,68 @@
 				<!--            CONTENT              -->
 				<!------------------------------------->
 				<div class="center" id="content-wrapper">
+					<div id="sort"  style="display: none;"></div>
+					<!-- <div id="search__clear"  style="display: none;"></div> -->
+					<div id="site-header__hamburger"  style="display: none;"></div>
+					<div id="search__wrapper" style="display: none;"></div>
+
+
+					
 					
 					<!--======= HEADER =====-->
+					<!------------------------------------->
+					<!--            HEADERS              -->
+					<!------------------------------------->
 					<div class="page-header" id="header__main">
+						<svg id="search__icon" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.58333 7.91667C6.42428 7.91667 7.91667 6.42428 7.91667 4.58333C7.91667 2.74238 6.42428 1.25 4.58333 1.25C2.74238 1.25 1.25 2.74238 1.25 4.58333C1.25 6.42428 2.74238 7.91667 4.58333 7.91667Z" stroke="#807E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.75 8.75L6.9375 6.9375" stroke="#807E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+						
+						<div id="search__tags" class="search__tags noselect">
+							<!-- <p>Mid</p> -->
+						</div>
+
+						<input id="search" type="text" name="Search" placeholder="Search">
+						
+						<div id="search__bubble" class="search__bubble noselect activee ">
+							<svg id="search__clear" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M10.5 3.5L3.5 10.5" stroke="#543F2D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M3.5 3.5L10.5 10.5" stroke="#543F2D" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path d="M6.5 1H3C2.73478 1 2.48043 1.10536 2.29289 1.29289C2.10536 1.48043 2 1.73478 2 2V10C2 10.55 2.45 11 3 11H9C9.26522 11 9.51957 10.8946 9.70711 10.7071C9.89464 10.5196 10 10.2652 10 10V4.5L6.5 1Z" stroke="#543F2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+								<path d="M6.5 1.5V4.5H9.5" stroke="#543F2D" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+							</svg>
+							<svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<path fill-rule="evenodd" clip-rule="evenodd" d="M9.19202 2.536C8.88802 1.288 7.11202 1.288 6.80802 2.536C6.76263 2.72353 6.67361 2.8977 6.5482 3.04433C6.42278 3.19096 6.26452 3.3059 6.0863 3.37981C5.90807 3.45373 5.7149 3.48451 5.52253 3.46967C5.33015 3.45483 5.144 3.39477 4.97922 3.2944C3.88162 2.6256 2.62562 3.8816 3.29442 4.9792C3.72642 5.688 3.34322 6.6128 2.53682 6.8088C1.28802 7.112 1.28802 8.8888 2.53682 9.1912C2.7244 9.23664 2.8986 9.32575 3.04523 9.45126C3.19186 9.57676 3.30677 9.73513 3.38061 9.91346C3.45445 10.0918 3.48513 10.285 3.47016 10.4775C3.45518 10.6699 3.39496 10.856 3.29442 11.0208C2.62562 12.1184 3.88162 13.3744 4.97922 12.7056C5.14397 12.6051 5.33014 12.5448 5.52257 12.5299C5.71499 12.5149 5.90824 12.5456 6.08656 12.6194C6.26489 12.6932 6.42325 12.8082 6.54876 12.9548C6.67427 13.1014 6.76338 13.2756 6.80882 13.4632C7.11202 14.712 8.88882 14.712 9.19122 13.4632C9.23682 13.2757 9.32601 13.1016 9.45155 12.9551C9.57708 12.8086 9.73542 12.6937 9.91369 12.6199C10.092 12.5461 10.2851 12.5154 10.4775 12.5303C10.6699 12.5452 10.856 12.6052 11.0208 12.7056C12.1184 13.3744 13.3744 12.1184 12.7056 11.0208C12.6053 10.856 12.5452 10.6699 12.5303 10.4775C12.5154 10.2851 12.5461 10.0919 12.6199 9.91367C12.6938 9.7354 12.8086 9.57706 12.9551 9.45152C13.1017 9.32599 13.2757 9.2368 13.4632 9.1912C14.712 8.888 14.712 7.1112 13.4632 6.8088C13.2756 6.76335 13.1014 6.67425 12.9548 6.54874C12.8082 6.42323 12.6933 6.26487 12.6194 6.08654C12.5456 5.90822 12.5149 5.71497 12.5299 5.52255C12.5449 5.33012 12.6051 5.14395 12.7056 4.9792C13.3744 3.8816 12.1184 2.6256 11.0208 3.2944C10.8561 3.39494 10.6699 3.45516 10.4775 3.47013C10.285 3.48511 10.0918 3.45443 9.91348 3.38059C9.73515 3.30675 9.57679 3.19184 9.45128 3.04521C9.32577 2.89858 9.23666 2.72438 9.19122 2.5368L9.19202 2.536ZM8.00002 10.4C8.63654 10.4 9.24699 10.1471 9.69708 9.69706C10.1472 9.24697 10.4 8.63652 10.4 8C10.4 7.36348 10.1472 6.75303 9.69708 6.30294C9.24699 5.85286 8.63654 5.6 8.00002 5.6C7.3635 5.6 6.75305 5.85286 6.30296 6.30294C5.85288 6.75303 5.60002 7.36348 5.60002 8C5.60002 8.63652 5.85288 9.24697 6.30296 9.69706C6.75305 10.1471 7.3635 10.4 8.00002 10.4V10.4Z" fill="#4C3927"/>
+							</svg>
+							<svg style="pointer-events: none;" width="2" height="14" viewBox="0 0 1 14" fill="none" xmlns="http://www.w3.org/2000/svg">
+								<line x1="0.5" y1="2.18557e-08" x2="0.499999" y2="14" stroke="#6A5644"/>
+							</svg>
+							<p id="search__count" class="search__count">157 Champions</p>
+						</div>
+
 						<!-- mobile version elements, hamburger and site 'logo' -->
-						<div><svg id="site-header__hamburger" class="heading__smallest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6" stroke="#755b2c"></line><line x1="3" y1="12" x2="21" y2="12" stroke="#5d4920"></line><line x1="3" y1="18" x2="21" y2="18" stroke="#463714"></line></svg></div>
+						<!-- <div><svg id="site-header__hamburger" class="heading__smallest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6" stroke="#755b2c"></line><line x1="3" y1="12" x2="21" y2="12" stroke="#5d4920"></line><line x1="3" y1="18" x2="21" y2="18" stroke="#463714"></line></svg></div>
 						<div id="site-heading-wrapper" class="heading__smallest noselect">
 							<svg id="site-icon__small" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.1502 8.95742V5.11853C14.1502 5.11853 14.3606 1.173 8.04852 0H7.94332C1.63121 1.173 1.84161 5.11853 1.84161 5.11853V8.95742C1.84161 10.9835 1 11.6233 1 11.6233C2.26242 16.3153 5.41848 15.9954 5.41848 15.9954C3.73525 13.756 5.41848 9.81051 5.41848 9.81051C2.99883 9.4906 3.41964 6.93134 3.63005 6.18489C3.63005 6.18489 5.94448 6.07825 7.1017 7.89106V12.3698L8.04852 13.3295L8.89014 12.4764V7.9977C10.1526 6.07825 12.3618 6.18489 12.3618 6.29152C12.5722 7.03797 12.993 9.59724 10.5734 9.81051C10.5734 9.81051 12.2566 13.8627 10.5734 15.9954C10.5734 15.9954 13.7294 16.3153 14.9918 11.6233C15.097 11.6233 14.1502 10.9835 14.1502 8.95742Z" fill="url(#paint0_linear_358_4)"/><defs><linearGradient id="paint0_linear_358_4" x1="15.1111" y1="1.57355e-07" x2="17.2162" y2="15.7181" gradientUnits="userSpaceOnUse"><stop stop-color="#CDBE91"/><stop offset="1" stop-color="#785A28"/></linearGradient></defs></svg>
 							<h1 id="heading__site">ChampsDB</h1>
-						</div>
+						</div> -->
 						<!--======= SEARCH =======-->
-						<div><svg id="site-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.2253 13.4361V7.67779C21.2253 7.67779 21.5409 1.75949 12.0728 0H11.915C2.44682 1.75949 2.76242 7.67779 2.76242 7.67779V13.4361C2.76242 16.4753 1.5 17.435 1.5 17.435C3.39363 24.4729 8.12771 23.9931 8.12771 23.9931C5.60287 20.6341 8.12771 14.7158 8.12771 14.7158C4.49825 14.2359 5.12946 10.397 5.44507 9.27733C5.44507 9.27733 8.91673 9.11737 10.6526 11.8366V18.5547L12.0728 19.9942L13.3352 18.7146V11.9965C15.2288 9.11737 18.5427 9.27733 18.5427 9.43728C18.8583 10.557 19.4895 14.3959 15.86 14.7158C15.86 14.7158 18.3849 20.794 15.86 23.9931C15.86 23.9931 20.5941 24.4729 22.4878 17.435C22.6456 17.435 21.2253 16.4753 21.2253 13.4361Z" fill="url(#paint0_linear_358_2)"/><defs><linearGradient id="paint0_linear_358_2" x1="22.6667" y1="2.36032e-07" x2="25.8243" y2="23.5771" gradientUnits="userSpaceOnUse"><stop stop-color="#CDBE91"/><stop offset="1" stop-color="#785A28"/></linearGradient></defs></svg></div><!-- we wrap in a div so it does not shrink due to "overflow" -->
-						<div id="search__wrapper" class="input-wrapper search umami--click--Search">
+						<!-- <div><svg id="site-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.2253 13.4361V7.67779C21.2253 7.67779 21.5409 1.75949 12.0728 0H11.915C2.44682 1.75949 2.76242 7.67779 2.76242 7.67779V13.4361C2.76242 16.4753 1.5 17.435 1.5 17.435C3.39363 24.4729 8.12771 23.9931 8.12771 23.9931C5.60287 20.6341 8.12771 14.7158 8.12771 14.7158C4.49825 14.2359 5.12946 10.397 5.44507 9.27733C5.44507 9.27733 8.91673 9.11737 10.6526 11.8366V18.5547L12.0728 19.9942L13.3352 18.7146V11.9965C15.2288 9.11737 18.5427 9.27733 18.5427 9.43728C18.8583 10.557 19.4895 14.3959 15.86 14.7158C15.86 14.7158 18.3849 20.794 15.86 23.9931C15.86 23.9931 20.5941 24.4729 22.4878 17.435C22.6456 17.435 21.2253 16.4753 21.2253 13.4361Z" fill="url(#paint0_linear_358_2)"/><defs><linearGradient id="paint0_linear_358_2" x1="22.6667" y1="2.36032e-07" x2="25.8243" y2="23.5771" gradientUnits="userSpaceOnUse"><stop stop-color="#CDBE91"/><stop offset="1" stop-color="#785A28"/></linearGradient></defs></svg></div> -->
+						<!-- we wrap in a div so it does not shrink due to "overflow" -->
+						<!-- <div id="search__wrapper" class="input-wrapper search umami--click--Search">
 							<div class="svg-wrapper left"><svg id="search__icon" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.58333 7.91667C6.42428 7.91667 7.91667 6.42428 7.91667 4.58333C7.91667 2.74238 6.42428 1.25 4.58333 1.25C2.74238 1.25 1.25 2.74238 1.25 4.58333C1.25 6.42428 2.74238 7.91667 4.58333 7.91667Z" stroke="#807E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.75 8.75L6.9375 6.9375" stroke="#807E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 							<div class="svg-wrapper right hide" id="search__clear"><svg width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M10.5 3.5L3.5 10.5" stroke="#807E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M3.5 3.5L10.5 10.5" stroke="#807E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></div>
 							<input id="search" type="text" name="Search" placeholder="Search">
-						</div>
-						<div id="sort__wrapper" class="input-wrapper select umami--click--Sort">
+						</div> -->
+						<!-- <div id="sort__wrapper" class="input-wrapper select umami--click--Sort">
 							<div class="svg-wrapper right"><svg width="8" height="15" viewBox="0 0 8 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M6.99996 4.76922L3.99998 2L1 4.76922M1.00004 10.2308L4.00002 13L7 10.2308" stroke="#604820" stroke-width="2"/></svg></div>
 							<select name="sort" id="sort">
 								<option value="abc">Alphabetical</option>
 								<option value="release">Release Date</option>
-								<!-- <option value="rework">Rework Date</option> -->
 							</select>
-						</div>
-						<p id="search__count" class="noselect"></p>
-						<div class="header__content-right">
+						</div> -->
+						<!-- <p id="search__count" class="noselect"></p> -->
+						<!-- <div class="header__content-right">
 							<div class="tooltip-parent">
 								<p id="export-btn" class="text-icon-wrapper noselect">Export</p>
 								<div class="tooltip export-tooltip extended noselect">
@@ -191,8 +227,8 @@
 								</div>
 							</div>
 							<svg id="info-btn" onclick="modal.show()" style="width:18px;height:18px" viewBox="0 0 24 24"><path fill="#555" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
-						</div>
-						<div class="flex-newline"></div>
+						</div> -->
+						<!-- <div class="flex-newline"></div> -->
 					</div>
 					
 					<!--======= Hidden Focus Element =====-->

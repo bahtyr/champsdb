@@ -201,12 +201,14 @@ class ChampCardManager {
 	}
 
 	#highlightAbilityRows() {
-		if (!search.tagId) return;
+		let tags_ = search.queryTags();
+		if (tags_.length == 0) return;
 
 		let firstAbility = true;
 		champions[$champ].tagArrays.forEach((ability, i) => {
 			if (i == 0) return;
-			if (ability.includes(search.tagId)) {
+
+			if (ability.some(tag => tags_.includes(tag))) {
 				this.table.ability[i-1].row.classList.add("highlight");
 				/* if there are multiple abilities, only set the first one as active */
 				if (firstAbility)

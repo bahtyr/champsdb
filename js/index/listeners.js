@@ -61,7 +61,11 @@ $id("search").addEventListener("blur", () => setTimeout(() => {
 	$id("search__wrapper").classList.remove("hover");
 }, 200));
 
-/****************************************** SEARCH ***********************************************/
+/****************************************** SEARCH RELATED ****************************************/
+
+$id("search__tags").addEventListener("click", e => {
+	e.target.id !== "search__tags" &&  search.queryRemove(null, null, null, $index(e.target));
+});
 
 $queryAll(".export-tooltip a").forEach(el => el.addEventListener("click", e => {
 	champlist.exportVisibleItems(e.target.id);
@@ -133,7 +137,7 @@ $tag("body")[0].addEventListener("click", e => {
 let prevKey;
 let keyPressTime;
 document.addEventListener("keydown", e => {
-	
+
 	// COPY (CTRL + C)
 	if (e.which == 67 && prevKey == 17) return;
 
@@ -146,13 +150,19 @@ document.addEventListener("keydown", e => {
 			$id("search").focus();
 	}
 
+	// BACKSPACE
+	if (e.which == 8) {
+		if (search.text.length == 0) {
+			search.queryRemove(null, null, null, search.query.length - 1);
+		}
+	}
+
 	// ESC KEY
 	if (e.which == 27) {
 		if (typeof modal !== "undefined" && modal.hasFocus()) modal.close();
-		else if (champcard.isOpen()) { // close champcard
-			if (search.hasFocus)search.element.blur();
+		else { // close champcard
+			search.el.blur();
 			champlist.deselect();
-		} else {
 			if (Date.now() - keyPressTime < 500) // if double press
 				search.clear(); //clear search
 		}

@@ -184,8 +184,34 @@ class ChampListManager {
 	 *    - set true every item in given indexes[] 
 	 *    - then use show/hide(index) method 
 	 */
-	hideAllExcept(indexArr) {
+	hideAllExcept(indexArr, keepHiddenHidden) {
 		if (typeof indexArr == "number") indexArr = [indexArr]; // convert this to an array for easier handling
+
+		console.log(keepHiddenHidden);
+		// !keepHiddenHidden &&
+		// if (!keepHiddenHidden)
+
+		if (keepHiddenHidden) {
+
+			let temp = Array(this.visibleItems.length).fill(false);
+			indexArr.forEach(e => temp[e] = true);
+
+			console.log(this.visibleItems);
+
+			this.visibleItems.forEach((boo, i) => {
+				console.log(`${boo}  ${temp[i]}`)
+				if (boo && temp[i]) 
+					this.visibleItems[i] = true;
+				else this.visibleItems[i] = false;
+			})
+
+			// indexArr.forEach(e => {
+				// this.visibleItems[e] = this.visibleItems[e] ? true : false;
+			// });
+			this.visibleItems.forEach((visibility, i) => visibility ? champlist.show(i) : champlist.hide(i));
+
+			return;
+		}
 
 		this.visibleItems.fill(false);
 		indexArr.forEach(e => this.visibleItems[e] = true);
@@ -204,7 +230,7 @@ class ChampListManager {
 
 	updateItemCount() {
 		/* diplay count of visible items after a filter is applied */
-		$id("search__count").textContent = this.visibleItems.filter(e => e == true).length;
+		$id("search__count").textContent = this.visibleItems.filter(e => e == true).length + " Champions";
 	}
 
 	showAbilityKeysOnChamps() {
@@ -216,6 +242,24 @@ class ChampListManager {
 				s += champions[i].tagArrays[3].includes(search.tagId) ? "W" : "";
 				s += champions[i].tagArrays[4].includes(search.tagId) ? "E" : "";
 				s += champions[i].tagArrays[5].includes(search.tagId) ? "R" : "";
+				this.elements[i].children[0].children[2].textContent = s.split("").join(" ");
+			}
+
+			else this.elements[i].children[0].children[2].textContent = "";
+		});
+	}
+
+	showAbilityKeysOnChamps2() {
+		let tags_ = search.queryTags();
+
+		this.visibleItems.forEach((visible, i) => {
+			if (visible && tags_.length > 0) {
+				let s = "";
+				s += champions[i].tagArrays[1].some(t => tags_.includes(t)) ? "P" : "";
+				s += champions[i].tagArrays[2].some(t => tags_.includes(t)) ? "Q" : "";
+				s += champions[i].tagArrays[3].some(t => tags_.includes(t)) ? "W" : "";
+				s += champions[i].tagArrays[4].some(t => tags_.includes(t)) ? "E" : "";
+				s += champions[i].tagArrays[5].some(t => tags_.includes(t)) ? "R" : "";
 				this.elements[i].children[0].children[2].textContent = s.split("").join(" ");
 			}
 

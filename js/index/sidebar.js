@@ -69,24 +69,32 @@ class SidebarManager {
 	
 	onClickRole(target, id, parentId) {
 		window.scrollTo({top: 0});
-		champlist.deselect();
 
-		// if clicking on the same filter
+		let attr = parentId === "filter-lane" ? "lanes" : "tags";
+
 		if (target.classList.contains("active")) {
-			target.classList.remove("active");
-			search.clear();
-			return;
+			search.queryRemove({key: attr, value: id}, null);
+		} else {
+			target.classList.add("active");
+			search.queryAdd(target, {key: attr, value: id}, null);
 		}
 
+		// champlist.deselect();
+
+		// if clicking on the same filter
+		// if (target.classList.contains("active")) {
+			// target.classList.remove("active");
+			// search.clear();
+			// return;
+		// }
+
 		// clear / add active effects
-		$queryAll(".sidebar__role-icon").forEach(e => e.classList.remove("active"));
-		target.classList.add("active");
+		// $queryAll(".sidebar__role-icon").forEach(e => e.classList.remove("active"));
 
 		// search
-		let attr = parentId === "filter-lane" ? "lanes" : "tags";
-		search.byAttr(attr, id);
-		search.fakeInput(id);
-		champlist.updateItemCount();
+		// search.byAttr(attr, id);
+		// search.fakeInput(id);
+		// champlist.updateItemCount();
 	}
 
 	onClickListItem(target) {
@@ -94,18 +102,28 @@ class SidebarManager {
 		if (tag.id == -1) return;
 		
 		window.scrollTo({top: 0});
-		this.clearSelection();
-		champlist.unhideAll();
-		search.fakeInput(tag.text);
 
-		switch (tag.id) {
-			case -1: break; //ignore
-			case -2: search.byAttr("region", tag.text); break;
-			case -3: search.byAttr("species", tag.text); break;
-			default: search.byTagId(tag.id); break;
+		if (target.classList.contains("active")) {
+			target.classList.remove("active");
+			switch (tag.id) {
+				case -1: break; //ignore
+				case -2: search.queryRemove({key: "region", value: tag.text}, null);   break;
+				case -3: search.queryRemove({key: "species", value: tag.text}, null);  break;
+				default: search.queryRemove(null, {id: tag.id, name: tag.text}); break;
+			}
+		} else {
+			target.classList.add("active");
+			switch (tag.id) {
+				case -1: break; //ignore
+				case -2: search.queryAdd(target, {key: "region", value: tag.text}, null); break;
+				case -3: search.queryAdd(target, {key: "species", value: tag.text}, null); break;
+				default: search.queryAdd(target, null, {id: tag.id, name: tag.text, champIndexes: []}); break;
+			}
 		}
-
-		champlist.updateItemCount();
+		// this.clearSelection();
+		// champlist.unhideAll();
+		// search.fakeInput(tag.text);
+		// champlist.updateItemCount();
 	}
 
 	onClickSubheading(target) {
