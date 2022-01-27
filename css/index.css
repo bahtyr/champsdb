@@ -1,3 +1,14 @@
+/*
+//  ########     ###     ######   ########     ######  ######## ########  ##     ##  ######  ######## ##     ## ########  ######## 
+//  ##     ##   ## ##   ##    ##  ##          ##    ##    ##    ##     ## ##     ## ##    ##    ##    ##     ## ##     ## ##       
+//  ##     ##  ##   ##  ##        ##          ##          ##    ##     ## ##     ## ##          ##    ##     ## ##     ## ##       
+//  ########  ##     ## ##   #### ######       ######     ##    ########  ##     ## ##          ##    ##     ## ########  ######   
+//  ##        ######### ##    ##  ##                ##    ##    ##   ##   ##     ## ##          ##    ##     ## ##   ##   ##       
+//  ##        ##     ## ##    ##  ##          ##    ##    ##    ##    ##  ##     ## ##    ##    ##    ##     ## ##    ##  ##       
+//  ##        ##     ##  ######   ########     ######     ##    ##     ##  #######   ######     ##     #######  ##     ## ########
+//
+//  PAGE STRUCTURE
+*/
 
 body {
 	/*
@@ -65,7 +76,17 @@ body {
 	}
 }
 
-/* ======================== */
+/*
+//   ######  ##     ##  ######  ########  #######  ##     ## #### ########    ###    ######## ####  #######  ##    ## 
+//  ##    ## ##     ## ##    ##    ##    ##     ## ###   ###  ##       ##    ## ##      ##     ##  ##     ## ###   ## 
+//  ##       ##     ## ##          ##    ##     ## #### ####  ##      ##    ##   ##     ##     ##  ##     ## ####  ## 
+//  ##       ##     ##  ######     ##    ##     ## ## ### ##  ##     ##    ##     ##    ##     ##  ##     ## ## ## ## 
+//  ##       ##     ##       ##    ##    ##     ## ##     ##  ##    ##     #########    ##     ##  ##     ## ##  #### 
+//  ##    ## ##     ## ##    ##    ##    ##     ## ##     ##  ##   ##      ##     ##    ##     ##  ##     ## ##   ### 
+//   ######   #######   ######     ##     #######  ##     ## #### ######## ##     ##    ##    ####  #######  ##    ## 
+//
+//   CUSTOMIZATION
+*/
 
 #sidebar {
 	/*
@@ -92,7 +113,17 @@ body {
 	background-color: #000;
 }
 
-/* ======================== */
+/*
+//  ##     ## ########    ###    ########  ######## ########   ######  
+//  ##     ## ##         ## ##   ##     ## ##       ##     ## ##    ## 
+//  ##     ## ##        ##   ##  ##     ## ##       ##     ## ##       
+//  ######### ######   ##     ## ##     ## ######   ########   ######  
+//  ##     ## ##       ######### ##     ## ##       ##   ##         ## 
+//  ##     ## ##       ##     ## ##     ## ##       ##    ##  ##    ## 
+//  ##     ## ######## ##     ## ########  ######## ##     ##  ######  
+//
+//  HEADERS
+*/
 
 .page-header {
 	/* previously .header, changed the name to not mistakenly apply css to other potentional header classes */
@@ -145,15 +176,15 @@ body {
 
 #patch-version,
 #export-btn {
-	color: #919191;
-  font-family: monospace;
-  font-size: 14px;
-  font-weight: bold;
-  cursor: help;
+	/*color: #919191;*/
+  /*font-family: monospace;*/
+  /*font-size: 14px;*/
+  /*font-weight: bold;*/
+  /*cursor: help;*/
 }
 
-#export-btn { text-transform: uppercase; cursor: pointer; }
-#export-btn:hover { background-color: rgba(255, 255, 255, 0.12); border-radius: 4px; }
+/*#export-btn { text-transform: uppercase; cursor: pointer; }*/
+/*#export-btn:hover { background-color: rgba(255, 255, 255, 0.12); border-radius: 4px; }*/
 
 .patch-version-tooltip,
 .export-tooltip {
@@ -175,6 +206,18 @@ body {
 .patch-version-tooltip a span { cursor: unset; }
 .patch-version-tooltip .disabled { color: #888; pointer-events: none; }
 .patch-version-tooltip .disabled path { fill: #888; }
+
+/*
+//   ######  #### ########  ######## ########     ###    ########  
+//  ##    ##  ##  ##     ## ##       ##     ##   ## ##   ##     ## 
+//  ##        ##  ##     ## ##       ##     ##  ##   ##  ##     ## 
+//   ######   ##  ##     ## ######   ########  ##     ## ########  
+//        ##  ##  ##     ## ##       ##     ## ######### ##   ##   
+//  ##    ##  ##  ##     ## ##       ##     ## ##     ## ##    ##  
+//   ######  #### ########  ######## ########  ##     ## ##     ## 
+//
+//  SIDEBAR
+*/
 
 /* ---------------------------------------------------------------------------------------- SIDEBAR CONTENT */
 
@@ -331,7 +374,17 @@ p.sidebar-subheading svg {
 	transition: transform .1s linear;
 }
 
-/* ---------------------------------------------------------------------------------------- CHAMPLIST */
+/*
+//   ######  ##     ##    ###    ##     ## ########  ##       ####  ######  ######## 
+//  ##    ## ##     ##   ## ##   ###   ### ##     ## ##        ##  ##    ##    ##    
+//  ##       ##     ##  ##   ##  #### #### ##     ## ##        ##  ##          ##    
+//  ##       ######### ##     ## ## ### ## ########  ##        ##   ######     ##    
+//  ##       ##     ## ######### ##     ## ##        ##        ##        ##    ##    
+//  ##    ## ##     ## ##     ## ##     ## ##        ##        ##  ##    ##    ##    
+//   ######  ##     ## ##     ## ##     ## ##        ######## ####  ######     ##    
+//
+//  CHAMPLIST
+*/
 
 #champ-list__wrapper {
 	min-height: calc(100vh - 70px);
@@ -344,6 +397,10 @@ p.sidebar-subheading svg {
 	padding-bottom: 150px;
 	width: 100%;
 }
+
+/************************************************
+ * ITEM
+ ************************************************/
 
 .item {
 	flex: 1;
@@ -391,9 +448,6 @@ p.sidebar-subheading svg {
   letter-spacing: 0.10em;
 }
 
-.item .key:empty {
-	display: none;
-}
 
 @keyframes fadeIn {
   0% { opacity: 0; }
@@ -408,6 +462,7 @@ p.sidebar-subheading svg {
 	overflow: visible;
 }
 
+/* SELECTED ITEM CORNERS */
 .item .image__wrapper svg {
 	position: absolute;
 	top: -1;
@@ -416,31 +471,34 @@ p.sidebar-subheading svg {
 	visibility: hidden;
 }
 
-/* active item */
 
-.item.active img { }
+/************************************************
+ * STATES
+ ************************************************/
 
-.item.active .image__wrapper svg {
-	visibility: visible;
+.item .key:empty { display: none; } /* hide key when empty */
+
+.item.active .image__wrapper svg {  /* show 'selected corners' when selected */
+ visibility: visible;
 }
 
-/* hide item */
+.item.hide { display: none; }       /* temporarily hide item */
 
-.item.hide { display: none; }
-
-.item.hidden {
+.item.hidden {                      /* invisbile placeholder items */
 	visibility: hidden;
 	height: 0;
 	margin-bottom: 0;
 }
 
-/* item hover */
+/************************************************
+ * HOVER
+ ************************************************/
 
 .item:hover img {
 	outline: 1px solid #937341;
 }
 
-.item:hover .image__wrapper::before {
+.item:hover .image__wrapper::before {      /* apply a slight white highlight */
 	content: "";
 	position: absolute;
 	top: 0;
@@ -451,14 +509,22 @@ p.sidebar-subheading svg {
 	width: 100%;
 }
 
-/* item spotlight */
-
-#champ-list.spotlight .item:not(.active) {
+#champ-list.spotlight .item:not(.active) { /* fadeout everyother item */
 	opacity: 0.7;
 	filter: grayscale(100%);
 }
 
-/* ---------------------------------------------------------------------------------------- CHAMPCARD */
+/*
+//   ######  ##     ##    ###    ##     ## ########   ######     ###    ########  ########  
+//  ##    ## ##     ##   ## ##   ###   ### ##     ## ##    ##   ## ##   ##     ## ##     ## 
+//  ##       ##     ##  ##   ##  #### #### ##     ## ##        ##   ##  ##     ## ##     ## 
+//  ##       ######### ##     ## ## ### ## ########  ##       ##     ## ########  ##     ## 
+//  ##       ##     ## ######### ##     ## ##        ##       ######### ##   ##   ##     ## 
+//  ##    ## ##     ## ##     ## ##     ## ##        ##    ## ##     ## ##    ##  ##     ## 
+//   ######  ##     ## ##     ## ##     ## ##         ######  ##     ## ##     ## ########  
+//
+//  CHAMPCARD
+*/
 
 #champcard {
 	/*background-color: #fff;*/
@@ -496,7 +562,9 @@ p.sidebar-subheading svg {
 	visibility: hidden;
 }
 
-/* ---------------------------------------------------------------------------------------- CHAMPCARD HEADING */
+/************************************************
+ * CHAMPCARD - HEADING
+ ************************************************/
 
 #champcard__heading {
 	display: flex;
@@ -528,7 +596,9 @@ p.sidebar-subheading svg {
 	-webkit-text-fill-color: transparent;
 }
 
-/* ---------------------------------------------------------------------------------------- CHAMPCARD FOOTER */
+/************************************************
+ * CHAMPCARD - FOOTER
+ ************************************************/
 
 .champcard__footer {
 	padding: 14 20px;
@@ -565,8 +635,6 @@ p.sidebar-subheading svg {
 .champcard__footer .text-icon-wrapper:not(.disabled):hover * {
 	stroke: #CDBF9D;
 }
-
-
 
 /* text & icon */
 
@@ -611,7 +679,7 @@ p.sidebar-subheading svg {
 }
 
 .champcard__footer #ability-desc {
-	position: absolutes;
+	position: absolute;
 	padding: 14px 16px;
 
 	color: #777;
@@ -669,7 +737,9 @@ p.sidebar-subheading svg {
 	z-index: -3;
 }
 
-/* ---------------------------------------------------------------------------------------- CHAMPCARD TABLE */
+/************************************************
+ * CHAMPCARD - TABLE
+ ************************************************/
 
 #champcard__table {
 	display: flex;
@@ -928,8 +998,6 @@ p.sidebar-subheading svg {
 	width: 20px;
 }
 
-/* ------------------------------------------------------------------------------------------------------------------------------------------ */
-
 /* ---------------------------------------------------------------------------------------- ETC */
 
 .row.highlight {
@@ -947,32 +1015,25 @@ span.highlight {
 	padding: 0 1px;
 }
 
-/* ---------------------------------------------------------------------------------------- SEARCH */
+/*
+//   ######  ########    ###    ########   ######  ##     ## 
+//  ##    ## ##         ## ##   ##     ## ##    ## ##     ## 
+//  ##       ##        ##   ##  ##     ## ##       ##     ## 
+//   ######  ######   ##     ## ########  ##       ######### 
+//        ## ##       ######### ##   ##   ##       ##     ## 
+//  ##    ## ##       ##     ## ##    ##  ##    ## ##     ## 
+//   ######  ######## ##     ## ##     ##  ######  ##     ## 
+//
+//  SEARCH
+*/
 
-#site-icon {
-	display: none;
-	/*width: 100%;*/
-	/*height: 100%;*/
-}
-
-/* ---------------------------------------- SEARCH WRAPPER */
+/************************************************
+ * SEARCH - INPUT
+ ************************************************/
 
 #search__wrapper {
 	width: 300px;
 }
-
-#search__clear {
-	pointer-events: unset;
-	cursor: pointer;
-}
-
-#search__clear.hide {
-	visibility: hidden;
-}
-
-/* ---------------------------------------- SEARCH */
-
-
 
 #search {
 	flex: 1;
@@ -999,7 +1060,24 @@ span.highlight {
     outline: none;
 }
 
-/* ---------------------------------------- SEARCH++ */
+/************************************************
+ * SEARCH - ACTIONS
+ ************************************************/
+
+#site-icon {
+	display: none;
+	/*width: 100%;*/
+	/*height: 100%;*/
+}
+
+#search__clear {
+	pointer-events: unset;
+	cursor: pointer;
+}
+
+#search__clear.hide {
+	visibility: hidden;
+}
 
 #search__icon {
 	margin-left: 4px;
@@ -1010,55 +1088,72 @@ span.highlight {
 	margin-left: 12px;
 }
 
+/************************************************
+ * SEARCH - BUBBLE
+ ************************************************/
+
 .search__bubble {
-	margin-right: 10px;
-	background-color: #140D01;
-	color: #6A5644;
-	border-radius: 16px;
-	padding: 6px 12px;
 	display: flex;
 	align-items: center;
 	justify-content: flex-end;
 	transition: all .5s ease;
-	width: 130px;
+
+	/*width: 122px;*/
+	height: 30px;
+	padding: 6px 12px;
+	border-radius: 4px;
+	margin-right: 10px;
+
+	color: #555;
+	outline: 1px solid #1A1A1A;
 }
 
-.search__bubble:not(.active) svg {
-	display: none;
-}
+/* .active */
+.search__bubble.active { /*width: 200px;*/ } /* resize to a fix width to animate the transition */
+.search__bubble:not(.active) svg { /*display: none;*/ } /* hide icons by default */
 
-.search__bubble.active {
-	/*background-color: #291B02;*/
-	/*color: #896F58;*/
-	width: 200px;
-}
-
+/* icons / actions */
+.search__bubble .tooltip-parent:hover svg { color: #666; }
+.search__bubble svg:hover { color: #666; }
 .search__bubble svg {
 	cursor: pointer;
 	margin-right: 8px;
+	color: #333;
 }
 
-.search__bubble svg:hover path {
-	stroke: #896F58;
-}
-
-.search__bubble svg:nth-child(3):hover path {
-	fill: #896F58;
-}
-
+/* champ count */
 .search__count {
-	/*color: #896F58;*/
-	font-size: 18px;
 	font-size: 12px;
-	font-family: Beaufort-Italic;
-  font-family: monospace;
 	font-weight: bold;
+  font-family: monospace;
 	letter-spacing: 0.07em;
 	min-width: 8.1em;
   text-align: right;
 }
 
-/* --------------------------------------------- FOOTER */
+/************************************************
+ * SEARCH - PREFS
+ ************************************************/
+
+.search-prefs__tooltip {
+	background-color: #111;
+	transform-origin: right top;
+	top: 16;
+	right: -5;
+	color: #888;
+	line-height: 1.6;
+	padding: 12px 22px;
+}
+
+.search-prefs__tooltip p {
+	font-size: 10px;
+	font-weight: bold;
+	text-transform: uppercase;
+}
+
+/************************************************
+ * SEARCH - TAGS
+ ************************************************/
 
 .search__tags {
 	display: flex;
@@ -1068,32 +1163,34 @@ span.highlight {
 	transition: all .2s ease;
 	cursor: pointer;
 
-	background-color: #291B02;
-	color: #896F58;
-
-	/*background-color: #111;*/
-	/*color: #888;*/
-
-	font-family: Spiegel-Regular;
-	letter-spacing: 0.07em;
-	/*color: #b0aca0;*/
-
-  font-family: monospace;
 	font-size: 12px;
 	font-weight: bold;
-	padding: 4px 12px;
+  font-family: monospace;
+	letter-spacing: 0.07em;
+
 	border-radius: 4px;
 	margin-right: 6px;
+	padding: 4px 12px;
+	background-color: #291B02;
+	color: #896F58;
 }
 
-/*:hover*/
 .search__tags p:hover {
 	background-color: #40130a;
 	color: #8b6e68;
 }
 
-
-/* ---------------------------------------------------------------------------------------- FOOTER */
+/*
+//  ########  #######   #######  ######## ######## ########  
+//  ##       ##     ## ##     ##    ##    ##       ##     ## 
+//  ##       ##     ## ##     ##    ##    ##       ##     ## 
+//  ######   ##     ## ##     ##    ##    ######   ########  
+//  ##       ##     ## ##     ##    ##    ##       ##   ##   
+//  ##       ##     ## ##     ##    ##    ##       ##    ##  
+//  ##        #######   #######     ##    ######## ##     ## 
+//
+//  FOOTER
+*/
 
 #footer {
 	/*
@@ -1182,6 +1279,27 @@ span.highlight {
 	.tooltip.contact {
 		opacity: 0 !important;
 	}
+}
+
+/*
+//  ##     ## ####  ######   ######  ######## ##       ##          ###    ##    ## ########  #######  ##     ##  ######  
+//  ###   ###  ##  ##    ## ##    ## ##       ##       ##         ## ##   ###   ## ##       ##     ## ##     ## ##    ## 
+//  #### ####  ##  ##       ##       ##       ##       ##        ##   ##  ####  ## ##       ##     ## ##     ## ##       
+//  ## ### ##  ##   ######  ##       ######   ##       ##       ##     ## ## ## ## ######   ##     ## ##     ##  ######  
+//  ##     ##  ##        ## ##       ##       ##       ##       ######### ##  #### ##       ##     ## ##     ##       ## 
+//  ##     ##  ##  ##    ## ##    ## ##       ##       ##       ##     ## ##   ### ##       ##     ## ##     ## ##    ## 
+//  ##     ## ####  ######   ######  ######## ######## ######## ##     ## ##    ## ########  #######   #######   ######  
+//
+//  MISC.
+*/
+
+.labeled-input {
+	display: flex;
+	align-items: center;
+}
+
+.labeled-input input {
+	margin-right: 6px;
 }
 
 /* ---------------------------------------------------------------------------------------- RIOT */
