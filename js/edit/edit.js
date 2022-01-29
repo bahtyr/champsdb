@@ -22,6 +22,14 @@ function updateData(fileName, data) {
 
 /****************************************** TAGS *************************************************/
 
+function _createTag(name) {
+	let newId = tags[tags.length - 1].id + 1;
+	tags.push({id: newId, name: name, champIndexes: []});
+	return newId;
+}
+
+/******************/
+
 function _addTagToChamps(tagId) {
 	if (tagId == null) return;
 	let input = $tag("textarea")[0].value.split(/\r|\n/);
