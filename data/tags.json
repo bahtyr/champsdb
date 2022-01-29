@@ -403,5 +403,35 @@
     "id": 80,
     "name": "Trait_ImmobilizingCCSpell",
     "champIndexes": []
+  },
+  {
+    "id": 81,
+    "name": "Blink",
+    "champIndexes": []
+  },
+  {
+    "id": 82,
+    "name": "Dash",
+    "champIndexes": []
+  },
+  {
+    "id": 83,
+    "name": "Dash: Bypasses Terrain",
+    "champIndexes": []
+  },
+  {
+    "id": 84,
+    "name": "Dash: Collides with Terrain",
+    "champIndexes": []
+  },
+  {
+    "id": 85,
+    "name": "Lunge",
+    "champIndexes": []
+  },
+  {
+    "id": 86,
+    "name": "CC Interactions",
+    "champIndexes": []
   }
 ]

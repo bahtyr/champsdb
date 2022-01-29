@@ -723,6 +723,45 @@
     ]
   },
   {
+    "subheading": "Movement Abilities"
+  },
+  {
+    "list": [
+       {
+          "id": 81,
+          "text": "Blink",
+          "link": "",
+          "tooltip": ""
+        },
+        {
+          "id": 82,
+          "text": "Dash",
+          "link": "",
+          "tooltip": ""
+        },
+        [
+          {
+            "id": 83,
+            "text": "Bypasses Terrain",
+            "link": "",
+            "tooltip": ""
+          },
+          {
+            "id": 84,
+            "text": "Collides with Terrain",
+            "link": "",
+            "tooltip": ""
+          }
+        ],
+        {
+          "id": 85,
+          "text": "Lunge",
+          "link": "",
+          "tooltip": ""
+        }
+    ]
+  },
+  {
     "heading": "Internal"
   },
   {
@@ -745,6 +784,19 @@
       {
         "id": 80,
         "text": "Trait_ImmobilizingCCSpell",
+        "link": "",
+        "tooltip": ""
+      }
+    ]
+  },
+  {
+    "subheading": "Special Cases"
+  },
+  {
+    "list": [
+      {
+        "id": 86,
+        "text": "CC Interactions",
         "link": "",
         "tooltip": ""
       }
