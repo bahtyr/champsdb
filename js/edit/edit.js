@@ -31,7 +31,8 @@ function _createTag(name) {
 /******************/
 
 function _addTagToChamps(tagId) {
-	if (tagId == null) return;
+	if (tagId == null)
+		tagId = parseInt($tag("textarea")[1].value);
 	let input = $tag("textarea")[0].value.split(/\r|\n/);
 	input.forEach(e => _addTagToChamp(tagId, e));
 }
@@ -53,7 +54,8 @@ function _addTagToChamp(tagId, champString) {
 }
 
 function _removeTagFromChamps(tagId) {
-	if (tagId == null) return;
+	if (tagId == null)
+		tagId = parseInt($tag("textarea")[1].value);
 	let input = $tag("textarea")[0].value.split(/\r|\n/);
 	input.forEach(e => _removeTagFromChamp(tagId, e));
 }
