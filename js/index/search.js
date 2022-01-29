@@ -6,6 +6,10 @@ var search = {
 	lastFocuTime: 0,
 	filterVisibleItemsOnly: function() { return this.query.length > 1; },
 	query: [],
+	prefs: {
+		text: 1,
+		tags: 0
+	},
 
 	/****************************************** Search Input Listener ******************************************/
 

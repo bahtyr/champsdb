@@ -71,6 +71,14 @@ $queryAll(".export-tooltip a").forEach(el => el.addEventListener("click", e => {
 	champlist.exportVisibleItems(e.target.id);
 }));
 
+function onPrefTextChange(el) {
+	search.prefs.text = parseInt(el.value);
+}
+
+function onPrefTagsChange(el) {
+	search.prefs.tags = el.checked ? 1 : 0;
+}
+
 /****************************************** SIDEBAR **********************************************/
 
 $id("sidebar__roles").addEventListener("click", e => {
@@ -152,7 +160,7 @@ document.addEventListener("keydown", e => {
 
 	// BACKSPACE
 	if (e.which == 8) {
-		if (search.text.length == 0) {
+		if (search.text.length == 0 && search.query.length > 0) {
 			search.queryRemove(null, null, null, search.query.length - 1);
 		}
 	}
