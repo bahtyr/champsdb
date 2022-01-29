@@ -41,6 +41,11 @@ class SidebarManager {
 				item.classList.add("sidebar-section");
 			}
 
+			else if (Array.isArray(element)) {
+				item = this.#loopUl(element);
+				item.classList.add("sidebar-section");
+			}
+
 			item.classList.remove("js-template");
 			filtersWrapper.appendChild(item);
 		});
@@ -146,8 +151,8 @@ class SidebarManager {
 		pos = pos.reverse();
 
 		switch (pos.length) {
-			case 2: return menu[pos[0]].list[pos[1]];
-			case 3: return menu[pos[0]].list[pos[1]][pos[2]];
+			case 2: return menu[pos[0]][pos[1]];
+			case 3: return menu[pos[0]][pos[1]][pos[2]];
 		}
 	}
 	
