@@ -157,11 +157,17 @@ class ChampCardManager {
 
 		// handle case: no ability video
 
-
 		// show tags
-		let tagsText = champions[champIndex].tagArrays[abilityIndex + 1].map(tag => tags.find(({id}) => id === tag).name).join(", ");
-		if (tagsText.length == 0) tagsText = "N/A";
-		this.table.activeAbility.tags.textContent = tagsText;
+		$id("ability-tags").innerHTML = "";
+		champions[champIndex].tagArrays[abilityIndex + 1].forEach(tag => {
+			this.#createTagNode(tags.find(({id}) => id === tag).name);
+		});
+
+		if ($id("ability-tags").innerHTML.length == 0) {
+			this.#createTagNode("N/A")
+			$id("ability-tags").children[0].classList.add("disabled");
+		}
+
 		// this.table.activeAbility.scaling.text(champIndex + " " + abilityIndex);
 	}
 
@@ -177,6 +183,12 @@ class ChampCardManager {
 			this.activeAbility--;
 			this.showAbility($champ, this.activeAbility);
 		}
+	}
+
+	#createTagNode(s) {
+		let p = document.createElement("p");
+		p.textContent = s;
+		$id("ability-tags").appendChild(p);
 	}
 
 	/********** HIGHLIGHT ************/
@@ -239,6 +251,24 @@ class ChampCardManager {
 
 		navigator.clipboard.writeText(s);
 		alert.show();
+	}
+
+	onClickTag(i) {
+		let tagId = champions[$champ].tagArrays[champcard.activeAbility + 1][i];
+
+		// currently this is the only instance where same tag can be added to the query
+		// make sure to not add the tag if it alread exists in the query
+		let tagExistsInQuery = false;
+		for (let condition of search.query) {
+			if (condition.tag && condition.tag.id === tagId) {
+				tagExistsInQuery = true;
+				return;
+			}
+		}
+
+		let tag = tags.find(({id}) => id === tagId);
+		window.scroll({behavior: 'smooth', top: 0});
+		search.queryAdd(null, null, tag);
 	}
 
 	/****************************************** INIT FIELDS ******************************************/

@@ -14,20 +14,27 @@ $id("champ-list").addEventListener("click", e => {
 /****************************************** CHAMPCARD ********************************************/
 
 $id("champcard__ability-col").addEventListener("click", e => {
-for (let target = e.target; target != e.currentTarget && target && target != this; target = target.parentNode) {
-	if (target) {
+	for (let target = e.target; target != e.currentTarget && target && target != this; target = target.parentNode) {
+		if (target) {
 
-		if (target.matches(".ability-wrapper")) {
-			champcard.onClickAbility($index(target, -1));
-			break;
-		}
+			if (target.matches(".ability-wrapper")) {
+				champcard.onClickAbility($index(target, -1));
+				break;
+			}
 
-		else if(target.matches(".action")) {
-			champcard.onClickCopy($index(target.parentNode, -1));
-			break;
+			else if(target.matches(".action")) {
+				champcard.onClickCopy($index(target.parentNode, -1));
+				break;
+			}
 		}
 	}
-}
+});
+
+$id("ability-tags").addEventListener("click", e => {
+	// children (p) don't have ids, if target doesn't have id it must be a tag
+	if (!e.target.id) {
+		champcard.onClickTag($index(e.target));
+	}
 });
 
 /****************************************** SORT **************************************************/

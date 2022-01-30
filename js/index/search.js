@@ -120,7 +120,8 @@ var search = {
 		}
 
 		if (index == null) return;
-		search.query[index].toggleEl.classList.remove("active");
+		if (search.query[index].toggleEl)
+			search.query[index].toggleEl.classList.remove("active");
 		search.query[index].element.remove();
 		search.query.splice(index, 1);
 		search.runQuery();
