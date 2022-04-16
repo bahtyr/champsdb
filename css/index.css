@@ -160,28 +160,39 @@ body {
 	border-bottom: 1px solid #1a1a1a;
 }
 
-/* ---------------------------------------------------------------------------------------- HEADER CONTENT */
+/************************************************
+ * INFO - BUBBLE
+ ************************************************/
 
-.header__content-right {
-	margin-left: auto;
-	margin-right: 20px;
+.info__bubble {
 	display: flex;
-	grid-column-gap: 16px;
+	grid-column-gap: 8px;
 	align-items: center;
+
+	height: 30px;
+	padding: 6px 12px;
+	border-radius: 4px;
+	margin-right: 10px;
+
+	color: #777;
+	outline: 1px solid #1A1A1A;
+}
+
+#patch-version {
+	font-size: 12px;
+	letter-spacing: 0.07em;
+  cursor: help;
+  font-family: monospace;
+  font-weight: bold;
+  min-width: 3.1em;
+  text-align: right;
 }
 
 #info-btn {
 	cursor: pointer;
 }
 
-#patch-version,
-#export-btn {
-	/*color: #919191;*/
-  /*font-family: monospace;*/
-  /*font-size: 14px;*/
-  /*font-weight: bold;*/
-  /*cursor: help;*/
-}
+/* ---------------------------------------------------------------------------------------- HEADER CONTENT */
 
 /*#export-btn { text-transform: uppercase; cursor: pointer; }*/
 /*#export-btn:hover { background-color: rgba(255, 255, 255, 0.12); border-radius: 4px; }*/
@@ -1131,7 +1142,7 @@ span.highlight {
 	border-radius: 4px;
 	margin-right: 10px;
 
-	color: #555;
+	color: #777;
 	outline: 1px solid #1A1A1A;
 }
 
@@ -1145,7 +1156,7 @@ span.highlight {
 .search__bubble svg {
 	cursor: pointer;
 	margin-right: 8px;
-	color: #333;
+	color: #555;
 }
 
 /* champ count */
