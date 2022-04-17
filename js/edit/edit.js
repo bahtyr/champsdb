@@ -1,5 +1,6 @@
 var champions = [];
 var tags      = [];
+let ddragon = new DDragon;
 
 fetch("data/champions.json").then(data => data.json()).then(json => {
 	champions = json.map(item => ChampionFunctions.transfer(item));
@@ -8,6 +9,11 @@ fetch("data/champions.json").then(data => data.json()).then(json => {
 fetch("data/tags.json").then(data => data.json()).then(json => {
 	tags = json;
 });
+
+function log(str) {
+	$tag("textarea")[0].value = str;
+	// console.log(str);
+}
 
 /****************************************** UPDATE DATA ******************************************/
 
@@ -79,6 +85,38 @@ function _removeTagFromChamp(tagId, champString) {
 	if (indexOf != -1) {
 		champ.tagArrays[tagArraysIndex].splice(indexOf, 1);
 	} else console.warn("Champion does not have the tag. " + champString + "  " + tagId);
+}
+
+/****************************************** FETCH ALL ********************************************/
+
+var fetchAll = {
+	urls: [],
+	i: 0,
+	clear: function() { this.urls = []; this.callback = function() {} },
+	callback: function() {},
+
+	start: function() {
+		if (this.urls.length == 0) {
+			console.error("fetcAll.urls[] is empty!");
+			return;
+		}
+		log("Starting fetch all.");
+		this.i = 0;
+		this.fetchUrl(this.urls[this.i]);
+	},
+	fetchUrl: function(url) {
+		fetch(url).then(data => data.json()).then(json => {
+
+			this.callback(json);
+
+			if (this.i < this.urls.length - 1) {
+				this.i++;
+				this.fetchUrl(this.urls[this.i]);
+			} else {
+				log(`Fetch all (${this.i+1}) completed.`);
+			}
+		});
+	}
 }
 
 /****************************************** RANDOM FUNCTIONS *************************************/
