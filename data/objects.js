@@ -9,7 +9,7 @@ var ChampionFunctions = {
 	getUrlWikiLore() { return `https://leagueoflegends.fandom.com/wiki/${this.ids.wiki}`; },
 	getUrlWikiAbilities() { return `https://leagueoflegends.fandom.com/wiki/${this.ids.wiki}/LoL#Abilities`; },
 	getUrlWikiPatchHistory() { return `https://leagueoflegends.fandom.com/wiki/${this.ids.wiki}/LoL/Patch_history`; },
-	getUrlUniverse() { return `https://universe.leagueoflegends.com/en_SG/champion/${this.ids.ddragon}/`;; },
+	getUrlUniverse() { return `https://universe.leagueoflegends.com/en_SG/champion/${this.ids.ddragon}/`; },
 	getUrlChampionSpotlight() { return `https://www.youtube.com/watch?v=${this.spotlightVideoID}`; },
 	transfer: function(obj) {
 		obj.searchableText = this.searchableText;
@@ -48,8 +48,8 @@ var ChampionMiscFunctions = {
 	},
 	toKebabCase: function(str) {
 		return str
-			.replace(/([a-z])([A-Z])/g, "$1-$2")
-			.replace(/[\s_]+/g, '-')
+			.replace(/[^\w]/g, '-')//replace all non characters with -
+			.replace(/[-]+/g, '-')//replace multiple - (--) with one -
 			.toLowerCase();
 	},
 	toWikiCase: function(str) {

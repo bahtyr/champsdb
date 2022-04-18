@@ -105,17 +105,19 @@ var fetchAll = {
 		this.fetchUrl(this.urls[this.i]);
 	},
 	fetchUrl: function(url) {
-		fetch(url).then(data => data.json()).then(json => {
+		fetch(url)
+			.then(data => data.ok && data.json())
+			.then(json => {
+				if (json) this.callback(json);
+				else console.error("An error occured.");
 
-			this.callback(json);
-
-			if (this.i < this.urls.length - 1) {
-				this.i++;
-				this.fetchUrl(this.urls[this.i]);
-			} else {
-				log(`Fetch all (${this.i+1}) completed.`);
-			}
-		});
+				if (this.i < this.urls.length - 1) {
+					this.i++;
+					this.fetchUrl(this.urls[this.i]);
+				} else {
+					log(`Fetch all (${this.i+1}) completed.`);
+				}
+			});
 	}
 }
 
