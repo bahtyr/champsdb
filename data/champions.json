@@ -9082,6 +9082,86 @@
     }
   },
   {
+    "ids": {
+      "cdragon": "888",
+      "ddragon": "Renata",
+      "kebab": "renata",
+      "universe": "RenataGlasc",
+      "wiki": "Renata_Glasc"
+    },
+    "name": "Renata Glasc",
+    "title": "the Chem-Baroness",
+    "tags": [
+      "Support",
+      "Mage"
+    ],
+    "portrait": "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Renata.png",
+    "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Renata_0.jpg",
+    "resource": "Mana",
+    "attackRange": 550,
+    "abilities": [
+      {
+        "name": "Leverage",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/passive/Renata_P.Renata.png",
+        "description": "Renata's Attacks deal bonus damage and mark enemies. Renata's allies can damage marked enemies to deal bonus damage.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0888/ability_0888_P1.webm"
+      },
+      {
+        "name": "Handshake",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/spell/RenataQ.png",
+        "description": "Renata sends out a missile rooting the first enemy hit, and can recast the ability to throw the unit in a direction.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0888/ability_0888_Q1.webm"
+      },
+      {
+        "name": "Bailout",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/spell/RenataW.png",
+        "description": "Renata buffs an allied champion to fight harder, delaying their death and potentially saving them if they get a takedown.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0888/ability_0888_W1.webm"
+      },
+      {
+        "name": "Loyalty Program",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/spell/RenataE.png",
+        "description": "Renata sends out a pair of chemtech missiles, shielding allies and damaging and slowing enemies hit.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0888/ability_0888_E1.webm"
+      },
+      {
+        "name": "Hostile Takeover",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/spell/RenataR.png",
+        "description": "Renata sends out a wave of chemicals, causing any enemies hit to go Berserk.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0888/ability_0888_R1.webm"
+      }
+    ],
+    "ratings": {
+      "difficulty": 2,
+      "style": 80,
+      "damage": 2,
+      "toughness": 1,
+      "control": 3,
+      "mobility": 1,
+      "utility": 2,
+      "damageBreakdown": {
+        "physical": 15.4,
+        "magic": 58.2,
+        "true_": 26.4
+      }
+    },
+    "lanes": "Support",
+    "rangeType": "Ranged",
+    "region": "Zaun",
+    "species": "Human",
+    "releaseDate": "2022-02-17",
+    "releasePatch": "V12.4",
+    "spotlightVideoId": "yahJE5tLxHg",
+    "tagArrays": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
+  },
+  {
     "name": "Renekton",
     "title": "the Butcher of the Sands",
     "tags": [
@@ -14305,6 +14385,85 @@
       "cdragon": 238,
       "wiki": "Zed"
     }
+  },
+  {
+    "ids": {
+      "cdragon": "221",
+      "ddragon": "Zeri",
+      "kebab": "zeri",
+      "universe": "Zeri",
+      "wiki": "Zeri"
+    },
+    "name": "Zeri",
+    "title": "The Spark of Zaun",
+    "tags": [
+      "Marksman"
+    ],
+    "portrait": "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Zeri.png",
+    "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zeri_0.jpg",
+    "resource": "Mana",
+    "attackRange": 500,
+    "abilities": [
+      {
+        "name": "Living Battery",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/passive/ZeriP.Zeri.png",
+        "description": "Zeri gains Move Speed whenever she receives a shield. When she damages an enemy shield she absorbs its energy, shielding herself.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0221/ability_0221_P1.webm"
+      },
+      {
+        "name": "Burst Fire",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/spell/ZeriQ.png",
+        "description": "Zeri's Attacks are treated as Abilities and Burst Fire is treated as an Attack. Moving and casting Burst Fire stores up energy in Zeri's Sparkpack. When fully charged her next Attack will slow and deal bonus damage. Burst Fire shoots a burst of 7 rounds that deal attack damage to the first enemy hit.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0221/ability_0221_Q1.webm"
+      },
+      {
+        "name": "Ultrashock Laser",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/spell/ZeriW.png",
+        "description": "Zeri fires an electric pulse that slows and damages the first enemy hit. If the pulse hits a wall it expands into a long range laser.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0221/ability_0221_W1.webm"
+      },
+      {
+        "name": "Spark Surge",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/spell/ZeriE.png",
+        "description": "Zeri dashes a short distance and energizes her next 3 shots of Burst Fire, causing them to pierce through enemies. She will vault and grind over any terrain she touches.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0221/ability_0221_E1.webm"
+      },
+      {
+        "name": "Lightning Crash",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/spell/ZeriR.png",
+        "description": "Zeri discharges a nova of electricity and overcharges herself, gaining increased damage and stacking Move Speed that refreshes and gets stronger every time she hits an enemy champion. While overcharged, Burst fire becomes a faster triple shot that chains lightning between enemies.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0221/ability_0221_R1.webm"
+      }
+    ],
+    "ratings": {
+      "difficulty": 2,
+      "style": 40,
+      "damage": 2,
+      "toughness": 1,
+      "control": 2,
+      "mobility": 3,
+      "utility": 1,
+      "damageBreakdown": {
+        "physical": 62.3,
+        "magic": 33.4,
+        "true_": 4.3
+      }
+    },
+    "lanes": "Bottom",
+    "rangeType": "Ranged",
+    "region": "Zaun",
+    "species": "Human",
+    "releaseDate": "2022-01-20",
+    "releasePatch": "V12.2",
+    "spotlightVideoId": "VcaUG8hV9SU",
+    "tagArrays": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
   },
   {
     "name": "Ziggs",
