@@ -1,6 +1,8 @@
 var champions = [];
 var tags      = [];
 let ddragon = new DDragon;
+let cdragon = new CDragon;
+let thirdparties = new ThirdParties;
 
 fetch("data/champions.json").then(data => data.json()).then(json => {
 	champions = json.map(item => ChampionFunctions.transfer(item));
@@ -87,20 +89,43 @@ function _removeTagFromChamp(tagId, champString) {
 	} else console.warn("Champion does not have the tag. " + champString + "  " + tagId);
 }
 
+/****************************************** CHAMPION *********************************************/
+
+function addChampToMain(champName) {
+	//look for the new champion
+	let champ = ddragon.champions.find(({name}) => name == champName);
+	champ.lanes = null;
+	champ.rangeType = null;
+	champ.region = null;
+	champ.species = null;
+	champ.releaseDate = null;
+	champ.releasePatch = null;
+	champ.spotlightVideoId = null;
+	champ.tagArrays = [[],[],[],[],[],[]];
+	champions.push(champ);
+	champions.sort(ChampionFunctions.compareNames);
+}
+
 /****************************************** FETCH ALL ********************************************/
 
 var fetchAll = {
-	urls: [],
 	i: 0,
-	clear: function() { this.urls = []; this.callback = function() {} },
+	urls: [],
+	clear: function() { 
+		this.urls = []; 
+		this.callback = function() {};
+		this.onEnd = function() {};
+	},
 	callback: function() {},
+	onEnd: function() {},
 
+	/** JSON **/
 	start: function() {
 		if (this.urls.length == 0) {
 			console.error("fetcAll.urls[] is empty!");
 			return;
 		}
-		log("Starting fetch all.");
+		log(`Starting fetch all for ${this.urls.length} urls`);
 		this.i = 0;
 		this.fetchUrl(this.urls[this.i]);
 	},
@@ -115,7 +140,35 @@ var fetchAll = {
 					this.i++;
 					this.fetchUrl(this.urls[this.i]);
 				} else {
-					log(`Fetch all (${this.i+1}) completed.`);
+					this.onEnd();
+					console.warn(`Fetch all (${this.i+1}) completed.`);
+				}
+			});
+	},
+	
+	/** HTML **/
+	domParser: new DOMParser(),
+	startHtml: function() {
+		if (this.urls.length == 0) {
+			console.error("fetcAll.urls[] is empty!");
+			return;
+		}
+		log(`Starting fetch all for ${this.urls.length} urls`);
+		this.i = 0;
+		this.fetchHtml(this.urls[this.i]);
+	},
+	fetchHtml: function(url) {
+		fetch(url)
+			.then(data => data.text())
+			.then(html => {
+				let doc = this.domParser.parseFromString(html, 'text/html');
+				this.callback(doc);
+				if (this.i < this.urls.length - 1) {
+					this.i++;
+					this.fetchHtml(this.urls[this.i]);
+				} else {
+					this.onEnd();
+					console.warn(`Fetch all (${this.i+1}) completed.`);
 				}
 			});
 	}
