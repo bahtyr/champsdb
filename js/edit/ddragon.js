@@ -42,11 +42,23 @@ class DDragon {
 				let obj = {};
 				
 				obj.ids = {};
-				obj.ids.pascal = ChampionMiscFunctions.toPascalCase(champ.name);
-				obj.ids.kebab = ChampionMiscFunctions.toKebabCase(champ.name);
 				obj.ids.cdragon = champ.key;
 				obj.ids.ddragon = champ.id;
+				obj.ids.kebab = ChampionMiscFunctions.toKebabCase(champ.name);
+				obj.ids.universe = champ.id;
 				obj.ids.wiki = ChampionMiscFunctions.toWikiCase(champ.name);
+
+				/** HANDLE SPECIAL CASES HERE **/
+				switch (obj.ids.ddragon) {
+					case "Nunu": 
+						obj.ids.kebab = "nunu";
+						obj.ids.wiki = "Nunu";
+						break;
+					case "Renata": 
+						obj.ids.kebab = "renata";
+						obj.ids.universe = "RenataGlasc";
+						break;
+				}
 
 				obj.name = champ.name;
 				obj.title = champ.title;

@@ -9,7 +9,11 @@ var ChampionFunctions = {
 	getUrlWikiLore() { return `https://leagueoflegends.fandom.com/wiki/${this.ids.wiki}`; },
 	getUrlWikiAbilities() { return `https://leagueoflegends.fandom.com/wiki/${this.ids.wiki}/LoL#Abilities`; },
 	getUrlWikiPatchHistory() { return `https://leagueoflegends.fandom.com/wiki/${this.ids.wiki}/LoL/Patch_history`; },
-	getUrlUniverse() { return `https://universe.leagueoflegends.com/en_SG/champion/${this.ids.ddragon}/`; },
+	getUrlUniverse() { 
+		//TODO: add ids.universe to all champs and delete the if
+		if (this.ids.universe) return `https://universe.leagueoflegends.com/en_SG/champion/${this.ids.universe}/`;
+		return `https://universe.leagueoflegends.com/en_SG/champion/${this.ids.ddragon}/`;
+	},
 	getUrlChampionSpotlight() { return `https://www.youtube.com/watch?v=${this.spotlightVideoID}`; },
 	transfer: function(obj) {
 		obj.searchableText = this.searchableText;
