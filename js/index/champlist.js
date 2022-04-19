@@ -96,6 +96,8 @@ class ChampListManager {
 	selectFirstVisibleItem() {
 		/* !! this method might not select anything unlike other two methods. */
 
+		// UPDATE: this method no longer actually "select()"s, instead it set indexes to FirstVisibleItem.
+
 		// normally, deselct should be called by the manager class
 		// however since this method might jump from any position to index 0,
 		// and finding prevIndex can be troublesome if this action is not taken.
@@ -110,12 +112,18 @@ class ChampListManager {
 		if (this.visibleItems[i] == true) {
 			this.ii = this.i;
 			this.i = i;
-			this.select();
+			// this.select();
 			this.ii = this.i;
 		}
 	}
 
 	selectNextVisibleItem() {
+		if (!champcard.isOpen()) {
+			this.selectFirstVisibleItem();
+			this.select();
+			return;
+		}
+
 		let i = this.i;
 
 		do i++;
@@ -131,6 +139,12 @@ class ChampListManager {
 	}
 
 	selectPrevVisibleItem() {
+		if (!champcard.isOpen()) {
+			this.selectFirstVisibleItem();
+			this.select();
+			return;
+		}
+
 		let i = this.i;
 
 		do i--;

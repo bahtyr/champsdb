@@ -169,6 +169,7 @@ var search = {
 		search.query.length == 0 
 			? search.hideBubble()
 			: search.showBubble();
+		champlist.selectFirstVisibleItem();
 		champlist.updateItemCount();
 		champlist.showAbilityKeysOnChamps2();
 	},
