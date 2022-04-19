@@ -7926,7 +7926,7 @@
       "kebab": "nunu",
       "ddragon": "Nunu",
       "cdragon": 20,
-      "wiki": "Nunu_&_Willump"
+      "wiki": "Nunu"
     }
   },
   {
@@ -9153,7 +9153,10 @@
     "releasePatch": "V12.4",
     "spotlightVideoId": "yahJE5tLxHg",
     "tagArrays": [
-      [],
+      [
+        68,
+        67
+      ],
       [],
       [],
       [],
@@ -14457,7 +14460,10 @@
     "releasePatch": "V12.2",
     "spotlightVideoId": "VcaUG8hV9SU",
     "tagArrays": [
-      [],
+      [
+        68,
+        67
+      ],
       [],
       [],
       [],
