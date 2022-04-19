@@ -1,6 +1,25 @@
+/*
+// ########     ###     ######  ######## 
+// ##     ##   ## ##   ##    ## ##       
+// ##     ##  ##   ##  ##       ##       
+// ########  ##     ##  ######  ######   
+// ##     ## #########       ## ##       
+// ##     ## ##     ## ##    ## ##       
+// ########  ##     ##  ######  ######## 
+// 
+// BASE
+*/
+
+body {
+	font-family: Spiegel-Regular;
+}
+
 #header__edit {
-	height: 70px;
-	border-bottom: 1px solid #1a1a1a;
+	height: 48px;
+	display: flex;
+	align-items: center;
+	margin-left: 16px;
+	/*border-bottom: 1px solid #222;*/
 }
 
 #header__edit div {
@@ -9,130 +28,255 @@
 	align-items: center;
 }
 
-/* ---------------------------------------- HEADINGS */
-
 h2 {
-	font-size: 16px;
-	color: #919191;
+	font-size: 12px;
+	color: #999;
 	font-family: Beaufort-Bold;
-	padding: 8px 16px;
+	padding: 4px 8px;
 	cursor: pointer;
 	position: relative;
+	/*font-variant: small-caps;*/
+	text-transform: uppercase;
 }
 
-h2.active::before {
-	content: "";
-	background: linear-gradient(180deg, rgba(60,60,60,0.0) 30%, rgba(60,60,60,1) 100%);
-	opacity: 0.3;
+/*
+//  ######  ########  ######  ######## ####  #######  ##    ## 
+// ##    ## ##       ##    ##    ##     ##  ##     ## ###   ## 
+// ##       ##       ##          ##     ##  ##     ## ####  ## 
+//  ######  ######   ##          ##     ##  ##     ## ## ## ## 
+//       ## ##       ##          ##     ##  ##     ## ##  #### 
+// ##    ## ##       ##    ##    ##     ##  ##     ## ##   ### 
+//  ######  ########  ######     ##    ####  #######  ##    ## 
+//
+// SECTION
+*/
+
+.sections {
 	position: absolute;
-	bottom: -16;
-	left: 0;
-	height: 200%;
+	top: 48px;
+	bottom: 8px;
 	width: 100%;
+	display: flex;
+	grid-gap: 10px;
 }
 
-/* ---------------------------------------- PAGE */
-
-.edit-page {
-	padding-bottom: 100px;
+.section-block {
+	flex: 1;
+	display: flex;
+	flex-flow: column;
+	height: 100%;
+	border: 1px solid #222;
+	border-radius: 5px;
 }
 
-.edit-page.hide {
-	display: none;
+.section-header {
+	display: flex;
+	align-items: center;
+	height: 42px;
+	border-bottom: 1px solid #222;
+	padding: 0 16px;
 }
 
-/* ---------------------------------------- CONSOLE */
-
-textarea#edit-console {
-	padding: 10px;
-	color: #D2D3D6;
-	background-color: #202124;
-	margin-top: 48px;
-	margin-bottom: 30px;
-}
-
-/* ---------------------------------------- TEXT */
-
-p.edit-heading {
-	color: #937341;
-    font-weight: bold;
-    font-size: 14px;
+h3 {
+	color: #FFF;
+	font-size: 12px;
 	font-family: Spiegel-Regular;
-	margin-top: 8px;
-	margin-left: 17px;
-	white-space: pre;
-    text-transform: uppercase;
-    letter-spacing: 3.00px;
+	letter-spacing: 0.07em;
+	letter-spacing: 0.24em;
+	/*font-variant: small-caps;*/
+	text-transform: uppercase;
+	font-weight: bold;
 }
 
-p.edit-action {
+/*
+// ########  ######## ##    ## 
+// ##     ##    ##    ###   ## 
+// ##     ##    ##    ####  ## 
+// ########     ##    ## ## ## 
+// ##     ##    ##    ##  #### 
+// ##     ##    ##    ##   ### 
+// ########     ##    ##    ## 
+//
+// btn / button
+*/
+
+.btn {
+	border-radius: 4px;
+	color: #fff;
 	cursor: pointer;
-	color: #C4B998;
-	font-family: Spiegel-Regular;
-	margin-top: 8px;
-	white-space: pre;
-}
-
-p.edit-desc {
-	color: #919191;
-	font-family: Spiegel-Regular;
-	margin-left: 17px;
-	padding-top: 1px;
-	padding-bottom: 4px;
-	white-space: pre;
-	line-height: 22px;
-}
-
-p.edit-action img,
-p.edit-desc img {
-	margin-right: 8px;
-}
-
-/* ---------------------------------------- ETC */
-
-.edit .inline {
 	display: inline-block;
-}
-
-.edit .margin {
-	margin-left: 10px;
-}
-
-
-/* ---------------------------------------- TABLE */
-
-#edit-table-actions p.edit-action {
-	display: inline-block;
-	margin-right: 22px;
-}
-
-.edit select {
-	/*margin-left: 12px;*/
-}
-
-.edit table {
-	margin: 10px 0 0 15px;
-	color: #919191;
 	font-family: Spiegel-Regular;
-	text-align: left;
-	/*border-spacing: 0;*/
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 0.08em;
+	/*letter-spacing: 0.24em;*/
+	padding: 6px 12px;
+	text-transform: uppercase;
+	transition: all .3s ease;
 }
 
-.edit table th {
-	background-color: #1a1a1a;
-	padding: 4px;
-	font-weight: normal;
+.btn:hover {
+	background-color: #111;
 }
 
-.edit table th,
-.edit table td {
-	padding-right: 20px;
+.btn.fake {
+	cursor: initial;
 }
 
-.edit table.hide {
-	display: none;
+.btn.fake:hover {
+	background-color: initial;
 }
 
-.edit table.hide3rd .three {
-	display: none;
+/*
+// ##       ####  ######  ########    ########  ##        #######   ######  ##    ## 
+// ##        ##  ##    ##    ##       ##     ## ##       ##     ## ##    ## ##   ##  
+// ##        ##  ##          ##       ##     ## ##       ##     ## ##       ##  ##   
+// ##        ##   ######     ##       ########  ##       ##     ## ##       #####    
+// ##        ##        ##    ##       ##     ## ##       ##     ## ##       ##  ##   
+// ##        ##  ##    ##    ##       ##     ## ##       ##     ## ##    ## ##   ##  
+// ######## ####  ######     ##       ########  ########  #######   ######  ##    ## 
+//
+// LIST BLOCK
+*/
+
+.list-block {
+	color: #666;
+	padding: 8px 16px;
+	/*height: 100%;*/
+	flex-grow: 1;
+}
+
+.list-block li {
+	line-height: 1.5;
+}
+
+.list-block li:hover {
+	color: #ccc;
+}
+
+/*
+//  ######  ########    ###    ########   ######  ##     ##    ########  ##        #######   ######  ##    ## 
+// ##    ## ##         ## ##   ##     ## ##    ## ##     ##    ##     ## ##       ##     ## ##    ## ##   ##  
+// ##       ##        ##   ##  ##     ## ##       ##     ##    ##     ## ##       ##     ## ##       ##  ##   
+//  ######  ######   ##     ## ########  ##       #########    ########  ##       ##     ## ##       #####    
+//       ## ##       ######### ##   ##   ##       ##     ##    ##     ## ##       ##     ## ##       ##  ##   
+// ##    ## ##       ##     ## ##    ##  ##    ## ##     ##    ##     ## ##       ##     ## ##    ## ##   ##  
+//  ######  ######## ##     ## ##     ##  ######  ##     ##    ########  ########  #######   ######  ##    ## 
+// 
+// SEARCH BLOCK
+*/
+
+.search-block {
+	width: 100%;
+	background: transparent;
+	border-radius: 0;
+	border: none;
+	color: #ccc;
+	cursor: default;
+	padding: 8px 16px;
+	border-bottom: 1px solid #222;
+}
+
+.search-block::placeholder,
+.search-block:-ms-input-placeholder,
+.search-block::-ms-input-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+.search-block:focus {
+    outline: none;
+}
+
+/*
+// #### ##    ## ########  ##     ## ########    ########  ##        #######   ######  ##    ## 
+//  ##  ###   ## ##     ## ##     ##    ##       ##     ## ##       ##     ## ##    ## ##   ##  
+//  ##  ####  ## ##     ## ##     ##    ##       ##     ## ##       ##     ## ##       ##  ##   
+//  ##  ## ## ## ########  ##     ##    ##       ########  ##       ##     ## ##       #####    
+//  ##  ##  #### ##        ##     ##    ##       ##     ## ##       ##     ## ##       ##  ##   
+//  ##  ##   ### ##        ##     ##    ##       ##     ## ##       ##     ## ##    ## ##   ##  
+// #### ##    ## ##         #######     ##       ########  ########  #######   ######  ##    ## 
+//
+// INPUT BLOCK
+*/
+
+.input-block {
+	width: 100%;
+	background: #111;
+	border-radius: 0;
+	border: none;
+	color: #ccc;
+	padding: 8px 16px;
+}
+
+.input-block::placeholder,
+.input-block:-ms-input-placeholder,
+.input-block::-ms-input-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+.input-block:focus {
+    outline: none;
+}
+
+/*
+// ##       ######## ######## ######## ########  ####  ######   ##     ## ######## 
+// ##       ##       ##          ##    ##     ##  ##  ##    ##  ##     ##    ##    
+// ##       ##       ##          ##    ##     ##  ##  ##        ##     ##    ##    
+// ##       ######   ######      ##    ########   ##  ##   #### #########    ##    
+// ##       ##       ##          ##    ##   ##    ##  ##    ##  ##     ##    ##    
+// ##       ##       ##          ##    ##    ##   ##  ##    ##  ##     ##    ##    
+// ######## ######## ##          ##    ##     ## ####  ######   ##     ##    ##    
+//
+// LEFTRIGHT
+// used in champ for left: search, right: champ details
+*/
+
+.leftright-wrapper {
+	display: flex;
+	flex-flow: row;
+	flex-grow: 1;
+}
+
+.left {
+	border-right: 1px solid #222;
+}
+
+.right {
+	flex: 1;
+}
+
+/*
+// ########    ###     ######      ######## ########  #### ########    ########  ##        #######   ######  ##    ## 
+//    ##      ## ##   ##    ##     ##       ##     ##  ##     ##       ##     ## ##       ##     ## ##    ## ##   ##  
+//    ##     ##   ##  ##           ##       ##     ##  ##     ##       ##     ## ##       ##     ## ##       ##  ##   
+//    ##    ##     ## ##   ####    ######   ##     ##  ##     ##       ########  ##       ##     ## ##       #####    
+//    ##    ######### ##    ##     ##       ##     ##  ##     ##       ##     ## ##       ##     ## ##       ##  ##   
+//    ##    ##     ## ##    ##     ##       ##     ##  ##     ##       ##     ## ##       ##     ## ##    ## ##   ##  
+//    ##    ##     ##  ######      ######## ########  ####    ##       ########  ########  #######   ######  ##    ## 
+//
+// TAG EDIT BLOCK 
+*/
+
+.tag-edit-block {
+	border-top: 1px solid #222;
+	/*min-height: 100px;*/
+	display: flex;
+	flex-flow: row wrap;
+	grid-gap: 4px;
+	padding: 8px;
+}
+
+.tag-edit-block .btn {
+	/*color: #ccc;*/
+}
+
+#input__tag-id {
+	width: 56px;
+}
+
+#input__tag-name {
+	width: unset;
+	flex: 1;
 }
