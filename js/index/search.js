@@ -133,7 +133,9 @@ var search = {
 		 * however, this method can be run from multiple methods.
 		 * therefore it is better if we handle follow-up methods here as well.
 		 */
-		
+
+		search.text = search.text.replace(/[^\w\s]/g, "")
+
 		champlist.deselect();
 
 		champions.forEach((champ, i) => {
