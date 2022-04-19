@@ -1,6 +1,6 @@
 var ChampionFunctions = {
 	searchableText: function() {
-		return (`${this.name} ${this.title} ${this.lanes} ${this.rangeType} ${this.attackRange}`
+		return (`${this.name.replace(/[^\w\s]/g, "").replace(/[ ]+/g, ' ')} ${this.title} ${this.lanes} ${this.rangeType} ${this.attackRange}`
 			+ ` ${this.resource} ${this.releaseDate} ${this.releasePatch}`
 			+ ` ${this.region} ${this.species} ${this.lanes} ${this.tags[0]} ${(this.tags.length == 2 ? this.tags[1] : "")}`
 			+ ` ${this.abilities[0].name} ${this.abilities[1].name} ${this.abilities[2].name}`
