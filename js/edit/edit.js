@@ -3,13 +3,16 @@ var tags      = [];
 let ddragon = new DDragon;
 let cdragon = new CDragon;
 let thirdparties = new ThirdParties;
+let pageManager = new EditUiManager;
 
 fetch("data/champions.json").then(data => data.json()).then(json => {
 	champions = json.map(item => ChampionFunctions.transfer(item));
+	pageManager.populateChampsList();
 });
 
 fetch("data/tags.json").then(data => data.json()).then(json => {
 	tags = json;
+	pageManager.populateTagList();
 });
 
 function log(str) {

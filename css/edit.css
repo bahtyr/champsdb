@@ -10,6 +10,11 @@
 // BASE
 */
 
+::-webkit-scrollbar-thumb:vertical {
+	background-color: #111;
+	-webkit-border-radius: 0;
+}
+
 body {
 	font-family: Spiegel-Regular;
 }
@@ -69,10 +74,22 @@ h2 {
 	border-radius: 5px;
 }
 
+/*
+//  ######  ########  ######  ######## ####  #######  ##    ##    ##     ## ########    ###    ########  ######## ########  
+// ##    ## ##       ##    ##    ##     ##  ##     ## ###   ##    ##     ## ##         ## ##   ##     ## ##       ##     ## 
+// ##       ##       ##          ##     ##  ##     ## ####  ##    ##     ## ##        ##   ##  ##     ## ##       ##     ## 
+//  ######  ######   ##          ##     ##  ##     ## ## ## ##    ######### ######   ##     ## ##     ## ######   ########  
+//       ## ##       ##          ##     ##  ##     ## ##  ####    ##     ## ##       ######### ##     ## ##       ##   ##   
+// ##    ## ##       ##    ##    ##     ##  ##     ## ##   ###    ##     ## ##       ##     ## ##     ## ##       ##    ##  
+//  ######  ########  ######     ##    ####  #######  ##    ##    ##     ## ######## ##     ## ########  ######## ##     ## 
+//
+// SECTION HEADER
+*/
+
 .section-header {
 	display: flex;
 	align-items: center;
-	height: 42px;
+	min-height: 42px;
 	border-bottom: 1px solid #222;
 	padding: 0 16px;
 }
@@ -141,9 +158,10 @@ h3 {
 
 .list-block {
 	color: #666;
-	padding: 8px 16px;
-	/*height: 100%;*/
 	flex-grow: 1;
+	max-height: 100%;
+	padding: 8px 16px;
+	overflow: auto;
 }
 
 .list-block li {
@@ -152,6 +170,12 @@ h3 {
 
 .list-block li:hover {
 	color: #ccc;
+}
+
+/*exception*/
+.leftright-wrapper .list-block {
+	/*this is because champ's list block is actually under leftright-wrapper > left > list-block*/
+	padding-bottom: 40px;
 }
 
 /*
@@ -237,6 +261,7 @@ h3 {
 	display: flex;
 	flex-flow: row;
 	flex-grow: 1;
+	overflow: hidden;
 }
 
 .left {
