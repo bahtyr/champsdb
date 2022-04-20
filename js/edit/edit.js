@@ -5,6 +5,8 @@ let cdragon = new CDragon;
 let thirdparties = new ThirdParties;
 let pageManager = new EditUiManager;
 
+pageManager.populateFunctions();
+
 fetch("data/champions.json").then(data => data.json()).then(json => {
 	champions = json.map(item => ChampionFunctions.transfer(item));
 	pageManager.populateChampsList();
@@ -16,8 +18,8 @@ fetch("data/tags.json").then(data => data.json()).then(json => {
 });
 
 function log(str) {
-	$tag("textarea")[0].value = str;
-	// console.log(str);
+	// $tag("textarea")[0].value = str;
+	console.log(str);
 }
 
 /****************************************** UPDATE DATA ******************************************/

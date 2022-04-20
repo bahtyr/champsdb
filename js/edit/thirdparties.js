@@ -9,9 +9,7 @@ class ThirdParties {
 	URL_GOL = "https://gol.gg/champion/list/season-S12/split-Spring/tournament-ALL/"; // season no needs to be changed manually
 	//URL_GOL_CHAMP = "https://gol.gg/champion/champion-stats/champno/season-S12/split-Spring/tournament-ALL/"; //ie. 37 (0..100+)
 
-	constructor() { 
-		this.getGolChampUrls();
-	}
+	constructor() { }
 
 	getGolChampUrls() {
 		fetch(this.URL_GOL)
