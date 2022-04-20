@@ -15,28 +15,50 @@ class EditUiManager {
 		["thirdparties.getChampDamageBreakdown", function() { thirdparties.getChampDamageBreakdown() }]
 	];
 
+	selectedChampIndex = null;
+	selectedTagIndex = null;
+
 	constructor() {}
 
 	/****************************************** PRINT LISTS **************************************/
 
-	populateList(array, listId) {
-		array.forEach(item => {
+	populateList(listId, array, onClick, onDblClick) {
+		array.forEach((item, index) => {
 			let li = document.createElement("li");
 			let text = document.createTextNode(item);
+			if (onClick) li.onclick = function() { onClick(index) };
+			if (onDblClick) li.ondblclick = function() { onDblClick(index) };
 			li.appendChild(text);
 			document.getElementById(listId).appendChild(li);
 		});
 	}
 
 	populateChampsList() {
-		this.populateList(champions.map(champ => champ.name), "list-champs");
+		this.populateList("list-champs", champions.map(champ => champ.name), this.onClickChamp);
 	}
 
 	populateTagList() {
-		this.populateList(tags.map(tag => tag.id + " - " + tag.name), "list-tags");
+		this.populateList("list-tags", tags.map(tag => tag.id + " - " + tag.name), this.onClickTag);
 	}
 
 	populateFunctions() {
-		this.populateList(this.funcs.map(fun => fun[0]), "list-functions");
+		this.populateList("list-functions", this.funcs.map(fun => fun[0]), null, this.onClickFunc);
 	}
+
+	/****************************************** ONCLICK ******************************************/
+
+	onClickFunc(i) {
+		pageManager.funcs[i][1]();
+	}
+
+	onClickChamp(i) {
+
+	}
+
+	onClickTag(i) {
+		pageManager.selectedTagIndex = i;
+		$id("input__tag-id").value = tags[i].id;
+		$id("input__tag-name").value = tags[i].name;
+	}
+
 }
