@@ -404,7 +404,7 @@ p.sidebar-subheading svg {
 #champ-list {
 	display: flex;
 	flex-flow: row wrap;
-	padding-top: 15px;
+	padding-top: 4px;
 	padding-bottom: 150px;
 	width: 100%;
 }
@@ -417,7 +417,8 @@ p.sidebar-subheading svg {
 	flex: 1;
 	display: flex;
 	flex-flow: column;
-	padding-bottom: 16px;
+	padding-top: 12px;
+	padding-bottom: 4px;
 	min-width: 120px;
 	align-items: center;
 	cursor: pointer;
