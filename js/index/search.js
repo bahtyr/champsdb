@@ -99,19 +99,19 @@ var search = {
 
 	queryRemove: function(attr, tag, el, index) {
 		for (let i in search.query) {
-			if (attr) {
+			if (attr && search.query[i].attr) {
 				if (attr.key === search.query[i].attr.key && attr.value === search.query[i].attr.value) {
 					index = i;
 					break;
 				}
 			}
-			else if (tag) {
+			else if (tag && search.query[i].tag) {
 				if (tag.id === search.query[i].tag.id && tag.name === search.query[i].tag.name) {
 					index = i;
 					break;
 				}
 			}
-			else if (el) {
+			else if (el && search.query[i].el) {
 				if (el === search.query[i].element) {
 					index = i;
 					break;
