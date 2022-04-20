@@ -88,28 +88,39 @@
 
 	/*.center { margin-top: 20px; }*/
 
+
 	/* elements  */
 	.heading__smallest { display: unset; }
 
-	.header__content-right { display: none; }
+	/*.header__content-right { display: none; }*/
 
-	#site-heading-wrapper {
+	/*#site-heading-wrapper {
 		display: flex; 
 		align-items: flex-end;
 		justify-content: center;
 		flex: 1;
 		min-width: 140px; /*so that enemies dont prevent this from taking the whole space*/
-	}
+	/*}*/
 
-	#sort { font-size: 12px; }
+	/*#sort { font-size: 12px; }*/
 
-	#site-icon { display: none; }
+	/*#site-icon { display: none; }*/
 	
 	/* order */
-	#search__count { order: 1; margin-left: 0; text-align: right; }
-	.flex-newline { order: 2; flex-basis: 100%; }
-	#search__wrapper { order: 3; width: min-content; flex: auto; }
-	#sort__wrapper { order: 4; }
+	/*#search__count { order: 1; margin-left: 0; text-align: right; }*/
+	/*.flex-newline { order: 2; flex-basis: 100%; }*/
+	/*#search__wrapper { order: 3; width: min-content; flex: auto; }*/
+	/*#sort__wrapper { order: 4; }*/
+
+	#header__main           { height: 112px; }
+	#search__icon           { order: 6; }
+	#search__tags           { order: 7; }
+	#search                 { order: 8; height: 34px; }
+	#search__bubble         { order: 4; }
+	#info__bubble           { order: 3; }
+	.align_right            { order: 2; flex-grow: 1; }
+	.break                  { order: 5; width: 100%; }
+	#site-header__hamburger { order: 1; }
 
 	.center {
 		margin-bottom: 411px;

@@ -164,7 +164,7 @@ body {
  * INFO - BUBBLE
  ************************************************/
 
-.info__bubble {
+#info__bubble {
 	display: flex;
 	grid-column-gap: 8px;
 	align-items: center;
