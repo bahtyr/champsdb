@@ -146,10 +146,10 @@
 				<!--            CONTENT              -->
 				<!------------------------------------->
 				<div class="center" id="content-wrapper">
-					<div id="sort"  style="display: none;"></div>
+					<!-- <div id="sort"  style="display: none;"></div> -->
 					<!-- <div id="search__clear"  style="display: none;"></div> -->
-					<div id="site-header__hamburger"  style="display: none;"></div>
-					<div id="search__wrapper" style="display: none;"></div>
+					<!-- <div id="site-header__hamburger"  style="display: none;"></div> -->
+					<!-- <div id="search__wrapper" style="display: none;"></div> -->
 
 
 					
@@ -211,8 +211,7 @@
 							<p id="search__count" class="search__count">157 Champions</p>
 						</div>
 
-						<!-- <div class="header__content-right"> -->
-						<div class="info__bubble">
+						<div id="info__bubble">
 							<div class="tooltip-parent">
 								<p id="patch-version" class="noselect"></p>
 								<div class="tooltip patch-version-tooltip extended noselect">
@@ -225,6 +224,19 @@
 							</div>
 							<svg id="info-btn" onclick="modal.show()" style="width:16px;height:16px" viewBox="0 0 24 24"><path fill="#555" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
 						</div>
+
+						<div class="align_right"></div>
+						<div class="break"></div>
+						<div><svg id="site-header__hamburger" class="heading__smallest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6" stroke="#755b2c"></line><line x1="3" y1="12" x2="21" y2="12" stroke="#5d4920"></line><line x1="3" y1="18" x2="21" y2="18" stroke="#463714"></line></svg></div>
+						
+						 <!-- currently only exists to not break addEventListener or other code -->
+						<div id="sort"  style="display: none;"></div>
+						<div id="search__wrapper" style="display: none;"></div>
+
+						
+						<!-- <div><svg id="site-icon" width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M21.2253 13.4361V7.67779C21.2253 7.67779 21.5409 1.75949 12.0728 0H11.915C2.44682 1.75949 2.76242 7.67779 2.76242 7.67779V13.4361C2.76242 16.4753 1.5 17.435 1.5 17.435C3.39363 24.4729 8.12771 23.9931 8.12771 23.9931C5.60287 20.6341 8.12771 14.7158 8.12771 14.7158C4.49825 14.2359 5.12946 10.397 5.44507 9.27733C5.44507 9.27733 8.91673 9.11737 10.6526 11.8366V18.5547L12.0728 19.9942L13.3352 18.7146V11.9965C15.2288 9.11737 18.5427 9.27733 18.5427 9.43728C18.8583 10.557 19.4895 14.3959 15.86 14.7158C15.86 14.7158 18.3849 20.794 15.86 23.9931C15.86 23.9931 20.5941 24.4729 22.4878 17.435C22.6456 17.435 21.2253 16.4753 21.2253 13.4361Z" fill="url(#paint0_linear_358_2)"/><defs><linearGradient id="paint0_linear_358_2" x1="22.6667" y1="2.36032e-07" x2="25.8243" y2="23.5771" gradientUnits="userSpaceOnUse"><stop stop-color="#CDBE91"/><stop offset="1" stop-color="#785A28"/></linearGradient></defs></svg></div> -->
+
+						<!-- <div class="header__content-right"> -->
 
 						<!-- mobile version elements, hamburger and site 'logo' -->
 						<!-- <div><svg id="site-header__hamburger" class="heading__smallest" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="3" y1="6" x2="21" y2="6" stroke="#755b2c"></line><line x1="3" y1="12" x2="21" y2="12" stroke="#5d4920"></line><line x1="3" y1="18" x2="21" y2="18" stroke="#463714"></line></svg></div>

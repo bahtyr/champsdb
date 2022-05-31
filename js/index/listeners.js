@@ -172,6 +172,11 @@ document.addEventListener("keydown", e => {
 		}
 	}
 
+	// SPACE
+	if (e.which == 32 && champcard.isOpen() && !search.hasFocus) {
+		e.preventDefault();
+	}
+
 	// ESC KEY
 	if (e.which == 27) {
 		if (typeof modal !== "undefined" && modal.hasFocus()) modal.close();
