@@ -291,13 +291,24 @@ class ChampListManager {
 		}
 
 		else if (mode === "export-with-keys") {
+
+			let queryHasTags = false;
+			for (let obj of search.query) {
+				if (obj.tag || obj.attr) queryHasTags = true;
+			}
+
 			// only visibile abilities
-			if (search.tagId) {
+			if (queryHasTags) {
 				champions.forEach((champ, i) => {
 					if (!champ.hide) {
 						let keys = this.elements[i].children[0].children[2].textContent.trim();
-						if (keys.length == 0) arr.push(champ.name);
-						else keys.split(" ").forEach(key => arr.push(`${champ.name} (${key})`));
+						if (keys.length == 0) {
+							arr.push(champ.name + " (P)");
+							arr.push(champ.name + " (Q)");
+							arr.push(champ.name + " (W)");
+							arr.push(champ.name + " (E)");
+							arr.push(champ.name + " (R)");
+						} else keys.split(" ").forEach(key => arr.push(`${champ.name} (${key})`));
 					}
 				});
 			}

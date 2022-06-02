@@ -91,6 +91,22 @@ var search = {
 
 	/****************************************** QUERY MEHTOD *****************************************************/
 
+	/**
+	 * attr{key, value}
+	 * tag {id, name, champIndexes[] }
+	 * 
+	 * 
+	 * reserved tag.ids
+	 *   -1: not a tag
+	 *   -2: region
+	 *   -3: species
+	 * 
+	 * note:
+	 * 	 at one point, champs' attributes such as attackRangeType / resourceType used to be searched by their attributes rather being a tag.
+	 *   now each champ has those attributes as tags as well.
+	 *   so, currently there is no
+	 */
+
 	queryAdd: function(toggleEl, attr, tag) {
 		let el = this.createTag(attr?.value ?? tag?.name);
 		this.query.push({toggleEl: toggleEl, attr: attr, tag: tag, element: el});
