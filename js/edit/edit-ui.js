@@ -45,6 +45,57 @@ class EditUiManager {
 		this.populateList("list-functions", this.funcs.map(fun => fun[0]), null, this.onClickFunc);
 	}
 
+	populateChampsFields() {
+		this.loopAndPrintEntries(champions[0], $id("champ-block-data"), 0);
+	}
+
+	/****************************************** PRINT FIELDS *************************************/
+
+	loopAndPrintEntries(obj, container, indent) {
+		Object.entries(obj).sort().forEach(entry => {
+			if (Array.isArray(entry[1]) || typeof entry[1] === "object") {
+				this.printLabel("champ-block-data", entry[0], indent);
+				let newRow = this.printRow(container);
+				this.loopAndPrintEntries(entry[1], newRow, indent + 1)
+			}
+			else if (typeof entry[1] === "function") { }
+			else this.printInputField(container, "text", entry[0], entry[1], indent);
+		});
+	}
+
+	printRow(container) {
+		let div = document.createElement("div");
+		div.classList.add("row");
+		container.appendChild(div);
+		return div;
+	}
+
+	printInputField(container, type, label, value, indent) {
+		let label_ = document.createElement("label");
+		let input = document.createElement("input");
+		let br = document.createElement("br");
+		label_.innerHTML = label;
+		label_.setAttribute("indent", indent);
+		input.setAttribute("type", type);
+		input.setAttribute("placeholder", label);
+		input.classList.add("input-block");
+		input.classList.add("row");
+		if (value) input.setAttribute("value", value);
+		container.appendChild(label_);
+		container.appendChild(input);
+		container.appendChild(br);
+	}
+
+	printLabel(containerId, label, indent) {
+		let label_ = document.createElement("label");
+		let br = document.createElement("br");
+		label_.innerHTML = label;
+		label_.classList.add("collapsible-header");
+		label_.setAttribute("indent", indent);
+		$id(containerId).appendChild(label_);
+		$id(containerId).appendChild(br);
+	}
+
 	/****************************************** ONCLICK ******************************************/
 
 	onClickFunc(i) {
