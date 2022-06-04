@@ -13,7 +13,7 @@ var search = {
 
 	/****************************************** Search Input Listener ******************************************/
 
-	onKeyUp: function(e) {
+	onInput: function(e) {
 		let s = $id("search").value.trim().toLowerCase();
 		this.text = s;
 
@@ -266,6 +266,7 @@ var search = {
 var autocomplete = {
 	i: -1,      // last highlight index //what happens to hover :(
 	length: 0,  // item count
+	limit:  6,  // limit //TODO ? lower for mobile
 	isVisible: function() { return $id("search__autocomplete").childElementCount > 0; },
 
 	/***
@@ -277,6 +278,7 @@ var autocomplete = {
 		for (let item of tags.filter(tag => {
 			if (tag.name.toLowerCase().indexOf(search.text) > -1) return this;
 		})) {
+			if (this.length == this.limit) break;
 			this.length++;
 			this.createItem(item.id, item.name)
 		}
@@ -308,7 +310,12 @@ var autocomplete = {
 	},
 
 	select(THIS) {
-		//run from element's event
+		// if THIS is null, get dropdownItem by index.
+		if (THIS == null) {
+			if (autocomplete.i == -1) autocomplete.i = 0;
+			THIS = $class("search__autocomplete-item")[autocomplete.i];
+		}
+
 		let tagId = THIS.getElementsByTagName("input")[0].getAttribute("tag-id");
 		search.queryAdd(null, null, tags.find(tag => tag.id == tagId));
 		search.softClear();
@@ -318,11 +325,12 @@ var autocomplete = {
 	/****************************************** HIGHLIGHT ****************************************/
 
 	focus() {
-		console.log(autocomplete.i);
+		$class("search__autocomplete-item-active")[0]?.classList.remove("search__autocomplete-item-active");
+		$class("search__autocomplete-item")[autocomplete.i]?.classList.add("search__autocomplete-item-active");
 	},
 
 	focusNext() { 
-		if (this.i == this.length) return;
+		if (this.i == this.length - 1) return;
 		this.i += 1;
 		autocomplete.focus();
 	},

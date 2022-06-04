@@ -56,7 +56,7 @@ $id("sort").addEventListener("change", e => {
 $id("search__clear").addEventListener("click", search?.clear);
 
 /* the main search field listener */
-$id("search").addEventListener("keyup", e => search.onKeyUp(e));
+$id("search").addEventListener("input", e => search.onInput(e));
 
 $id("search").addEventListener("focusin", () => {
 	search.hasFocus = true;
@@ -67,6 +67,10 @@ $id("search").addEventListener("blur", () => setTimeout(() => {
 	search.hasFocus = false;
 	$id("search__wrapper").classList.remove("hover");
 }, 200));
+
+$id("search").addEventListener("blur", () => {
+	if (autocomplete.isVisible()) autocomplete.reset();
+});
 
 /****************************************** SEARCH RELATED ****************************************/
 
@@ -191,6 +195,13 @@ document.addEventListener("keydown", e => {
 		// key press time is only reigstered if the key is escape
 	}
 
+	// ENTER KEY
+	if (e.which == 13) {
+		if (autocomplete.isVisible()) {
+			autocomplete.select();
+		}
+	}
+
 	// ARROW KEYS
 	if (e.which > 36 && e.which < 41) {
 
@@ -213,15 +224,15 @@ document.addEventListener("keydown", e => {
 			}
 		}
 		// UP autocomplete
-		// else if (e.which == 38 && autocomplete.isVisible()) {
-		// 	e.preventDefault();
-		// 	autocomplete.focusPrev();
-		// }
+		else if (e.which == 38 && autocomplete.isVisible()) {
+			e.preventDefault();
+			autocomplete.focusPrev();
+		}
 		// DOWN autocomplete
-		// else if (e.which == 40 && autocomplete.isVisible()) {
-		// 	e.preventDefault();
-		// 	autocomplete.focusNext();
-		// }
+		else if (e.which == 40 && autocomplete.isVisible()) {
+			e.preventDefault();
+			autocomplete.focusNext();
+		}
 		// UP
 		else if (e.which == 38 && champcard.isOpen()) {
 			e.preventDefault();
