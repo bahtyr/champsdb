@@ -28,6 +28,7 @@ var search = {
 
 		window.scrollTo({top: 0});
 		search.runQuery();
+		autocomplete.run();
 		// sidebar.clearSelection();
 
 		// if (!search.byTagText(s))
@@ -54,6 +55,15 @@ var search = {
 		for (let i in search.query)
 			search.query[i].toggleEl.classList.remove("active");
 		search.query = [];
+	},
+
+	/***
+	 * Does not empty the whole search query, only removes the search text. Re-runs the query to search with existing tags. (used with autocomplete).
+	 */
+	softClear: function() {
+		$id("search").value = "";
+		search.text = "";
+		search.runQuery();
 	},
 
 	fakeInput: function(s) {
@@ -249,5 +259,78 @@ var search = {
 	},
 	byTagId: function(id_) {
 		return this.byTag(tags.find(({id}) => id === id_));		
-	}
+	},
+
+};
+
+var autocomplete = {
+	i: -1,      // last highlight index //what happens to hover :(
+	length: 0,  // item count
+	isVisible: function() { return $id("search__autocomplete").childElementCount > 0; },
+
+	/***
+	 * Generates list of suggestions by comparing search.text to tags.name.
+	 */
+	run() {
+		this.reset();
+		if (search.text.length < 2) return;
+		for (let item of tags.filter(tag => {
+			if (tag.name.toLowerCase().indexOf(search.text) > -1) return this;
+		})) {
+			this.length++;
+			this.createItem(item.id, item.name)
+		}
+	},
+
+	/***
+	 * Clears the list and removes elements.
+	 */
+	reset() {
+		this.i = -1;
+		this.length = 0;
+		while ($id("search__autocomplete").lastChild) {
+			$id("search__autocomplete").removeChild($id("search__autocomplete").lastChild);
+		}
+	},
+
+	createItem(tagId, tagName) {
+		let div = document.createElement("div");
+		// div.setAttribute("id", this.id + "autocomplete-list");
+      	div.setAttribute("class", "search__autocomplete-item");
+      	div.innerHTML += tagName;
+      	div.innerHTML += `<input type='hidden' tag-id="${tagId}" tag-name="${tagName}">`;
+
+      	div.addEventListener("click", function(e) {
+      		autocomplete.select(this);
+      	});
+
+      	$id("search__autocomplete").appendChild(div);
+	},
+
+	select(THIS) {
+		//run from element's event
+		let tagId = THIS.getElementsByTagName("input")[0].getAttribute("tag-id");
+		search.queryAdd(null, null, tags.find(tag => tag.id == tagId));
+		search.softClear();
+		autocomplete.reset();
+	},
+
+	/****************************************** HIGHLIGHT ****************************************/
+
+	focus() {
+		console.log(autocomplete.i);
+	},
+
+	focusNext() { 
+		if (this.i == this.length) return;
+		this.i += 1;
+		autocomplete.focus();
+	},
+
+	focusPrev() { 
+		if (this.i <= 0) return;
+		this.i -= 1;
+		autocomplete.focus();
+	},
+
 };

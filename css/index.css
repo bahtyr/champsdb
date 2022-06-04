@@ -1219,6 +1219,51 @@ span.highlight {
 	color: #8b6e68;
 }
 
+/* 
+//  ######  ########    ###    ########   ######  ##     ##                  ###    ##     ## ########  #######   ######   #######  ##     ## ########  ##       ######## ######## ######## 
+// ##    ## ##         ## ##   ##     ## ##    ## ##     ##                 ## ##   ##     ##    ##    ##     ## ##    ## ##     ## ###   ### ##     ## ##       ##          ##    ##       
+// ##       ##        ##   ##  ##     ## ##       ##     ##                ##   ##  ##     ##    ##    ##     ## ##       ##     ## #### #### ##     ## ##       ##          ##    ##       
+//  ######  ######   ##     ## ########  ##       #########    #######    ##     ## ##     ##    ##    ##     ## ##       ##     ## ## ### ## ########  ##       ######      ##    ######   
+//       ## ##       ######### ##   ##   ##       ##     ##               ######### ##     ##    ##    ##     ## ##       ##     ## ##     ## ##        ##       ##          ##    ##       
+// ##    ## ##       ##     ## ##    ##  ##    ## ##     ##               ##     ## ##     ##    ##    ##     ## ##    ## ##     ## ##     ## ##        ##       ##          ##    ##       
+//  ######  ######## ##     ## ##     ##  ######  ##     ##               ##     ##  #######     ##     #######   ######   #######  ##     ## ##        ######## ########    ##    ######## 
+// 
+// SEARCH AUTOCOMPLETE
+*/
+
+#header__main {
+	position: relative;
+}
+
+#search__autocomplete {
+	border-radius: 2px;
+	background-color: #111;
+	box-shadow: rgb(0 0 0 / 20%) 0px 0px 6px;
+	color: #888;
+	position: absolute;
+	padding: 6px 0;
+	min-width: 6em;
+	left: 46;
+	top: 52;
+}
+
+#search__autocomplete:empty {
+	display: none;
+}
+
+.search__autocomplete-item {
+	padding: 4px 12px;
+	font-family: Spiegel-Regular;
+	font-size: 14px;
+	letter-spacing: 0.04em;
+	white-space: nowrap;
+}
+
+.search__autocomplete-item-active,
+.search__autocomplete-item:hover {
+	background-color: #222;
+}
+
 /*
 //  ########  #######   #######  ######## ######## ########  
 //  ##       ##     ## ##     ##    ##    ##       ##     ## 

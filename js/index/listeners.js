@@ -212,6 +212,16 @@ document.addEventListener("keydown", e => {
 				}
 			}
 		}
+		// UP autocomplete
+		// else if (e.which == 38 && autocomplete.isVisible()) {
+		// 	e.preventDefault();
+		// 	autocomplete.focusPrev();
+		// }
+		// DOWN autocomplete
+		// else if (e.which == 40 && autocomplete.isVisible()) {
+		// 	e.preventDefault();
+		// 	autocomplete.focusNext();
+		// }
 		// UP
 		else if (e.which == 38 && champcard.isOpen()) {
 			e.preventDefault();
