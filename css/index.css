@@ -107,6 +107,7 @@ body {
 	height: 100vh;
 	overflow: overlay;
 	overflow-x: hidden;
+	/*overflow: scroll;*/
 	border-right: 1px solid #1a1a1a;
 	padding: 0 6px 40px 16px;
 }
@@ -213,6 +214,7 @@ body {
 	font-family: Spiegel-Regular;
 	letter-spacing: 0.07em;
 	color: #b0aca0;
+	caret-color: #604820;
 	cursor: default;
 }
 
@@ -301,7 +303,7 @@ body {
 #filter-lane svg { padding: 4px 8px; }
 #filter-role svg { padding: 6px 8px; }
 
-.filter-role svg.active path { fill: #bbb; }
+.filter-role svg.active path { fill: #aaa; }
 .filter-role svg path { fill: #333;
 	pointer-events: none;
 	transition: var(--transition);
@@ -350,6 +352,7 @@ body {
 	border-right-color: transparent;
 	border-bottom-color: transparent;
 	border-left-color: transparent;
+	pointer-events: none;
 }
 
 /************************************************
@@ -413,7 +416,7 @@ body {
 
 #info__bubble {
 	display: flex;
-	display: none;
+	/*display: none;*/
 	grid-column-gap: 8px;
 	align-items: center;
 
@@ -439,6 +442,40 @@ body {
 #info-btn {
 	cursor: pointer;
 }
+
+/************************************************
+ * TOOLTIPS
+ ************************************************/
+
+/*#export-btn { text-transform: uppercase; cursor: pointer; }*/
+/*#export-btn:hover { background-color: rgba(255, 255, 255, 0.12); border-radius: 4px; }*/
+
+.patch-version-tooltip,
+.export-tooltip {
+	transform-origin: right top;
+	background-color: #111;
+	color: #888;
+	line-height: 1.6;
+	padding: 12px 22px;
+	right: -5;
+	/*text-align: right;*/
+}
+
+.patch-version-tooltip {
+	transform-origin: top;
+	left: -22px;
+	right: unset;
+}
+
+.export-tooltip {
+	text-align: left;
+}
+
+.export-tooltip a { cursor: pointer; } /* we use them as buttons */
+
+.patch-version-tooltip a span { cursor: unset; }
+.patch-version-tooltip .disabled { color: #888; pointer-events: none; }
+.patch-version-tooltip .disabled path { fill: #888; }
 
 
 /************************************************
@@ -559,32 +596,6 @@ body {
 .search__autocomplete-item:hover {
 	background-color: #222;
 }
-
-/* ---------------------------------------------------------------------------------------- HEADER CONTENT */
-
-/*#export-btn { text-transform: uppercase; cursor: pointer; }*/
-/*#export-btn:hover { background-color: rgba(255, 255, 255, 0.12); border-radius: 4px; }*/
-
-.patch-version-tooltip,
-.export-tooltip {
-	transform-origin: right top;
-	background-color: #111;
-	color: #888;
-	line-height: 1.6;
-	padding: 12px 22px;
-	right: -5;
-	text-align: right;
-}
-
-.export-tooltip {
-	text-align: left;
-}
-
-.export-tooltip a { cursor: pointer; } /* we use them as buttons */
-
-.patch-version-tooltip a span { cursor: unset; }
-.patch-version-tooltip .disabled { color: #888; pointer-events: none; }
-.patch-version-tooltip .disabled path { fill: #888; }
 
 /*
 //   ######  #### ########  ######## ########     ###    ########  
@@ -889,7 +900,7 @@ p.sidebar-subheading svg {
 	box-shadow: 0 -2px 10px rgba(0, 0, 0, 1);
 	border: 1px solid #1a1a1a;
 	/*margin: 0 0 16px 14px;*/
-	margin-left: -21px;
+	/*margin-left: -21px;*/
 	/*padding: 22px 40px calc(22px - 5px) 22px;*/
 	transform: scale(1) translateY(0px);
 	transform-origin: bottom;
@@ -1420,7 +1431,6 @@ span.highlight {
 	border-top: 1px solid #1a1a1a;
 	padding: 60px 40px;
 	width: 100%;
-	margin-left: -20px; /*undo .center padding*/
 }
 
 /* wrapper & columns */

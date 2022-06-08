@@ -72,7 +72,21 @@
 					<div id="header__sidebar" class="page-header noselect umami--click--Site-Logo">
 						<svg id="site-icon__small" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.1502 8.95742V5.11853C14.1502 5.11853 14.3606 1.173 8.04852 0H7.94332C1.63121 1.173 1.84161 5.11853 1.84161 5.11853V8.95742C1.84161 10.9835 1 11.6233 1 11.6233C2.26242 16.3153 5.41848 15.9954 5.41848 15.9954C3.73525 13.756 5.41848 9.81051 5.41848 9.81051C2.99883 9.4906 3.41964 6.93134 3.63005 6.18489C3.63005 6.18489 5.94448 6.07825 7.1017 7.89106V12.3698L8.04852 13.3295L8.89014 12.4764V7.9977C10.1526 6.07825 12.3618 6.18489 12.3618 6.29152C12.5722 7.03797 12.993 9.59724 10.5734 9.81051C10.5734 9.81051 12.2566 13.8627 10.5734 15.9954C10.5734 15.9954 13.7294 16.3153 14.9918 11.6233C15.097 11.6233 14.1502 10.9835 14.1502 8.95742Z" fill="url(#paint0_linear_358_4)"/><defs><linearGradient id="paint0_linear_358_4" x1="15.1111" y1="1.57355e-07" x2="17.2162" y2="15.7181" gradientUnits="userSpaceOnUse"><stop stop-color="#CDBE91"/><stop offset="1" stop-color="#785A28"/></linearGradient></defs></svg>
 						<h1 id="heading__site">ChampsDB</h1>
-					</div>			
+					</div>
+					<div id="info__bubble">
+						<div class="tooltip-parent">
+							<p id="patch-version" class="noselect"></p>
+							<div class="tooltip patch-version-tooltip extended noselect">
+								<a id="patch-notes-current" href="" target="_blank" onclick="track('Patch Notes Current', 'click')"><span>Current Patch Notes</span><svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 1.51725V4.506H6V0H1.5V0.747H4.5L0 5.253V6H0.75L5.25 1.51725Z" fill="#0BC4E2"/></svg></a>
+								<br/>
+								<a id="patch-notes-next" href="" target="_blank" onclick="track('Patch Notes Next', 'click')" class="disabled"><span id="next-patch-date">Date</span> &mdash; <span>Next Patch Notes</span><svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 1.51725V4.506H6V0H1.5V0.747H4.5L0 5.253V6H0.75L5.25 1.51725Z" fill="#0BC4E2"/></svg></a>
+								<br/>
+								<a href="https://support-leagueoflegends.riotgames.com/hc/en-us/articles/360018987893-Patch-Schedule-League-of-Legends" target="_blank" onclick="track('Patch Schedule', 'click')">Patch Schedule<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 1.51725V4.506H6V0H1.5V0.747H4.5L0 5.253V6H0.75L5.25 1.51725Z" fill="#0BC4E2"/></svg></a>
+							</div>
+						</div>
+						<svg id="info-btn" onclick="modal.show()" style="width:16px;height:16px" viewBox="0 0 24 24"><path fill="#555" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
+					</div>
+					<p class="sidebar-subheading noselect"><svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4.24268" y="1.41421" width="4" height="4" transform="rotate(45 4.24268 1.41421)" stroke="url(#paint0_linear_290_8)" stroke-width="2"/></svg><span>Collapse / Expand All</span></p>
 					<div id="taglist-container" class="umami--click--Filters-List">
 						<p class="sidebar-heading js-template">Heading</p>
 						<p class="sidebar-subheading noselect js-template"><svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4.24268" y="1.41421" width="4" height="4" transform="rotate(45 4.24268 1.41421)" stroke="url(#paint0_linear_290_8)" stroke-width="2"/></svg><span>Subheading</span></p>
@@ -95,7 +109,8 @@
 					<!--            HEADERS              -->
 					<!------------------------------------->
 					<div class="page-header" id="header__main">
-
+						
+						<!--======= SEARCH WRAPPER =====-->
 						<div id="search__wrapper">
 							<svg id="search__icon" width="10" height="10" viewBox="0 0 10 10" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4.58333 7.91667C6.42428 7.91667 7.91667 6.42428 7.91667 4.58333C7.91667 2.74238 6.42428 1.25 4.58333 1.25C2.74238 1.25 1.25 2.74238 1.25 4.58333C1.25 6.42428 2.74238 7.91667 4.58333 7.91667Z" stroke="#807E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/><path d="M8.75 8.75L6.9375 6.9375" stroke="#807E75" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
 							<div id="search__autocomplete"></div><!-- ! don't leave blank text here, breaks ':empty' css -->
@@ -106,6 +121,7 @@
 							<input id="search" type="text" name="Search" placeholder="Search">
 						</div>
 
+						<!--======= OTHER =====-->
 						<div id="search__bubble" class="search__bubble active">
 							<svg id="search__clear" width="14" height="14" viewBox="0 0 14 14" fill="none" xmlns="http://www.w3.org/2000/svg">
 								<path d="M10.5 3.5L3.5 10.5" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
@@ -150,7 +166,7 @@
 							<!-- <p id="search__count" class="search__count">157 Champions</p> -->
 						</div>
 
-						<div id="info__bubble">
+						<!-- <div id="info__bubble">
 							<div class="tooltip-parent">
 								<p id="patch-version" class="noselect"></p>
 								<div class="tooltip patch-version-tooltip extended noselect">
@@ -162,7 +178,7 @@
 								</div>
 							</div>
 							<svg id="info-btn" onclick="modal.show()" style="width:16px;height:16px" viewBox="0 0 24 24"><path fill="#555" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
-						</div>
+						</div> -->
 
 						<div class="align_right"></div>
 						<div class="break"></div>
@@ -172,7 +188,7 @@
 					<!--======= Hidden Focus Element =====-->
 					<div tabindex=0></div>
 
-
+					<!--======= FILTER ROW =====-->
 					<div id="filter-row">
 						<div id="filter-lane" class="filter-role umami--click--Lane">
 							<svg id="Top" class="role-icon" width="24" height="24" viewBox="0 0 24 24" fill="none"
