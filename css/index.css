@@ -143,7 +143,7 @@ body {
 #header__main {
 	padding-left: 36px;
 	margin-left: -20px; /* undo .center padding-left */
-	border-bottom: 1px solid #1a1a1a;
+	/*border-bottom: 1px solid #1a1a1a;*/
 	z-index: 2;
 	background: radial-gradient(100% 90% at 0px 0px, rgb(147 115 65 / 20%), transparent 100%)
 }
@@ -157,7 +157,7 @@ body {
 #header__right {
 	position: absolute;
 	width: 100%;
-	border-bottom: 1px solid #1a1a1a;
+	/*border-bottom: 1px solid #1a1a1a;*/
 }
 
 /************************************************
@@ -166,6 +166,7 @@ body {
 
 #info__bubble {
 	display: flex;
+	/*display: none;*/
 	grid-column-gap: 8px;
 	align-items: center;
 
@@ -244,26 +245,116 @@ body {
 	margin-bottom: 3px;
 }
 
+/* ---------------------------------------- STUUUUUUUUUFFFFFF*/
+
+
+/* ---------------------------------------- STUUUUUUUUUFFFFFF*/
+
+#results-section {
+	display: flex;
+	align-items: center;
+	color: #444;
+	border-radius: 4px;
+	height: 33px;
+	border: 1px solid #222;
+}
+
+#export-btn2 {
+	/*color: #444;*/
+	font-family: Spiegel-Bold;
+	font-family: Spiegel-Regular;
+	font-size: 14px;
+	letter-spacing: 1;
+	padding: 0 12px;
+}
+
+#search__count {
+	font-family: Spiegel-Regular;
+	font-size: 12px;
+	padding: 0 12px;
+}
+
+.divider {
+	width: 1px;
+	height: 100%;
+	background-color: #222;
+}
+
+.dropdown-caret {
+	margin-left: 1ch;
+    display: inline-block;
+    width: 0;
+    height: 0;
+    vertical-align: middle;
+    content: "";
+    border-style: solid;
+    border-width: 4px 4px 0;
+    border-right-color: transparent;
+    border-bottom-color: transparent;
+    border-left-color: transparent;
+}
+
 /* ---------------------------------------- FILTERS */
 
-#filter-lane {
+#sidebar__roles {
+	/*background-color: red;*/
 	display: flex;
+	align-items: center;
+	margin: 12px 4px 0px 16px;
+	/*padding: 6px 8px;*/
+	border-radius: 4px;
+	/*height: 40px;*/
+	grid-gap: 6px;
+}
+
+#sidebar__roles .divider {
+	display: inline-block;
+	width: 1px;
+	height: 100%;
+	/*background-color: #222;*/
+}
+
+#filter-attributes {
+	/*color: #95938e;*/
+	/*font-weight: bold;*/
+	/*margin-left: 12px;*/
+	align-items: center;
+	border-radius: 4px;
+	border: 1px solid #222;
+	color: #444;
+	cursor: pointer;
+	display: flex;
+	font-family: Spiegel-Bold;
+	font-family: Spiegel-Regular;
+	font-size: 14px;
+	height: 33px;
+	letter-spacing: 1;
+	padding: 0 12px;
+	white-space: nowrap;
+}
+
+#filter-lane {
+	display: inline-flex;
 	justify-content: space-around;
-	background-color: #0D0D0D;
-	border-radius: 6px;
+	/*background-color: #0D0D0D;*/
 	padding: 0 4px;
-	margin-right: 18px;
-	margin-left: -8px;
+	/*margin-right: 18px;*/
+	border-radius: 4px;
+	border: 1px solid #222;
 }
 
 #filter-role {
-	display: flex;
+	/*margin-right: 18px;*/
+	display: inline-flex;
 	justify-content: space-around;
-	margin: 16px 26px 32px 0;
+	padding: 0 6px;
+	/*margin: 16px 26px 32px 0;*/
+	border-radius: 4px;
+	border: 1px solid #222;
 }
 
-#filter-lane svg { flex: 1; padding: 4px 0; }
-#filter-role svg { flex: 1; }
+#filter-lane svg { flex: 1; padding: 4px 8px; }
+#filter-role svg { flex: 1; padding: 6px 8px; }
 
 .search-filters svg { cursor: pointer; box-sizing: content-box; }
 #filter-lane svg path { fill: #5a5a5a; pointer-events: none; }
@@ -1070,9 +1161,35 @@ span.highlight {
  * SEARCH - INPUT
  ************************************************/
 
-#search__wrapper {
-	width: 300px;
+#header__main {
+	padding-top: 18px;
+	height: 48px;
+	height: initial;
 }
+
+#search__wrapper {
+	display: flex;
+	align-items: center;
+	/*background-color: #222;*/
+	border-radius: 4px;
+	border: 1px solid #222;
+	height: 40px;
+	flex: 1;
+	transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+	transition-property: color,background-color,box-shadow,border-color;
+}
+
+#search__wrapper.hover {
+	border-color: #6BA4F8;
+	border-color: #291B02;
+	border-color: #937341;
+	border-color: #604820;
+}
+
+#info__bubble {
+	display: none;
+}
+
 
 #search {
 	flex: 1;
@@ -1119,7 +1236,7 @@ span.highlight {
 }
 
 #search__icon {
-	margin-left: 4px;
+	margin-left: 12px;
 	margin-right: 12px;
 }
 
@@ -1133,6 +1250,7 @@ span.highlight {
 
 .search__bubble {
 	display: flex;
+	display: none;
 	align-items: center;
 	justify-content: flex-end;
 	transition: all .5s ease;
@@ -1162,11 +1280,12 @@ span.highlight {
 
 /* champ count */
 .search__count {
+	color: #444;
 	font-size: 12px;
 	font-weight: bold;
   font-family: monospace;
 	letter-spacing: 0.07em;
-	min-width: 8.1em;
+	min-width: 10em;
   text-align: right;
 }
 
