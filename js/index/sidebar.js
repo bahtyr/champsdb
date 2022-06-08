@@ -21,7 +21,7 @@ class SidebarManager {
 	print() {
 		const nodeH = $class("sidebar-heading")[0];
 		const nodeS = $class("sidebar-subheading")[0];
-		let filtersWrapper = $id("filters-wrapper");
+		let taglistContainer = $id("taglist-container");
 		let item;
 
 		menu.forEach(element => {
@@ -47,7 +47,7 @@ class SidebarManager {
 			}
 
 			item.classList.remove("js-template");
-			filtersWrapper.appendChild(item);
+			taglistContainer.appendChild(item);
 		});
 	}
 
@@ -94,7 +94,7 @@ class SidebarManager {
 		// }
 
 		// clear / add active effects
-		// $queryAll(".sidebar__role-icon").forEach(e => e.classList.remove("active"));
+		// $queryAll(".role-icon").forEach(e => e.classList.remove("active"));
 
 		// search
 		// search.byAttr(attr, id);
@@ -158,6 +158,6 @@ class SidebarManager {
 	
 	clearSelection() {
 		/* visually deselects active filters */
-		$queryAll(".sidebar__role-icon").forEach(e => e.classList.remove("active"));
+		$queryAll(".role-icon").forEach(e => e.classList.remove("active"));
 	}	
 }

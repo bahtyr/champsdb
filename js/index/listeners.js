@@ -92,18 +92,17 @@ function onPrefTagsChange(el) {
 
 /****************************************** SIDEBAR **********************************************/
 
-$id("sidebar__roles").addEventListener("click", e => {
+$id("filter-row").addEventListener("click", e => {
 	for (let target = e.target; target != e.currentTarget && target && target != this; target = target.parentNode) {
-		if (target && target.matches(".sidebar__role-icon")) {
+		if (target && target.matches(".role-icon")) {
 			
 			sidebar.onClickRole(e.target, e.target.id, e.target.parentNode.id);
 			break;
 		}
 	}
-
 });
 
-$id("filters-wrapper").addEventListener("click", e => {
+$id("taglist-container").addEventListener("click", e => {
 	for (let target = e.target; target != e.currentTarget && target && target != this; target = target.parentNode) {
 		if (target) {
 			

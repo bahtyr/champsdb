@@ -1,6 +1,9 @@
 :root {
   --champlist-side-padding: 20px;
   --champlist-side-padding-fake: 20px; /* this one is to match an an item's img start line */
+  --filter-border: 1px solid #222;
+  --filter-border-radius: 4px;
+  --transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
 }
 
 /*
@@ -146,7 +149,11 @@ body {
 
 #header__main {
 	/*z-index: 2;*/
+	position: relative;
 	background: radial-gradient(100% 90% at 0px 0px, rgb(147 115 65 / 20%), transparent 100%);
+	padding: 18px var(--champlist-side-padding-fake);
+	padding-bottom: 12px;
+	height: initial;
 }
 
 #header__sidebar {
@@ -177,21 +184,13 @@ body {
  * SEARCH - INPUT
  ************************************************/
 
-#header__main {
-	position: relative;
-	height: 48px;
-	height: initial;
-	padding: 18px var(--champlist-side-padding-fake);
-}
-
 #search__wrapper {
+	flex: 1;
 	display: flex;
 	align-items: center;
-	/*background-color: #222;*/
+	height: 40px;
 	border-radius: 4px;
 	border: 1px solid #222;
-	height: 40px;
-	flex: 1;
 	transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
 	transition-property: color,background-color,box-shadow,border-color;
 }
@@ -202,11 +201,6 @@ body {
 	border-color: #937341;
 	border-color: #604820;
 }
-
-#info__bubble {
-	display: none;
-}
-
 
 #search {
 	flex: 1;
@@ -233,32 +227,165 @@ body {
     outline: none;
 }
 
+#search__icon {
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
 /************************************************
- * SEARCH - NEW NEW NEW NEW NEW
+ * SEARCH - TAGS
  ************************************************/
 
-#results-section {
+.search__tags {
+	display: flex;
+}
+
+.search__tags p {
+	transition: all .2s ease;
+	cursor: pointer;
+
+	font-size: 12px;
+	font-weight: bold;
+  font-family: monospace;
+	letter-spacing: 0.07em;
+
+	border-radius: 4px;
+	margin-right: 6px;
+	padding: 4px 12px;
+	background-color: #291B02;
+	color: #896F58;
+}
+
+.search__tags p:hover {
+	background-color: #40130a;
+	color: #8b6e68;
+}
+
+/*
+//  ######## #### ##       ######## ######## ########          ########   #######  ##      ## 
+//  ##        ##  ##          ##    ##       ##     ##         ##     ## ##     ## ##  ##  ## 
+//  ##        ##  ##          ##    ##       ##     ##         ##     ## ##     ## ##  ##  ## 
+//  ######    ##  ##          ##    ######   ########  ####### ########  ##     ## ##  ##  ## 
+//  ##        ##  ##          ##    ##       ##   ##           ##   ##   ##     ## ##  ##  ## 
+//  ##        ##  ##          ##    ##       ##    ##          ##    ##  ##     ## ##  ##  ## 
+//  ##       #### ########    ##    ######## ##     ##         ##     ##  #######   ###  ###  
+//
+//  FILTER-ROW
+*/
+
+#filter-row {
 	display: flex;
 	align-items: center;
-	color: #444;
+	margin: 0px var(--champlist-side-padding-fake);
 	border-radius: 4px;
-	height: 33px;
-	border: 1px solid #222;
+	grid-gap: 6px;
+	height: 34px;
+}
+
+/************************************************
+ * ICONS
+ ************************************************/
+
+/* class for both #filter-lane & #filter-role */
+.filter-role {
+	display: inline-flex;
+	justify-content: space-around;
+	padding: 0 4px;
+	border-radius: 4px;
+	border: var(--filter-border);
+}
+#filter-lane { padding: 0 4px; }
+#filter-role { padding: 0 8px; }
+
+.filter-role svg {  flex: 1; box-sizing: content-box; cursor: pointer; }
+#filter-lane svg { padding: 4px 8px; }
+#filter-role svg { padding: 6px 8px; }
+
+.filter-role svg.active path { fill: #bbb; }
+.filter-role svg path { fill: #333;
+	pointer-events: none;
+	transition: var(--transition);
+	transition-property: fill;
+}
+
+/************************************************
+ * DROPDOWN
+ ************************************************/
+
+#filter-attributes { }
+
+.filter-btn {
+	cursor: pointer;
+
+	height: 100%;
+	line-height: 1.5;
+	padding: 5px 16px;
+
+	color: #444;
+	font-family: Spiegel-Regular;
+	font-size: 14px;
+	letter-spacing: 0.7;
+	white-space: nowrap;
+
+	border-radius: 4px;
+	border: var(--filter-border);
+
+	transition: var(--transition);
+	transition-property: color,background-color,border-color;
+}
+
+.filter-btn:hover {
+	color: #666;
+	border-color: #555;
+}
+
+.dropdown-caret {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	vertical-align: middle;
+	content: "";
+	border-style: solid;
+	border-width: 4px 4px 0;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+}
+
+/************************************************
+ * RIGHT SECTION
+ ************************************************/
+
+#export-and-count {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	border-radius: 4px;
+	border: var(--filter-border);
 }
 
 #export-btn2 {
-	/*color: #444;*/
-	font-family: Spiegel-Bold;
-	font-family: Spiegel-Regular;
-	font-size: 14px;
-	letter-spacing: 1;
-	padding: 0 12px;
+	padding: 5px 12px;
+	color: #666;
+	background-color: #0D0D0D;
+	letter-spacing: 0.7;
+	border: none;
+	border-radius: 4px 0 0 4px;
 }
 
-#search__count {
-	font-family: Spiegel-Regular;
+#export-btn2:hover {
+	color: #999;
+	background-color: #222;
+}
+
+.search__count {
+	color: #444;
 	font-size: 12px;
+	font-family: Spiegel-Regular;
+	letter-spacing: 0.7;
+	min-width: 10em;
 	padding: 0 12px;
+  text-align: right;
 }
 
 .divider {
@@ -267,114 +394,52 @@ body {
 	background-color: #222;
 }
 
-.dropdown-caret {
-	margin-left: 1ch;
-    display: inline-block;
-    width: 0;
-    height: 0;
-    vertical-align: middle;
-    content: "";
-    border-style: solid;
-    border-width: 4px 4px 0;
-    border-right-color: transparent;
-    border-bottom-color: transparent;
-    border-left-color: transparent;
-}
+/* 
+// ##     ##    ##     ##    ##     ##    ##     ##    ##     ## 
+//  ##   ##      ##   ##      ##   ##      ##   ##      ##   ##  
+//   ## ##        ## ##        ## ##        ## ##        ## ##   
+//    ###          ###          ###          ###          ###    
+//   ## ##        ## ##        ## ##        ## ##        ## ##   
+//  ##   ##      ##   ##      ##   ##      ##   ##      ##   ##  
+// ##     ##    ##     ##    ##     ##    ##     ##    ##     ## 
+// 
+// kinda deprecated stuff
+*/
+
 
 /************************************************
- * SEARCH - NEW NEW NEW NEW NEW FILTERS FILTERS
+ * INFO - BUBBLE
  ************************************************/
 
-#sidebar__roles {
+#info__bubble {
 	display: flex;
-	align-items: center;
-	margin: 0px var(--champlist-side-padding-fake);
-	border-radius: 4px;
-	grid-gap: 6px;
-}
-
-#sidebar__roles .divider {
-	display: inline-block;
-	width: 1px;
-	height: 100%;
-	/*background-color: #222;*/
-}
-
-#filter-attributes {
-	/*color: #95938e;*/
-	/*font-weight: bold;*/
-	/*margin-left: 12px;*/
-	align-items: center;
-	border-radius: 4px;
-	border: 1px solid #222;
-	color: #444;
-	cursor: pointer;
-	display: flex;
-	font-family: Spiegel-Bold;
-	font-family: Spiegel-Regular;
-	font-size: 14px;
-	height: 33px;
-	letter-spacing: 1;
-	padding: 0 12px;
-	white-space: nowrap;
-}
-
-#filter-lane {
-	display: inline-flex;
-	justify-content: space-around;
-	/*background-color: #0D0D0D;*/
-	padding: 0 4px;
-	/*margin-right: 18px;*/
-	border-radius: 4px;
-	border: 1px solid #222;
-}
-
-#filter-role {
-	/*margin-right: 18px;*/
-	display: inline-flex;
-	justify-content: space-around;
-	padding: 0 6px;
-	/*margin: 16px 26px 32px 0;*/
-	border-radius: 4px;
-	border: 1px solid #222;
-}
-
-#filter-lane svg { flex: 1; padding: 4px 8px; }
-#filter-role svg { flex: 1; padding: 6px 8px; }
-
-.search-filters svg { cursor: pointer; box-sizing: content-box; }
-#filter-lane svg path { fill: #5a5a5a; pointer-events: none; }
-#filter-role svg path { fill: #444444; pointer-events: none; }
-#filter-lane svg.active path { fill: #fff; }
-#filter-role svg.active path { fill: #fff; }
-
-/************************************************
- * SEARCH - ACTIONS
- ************************************************/
-
-#site-icon {
 	display: none;
-	/*width: 100%;*/
-	/*height: 100%;*/
+	grid-column-gap: 8px;
+	align-items: center;
+
+	height: 30px;
+	padding: 6px 12px;
+	border-radius: 4px;
+	margin-right: 10px;
+
+	color: #777;
+	outline: 1px solid #1A1A1A;
 }
 
-#search__clear {
-	pointer-events: unset;
+#patch-version {
+	font-size: 12px;
+	letter-spacing: 0.07em;
+  cursor: help;
+  font-family: monospace;
+  font-weight: bold;
+  min-width: 3.1em;
+  text-align: right;
+}
+
+#info-btn {
 	cursor: pointer;
 }
 
-#search__clear.hide {
-	visibility: hidden;
-}
-
-#search__icon {
-	margin-left: 12px;
-	margin-right: 12px;
-}
-
-#sort__wrapper {
-	margin-left: 12px;
-}
 
 /************************************************
  * SEARCH - BUBBLE
@@ -410,15 +475,27 @@ body {
 	color: #555;
 }
 
-/* champ count */
-.search__count {
-	color: #444;
-	font-size: 12px;
-	font-weight: bold;
-  font-family: monospace;
-	letter-spacing: 0.07em;
-	min-width: 10em;
-  text-align: right;
+/************************************************
+ * SEARCH - ACTIONS
+ ************************************************/
+
+#site-icon {
+	display: none;
+	/*width: 100%;*/
+	/*height: 100%;*/
+}
+
+#search__clear {
+	pointer-events: unset;
+	cursor: pointer;
+}
+
+#search__clear.hide {
+	visibility: hidden;
+}
+
+#sort__wrapper {
+	margin-left: 12px;
 }
 
 /************************************************
@@ -439,35 +516,6 @@ body {
 	font-size: 10px;
 	font-weight: bold;
 	text-transform: uppercase;
-}
-
-/************************************************
- * SEARCH - TAGS
- ************************************************/
-
-.search__tags {
-	display: flex;
-}
-
-.search__tags p {
-	transition: all .2s ease;
-	cursor: pointer;
-
-	font-size: 12px;
-	font-weight: bold;
-  font-family: monospace;
-	letter-spacing: 0.07em;
-
-	border-radius: 4px;
-	margin-right: 6px;
-	padding: 4px 12px;
-	background-color: #291B02;
-	color: #896F58;
-}
-
-.search__tags p:hover {
-	background-color: #40130a;
-	color: #8b6e68;
 }
 
 /* 
@@ -492,6 +540,7 @@ body {
 	min-width: 6em;
 	left: 46;
 	top: 52;
+	z-index: 1;
 }
 
 #search__autocomplete:empty {
@@ -509,40 +558,6 @@ body {
 .search__autocomplete-item-active,
 .search__autocomplete-item:hover {
 	background-color: #222;
-}
-
-
-/************************************************
- * INFO - BUBBLE
- ************************************************/
-
-#info__bubble {
-	display: flex;
-	display: none;
-	grid-column-gap: 8px;
-	align-items: center;
-
-	height: 30px;
-	padding: 6px 12px;
-	border-radius: 4px;
-	margin-right: 10px;
-
-	color: #777;
-	outline: 1px solid #1A1A1A;
-}
-
-#patch-version {
-	font-size: 12px;
-	letter-spacing: 0.07em;
-  cursor: help;
-  font-family: monospace;
-  font-weight: bold;
-  min-width: 3.1em;
-  text-align: right;
-}
-
-#info-btn {
-	cursor: pointer;
 }
 
 /* ---------------------------------------------------------------------------------------- HEADER CONTENT */
