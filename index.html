@@ -1,9 +1,9 @@
 <html>
 	<head>
 		<link rel="icon" href="./assets/favicon.svg">
-		<link rel="stylesheet" href="./css/base.css?v=0.3.78">
-		<link rel="stylesheet" href="./css/index.css?v=0.3.78">
-		<link rel="stylesheet" href="./css/scaling.css?v=0.3.78">
+		<link rel="stylesheet" href="./css/base.css?v=0.4.00">
+		<link rel="stylesheet" href="./css/index.css?v=0.4.00">
+		<link rel="stylesheet" href="./css/scaling.css?v=0.4.00">
 		<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 		<!-- Meta Tags -->
 		<title>ChampsDB &mdash; League of Legends Champions Database</title>
@@ -63,7 +63,7 @@
 			</div>
 		</div>
 
-		<!-------- HEADER -------->
+		<!-- HEADER -->
 		<div id="header">
 			<div class="wrapper">
 				<div id="logo" style="flex: unset">
@@ -71,36 +71,27 @@
 					<h1>ChampsDB</h1>
 				</div>
 				<div style="flex: 1"></div>
-				<p>Patch 12.11</p>
+				<div class="tooltip-parent">
+					<p id="patch-version" class="noselect"></p>
+					<div class="tooltip patch-version-tooltip extended noselect">
+						<a id="patch-notes-current" href="" target="_blank" onclick="track('Patch Notes Current', 'click')"><span>Current Patch Notes</span><svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 1.51725V4.506H6V0H1.5V0.747H4.5L0 5.253V6H0.75L5.25 1.51725Z" fill="#0BC4E2"/></svg></a><br/>
+						<a id="patch-notes-next" href="" target="_blank" onclick="track('Patch Notes Next', 'click')" class="disabled"><span id="next-patch-date">Date</span> &mdash; <span>Next Patch Notes</span><svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 1.51725V4.506H6V0H1.5V0.747H4.5L0 5.253V6H0.75L5.25 1.51725Z" fill="#0BC4E2"/></svg></a><br/>
+						<a href="https://support-leagueoflegends.riotgames.com/hc/en-us/articles/360018987893-Patch-Schedule-League-of-Legends" target="_blank" onclick="track('Patch Schedule', 'click')">Patch Schedule<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 1.51725V4.506H6V0H1.5V0.747H4.5L0 5.253V6H0.75L5.25 1.51725Z" fill="#0BC4E2"/></svg></a>
+					</div>
+				</div>
 				<p>Latest Champions</p>
 				<p>Reworks</p>
 				<p>Create a List</p>
+				<svg id="info-btn" onclick="modal.show()" style="width:16px;height:16px" viewBox="0 0 24 24"><path fill="#555" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
 			</div>
 		</div>
-
-		<div id="center-wrapper">
+		
+		<!-- BODY -->
+		<div id="body">
 		
 			<!-------- SIDEBAR -------->
 			<div id="sidebar">
-				<!-- <div id="header__sidebar" class="page-header noselect umami--click--Site-Logo">
-					<svg id="site-icon__small" width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M14.1502 8.95742V5.11853C14.1502 5.11853 14.3606 1.173 8.04852 0H7.94332C1.63121 1.173 1.84161 5.11853 1.84161 5.11853V8.95742C1.84161 10.9835 1 11.6233 1 11.6233C2.26242 16.3153 5.41848 15.9954 5.41848 15.9954C3.73525 13.756 5.41848 9.81051 5.41848 9.81051C2.99883 9.4906 3.41964 6.93134 3.63005 6.18489C3.63005 6.18489 5.94448 6.07825 7.1017 7.89106V12.3698L8.04852 13.3295L8.89014 12.4764V7.9977C10.1526 6.07825 12.3618 6.18489 12.3618 6.29152C12.5722 7.03797 12.993 9.59724 10.5734 9.81051C10.5734 9.81051 12.2566 13.8627 10.5734 15.9954C10.5734 15.9954 13.7294 16.3153 14.9918 11.6233C15.097 11.6233 14.1502 10.9835 14.1502 8.95742Z" fill="url(#paint0_linear_358_4)"/><defs><linearGradient id="paint0_linear_358_4" x1="15.1111" y1="1.57355e-07" x2="17.2162" y2="15.7181" gradientUnits="userSpaceOnUse"><stop stop-color="#CDBE91"/><stop offset="1" stop-color="#785A28"/></linearGradient></defs></svg>
-					<h1 id="heading__site">ChampsDB</h1>
-				</div> -->
 				<div id="sidebar-wrapper">
-					<div id="info__bubble" style="display: none;">
-						<div class="tooltip-parent">
-							<p id="patch-version" class="noselect"></p>
-							<div class="tooltip patch-version-tooltip extended noselect">
-								<a id="patch-notes-current" href="" target="_blank" onclick="track('Patch Notes Current', 'click')"><span>Current Patch Notes</span><svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 1.51725V4.506H6V0H1.5V0.747H4.5L0 5.253V6H0.75L5.25 1.51725Z" fill="#0BC4E2"/></svg></a>
-								<br/>
-								<a id="patch-notes-next" href="" target="_blank" onclick="track('Patch Notes Next', 'click')" class="disabled"><span id="next-patch-date">Date</span> &mdash; <span>Next Patch Notes</span><svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 1.51725V4.506H6V0H1.5V0.747H4.5L0 5.253V6H0.75L5.25 1.51725Z" fill="#0BC4E2"/></svg></a>
-								<br/>
-								<a href="https://support-leagueoflegends.riotgames.com/hc/en-us/articles/360018987893-Patch-Schedule-League-of-Legends" target="_blank" onclick="track('Patch Schedule', 'click')">Patch Schedule<svg width="6" height="6" viewBox="0 0 6 6" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M5.25 1.51725V4.506H6V0H1.5V0.747H4.5L0 5.253V6H0.75L5.25 1.51725Z" fill="#0BC4E2"/></svg></a>
-							</div>
-						</div>
-						<svg id="info-btn" onclick="modal.show()" style="width:16px;height:16px" viewBox="0 0 24 24"><path fill="#555" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
-					</div>
-					<!-- <p class="sidebar-subheading noselect"><svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4.24268" y="1.41421" width="4" height="4" transform="rotate(45 4.24268 1.41421)" stroke="url(#paint0_linear_290_8)" stroke-width="2"/></svg><span>Collapse / Expand All</span></p> -->
 					<div id="taglist-container" class="umami--click--Filters-List">
 						<p class="sidebar-heading js-template">Heading</p>
 						<p class="sidebar-subheading noselect js-template"><svg width="9" height="9" viewBox="0 0 9 9" fill="none" xmlns="http://www.w3.org/2000/svg"><rect x="4.24268" y="1.41421" width="4" height="4" transform="rotate(45 4.24268 1.41421)" stroke="url(#paint0_linear_290_8)" stroke-width="2"/></svg><span>Subheading</span></p>
@@ -117,7 +108,7 @@
 			</div>
 
 			<!-------- CENTER -------->
-			<div id="center-wrapper__center">
+			<div id="center">
 				<!--======= SEARCH ROW =====-->
 				<div id="search-row">
 					<div id="search__wrapper">
@@ -161,7 +152,6 @@
 							<path d="M14.2725 3H9.72674L8.93099 4.06275L11.9992 7.8405L15.0675 4.06275L14.2717 3H14.2725ZM8.36399 6.66H2.00024C2.87549 7.518 3.88574 8.32575 4.95449 8.90325C5.38349 9.042 5.75549 9.138 6.20474 9.1395H7.90949L6.09149 11.3828L9.04574 12.7995L10.182 8.54925L8.36399 6.66V6.66ZM15.636 6.66H21.9997C21.1237 7.51725 20.1135 8.3265 19.0455 8.90325C18.6165 9.042 18.2445 9.138 17.7952 9.1395H16.0905L17.9085 11.3828L14.9542 12.7995L13.818 8.54925L15.636 6.66V6.66ZM14.3865 18.111L12.5685 8.66625C12.4912 8.93475 12.2692 9.1125 12 9.13875C11.7322 9.111 11.5087 8.934 11.4315 8.66625L9.61349 18.111L12 20.0002L14.3865 18.111V18.111Z" fill="#5B5A56"></path>
 						</svg>
 					</div>
-					<!-- <div class="divider"></div> -->
 					<div id="filter-role" class="filter-role umami--click--Role">
 						<svg id="Tank" class="role-icon" width="20" height="20" viewBox="0 0 20 20" fill="none"
 							xmlns="http://www.w3.org/2000/svg">
@@ -193,13 +183,20 @@
 							<path d="M18.0801 0.421997C18.0801 5.882 13.0001 7.748 13.0001 7.748L12.1881 12.2C12.133 12.3538 12.1006 12.5148 12.0921 12.678C12.1057 13.0373 12.258 13.3773 12.517 13.6266C12.776 13.876 13.1215 14.0153 13.4811 14.0153C13.8406 14.0153 14.1861 13.876 14.4451 13.6266C14.7041 13.3773 14.8564 13.0373 14.8701 12.678C14.8734 12.3532 14.7585 12.0383 14.547 11.7918C14.3355 11.5453 14.0416 11.384 13.7201 11.338C15.0621 9.038 16.9781 10.138 16.9781 10.138C17.2641 9.85 17.5041 9.562 17.7441 9.324L16.3061 8.748H18.1741C18.6787 8.06644 19.0673 7.30621 19.3241 6.498L17.4001 5.738H19.4601C19.6252 4.80478 19.5874 3.84694 19.3493 2.92963C19.1112 2.01232 18.6783 1.15706 18.0801 0.421997V0.421997ZM7.06407 7.748C7.06407 7.748 1.98607 5.882 1.98607 0.421997C1.98607 0.421997 0.0220707 2.576 0.502071 5.642H2.56207L0.646071 6.4C0.845525 7.02364 1.1188 7.62121 1.46007 8.18H3.66007L1.93807 8.898C2.24832 9.3323 2.60142 9.73432 2.99207 10.098C2.99207 10.098 4.90807 8.996 6.25007 11.298C5.92854 11.344 5.63467 11.5053 5.42313 11.7518C5.2116 11.9983 5.09679 12.3132 5.10007 12.638C5.09508 12.844 5.13595 13.0485 5.2197 13.2367C5.30345 13.4249 5.428 13.5922 5.58434 13.7264C5.74067 13.8606 5.92488 13.9583 6.12364 14.0126C6.32239 14.0668 6.53072 14.0762 6.73355 14.0401C6.93638 14.0039 7.12864 13.9231 7.29642 13.8036C7.46419 13.684 7.60329 13.5286 7.70364 13.3487C7.80399 13.1687 7.86308 12.9687 7.87665 12.7632C7.89021 12.5576 7.85791 12.3516 7.78207 12.16L7.06407 7.748ZM9.02807 4.54L9.55407 3.2H10.5121L11.0381 4.588L10.0381 7.366L9.02807 4.54ZM8.82807 1.34L7.42807 4.54L9.45807 9.616V14.358L8.45807 17.558L9.45807 19.558H10.6001L11.6001 17.558L10.6001 14.358V9.616L12.6201 4.54L11.2201 1.34H8.82807Z" fill="#5B5A56"></path>
 						</svg>
 					</div>
-					<!-- <span class="divider"></span> -->
 					<div>
 						<div id="filter-attributes" class="filter-btn">Attributes <span class="dropdown-caret"></span></div>
 					</div>
 					<div style="flex: 1"></div>
 					<div id="export-and-count">
-						<p id="export-btn2" class="filter-btn">Export</p>
+						
+						<div class="tooltip-parent">
+							<p id="export-btn" class="filter-btn">Export</p>
+							<div class="tooltip export-tooltip extended noselect">
+								<p>Select a format to copy to clipboard</p>
+								<a id="export-name-only" onclick="track('Export Champs', 'click')">Champion Name</a><br>
+								<a id="export-with-keys" onclick="track('Export Champs w Keys', 'click')">Champion Name (Ability Key)</a>
+							</div>
+						</div>
 						<div class="divider"></div>
 						<p id="search__count" class="search__count">157 Champions</p>
 					</div>
@@ -379,7 +376,7 @@
 			<div id="sidebar-right"></div>
 		</div>
 		
-		<!-------- FOOTER -------->
+		<!-- FOOTER -->
 		<div id="footer" class="footer noselect">
 			<div class="wrapper">
 				<div class="col creator">

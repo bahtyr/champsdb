@@ -132,10 +132,10 @@ $id("sidebar__content-overlay").addEventListener("click", sidebar.hide);
 $tag("body")[0].addEventListener("click", e => {
 	if ((e.target.id === "champ-list__wrapper"
 		|| e.target.id === "champ-list"
+		|| e.target.id === "header"
 		|| e.target.id === "footer"
-		|| e.target.classList.value === "page-header"
-		|| e.target.classList.value === "sides-inner left" || e.target.classList.value === "sides-outer left"
-		|| e.target.classList.value === "sides-inner right" || e.target.classList.value === "sides-outer right") &&
+		|| e.target.id === "sidebar"
+		|| e.target.id === "sidebar-right") &&
 		!search.hasFocus) {
 		champlist.deselect();
 		track("Empty Area", "click");
