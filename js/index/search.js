@@ -23,7 +23,7 @@ var search = {
 			// return;
 		// }
 
-		$id("search__bubble").classList.add("active");
+		// $id("search__bubble").classList.add("active");
 		// $id("search__clear").classList.remove("hide");
 
 		window.scrollTo({top: 0});
@@ -76,12 +76,12 @@ var search = {
 
 	showBubble: function() {
 		$id("search").placeholder = "";
-		$id("search__bubble").classList.add("active");
+		// $id("search__bubble").classList.add("active");
 	},
 
 	hideBubble: function() {
 		$id("search").placeholder = "Search";
-		$id("search__bubble").classList.remove("active");
+		// $id("search__bubble").classList.remove("active");
 	},
 
 	/******************************************/

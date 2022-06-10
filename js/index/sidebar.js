@@ -2,6 +2,11 @@ class SidebarManager {
 
 	/****************************************** SHOW HIDE *********************************************/
 
+	toggle(el) {
+		el.classList.toggle("active");
+		$id("sidebar").classList.toggle("hide");
+	}
+
 	show() {
 		$id("sidebar").classList.add("show");
 		$id("sidebar__content-overlay").classList.add("show");

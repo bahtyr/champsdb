@@ -4,6 +4,7 @@
   --filter-border: 1px solid #222;
   --filter-border-radius: 4px;
   --transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+  --max-width: 1060px;
 }
 
 /*
@@ -18,107 +19,32 @@
 //  PAGE STRUCTURE
 */
 
-body {
-	/*
-	 * .header's width is 100% page, but it begins from .center.
-	 * maybe 40%~ of it becomes overflow, we don't need to see it
-	 */
-	overflow-x: hidden;
+/**
+ * #stick-top
+ * #modal
+ * 
+ * #header
+ * #center-wrapper
+ *   #sidebar
+ *   #center-wrapper__center
+ *     #search-row
+ *     #filter-row
+ *     #champlist...
+ *     #champcard - fixed
+ * #footer
+ */
+
+#center-wrapper { 
+	display: flex;
 }
 
-/* ======================== */
-
-/*.center { background-color: #74c0fc; }*/
-/*.left.sides-inner { background-color: #ffa8a8; }*/
-/*.left.sides-outer { background-color: #ffc9c9; }*/
-/*.right.sides-inner { background-color: #e599f7; }*/
-/*.right.sides-outer { background-color: #eebefa; }*/
-/*#header__main { background-color: #9775fa; }*/
-/*#header__sidebar { background-color: #da77f2; }*/
-/*#header__sidebar-2 { background-color: #be4bdb; }*/
-
-#body-wrapper { display: flex; }
-#center-wrapper { display: flex; }
-
-.center {
-	flex: 3;
-	/*width: 100%;*/
-	/*min-width: 1100px;*/
+#center-wrapper__center {
 	max-width: 1100px;
-	/*margin-top: 70px;*/
-	margin-bottom: 255px;
-	margin-left: 260px;
-}
-
-.sides-inner {
-	width: 260px;
-	min-height: 100vh;
-}
-
-.sides-inner.right {
-	width: 130px;
-}
-
-.sides-outer {
-	/*
-	 * we can't makes these static, then .main-wrapper wouldb't be at the center
-	 * if don't make static, they'll scroll with page
-	 * height: 100%; doesn't work well with scrolling
-	 * therefore, it needs to have auto height with min-height of 100vh (not parent 100% it's content can change)
-	 */
-	flex: 0.5;
-	min-height: 100vh;
-}
-
-/* ======================== */
-
-@media only screen and (max-width: 1400px) {
-	/*
-	 * calc() does not seem to work
-	 * if there is not much space, there is not need to occupy double the space for .sides-inner
-	 * only keep .sidebar and hide .sides-inner.right
-	 */ 
-	.sides-inner.right {
-		width: 0;
-	}
-}
-
-/*
-//   ######  ##     ##  ######  ########  #######  ##     ## #### ########    ###    ######## ####  #######  ##    ## 
-//  ##    ## ##     ## ##    ##    ##    ##     ## ###   ###  ##       ##    ## ##      ##     ##  ##     ## ###   ## 
-//  ##       ##     ## ##          ##    ##     ## #### ####  ##      ##    ##   ##     ##     ##  ##     ## ####  ## 
-//  ##       ##     ##  ######     ##    ##     ## ## ### ##  ##     ##    ##     ##    ##     ##  ##     ## ## ## ## 
-//  ##       ##     ##       ##    ##    ##     ## ##     ##  ##    ##     #########    ##     ##  ##     ## ##  #### 
-//  ##    ## ##     ## ##    ##    ##    ##     ## ##     ##  ##   ##      ##     ##    ##     ##  ##     ## ##   ### 
-//   ######   #######   ######     ##     #######  ##     ## #### ######## ##     ##    ##    ####  #######  ##    ## 
-//
-//   CUSTOMIZATION
-*/
-
-#sidebar {
-	/*
-	 * normally making position fixed breaks .main-wrapper alignment,
-	 * that's why; .center needs to have margin-left equal to .sidebar's width.
-	 *
-	 * fixed sidebar's height shoudln't be auto (not min-height 100vh) it always needs to match the window height
-	 * otherwise with because of fixed position and auto height we won't be able to scroll it
-	 */
-	position: fixed;
-	height: 100vh;
-	overflow: overlay;
-	overflow-x: hidden;
-	/*overflow: scroll;*/
-	border-right: 1px solid #1a1a1a;
-	padding: 0 6px 40px 16px;
 }
 
 #sidebar,
-.sides-outer.left {
-	background: rgba(0, 0, 0, 0.6);
-}
-
-#champcard {
-	background-color: #000;
+#sidebar-right {
+	flex: 1;
 }
 
 /*
@@ -133,7 +59,7 @@ body {
 //  HEADERS
 */
 
-.page-header {
+#search-row {
 	/* previously .header, changed the name to not mistakenly apply css to other potentional header classes */
 	/*
 	 * normally making position absolute breaks .main-wrapper alignment,
@@ -148,25 +74,45 @@ body {
 	transition: opacity 300ms;
 }
 
-#header__main {
+#search-row {
 	/*z-index: 2;*/
 	position: relative;
-	background: radial-gradient(100% 90% at 0px 0px, rgb(147 115 65 / 20%), transparent 100%);
+	/*background: radial-gradient(100% 90% at 0px 0px, rgb(147 115 65 / 20%), transparent 100%);*/
 	padding: 18px var(--champlist-side-padding-fake);
 	padding-bottom: 12px;
 	height: initial;
 }
 
-#header__sidebar {
-	align-items: flex-end;
-	padding-bottom: 14px;
-	margin-bottom: 6px;
+/************************************************
+ * NEW HEADER
+ ************************************************/
+
+#header {
+	width: 100%;
+	background-color: #000;
+	
+	color: #aaa;
+	font-family: Spiegel-Regular;
+	font-size: 12px;
+	letter-spacing: 0.07em;
+	letter-spacing: 1;
+
+	border-bottom: 1px solid #222;
 }
 
-#header__right {
-	position: absolute;
-	width: 100%;
-	/*border-bottom: 1px solid #1a1a1a;*/
+#header .wrapper {
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	height: 72px;
+	max-width: var(--max-width);
+	grid-gap: 14px;
+	margin: 0 auto;	
+}
+
+#logo {
+	display: flex;
+	align-items: center;
 }
 
 /*
@@ -191,7 +137,7 @@ body {
 	align-items: center;
 	height: 40px;
 	border-radius: 4px;
-	border: 1px solid #222;
+	border: var(--filter-border);
 	transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
 	transition-property: color,background-color,box-shadow,border-color;
 }
@@ -287,6 +233,28 @@ body {
 /************************************************
  * ICONS
  ************************************************/
+
+#toggle-tags-pane {
+	/*width: 34px;*/
+	padding: 6px;
+	height: 100%;
+	color: #333;
+	background-color: #0d0d0d;
+	border-radius: 4px;
+	border: var(--filter-border);
+	cursor: pointer;
+	transition: var(--transition);
+	transition-property: background-color;
+}
+
+#toggle-tags-pane.active {
+	/*color: #aaa;*/
+	color: #999;
+	background-color: #222;
+	border-color: #444;
+}
+
+#toggle-tags-pane svg path { transition: var(--transition); transition-property: fill; }
 
 /* class for both #filter-lane & #filter-role */
 .filter-role {
@@ -426,7 +394,7 @@ body {
 	margin-right: 10px;
 
 	color: #777;
-	outline: 1px solid #1A1A1A;
+	/*outline: 1px solid #1A1A1A;*/
 }
 
 #patch-version {
@@ -611,16 +579,25 @@ body {
 
 /* ---------------------------------------------------------------------------------------- SIDEBAR CONTENT */
 
-#sidebar::-webkit-scrollbar {
-	width: 2px;
-	z-index: 10;
+#sidebar {
+	margin-bottom: 60px;
 }
 
-/* ---------------------------------------- HEADER */
+#sidebar.hide #sidebar-wrapper {
+	transform: translateX(-110%);
+}
 
-#site-icon__small {
-	margin-right: 10px;	
-	margin-bottom: 3px;
+#sidebar-wrapper {
+	background: rgba(0, 0, 0, 0.6);
+	border-radius: 8px;
+	border: 1px solid #1a1a1a;
+	padding: 0 6px 40px 16px;
+	margin-top: 20px;
+	margin-left: 20px;
+	max-width: 280px;
+
+	transition: var(--transition);
+	transition-property: transform;
 }
 
 /* ---------------------------------------- TEXT */
@@ -897,6 +874,7 @@ p.sidebar-subheading svg {
 	bottom: 0;
 	overflow: overlay;
 	/*width: 100%;*/
+	background-color: #000;
 	box-shadow: 0 -2px 10px rgba(0, 0, 0, 1);
 	border: 1px solid #1a1a1a;
 	/*margin: 0 0 16px 14px;*/
@@ -1436,8 +1414,8 @@ span.highlight {
 /* wrapper & columns */
 
 .footer .wrapper {
-	margin: 0;
-	max-width: 1000px;
+	margin: 0 auto;
+	max-width: var(--max-width);
 	display: flex;
 	justify-content: space-between;
 }
