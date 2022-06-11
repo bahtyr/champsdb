@@ -5,6 +5,7 @@
   --filter-border-radius: 4px;
   --transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
   --max-width: 1060px;
+  --shadow-large: 0 8px 24px #010409;
 }
 
 /*
@@ -405,6 +406,7 @@
 	/*right: -30;*/
 	left: -30;
 	/*text-align: right;*/
+	box-shadow: var(--shadow-large);
 }
 
 .patch-version-tooltip {
@@ -422,6 +424,72 @@
 .patch-version-tooltip a span { cursor: unset; }
 .patch-version-tooltip .disabled { color: #888; pointer-events: none; }
 .patch-version-tooltip .disabled path { fill: #888; }
+
+
+/************************************************
+ * ATTRIBUTES MODAL
+ ************************************************/
+
+#filter-attributes-wrapper {
+	position: relative;
+}
+
+/* modal */
+#attributes-modal {
+	z-index: 98;
+	top: 30;
+	position: absolute;
+	background-color: hsl(0deg 0% 3%);
+	min-width: 270px;
+	min-height: 240px;
+	border: var(--filter-border);
+	border-radius: 8px;
+	box-shadow: var(--shadow-large);
+	transition: all var(--transition);
+	color: #aaa;
+
+	font-size: 14px;
+	font-family: Spiegel-Regular;
+	letter-spacing: 0.7;
+	white-space: nowrap;
+	padding: 8px 0;
+}
+
+#attributes-modal.hide {
+	display: none;
+}
+
+/* row */
+#attributes-modal .row {
+	display: flex;
+	align-items: center;
+	padding: 2px 12px;
+}
+#attributes-modal .heading {
+	border-top: 1px solid #111;
+	font-family: Spiegel-Bold;
+	padding: 2px 12px;
+	padding-top: 8px;
+	margin-top: 4px;
+}
+
+/* checkbox */
+.attributes-checkbox { display: none; }
+.attributes-checkbox:checked + label {
+	color: #aaa;
+	background-color: hsl(0deg 0% 8%);
+}
+label {
+	color: #666;
+	background-color: hsl(0deg 0% 2%);
+	border-radius: 4px;
+	padding: 4px 12px;
+	margin-left: 4px;
+	min-width: 4ch;
+	text-align: center;
+}
+
+.flex-gap { flex: 1; }
 
 /*
 //   ######  #### ########  ######## ########     ###    ########  

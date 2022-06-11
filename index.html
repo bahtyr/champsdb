@@ -183,12 +183,79 @@
 							<path d="M18.0801 0.421997C18.0801 5.882 13.0001 7.748 13.0001 7.748L12.1881 12.2C12.133 12.3538 12.1006 12.5148 12.0921 12.678C12.1057 13.0373 12.258 13.3773 12.517 13.6266C12.776 13.876 13.1215 14.0153 13.4811 14.0153C13.8406 14.0153 14.1861 13.876 14.4451 13.6266C14.7041 13.3773 14.8564 13.0373 14.8701 12.678C14.8734 12.3532 14.7585 12.0383 14.547 11.7918C14.3355 11.5453 14.0416 11.384 13.7201 11.338C15.0621 9.038 16.9781 10.138 16.9781 10.138C17.2641 9.85 17.5041 9.562 17.7441 9.324L16.3061 8.748H18.1741C18.6787 8.06644 19.0673 7.30621 19.3241 6.498L17.4001 5.738H19.4601C19.6252 4.80478 19.5874 3.84694 19.3493 2.92963C19.1112 2.01232 18.6783 1.15706 18.0801 0.421997V0.421997ZM7.06407 7.748C7.06407 7.748 1.98607 5.882 1.98607 0.421997C1.98607 0.421997 0.0220707 2.576 0.502071 5.642H2.56207L0.646071 6.4C0.845525 7.02364 1.1188 7.62121 1.46007 8.18H3.66007L1.93807 8.898C2.24832 9.3323 2.60142 9.73432 2.99207 10.098C2.99207 10.098 4.90807 8.996 6.25007 11.298C5.92854 11.344 5.63467 11.5053 5.42313 11.7518C5.2116 11.9983 5.09679 12.3132 5.10007 12.638C5.09508 12.844 5.13595 13.0485 5.2197 13.2367C5.30345 13.4249 5.428 13.5922 5.58434 13.7264C5.74067 13.8606 5.92488 13.9583 6.12364 14.0126C6.32239 14.0668 6.53072 14.0762 6.73355 14.0401C6.93638 14.0039 7.12864 13.9231 7.29642 13.8036C7.46419 13.684 7.60329 13.5286 7.70364 13.3487C7.80399 13.1687 7.86308 12.9687 7.87665 12.7632C7.89021 12.5576 7.85791 12.3516 7.78207 12.16L7.06407 7.748ZM9.02807 4.54L9.55407 3.2H10.5121L11.0381 4.588L10.0381 7.366L9.02807 4.54ZM8.82807 1.34L7.42807 4.54L9.45807 9.616V14.358L8.45807 17.558L9.45807 19.558H10.6001L11.6001 17.558L10.6001 14.358V9.616L12.6201 4.54L11.2201 1.34H8.82807Z" fill="#5B5A56"></path>
 						</svg>
 					</div>
-					<div>
-						<div id="filter-attributes" class="filter-btn">Attributes <span class="dropdown-caret"></span></div>
+					<div id="filter-attributes-wrapper">
+						<div id="filter-attributes" class="filter-btn" onclick="$id('attributes-modal').classList.toggle('hide')">Attributes <span class="dropdown-caret"></span></div>
+						<div id="attributes-modal">
+							<div class="row">
+								<p>Attack Range</p>
+								<div class="flex-gap"></div>
+								<input class="attributes-checkbox" type="checkbox" id="attack-range-melee"><label for="attack-range-melee">Melee</label>
+								<input class="attributes-checkbox" type="checkbox" id="attack-range-ranged"><label for="attack-range-ranged">Ranged</label>
+							</div>
+							<div class="heading"></div>
+							<div class="row">
+								<p>Difficulty</p>
+								<div class="flex-gap"></div>
+								<input class="attributes-checkbox" type="checkbox" id="difficulty-1"><label for="difficulty-1">1</label>
+								<input class="attributes-checkbox" type="checkbox" id="difficulty-2"><label for="difficulty-2">2</label>
+								<input class="attributes-checkbox" type="checkbox" id="difficulty-3"><label for="difficulty-3">3</label>
+							</div>
+							<div class="row">
+								<p>Damage</p>
+								<div class="flex-gap"></div>
+								<input class="attributes-checkbox" type="checkbox" id="damagebreakdown-1"><label for="damagebreakdown-1">AP</label>
+								<input class="attributes-checkbox" type="checkbox" id="damagebreakdown-2"><label for="damagebreakdown-2">AD</label>
+								<input class="attributes-checkbox" type="checkbox" id="damagebreakdown-3"><label for="damagebreakdown-3">True</label>
+							</div>
+							<div class="row">
+								<p>Style</p>
+								<div class="flex-gap"></div>
+								<input class="attributes-checkbox" type="checkbox" id="style-1"><label for="style-1">Attack</label>
+								<input class="attributes-checkbox" type="checkbox" id="style-2"><label for="style-2">Ability</label>
+							</div>
+							<div class="heading"><p>Ratings</p></div>
+							<div class="row">
+								<p>Damage</p>
+								<div class="flex-gap"></div>
+								<input class="attributes-checkbox" type="checkbox" id="damage-1"><label for="damage-1">1</label>
+								<input class="attributes-checkbox" type="checkbox" id="damage-2"><label for="damage-2">2</label>
+								<input class="attributes-checkbox" type="checkbox" id="damage-3"><label for="damage-3">3</label>
+							</div>
+							<div class="row">
+								<p>Mobility</p>
+								<div class="flex-gap"></div>
+								<input class="attributes-checkbox" type="checkbox" id="mobility-1"><label for="mobility-1">1</label>
+								<input class="attributes-checkbox" type="checkbox" id="mobility-2"><label for="mobility-2">2</label>
+								<input class="attributes-checkbox" type="checkbox" id="mobility-3"><label for="mobility-3">3</label>
+							</div>
+							<div class="row">
+								<p>Toughness</p>
+								<div class="flex-gap"></div>
+								<input class="attributes-checkbox" type="checkbox" id="toughness-1"><label for="toughness-1">1</label>
+								<input class="attributes-checkbox" type="checkbox" id="toughness-2"><label for="toughness-2">2</label>
+								<input class="attributes-checkbox" type="checkbox" id="toughness-3"><label for="toughness-3">3</label>
+							</div>
+							<div class="row">
+								<p>Crowd Control</p>
+								<div class="flex-gap"></div>
+								<input class="attributes-checkbox" type="checkbox" id="cc-1"><label for="cc-1">1</label>
+								<input class="attributes-checkbox" type="checkbox" id="cc-2"><label for="cc-2">2</label>
+								<input class="attributes-checkbox" type="checkbox" id="cc-3"><label for="cc-3">3</label>
+							</div>
+							<div class="row">
+								<p>Utility</p>
+								<div class="flex-gap"></div>
+								<input class="attributes-checkbox" type="checkbox" id="utility-1"><label for="utility-1">1</label>
+								<input class="attributes-checkbox" type="checkbox" id="utility-2"><label for="utility-2">2</label>
+								<input class="attributes-checkbox" type="checkbox" id="utility-3"><label for="utility-3">3</label>
+							</div>
+
+							<div class="heading"><p>Damage Breakdown</p></div>
+							<div class="heading"><p>Style</p></div>
+						</div>
 					</div>
 					<div style="flex: 1"></div>
 					<div id="export-and-count">
-						
 						<div class="tooltip-parent">
 							<p id="export-btn" class="filter-btn">Export</p>
 							<div class="tooltip export-tooltip extended noselect">
