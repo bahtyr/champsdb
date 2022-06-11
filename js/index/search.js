@@ -163,6 +163,7 @@ var search = {
 		search.text = search.text.replace(/[^\w\s]/g, "")
 
 		champlist.deselect();
+		champlist.resetPosition();
 
 		champions.forEach((champ, i) => {
 			let show = search.query.length == 0 ? true : null;

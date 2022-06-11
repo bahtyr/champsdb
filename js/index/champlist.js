@@ -102,7 +102,12 @@ class ChampListManager {
 		// however since this method might jump from any position to index 0,
 		// and finding prevIndex can be troublesome if this action is not taken.
 		// so prob. deselect will always be used with this method.
+
+		// EDIT 2: abort if last 'index' is visible, continue from there.
 		this.deselect();
+
+		if (this.visibleItems[this.i] == true)
+			return;
 		
 		let i = -1;
 
@@ -154,6 +159,7 @@ class ChampListManager {
 			this.ii = this.i;
 			this.i = i;
 		}
+
 		this.select();
 		this.ii = this.i;
 	}
@@ -230,6 +236,11 @@ class ChampListManager {
 		this.visibleItems.fill(false);
 		indexArr.forEach(e => this.visibleItems[e] = true);
 		this.visibleItems.forEach((visibility, i) => visibility ? champlist.show(i) : champlist.hide(i));
+	}
+
+	resetPosition() {
+		this.i  = -1;
+		this.ii = -1;
 	}
 
 	/****************************************** ETC **************************************************/
