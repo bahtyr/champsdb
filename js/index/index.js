@@ -5,6 +5,7 @@ var patches   = {};
 var champlist = new ChampListManager;
 var champcard = new ChampCardManager;
 var sidebar   = new SidebarManager;
+var filters   = new FiltersManager;
 var sort      = {};
 // var search = {}; @search.js
 

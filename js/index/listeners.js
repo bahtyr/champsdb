@@ -138,6 +138,8 @@ $tag("body")[0].addEventListener("click", e => {
 		|| e.target.id === "sidebar-right") &&
 		!search.hasFocus) {
 		champlist.deselect();
+		if (filters.attributes.isOpen())
+			filters.attributes.toggleShow();
 		track("Empty Area", "click");
 	}
 });

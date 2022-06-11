@@ -309,8 +309,6 @@
  * DROPDOWN
  ************************************************/
 
-#filter-attributes { }
-
 .filter-btn {
 	cursor: pointer;
 
@@ -348,6 +346,26 @@
 	border-bottom-color: transparent;
 	border-left-color: transparent;
 	pointer-events: none;
+}
+
+/* attributes */
+
+#filter-attributes {
+	transition: var(--transition);
+	transition-property: color, background-color;
+}
+
+#filter-attributes:hover,
+#attributes-modal:not(.hide) ~ #filter-attributes {
+	color: #666;
+	background-color: hsl(0deg 0% 5%);
+	border: var(--filter-border);
+}
+
+#filter-attributes.active {
+	color: #896F58 !important;
+  background-color: #160e01 !important;
+  border-color: #483a2e !important;
 }
 
 /************************************************
@@ -467,6 +485,7 @@
 }
 #attributes-modal .heading {
 	border-top: 1px solid #111;
+	color: #bbb;
 	font-family: Spiegel-Bold;
 	padding: 2px 12px;
 	padding-top: 8px;
@@ -477,11 +496,11 @@
 .attributes-checkbox { display: none; }
 .attributes-checkbox:checked + label {
 	color: #aaa;
-	background-color: hsl(0deg 0% 8%);
+	background-color: hsl(0deg 0% 20%);
 }
 label {
 	color: #666;
-	background-color: hsl(0deg 0% 2%);
+	background-color: hsl(0deg 0% 8%);
 	border-radius: 4px;
 	padding: 4px 12px;
 	margin-left: 4px;

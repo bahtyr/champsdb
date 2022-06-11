@@ -5,6 +5,7 @@ var search = {
 	hasFocus: false,
 	lastFocuTime: 0,
 	filterVisibleItemsOnly: function() { return this.query.length > 1; },
+	queryHasAttrs: function() { for (let q of this.query) { if (q.attr) { return true; }} return false; },
 	query: [],
 	prefs: {
 		text: 1,
@@ -52,8 +53,12 @@ var search = {
 		champlist.updateItemCount();
 		search.text = "";
 		search.tagId = null;
-		for (let i in search.query)
-			search.query[i].toggleEl.classList.remove("active");
+		for (let i in search.query) {
+			if (search.query[i].toggleEl) {
+				search.query[i].toggleEl.classList.remove("active");
+				search.query[i].toggleEl.checked = false;
+			}
+		}
 		search.query = [];
 	},
 
@@ -146,8 +151,10 @@ var search = {
 		}
 
 		if (index == null) return;
-		if (search.query[index].toggleEl)
+		if (search.query[index].toggleEl) {
 			search.query[index].toggleEl.classList.remove("active");
+			search.query[index].toggleEl.checked = false;
+		}
 		search.query[index].element.remove();
 		search.query.splice(index, 1);
 		search.runQuery();
@@ -169,7 +176,17 @@ var search = {
 			let show = search.query.length == 0 ? true : null;
 			search.query.forEach(condition => {
 				if (condition.attr) {
-					if (champ[condition.attr.key].includes(condition.attr.value) && show !== false)
+					let keys = condition.attr.key.split("/");
+					let attr = null;
+					switch (keys.length) {
+						default:
+						case 1: attr = champ[keys[0]]; break;
+						case 2: attr = champ[keys[0]][keys[1]]; break;
+						case 3: attr = champ[keys[0]][keys[1]][keys[2]]; break;
+					}
+					if (show !== false && 
+						((typeof attr === "number" && attr == condition.attr.value) || 
+							((typeof attr === "string" || Array.isArray(attr)) && attr.includes(condition.attr.value))))
 						show = true;
 					else show = false;
 				}
@@ -199,6 +216,7 @@ var search = {
 		champlist.selectFirstVisibleItem();
 		champlist.updateItemCount();
 		champlist.showAbilityKeysOnChamps2();
+		sidebar.setAttrFilterState();
 	},
 
 	queryTags: function() {

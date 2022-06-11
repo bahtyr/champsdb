@@ -144,6 +144,36 @@ class SidebarManager {
 		else content.style.maxHeight = content.scrollHeight + "px";
 	}
 
+	onAttributeChange(el) {
+		let tag = null;
+		switch(el.id) {
+			case "attack-range-ranged": tag = {key: "rangeType",          value: "Ranged"}; break;
+			case "attack-range-melee":  tag = {key: "rangeType",          value: "Melee"}; break;
+			case "difficulty-1":        tag = {key: "ratings/difficulty", value: 1}; break;
+			case "difficulty-2":        tag = {key: "ratings/difficulty", value: 2}; break;
+			case "difficulty-3":        tag = {key: "ratings/difficulty", value: 3}; break;
+			case "damage-1":            tag = {key: "ratings/damage",     value: 1}; break;
+			case "damage-2":            tag = {key: "ratings/damage",     value: 2}; break;
+			case "damage-3":            tag = {key: "ratings/damage",     value: 3}; break;
+			case "mobility-1":          tag = {key: "ratings/mobility",   value: 1}; break;
+			case "mobility-2":          tag = {key: "ratings/mobility",   value: 2}; break;
+			case "mobility-3":          tag = {key: "ratings/mobility",   value: 3}; break;
+			case "toughness-1":         tag = {key: "ratings/toughness",  value: 1}; break;
+			case "toughness-2":         tag = {key: "ratings/toughness",  value: 2}; break;
+			case "toughness-3":         tag = {key: "ratings/toughness",  value: 3}; break;
+			case "cc-1":                tag = {key: "ratings/control",    value: 1}; break;
+			case "cc-2":                tag = {key: "ratings/control",    value: 2}; break;
+			case "cc-3":                tag = {key: "ratings/control",    value: 3}; break;
+			case "utility-1":           tag = {key: "ratings/utility",    value: 1}; break;
+			case "utility-2":           tag = {key: "ratings/utility",    value: 2}; break;
+			case "utility-3":           tag = {key: "ratings/utility",    value: 3}; break;
+		}
+
+		if (el.checked)
+			search.queryAdd(el, tag, null);
+		else search.queryRemove(tag);
+	}
+
 	/****************************************** ETC **************************************************/
 
 	#findItemPosInMenu(el) {
@@ -164,5 +194,28 @@ class SidebarManager {
 	clearSelection() {
 		/* visually deselects active filters */
 		$queryAll(".role-icon").forEach(e => e.classList.remove("active"));
-	}	
+	}
+
+	setAttrFilterState() {
+		if (search.queryHasAttrs())
+			$id("filter-attributes").classList.add("active");
+		else $id("filter-attributes").classList.remove("active");
+	}
+
+	/****************************************** ATTRIBUTES *******************************************/
+
+
+
+}
+
+class FiltersManager {
+	attributes = {
+		toggleShow() {
+			$id("attributes-modal").classList.toggle("hide");
+		}
+
+		isOpen() {
+			return !$id("attributes-modal").classList.includes("hide");
+		}
+	}
 }
