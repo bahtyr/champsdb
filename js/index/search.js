@@ -5,7 +5,6 @@ var search = {
 	hasFocus: false,
 	lastFocuTime: 0,
 	filterVisibleItemsOnly: function() { return this.query.length > 1; },
-	queryHasAttrs: function() { for (let q of this.query) { if (q.attr) { return true; }} return false; },
 	query: [],
 	prefs: {
 		text: 1,
@@ -216,7 +215,7 @@ var search = {
 		champlist.selectFirstVisibleItem();
 		champlist.updateItemCount();
 		champlist.showAbilityKeysOnChamps2();
-		sidebar.setAttrFilterState();
+		filters.attributes.highlight();
 	},
 
 	queryTags: function() {

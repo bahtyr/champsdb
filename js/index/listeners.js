@@ -90,17 +90,23 @@ function onPrefTagsChange(el) {
 	search.prefs.tags = el.checked ? 1 : 0;
 }
 
-/****************************************** SIDEBAR **********************************************/
+/****************************************** FILTERS **********************************************/
 
 $id("filter-row").addEventListener("click", e => {
 	for (let target = e.target; target != e.currentTarget && target && target != this; target = target.parentNode) {
 		if (target && target.matches(".role-icon")) {
 			
-			sidebar.onClickRole(e.target, e.target.id, e.target.parentNode.id);
+			filters.roles.onClick(e.target, e.target.id, e.target.parentNode.id);
 			break;
 		}
 	}
 });
+
+[].forEach.call($class("attributes-checkbox"), el => el.addEventListener("change", e => {
+	filters.attributes.onChange(e.target);
+}));
+
+/****************************************** SIDEBAR **********************************************/
 
 $id("taglist-container").addEventListener("click", e => {
 	for (let target = e.target; target != e.currentTarget && target && target != this; target = target.parentNode) {
@@ -134,12 +140,12 @@ $tag("body")[0].addEventListener("click", e => {
 		|| e.target.id === "champ-list"
 		|| e.target.id === "header"
 		|| e.target.id === "footer"
+		|| e.target.id === "filter-row"
 		|| e.target.id === "sidebar"
 		|| e.target.id === "sidebar-right") &&
 		!search.hasFocus) {
 		champlist.deselect();
-		if (filters.attributes.isOpen())
-			filters.attributes.toggleShow();
+		filters.attributes.hideModal();
 		track("Empty Area", "click");
 	}
 });
@@ -157,6 +163,8 @@ $tag("body")[0].addEventListener("click", e => {
 let prevKey;
 let keyPressTime;
 document.addEventListener("keydown", e => {
+
+	filters.attributes.hideModal();
 
 	// COPY (CTRL + C)
 	if (e.which == 67 && prevKey == 17) return;

@@ -188,16 +188,16 @@
 							<div class="row">
 								<p>Attack Range</p>
 								<div class="flex-gap"></div>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="attack-range-melee"><label for="attack-range-melee">Melee</label>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="attack-range-ranged"><label for="attack-range-ranged">Ranged</label>
+								<input class="attributes-checkbox" type="checkbox" id="attack-range-melee"><label for="attack-range-melee">Melee</label>
+								<input class="attributes-checkbox" type="checkbox" id="attack-range-ranged"><label for="attack-range-ranged">Ranged</label>
 							</div>
 							<div class="heading"><p>Ratings</p></div>
 							<div class="row">
 								<p>Difficulty</p>
 								<div class="flex-gap"></div>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="difficulty-1"><label for="difficulty-1">1</label>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="difficulty-2"><label for="difficulty-2">2</label>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="difficulty-3"><label for="difficulty-3">3</label>
+								<input class="attributes-checkbox" type="checkbox" id="difficulty-1"><label for="difficulty-1">1</label>
+								<input class="attributes-checkbox" type="checkbox" id="difficulty-2"><label for="difficulty-2">2</label>
+								<input class="attributes-checkbox" type="checkbox" id="difficulty-3"><label for="difficulty-3">3</label>
 							</div>
 							<div class="row">
 								<p>Damage</p>
@@ -216,43 +216,43 @@
 							<div class="row">
 								<p>Damage</p>
 								<div class="flex-gap"></div>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="damage-1"><label for="damage-1">1</label>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="damage-2"><label for="damage-2">2</label>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="damage-3"><label for="damage-3">3</label>
+								<input class="attributes-checkbox" type="checkbox" id="damage-1"><label for="damage-1">1</label>
+								<input class="attributes-checkbox" type="checkbox" id="damage-2"><label for="damage-2">2</label>
+								<input class="attributes-checkbox" type="checkbox" id="damage-3"><label for="damage-3">3</label>
 							</div>
 							<div class="row">
 								<p>Mobility</p>
 								<div class="flex-gap"></div>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="mobility-1"><label for="mobility-1">1</label>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="mobility-2"><label for="mobility-2">2</label>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="mobility-3"><label for="mobility-3">3</label>
+								<input class="attributes-checkbox" type="checkbox" id="mobility-1"><label for="mobility-1">1</label>
+								<input class="attributes-checkbox" type="checkbox" id="mobility-2"><label for="mobility-2">2</label>
+								<input class="attributes-checkbox" type="checkbox" id="mobility-3"><label for="mobility-3">3</label>
 							</div>
 							<div class="row">
 								<p>Toughness</p>
 								<div class="flex-gap"></div>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="toughness-1"><label for="toughness-1">1</label>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="toughness-2"><label for="toughness-2">2</label>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="toughness-3"><label for="toughness-3">3</label>
+								<input class="attributes-checkbox" type="checkbox" id="toughness-1"><label for="toughness-1">1</label>
+								<input class="attributes-checkbox" type="checkbox" id="toughness-2"><label for="toughness-2">2</label>
+								<input class="attributes-checkbox" type="checkbox" id="toughness-3"><label for="toughness-3">3</label>
 							</div>
 							<div class="row">
 								<p>Crowd Control</p>
 								<div class="flex-gap"></div>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="cc-1"><label for="cc-1">1</label>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="cc-2"><label for="cc-2">2</label>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="cc-3"><label for="cc-3">3</label>
+								<input class="attributes-checkbox" type="checkbox" id="cc-1"><label for="cc-1">1</label>
+								<input class="attributes-checkbox" type="checkbox" id="cc-2"><label for="cc-2">2</label>
+								<input class="attributes-checkbox" type="checkbox" id="cc-3"><label for="cc-3">3</label>
 							</div>
 							<div class="row">
 								<p>Utility</p>
 								<div class="flex-gap"></div>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="utility-1"><label for="utility-1">1</label>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="utility-2"><label for="utility-2">2</label>
-								<input class="attributes-checkbox" type="checkbox" oninput="sidebar.onAttributeChange(this)" id="utility-3"><label for="utility-3">3</label>
+								<input class="attributes-checkbox" type="checkbox" id="utility-1"><label for="utility-1">1</label>
+								<input class="attributes-checkbox" type="checkbox" id="utility-2"><label for="utility-2">2</label>
+								<input class="attributes-checkbox" type="checkbox" id="utility-3"><label for="utility-3">3</label>
 							</div>
 
 							<div class="heading"><p>Damage Breakdown</p></div>
 							<div class="heading"><p>Style</p></div>
 						</div>
-						<div id="filter-attributes" class="filter-btn" onclick="$id('attributes-modal').classList.toggle('hide')">Attributes <span class="dropdown-caret"></span></div>
+						<div id="filter-attributes" class="filter-btn" onclick="filters?.attributes.toggleModal()">Attributes <span class="dropdown-caret"></span></div>
 					</div>
 					<div style="flex: 1"></div>
 					<div id="export-and-count">
