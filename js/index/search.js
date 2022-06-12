@@ -183,11 +183,33 @@ var search = {
 						case 2: attr = champ[keys[0]][keys[1]]; break;
 						case 3: attr = champ[keys[0]][keys[1]][keys[2]]; break;
 					}
-					if (show !== false && 
-						((typeof attr === "number" && attr == condition.attr.value) || 
-							((typeof attr === "string" || Array.isArray(attr)) && attr.includes(condition.attr.value))))
-						show = true;
-					else show = false;
+
+					if (show !== false) {
+						if (keys[keys.length-1] == "damageBreakdown") {
+							switch (condition.attr.value) {
+								case "ad":   if (champ.ratings.damageBreakdown.physical > 20) show = true; break;
+								case "ap":   if (champ.ratings.damageBreakdown.magic > 20) show = true; break;
+								case "true": if (champ.ratings.damageBreakdown.true_ > 10) show = true; break;
+							}
+						}
+						else if  (keys[keys.length-1] == "style") {
+							let style = champ.ratings.style;
+							switch (condition.attr.value) {
+								case "attack":  if (style >= 0 && style <= 40) show = true; break;
+								case "both":    if (style >= 40 && style <= 60) show = true; break;
+								case "ability": if (style >= 60 && style <= 100) show = true; break;
+							}
+						}
+						else if ((typeof attr === "number" && attr == condition.attr.value) || 
+							((typeof attr === "string" || Array.isArray(attr)) && 
+								attr.includes(condition.attr.value))) {
+							show = true;
+						}
+					}
+					else {
+						show = false;
+					}
+
 				}
 
 				else if (condition.tag && show !== false) {

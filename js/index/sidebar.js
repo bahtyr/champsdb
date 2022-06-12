@@ -206,6 +206,12 @@ class FiltersManager {
 				case "utility-1":           tag = {key: "ratings/utility",    value: 1}; break;
 				case "utility-2":           tag = {key: "ratings/utility",    value: 2}; break;
 				case "utility-3":           tag = {key: "ratings/utility",    value: 3}; break;
+				case "style-1":             tag = {key: "ratings/style",      value: "attack"}; break;
+				case "style-2":             tag = {key: "ratings/style",      value: "both"}; break;
+				case "style-3":             tag = {key: "ratings/style",      value: "ability"}; break;
+				case "damagebreakdown-1":   tag = {key: "ratings/damageBreakdown",    value: "ad"}; break;
+				case "damagebreakdown-2":   tag = {key: "ratings/damageBreakdown",    value: "ap"}; break;
+				case "damagebreakdown-3":   tag = {key: "ratings/damageBreakdown",    value: "true"}; break;
 			}
 
 			if (tag == null) return;

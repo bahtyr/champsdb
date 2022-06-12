@@ -489,6 +489,8 @@
 #attributes-modal .heading {
 	border-top: 1px solid #111;
 	color: #bbb;
+	font-size: 12px;
+	text-transform: uppercase;
 	font-family: Spiegel-Bold;
 	padding: 2px 12px;
 	padding-top: 8px;
@@ -501,11 +503,13 @@
 	color: #aaa;
 	background-color: hsl(0deg 0% 20%);
 }
-label {
+
+.attributes-checkbox + label {
+	cursor: pointer;
 	color: #666;
 	background-color: hsl(0deg 0% 8%);
 	border-radius: 4px;
-	padding: 4px 12px;
+	padding: 4px 8px;
 	margin-left: 4px;
 	min-width: 4ch;
 	text-align: center;
