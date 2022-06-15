@@ -225,7 +225,7 @@ h3 {
 */
 
 .input-block {
-	width: 100%;
+	/*width: 100%;*/
 	background: #111;
 	border-radius: 0;
 	border: none;
@@ -270,6 +270,7 @@ h3 {
 
 .right {
 	flex: 1;
+	padding: 16px;
 }
 
 /*
@@ -305,3 +306,43 @@ h3 {
 	width: unset;
 	flex: 1;
 }
+
+/*---------------------------------------*/
+
+label {
+	display: inline-block;
+	color: #666;
+}
+
+.champ-block .right {
+
+}
+
+#champ-block-data {
+	overflow: auto;
+}
+
+#champ-block-data label {
+	min-width: 8em;
+}
+
+#champ-block-data input {
+	/*width: 100%;*/
+}
+
+label[indent='1'] { margin-left: 24px; }
+label[indent='2'] { margin-left: 48px; }
+
+
+/*-----------------*/
+
+.collapsible-header {
+	color: red;
+
+}
+/*
+.collapsible-content {
+	color: blue;
+}
+
+*/
