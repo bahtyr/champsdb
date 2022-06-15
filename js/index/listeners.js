@@ -56,7 +56,7 @@ $id("sort").addEventListener("change", e => {
 $id("search__clear").addEventListener("click", search?.clear);
 
 /* the main search field listener */
-$id("search").addEventListener("keyup", e => search.onKeyUp(e));
+$id("search").addEventListener("input", e => search.onInput(e));
 
 $id("search").addEventListener("focusin", () => {
 	search.hasFocus = true;
@@ -67,6 +67,10 @@ $id("search").addEventListener("blur", () => setTimeout(() => {
 	search.hasFocus = false;
 	$id("search__wrapper").classList.remove("hover");
 }, 200));
+
+$id("search").addEventListener("blur", () => {
+	if (autocomplete.isVisible()) autocomplete.reset();
+});
 
 /****************************************** SEARCH RELATED ****************************************/
 
@@ -86,20 +90,25 @@ function onPrefTagsChange(el) {
 	search.prefs.tags = el.checked ? 1 : 0;
 }
 
-/****************************************** SIDEBAR **********************************************/
+/****************************************** FILTERS **********************************************/
 
-$id("sidebar__roles").addEventListener("click", e => {
+$id("filter-row").addEventListener("click", e => {
 	for (let target = e.target; target != e.currentTarget && target && target != this; target = target.parentNode) {
-		if (target && target.matches(".sidebar__role-icon")) {
+		if (target && target.matches(".role-icon")) {
 			
-			sidebar.onClickRole(e.target, e.target.id, e.target.parentNode.id);
+			filters.roles.onClick(e.target, e.target.id, e.target.parentNode.id);
 			break;
 		}
 	}
-
 });
 
-$id("filters-wrapper").addEventListener("click", e => {
+[].forEach.call($class("attributes-checkbox"), el => el.addEventListener("change", e => {
+	filters.attributes.onChange(e.target);
+}));
+
+/****************************************** SIDEBAR **********************************************/
+
+$id("taglist-container").addEventListener("click", e => {
 	for (let target = e.target; target != e.currentTarget && target && target != this; target = target.parentNode) {
 		if (target) {
 			
@@ -129,12 +138,14 @@ $id("sidebar__content-overlay").addEventListener("click", sidebar.hide);
 $tag("body")[0].addEventListener("click", e => {
 	if ((e.target.id === "champ-list__wrapper"
 		|| e.target.id === "champ-list"
+		|| e.target.id === "header"
 		|| e.target.id === "footer"
-		|| e.target.classList.value === "page-header"
-		|| e.target.classList.value === "sides-inner left" || e.target.classList.value === "sides-outer left"
-		|| e.target.classList.value === "sides-inner right" || e.target.classList.value === "sides-outer right") &&
+		|| e.target.id === "filter-row"
+		|| e.target.id === "sidebar"
+		|| e.target.id === "sidebar-right") &&
 		!search.hasFocus) {
 		champlist.deselect();
+		filters.attributes.hideModal();
 		track("Empty Area", "click");
 	}
 });
@@ -152,6 +163,8 @@ $tag("body")[0].addEventListener("click", e => {
 let prevKey;
 let keyPressTime;
 document.addEventListener("keydown", e => {
+
+	filters.attributes.hideModal();
 
 	// COPY (CTRL + C)
 	if (e.which == 67 && prevKey == 17) return;
@@ -191,6 +204,13 @@ document.addEventListener("keydown", e => {
 		// key press time is only reigstered if the key is escape
 	}
 
+	// ENTER KEY
+	if (e.which == 13) {
+		if (autocomplete.isVisible()) {
+			autocomplete.select();
+		}
+	}
+
 	// ARROW KEYS
 	if (e.which > 36 && e.which < 41) {
 
@@ -211,6 +231,16 @@ document.addEventListener("keydown", e => {
 					champlist.selectNextVisibleItem();
 				}
 			}
+		}
+		// UP autocomplete
+		else if (e.which == 38 && autocomplete.isVisible()) {
+			e.preventDefault();
+			autocomplete.focusPrev();
+		}
+		// DOWN autocomplete
+		else if (e.which == 40 && autocomplete.isVisible()) {
+			e.preventDefault();
+			autocomplete.focusNext();
 		}
 		// UP
 		else if (e.which == 38 && champcard.isOpen()) {

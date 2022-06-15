@@ -2,6 +2,11 @@ class SidebarManager {
 
 	/****************************************** SHOW HIDE *********************************************/
 
+	toggle(el) {
+		el.classList.toggle("active");
+		$id("sidebar").classList.toggle("hide");
+	}
+
 	show() {
 		$id("sidebar").classList.add("show");
 		$id("sidebar__content-overlay").classList.add("show");
@@ -21,7 +26,7 @@ class SidebarManager {
 	print() {
 		const nodeH = $class("sidebar-heading")[0];
 		const nodeS = $class("sidebar-subheading")[0];
-		let filtersWrapper = $id("filters-wrapper");
+		let taglistContainer = $id("taglist-container");
 		let item;
 
 		menu.forEach(element => {
@@ -47,7 +52,7 @@ class SidebarManager {
 			}
 
 			item.classList.remove("js-template");
-			filtersWrapper.appendChild(item);
+			taglistContainer.appendChild(item);
 		});
 	}
 
@@ -71,36 +76,6 @@ class SidebarManager {
 	}
 
 	/****************************************** ONCLICK **********************************************/
-	
-	onClickRole(target, id, parentId) {
-		window.scrollTo({top: 0});
-
-		let attr = parentId === "filter-lane" ? "lanes" : "tags";
-
-		if (target.classList.contains("active")) {
-			search.queryRemove({key: attr, value: id}, null);
-		} else {
-			target.classList.add("active");
-			search.queryAdd(target, {key: attr, value: id}, null);
-		}
-
-		// champlist.deselect();
-
-		// if clicking on the same filter
-		// if (target.classList.contains("active")) {
-			// target.classList.remove("active");
-			// search.clear();
-			// return;
-		// }
-
-		// clear / add active effects
-		// $queryAll(".sidebar__role-icon").forEach(e => e.classList.remove("active"));
-
-		// search
-		// search.byAttr(attr, id);
-		// search.fakeInput(id);
-		// champlist.updateItemCount();
-	}
 
 	onClickListItem(target) {
 		let tag = this.#findItemPosInMenu(target);
@@ -125,10 +100,6 @@ class SidebarManager {
 				default: search.queryAdd(target, null, {id: tag.id, name: tag.text, champIndexes: []}); break;
 			}
 		}
-		// this.clearSelection();
-		// champlist.unhideAll();
-		// search.fakeInput(tag.text);
-		// champlist.updateItemCount();
 	}
 
 	onClickSubheading(target) {
@@ -158,6 +129,96 @@ class SidebarManager {
 	
 	clearSelection() {
 		/* visually deselects active filters */
-		$queryAll(".sidebar__role-icon").forEach(e => e.classList.remove("active"));
-	}	
+		$queryAll(".role-icon").forEach(e => e.classList.remove("active"));
+	}
+}
+
+class FiltersManager {
+	roles = {
+		onClick: function(target, id, parentId) {
+			window.scrollTo({top: 0});
+
+			let attr = parentId === "filter-lane" ? "lanes" : "tags";
+
+			if (target.classList.contains("active")) {
+				search.queryRemove({key: attr, value: id}, null);
+			} else {
+				target.classList.add("active");
+				search.queryAdd(target, {key: attr, value: id}, null);
+			}
+		}
+	};
+
+	attributes = {
+
+		/*************************************************************************************************/
+
+		toggleModal: function() {
+			$id("attributes-modal").classList.toggle("hide");
+		},
+
+		hideModal: function() {
+			$id("attributes-modal").classList.add("hide");	
+		},
+
+		isOpen: function() {
+			return !$id("attributes-modal").classList.contains("hide");
+		},
+
+		/*************************************************************************************************/
+
+		queryHasMyAttrs: function() {
+			// does not count if the attributes are for champion Lanes or Roles
+			for (let q of search.query) { 
+				if (q.attr && (q.attr.key != "lanes" && q.attr.key != "tags"))
+					return true;
+			} return false;
+		},
+
+		highlight: function() {
+			if (this.queryHasMyAttrs())
+				$id("filter-attributes").classList.add("active");
+			else $id("filter-attributes").classList.remove("active");
+		},
+
+		/*************************************************************************************************/
+
+		onChange: function(el) {
+			let tag = null;
+			switch(el.id) {
+				case "attack-range-ranged": tag = {key: "rangeType",          value: "Ranged"}; break;
+				case "attack-range-melee":  tag = {key: "rangeType",          value: "Melee"}; break;
+				case "difficulty-1":        tag = {key: "ratings/difficulty", value: 1}; break;
+				case "difficulty-2":        tag = {key: "ratings/difficulty", value: 2}; break;
+				case "difficulty-3":        tag = {key: "ratings/difficulty", value: 3}; break;
+				case "damage-1":            tag = {key: "ratings/damage",     value: 1}; break;
+				case "damage-2":            tag = {key: "ratings/damage",     value: 2}; break;
+				case "damage-3":            tag = {key: "ratings/damage",     value: 3}; break;
+				case "mobility-1":          tag = {key: "ratings/mobility",   value: 1}; break;
+				case "mobility-2":          tag = {key: "ratings/mobility",   value: 2}; break;
+				case "mobility-3":          tag = {key: "ratings/mobility",   value: 3}; break;
+				case "toughness-1":         tag = {key: "ratings/toughness",  value: 1}; break;
+				case "toughness-2":         tag = {key: "ratings/toughness",  value: 2}; break;
+				case "toughness-3":         tag = {key: "ratings/toughness",  value: 3}; break;
+				case "cc-1":                tag = {key: "ratings/control",    value: 1}; break;
+				case "cc-2":                tag = {key: "ratings/control",    value: 2}; break;
+				case "cc-3":                tag = {key: "ratings/control",    value: 3}; break;
+				case "utility-1":           tag = {key: "ratings/utility",    value: 1}; break;
+				case "utility-2":           tag = {key: "ratings/utility",    value: 2}; break;
+				case "utility-3":           tag = {key: "ratings/utility",    value: 3}; break;
+				case "style-1":             tag = {key: "ratings/style",      value: "attack"}; break;
+				case "style-2":             tag = {key: "ratings/style",      value: "both"}; break;
+				case "style-3":             tag = {key: "ratings/style",      value: "ability"}; break;
+				case "damagebreakdown-1":   tag = {key: "ratings/damageBreakdown",    value: "ad"}; break;
+				case "damagebreakdown-2":   tag = {key: "ratings/damageBreakdown",    value: "ap"}; break;
+				case "damagebreakdown-3":   tag = {key: "ratings/damageBreakdown",    value: "true"}; break;
+			}
+
+			if (tag == null) return;
+
+			if (el.checked)
+				search.queryAdd(el, tag, null);
+			else search.queryRemove(tag);
+		},
+	};
 }

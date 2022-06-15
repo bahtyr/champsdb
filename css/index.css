@@ -1,3 +1,13 @@
+:root {
+  --champlist-side-padding: 20px;
+  --champlist-side-padding-fake: 20px; /* this one is to match an an item's img start line */
+  --filter-border: 1px solid #222;
+  --filter-border-radius: 4px;
+  --transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+  --max-width: 1060px;
+  --shadow-large: 0 8px 24px #010409;
+}
+
 /*
 //  ########     ###     ######   ########     ######  ######## ########  ##     ##  ######  ######## ##     ## ########  ######## 
 //  ##     ##   ## ##   ##    ##  ##          ##    ##    ##    ##     ## ##     ## ##    ##    ##    ##     ## ##     ## ##       
@@ -10,202 +20,420 @@
 //  PAGE STRUCTURE
 */
 
-body {
-	/*
-	 * .header's width is 100% page, but it begins from .center.
-	 * maybe 40%~ of it becomes overflow, we don't need to see it
-	 */
-	overflow-x: hidden;
+/**
+ * #stick-top
+ * #modal
+ * 
+ * #header
+ * #body
+ *   #sidebar
+ *   #center
+ *     #search-row
+ *     #filter-row
+ *     #champlist...
+ *     #champcard - fixed
+ * #footer
+ */
+
+#body { 
+	display: flex;
 }
 
-/* ======================== */
-
-/*.center { background-color: #74c0fc; }*/
-/*.left.sides-inner { background-color: #ffa8a8; }*/
-/*.left.sides-outer { background-color: #ffc9c9; }*/
-/*.right.sides-inner { background-color: #e599f7; }*/
-/*.right.sides-outer { background-color: #eebefa; }*/
-/*#header__main { background-color: #9775fa; }*/
-/*#header__sidebar { background-color: #da77f2; }*/
-/*#header__sidebar-2 { background-color: #be4bdb; }*/
-
-#body-wrapper { display: flex; }
-#center-wrapper { display: flex; }
-
-.center {
-	flex: 3;
-	/*width: 100%;*/
-	/*min-width: 1100px;*/
+#center {
 	max-width: 1100px;
-	/*margin-top: 70px;*/
-	margin-bottom: 255px;
-	margin-left: 260px;
-	padding-left: 20px;
-}
-
-.sides-inner {
-	width: 260px;
-	min-height: 100vh;
-}
-
-.sides-inner.right {
-	width: 130px;
-}
-
-.sides-outer {
-	/*
-	 * we can't makes these static, then .main-wrapper wouldb't be at the center
-	 * if don't make static, they'll scroll with page
-	 * height: 100%; doesn't work well with scrolling
-	 * therefore, it needs to have auto height with min-height of 100vh (not parent 100% it's content can change)
-	 */
-	flex: 0.5;
-	min-height: 100vh;
-}
-
-/* ======================== */
-
-@media only screen and (max-width: 1400px) {
-	/*
-	 * calc() does not seem to work
-	 * if there is not much space, there is not need to occupy double the space for .sides-inner
-	 * only keep .sidebar and hide .sides-inner.right
-	 */ 
-	.sides-inner.right {
-		width: 0;
-	}
-}
-
-/*
-//   ######  ##     ##  ######  ########  #######  ##     ## #### ########    ###    ######## ####  #######  ##    ## 
-//  ##    ## ##     ## ##    ##    ##    ##     ## ###   ###  ##       ##    ## ##      ##     ##  ##     ## ###   ## 
-//  ##       ##     ## ##          ##    ##     ## #### ####  ##      ##    ##   ##     ##     ##  ##     ## ####  ## 
-//  ##       ##     ##  ######     ##    ##     ## ## ### ##  ##     ##    ##     ##    ##     ##  ##     ## ## ## ## 
-//  ##       ##     ##       ##    ##    ##     ## ##     ##  ##    ##     #########    ##     ##  ##     ## ##  #### 
-//  ##    ## ##     ## ##    ##    ##    ##     ## ##     ##  ##   ##      ##     ##    ##     ##  ##     ## ##   ### 
-//   ######   #######   ######     ##     #######  ##     ## #### ######## ##     ##    ##    ####  #######  ##    ## 
-//
-//   CUSTOMIZATION
-*/
-
-#sidebar {
-	/*
-	 * normally making position fixed breaks .main-wrapper alignment,
-	 * that's why; .center needs to have margin-left equal to .sidebar's width.
-	 *
-	 * fixed sidebar's height shoudln't be auto (not min-height 100vh) it always needs to match the window height
-	 * otherwise with because of fixed position and auto height we won't be able to scroll it
-	 */
-	position: fixed;
-	height: 100vh;
-	overflow: overlay;
-	overflow-x: hidden;
-	border-right: 1px solid #1a1a1a;
-	padding: 0 6px 40px 16px;
 }
 
 #sidebar,
-.sides-outer.left {
-	background: rgba(0, 0, 0, 0.6);
-}
-
-#champcard {
-	background-color: #000;
+#sidebar-right {
+	flex: 1;
 }
 
 /*
-//  ##     ## ########    ###    ########  ######## ########   ######  
-//  ##     ## ##         ## ##   ##     ## ##       ##     ## ##    ## 
-//  ##     ## ##        ##   ##  ##     ## ##       ##     ## ##       
-//  ######### ######   ##     ## ##     ## ######   ########   ######  
-//  ##     ## ##       ######### ##     ## ##       ##   ##         ## 
-//  ##     ## ##       ##     ## ##     ## ##       ##    ##  ##    ## 
-//  ##     ## ######## ##     ## ########  ######## ##     ##  ######  
+//  ##     ## ########    ###    ########  ######## ########  
+//  ##     ## ##         ## ##   ##     ## ##       ##     ## 
+//  ##     ## ##        ##   ##  ##     ## ##       ##     ## 
+//  ######### ######   ##     ## ##     ## ######   ########  
+//  ##     ## ##       ######### ##     ## ##       ##   ##   
+//  ##     ## ##       ##     ## ##     ## ##       ##    ##  
+//  ##     ## ######## ##     ## ########  ######## ##     ## 
 //
-//  HEADERS
+//  HEADER
 */
 
-.page-header {
-	/* previously .header, changed the name to not mistakenly apply css to other potentional header classes */
-	/*
-	 * normally making position absolute breaks .main-wrapper alignment,
-	 * that's why; .center needs to have margin-top equal to .header's height.
-	 */
-	/*position: absolute;*/
-	/*top: 0;*/
-	/*width: 100%;*/
-	height: 70px;
-	display: flex;
-	align-items: center;
-	transition: opacity 300ms;
-}
-
-#header__main {
-	padding-left: 36px;
-	margin-left: -20px; /* undo .center padding-left */
-	border-bottom: 1px solid #1a1a1a;
-	z-index: 2;
-	background: radial-gradient(100% 90% at 0px 0px, rgb(147 115 65 / 20%), transparent 100%)
-}
-
-#header__sidebar {
-	align-items: flex-end;
-	padding-bottom: 14px;
-	margin-bottom: 6px;
-}
-
-#header__right {
-	position: absolute;
+#header {
 	width: 100%;
-	border-bottom: 1px solid #1a1a1a;
+	background-color: #000;
+	background: radial-gradient(100% 90% at 0px 0px, rgb(147 115 65 / 20%), transparent 100%);
+	/*border-bottom: 1px solid #111;*/
 }
 
-/************************************************
- * INFO - BUBBLE
- ************************************************/
-
-#info__bubble {
+#header .wrapper {
 	display: flex;
-	grid-column-gap: 8px;
 	align-items: center;
+	justify-content: center;
+	max-width: var(--max-width);
+	margin: 0 auto;	
+	height: 88px;
+	grid-gap: 14px;
+}
 
-	height: 30px;
-	padding: 6px 12px;
-	border-radius: 4px;
-	margin-right: 10px;
+#logo {
+	display: flex;
+	align-items: center;
+	grid-gap: 10px;
+}
 
-	color: #777;
-	outline: 1px solid #1A1A1A;
+#header p {
+	color: #aaa;
+	font-family: Spiegel-Regular;
+	font-size: 12px;
+	letter-spacing: 0.07em;
+	letter-spacing: 1;
 }
 
 #patch-version {
-	font-size: 12px;
-	letter-spacing: 0.07em;
   cursor: help;
-  font-family: monospace;
-  font-weight: bold;
-  min-width: 3.1em;
-  text-align: right;
 }
 
 #info-btn {
 	cursor: pointer;
+	margin-top: 1px;
 }
 
-/* ---------------------------------------------------------------------------------------- HEADER CONTENT */
+/*
+//   ######  ########    ###    ########   ######  ##     ## 
+//  ##    ## ##         ## ##   ##     ## ##    ## ##     ## 
+//  ##       ##        ##   ##  ##     ## ##       ##     ## 
+//   ######  ######   ##     ## ########  ##       ######### 
+//        ## ##       ######### ##   ##   ##       ##     ## 
+//  ##    ## ##       ##     ## ##    ##  ##    ## ##     ## 
+//   ######  ######## ##     ## ##     ##  ######  ##     ## 
+//
+//  SEARCH
+*/
 
-/*#export-btn { text-transform: uppercase; cursor: pointer; }*/
-/*#export-btn:hover { background-color: rgba(255, 255, 255, 0.12); border-radius: 4px; }*/
+#search-row {
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 0 var(--champlist-side-padding-fake);
+	margin-bottom: 12px;
+}
+
+/************************************************
+ * SEARCH - INPUT
+ ************************************************/
+
+#search__wrapper {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	height: 40px;
+	border-radius: 4px;
+	border: var(--filter-border);
+	transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+	transition-property: border-color;
+}
+
+#search__wrapper.hover {
+	border-color: #6BA4F8;
+	border-color: #291B02;
+	border-color: #937341;
+	border-color: #604820;
+}
+
+#search {
+	flex: 1;
+	height: 100%;
+	background: transparent;
+	border: none;
+	border-radius: 0;
+	margin-right: 12px;
+	font-size: 14px;
+	font-family: Spiegel-Regular;
+	letter-spacing: 0.07em;
+	color: #b0aca0;
+	caret-color: #604820;
+	cursor: default;
+}
+
+#search::placeholder,
+#search:-ms-input-placeholder,
+#search::-ms-input-placeholder {
+  color: #999485;
+  opacity: 1;
+}
+
+#search:focus {
+    outline: none;
+}
+
+#search__icon {
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
+/************************************************
+ * SEARCH - TAGS
+ ************************************************/
+
+.search__tags {
+	display: flex;
+}
+
+.search__tags p {
+	transition: all .2s ease;
+	cursor: pointer;
+
+	font-size: 12px;
+	font-weight: bold;
+  font-family: monospace;
+	letter-spacing: 0.07em;
+
+	border-radius: 4px;
+	margin-right: 6px;
+	padding: 4px 12px;
+	background-color: #291B02;
+	color: #896F58;
+}
+
+.search__tags p:hover {
+	background-color: #40130a;
+	color: #8b6e68;
+}
+
+/************************************************
+ * SEARCH - AUTOCOMPLETE
+ ************************************************/
+
+#search__autocomplete {
+	border-radius: 2px;
+	background-color: #111;
+	box-shadow: rgb(0 0 0 / 20%) 0px 0px 6px;
+	color: #888;
+	position: absolute;
+	padding: 6px 0;
+	min-width: 6em;
+	left: 46;
+	top: 32;
+	z-index: 1;
+}
+
+#search__autocomplete:empty {
+	display: none;
+}
+
+.search__autocomplete-item {
+	padding: 4px 12px;
+	font-family: Spiegel-Regular;
+	font-size: 14px;
+	letter-spacing: 0.04em;
+	white-space: nowrap;
+}
+
+.search__autocomplete-item-active,
+.search__autocomplete-item:hover {
+	background-color: #222;
+}
+
+/*
+//  ######## #### ##       ######## ######## ########          ########   #######  ##      ## 
+//  ##        ##  ##          ##    ##       ##     ##         ##     ## ##     ## ##  ##  ## 
+//  ##        ##  ##          ##    ##       ##     ##         ##     ## ##     ## ##  ##  ## 
+//  ######    ##  ##          ##    ######   ########  ####### ########  ##     ## ##  ##  ## 
+//  ##        ##  ##          ##    ##       ##   ##           ##   ##   ##     ## ##  ##  ## 
+//  ##        ##  ##          ##    ##       ##    ##          ##    ##  ##     ## ##  ##  ## 
+//  ##       #### ########    ##    ######## ##     ##         ##     ##  #######   ###  ###  
+//
+//  FILTER-ROW
+*/
+
+#filter-row {
+	display: flex;
+	align-items: center;
+	margin: 0px var(--champlist-side-padding-fake);
+	border-radius: 4px;
+	grid-gap: 6px;
+	height: 34px;
+}
+
+/************************************************
+ * ICONS
+ ************************************************/
+
+#toggle-tags-pane {
+	/*width: 34px;*/
+	padding: 6px;
+	height: 100%;
+	color: #333;
+	background-color: #0d0d0d;
+	border-radius: 4px;
+	border: var(--filter-border);
+	cursor: pointer;
+	transition: var(--transition);
+	transition-property: background-color;
+}
+
+#toggle-tags-pane.active {
+	/*color: #aaa;*/
+	color: #999;
+	background-color: #222;
+	border-color: #444;
+}
+
+#toggle-tags-pane svg path { transition: var(--transition); transition-property: fill; }
+
+/* class for both #filter-lane & #filter-role */
+.filter-role {
+	display: inline-flex;
+	justify-content: space-around;
+	padding: 0 4px;
+	border-radius: 4px;
+	border: var(--filter-border);
+}
+#filter-lane { padding: 0 4px; }
+#filter-role { padding: 0 8px; }
+
+.filter-role svg {  flex: 1; box-sizing: content-box; cursor: pointer; }
+#filter-lane svg { padding: 4px 8px; }
+#filter-role svg { padding: 6px 8px; }
+
+.filter-role svg.active path { fill: #aaa; }
+.filter-role svg path { fill: #333;
+	pointer-events: none;
+	transition: var(--transition);
+	transition-property: fill;
+}
+
+/************************************************
+ * DROPDOWN
+ ************************************************/
+
+.filter-btn {
+	cursor: pointer;
+
+	height: 100%;
+	line-height: 1.5;
+	padding: 5px 16px;
+
+	color: #444;
+	font-family: Spiegel-Regular;
+	font-size: 14px;
+	letter-spacing: 0.7;
+	white-space: nowrap;
+
+	border-radius: 4px;
+	border: var(--filter-border);
+
+	transition: var(--transition);
+	transition-property: color,background-color,border-color;
+}
+
+.filter-btn:hover {
+	color: #666;
+	border-color: #555;
+}
+
+.dropdown-caret {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	vertical-align: middle;
+	content: "";
+	border-style: solid;
+	border-width: 4px 4px 0;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	pointer-events: none;
+}
+
+/* attributes */
+
+#filter-attributes {
+	transition: var(--transition);
+	transition-property: color, background-color;
+}
+
+#filter-attributes:hover,
+#attributes-modal:not(.hide) ~ #filter-attributes {
+	color: #666;
+	background-color: hsl(0deg 0% 5%);
+	border: var(--filter-border);
+}
+
+#filter-attributes.active {
+	color: #896F58 !important;
+  background-color: #160e01 !important;
+  border-color: #483a2e !important;
+  /*color: #999 !important;*/
+  /*background-color: hsl(0deg 0% 10%) !important;*/
+  /*border-color: #444 !important;*/
+}
+
+/************************************************
+ * RIGHT SECTION
+ ************************************************/
+
+#export-and-count {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	border-radius: 4px;
+	border: var(--filter-border);
+}
+
+#export-btn {
+	padding: 5px 12px;
+	color: #666;
+	background-color: #0D0D0D;
+	letter-spacing: 0.7;
+	border: none;
+	border-radius: 4px 0 0 4px;
+}
+
+#export-btn:hover {
+	color: #999;
+	background-color: #222;
+}
+
+.search__count {
+	color: #444;
+	font-size: 12px;
+	font-family: Spiegel-Regular;
+	letter-spacing: 0.7;
+	min-width: 10em;
+	padding: 0 12px;
+  text-align: right;
+}
+
+.divider {
+	width: 1px;
+	height: 100%;
+	background-color: #222;
+}
+
+/************************************************
+ * TOOLTIPS
+ ************************************************/
 
 .patch-version-tooltip,
 .export-tooltip {
-	transform-origin: right top;
+	transform-origin: top;
 	background-color: #111;
 	color: #888;
 	line-height: 1.6;
 	padding: 12px 22px;
-	right: -5;
-	text-align: right;
+	/*right: -30;*/
+	left: -30;
+	/*text-align: right;*/
+	box-shadow: var(--shadow-large);
+}
+
+.patch-version-tooltip {
+	transform-origin: top;
+	left: -22px;
+	right: unset;
 }
 
 .export-tooltip {
@@ -217,6 +445,77 @@ body {
 .patch-version-tooltip a span { cursor: unset; }
 .patch-version-tooltip .disabled { color: #888; pointer-events: none; }
 .patch-version-tooltip .disabled path { fill: #888; }
+
+
+/************************************************
+ * ATTRIBUTES MODAL
+ ************************************************/
+
+#filter-attributes-wrapper {
+	position: relative;
+}
+
+/* modal */
+#attributes-modal {
+	z-index: 98;
+	top: 30;
+	position: absolute;
+	background-color: hsl(0deg 0% 3%);
+	min-width: 270px;
+	min-height: 240px;
+	border: var(--filter-border);
+	border-radius: 8px;
+	box-shadow: var(--shadow-large);
+	transition: all var(--transition);
+	color: #aaa;
+
+	font-size: 14px;
+	font-family: Spiegel-Regular;
+	letter-spacing: 0.7;
+	white-space: nowrap;
+	padding: 8px 0;
+}
+
+#attributes-modal.hide {
+	display: none;
+}
+
+/* row */
+#attributes-modal .row {
+	display: flex;
+	align-items: center;
+	padding: 2px 12px;
+}
+#attributes-modal .heading {
+	border-top: 1px solid #111;
+	color: #bbb;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-family: Spiegel-Bold;
+	padding: 2px 12px;
+	padding-top: 8px;
+	margin-top: 4px;
+}
+
+/* checkbox */
+.attributes-checkbox { display: none; }
+.attributes-checkbox:checked + label {
+	color: #aaa;
+	background-color: hsl(0deg 0% 20%);
+}
+
+.attributes-checkbox + label {
+	cursor: pointer;
+	color: #666;
+	background-color: hsl(0deg 0% 8%);
+	border-radius: 4px;
+	padding: 4px 8px;
+	margin-left: 4px;
+	min-width: 4ch;
+	text-align: center;
+}
+
+.flex-gap { flex: 1; }
 
 /*
 //   ######  #### ########  ######## ########     ###    ########  
@@ -230,48 +529,28 @@ body {
 //  SIDEBAR
 */
 
-/* ---------------------------------------------------------------------------------------- SIDEBAR CONTENT */
+#sidebar { }
 
-#sidebar::-webkit-scrollbar {
-	width: 2px;
-	z-index: 10;
+#sidebar.hide #sidebar-wrapper {
+	transform: translateX(-110%);
 }
 
-/* ---------------------------------------- HEADER */
-
-#site-icon__small {
-	margin-right: 10px;	
-	margin-bottom: 3px;
+#sidebar-wrapper {
+	background: rgba(0, 0, 0, 0.6);
+	border-radius: 8px;
+	border: 1px solid #1a1a1a;
+	padding: 0 6px 40px 16px;
+	margin-left: 20px;
+	margin-bottom: 60px;
+	max-width: 280px;
+	min-height: 600px;
+	transition: transform .3s ease-in-out;
 }
 
-/* ---------------------------------------- FILTERS */
 
-#filter-lane {
-	display: flex;
-	justify-content: space-around;
-	background-color: #0D0D0D;
-	border-radius: 6px;
-	padding: 0 4px;
-	margin-right: 18px;
-	margin-left: -8px;
-}
-
-#filter-role {
-	display: flex;
-	justify-content: space-around;
-	margin: 16px 26px 32px 0;
-}
-
-#filter-lane svg { flex: 1; padding: 4px 0; }
-#filter-role svg { flex: 1; }
-
-.search-filters svg { cursor: pointer; box-sizing: content-box; }
-#filter-lane svg path { fill: #5a5a5a; pointer-events: none; }
-#filter-role svg path { fill: #444444; pointer-events: none; }
-#filter-lane svg.active path { fill: #fff; }
-#filter-role svg.active path { fill: #fff; }
-
-/* ---------------------------------------- TEXT */
+/************************************************
+ * SIDEBAR - TEXT
+ ************************************************/
 
 p.sidebar-heading {
 	color: #937341;
@@ -347,7 +626,9 @@ p.sidebar-subheading svg {
 	color: #b68e4b;
 }
 
-/*tooltip*/
+/************************************************
+ * SIDEBAR - TOOLTIP
+ ************************************************/
 
 #sidebar li:hover span.tooltip {
 	opacity: 1;
@@ -545,10 +826,11 @@ p.sidebar-subheading svg {
 	bottom: 0;
 	overflow: overlay;
 	/*width: 100%;*/
+	background-color: #000;
 	box-shadow: 0 -2px 10px rgba(0, 0, 0, 1);
 	border: 1px solid #1a1a1a;
 	/*margin: 0 0 16px 14px;*/
-	margin-left: -21px;
+	/*margin-left: -21px;*/
 	/*padding: 22px 40px calc(22px - 5px) 22px;*/
 	transform: scale(1) translateY(0px);
 	transform-origin: bottom;
@@ -1055,171 +1337,6 @@ span.highlight {
 }
 
 /*
-//   ######  ########    ###    ########   ######  ##     ## 
-//  ##    ## ##         ## ##   ##     ## ##    ## ##     ## 
-//  ##       ##        ##   ##  ##     ## ##       ##     ## 
-//   ######  ######   ##     ## ########  ##       ######### 
-//        ## ##       ######### ##   ##   ##       ##     ## 
-//  ##    ## ##       ##     ## ##    ##  ##    ## ##     ## 
-//   ######  ######## ##     ## ##     ##  ######  ##     ## 
-//
-//  SEARCH
-*/
-
-/************************************************
- * SEARCH - INPUT
- ************************************************/
-
-#search__wrapper {
-	width: 300px;
-}
-
-#search {
-	flex: 1;
-	height: 100%;
-	background: transparent;
-	border: none;
-	border-radius: 0;
-	margin-right: 12px;
-	font-size: 14px;
-	font-family: Spiegel-Regular;
-	letter-spacing: 0.07em;
-	color: #b0aca0;
-	cursor: default;
-}
-
-#search::placeholder,
-#search:-ms-input-placeholder,
-#search::-ms-input-placeholder {
-  color: #999485;
-  opacity: 1;
-}
-
-#search:focus {
-    outline: none;
-}
-
-/************************************************
- * SEARCH - ACTIONS
- ************************************************/
-
-#site-icon {
-	display: none;
-	/*width: 100%;*/
-	/*height: 100%;*/
-}
-
-#search__clear {
-	pointer-events: unset;
-	cursor: pointer;
-}
-
-#search__clear.hide {
-	visibility: hidden;
-}
-
-#search__icon {
-	margin-left: 4px;
-	margin-right: 12px;
-}
-
-#sort__wrapper {
-	margin-left: 12px;
-}
-
-/************************************************
- * SEARCH - BUBBLE
- ************************************************/
-
-.search__bubble {
-	display: flex;
-	align-items: center;
-	justify-content: flex-end;
-	transition: all .5s ease;
-
-	/*width: 122px;*/
-	height: 30px;
-	padding: 6px 12px;
-	border-radius: 4px;
-	margin-right: 10px;
-
-	color: #777;
-	outline: 1px solid #1A1A1A;
-}
-
-/* .active */
-.search__bubble.active { /*width: 200px;*/ } /* resize to a fix width to animate the transition */
-.search__bubble:not(.active) svg { /*display: none;*/ } /* hide icons by default */
-
-/* icons / actions */
-.search__bubble .tooltip-parent:hover svg { color: #666; }
-.search__bubble svg:hover { color: #666; }
-.search__bubble svg {
-	cursor: pointer;
-	margin-right: 8px;
-	color: #555;
-}
-
-/* champ count */
-.search__count {
-	font-size: 12px;
-	font-weight: bold;
-  font-family: monospace;
-	letter-spacing: 0.07em;
-	min-width: 8.1em;
-  text-align: right;
-}
-
-/************************************************
- * SEARCH - PREFS
- ************************************************/
-
-.search-prefs__tooltip {
-	background-color: #111;
-	transform-origin: right top;
-	top: 16;
-	right: -5;
-	color: #888;
-	line-height: 1.6;
-	padding: 12px 22px;
-}
-
-.search-prefs__tooltip p {
-	font-size: 10px;
-	font-weight: bold;
-	text-transform: uppercase;
-}
-
-/************************************************
- * SEARCH - TAGS
- ************************************************/
-
-.search__tags {
-	display: flex;
-}
-
-.search__tags p {
-	transition: all .2s ease;
-	cursor: pointer;
-
-	font-size: 12px;
-	font-weight: bold;
-  font-family: monospace;
-	letter-spacing: 0.07em;
-
-	border-radius: 4px;
-	margin-right: 6px;
-	padding: 4px 12px;
-	background-color: #291B02;
-	color: #896F58;
-}
-
-.search__tags p:hover {
-	background-color: #40130a;
-	color: #8b6e68;
-}
-
-/*
 //  ########  #######   #######  ######## ######## ########  
 //  ##       ##     ## ##     ##    ##    ##       ##     ## 
 //  ##       ##     ## ##     ##    ##    ##       ##     ## 
@@ -1238,20 +1355,17 @@ span.highlight {
 	 *   #champ-list__wrapper / min-height
 	 *   #champ-list / padding-bottom
 	 */
-	position: absolute;
-	background-color: #111;
 	background-color: #000;
 	border-top: 1px solid #1a1a1a;
 	padding: 60px 40px;
 	width: 100%;
-	margin-left: -20px; /*undo .center padding*/
 }
 
 /* wrapper & columns */
 
 .footer .wrapper {
-	margin: 0;
-	max-width: 1000px;
+	margin: 0 auto;
+	max-width: var(--max-width);
 	display: flex;
 	justify-content: space-between;
 }

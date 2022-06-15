@@ -5,6 +5,7 @@ var patches   = {};
 var champlist = new ChampListManager;
 var champcard = new ChampCardManager;
 var sidebar   = new SidebarManager;
+var filters   = new FiltersManager;
 var sort      = {};
 // var search = {}; @search.js
 
@@ -59,7 +60,7 @@ function printPatchInfo() {
 	let next = current == patches.length ? current : current + 1;
 	let nextPatchDate = new Date(patches[next].start * 1000).toLocaleDateString("en-US", {month: "short", weekday: "short", day: "numeric"});
 
-	$id("patch-version").textContent = "V" + patches[current].version;
+	$id("patch-version").textContent = "Patch " + patches[current].version;
 	$id("patch-notes-current").children[0].textContent = "Patch " + patches[current].version + " Notes";
 	$id("patch-notes-current").setAttribute("href", patches[current].link);
 

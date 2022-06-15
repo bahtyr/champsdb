@@ -22,6 +22,8 @@ svg * { pointer-events: none; }
 @font-face { font-family: Beaufort-Italic; src: url("../assets/fonts/Beaufort-Italic.woff") format("woff"); }
 @font-face { font-family: Beaufort-Bold; src: url("../assets/fonts/Beaufort-Bold.woff") format("woff"); }
 @font-face { font-family: Spiegel-Regular; src: url("../assets/fonts/Spiegel-Regular.woff") format("woff"); }
+@font-face { font-family: Spiegel-Bold; src: url("../assets/fonts/Spiegel-Bold.woff") format("woff"); }
+@font-face { font-family: Spiegel-BoldItalic; src: url("../assets/fonts/Spiegel-BoldItalic.woff") format("woff"); }
 @font-face { font-family: Spiegel-Italic; src: url("../assets/fonts/Spiegel-Italic.woff") format("woff"); }
 
 /* ---------------------------------------------------------------------------------------- CLASSES */

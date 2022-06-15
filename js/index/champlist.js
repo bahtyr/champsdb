@@ -102,7 +102,12 @@ class ChampListManager {
 		// however since this method might jump from any position to index 0,
 		// and finding prevIndex can be troublesome if this action is not taken.
 		// so prob. deselect will always be used with this method.
+
+		// EDIT 2: abort if last 'index' is visible, continue from there.
 		this.deselect();
+
+		if (this.visibleItems[this.i] == true)
+			return;
 		
 		let i = -1;
 
@@ -154,6 +159,7 @@ class ChampListManager {
 			this.ii = this.i;
 			this.i = i;
 		}
+
 		this.select();
 		this.ii = this.i;
 	}
@@ -232,6 +238,11 @@ class ChampListManager {
 		this.visibleItems.forEach((visibility, i) => visibility ? champlist.show(i) : champlist.hide(i));
 	}
 
+	resetPosition() {
+		this.i  = -1;
+		this.ii = -1;
+	}
+
 	/****************************************** ETC **************************************************/
 
 	safe(i) {
@@ -291,13 +302,24 @@ class ChampListManager {
 		}
 
 		else if (mode === "export-with-keys") {
+
+			let queryHasTags = false;
+			for (let obj of search.query) {
+				if (obj.tag || obj.attr) queryHasTags = true;
+			}
+
 			// only visibile abilities
-			if (search.tagId) {
+			if (queryHasTags) {
 				champions.forEach((champ, i) => {
 					if (!champ.hide) {
 						let keys = this.elements[i].children[0].children[2].textContent.trim();
-						if (keys.length == 0) arr.push(champ.name);
-						else keys.split(" ").forEach(key => arr.push(`${champ.name} (${key})`));
+						if (keys.length == 0) {
+							arr.push(champ.name + " (P)");
+							arr.push(champ.name + " (Q)");
+							arr.push(champ.name + " (W)");
+							arr.push(champ.name + " (E)");
+							arr.push(champ.name + " (R)");
+						} else keys.split(" ").forEach(key => arr.push(`${champ.name} (${key})`));
 					}
 				});
 			}

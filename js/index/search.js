@@ -13,7 +13,7 @@ var search = {
 
 	/****************************************** Search Input Listener ******************************************/
 
-	onKeyUp: function(e) {
+	onInput: function(e) {
 		let s = $id("search").value.trim().toLowerCase();
 		this.text = s;
 
@@ -23,11 +23,12 @@ var search = {
 			// return;
 		// }
 
-		$id("search__bubble").classList.add("active");
+		// $id("search__bubble").classList.add("active");
 		// $id("search__clear").classList.remove("hide");
 
 		window.scrollTo({top: 0});
 		search.runQuery();
+		autocomplete.run();
 		// sidebar.clearSelection();
 
 		// if (!search.byTagText(s))
@@ -51,9 +52,22 @@ var search = {
 		champlist.updateItemCount();
 		search.text = "";
 		search.tagId = null;
-		for (let i in search.query)
-			search.query[i].toggleEl.classList.remove("active");
+		for (let i in search.query) {
+			if (search.query[i].toggleEl) {
+				search.query[i].toggleEl.classList.remove("active");
+				search.query[i].toggleEl.checked = false;
+			}
+		}
 		search.query = [];
+	},
+
+	/***
+	 * Does not empty the whole search query, only removes the search text. Re-runs the query to search with existing tags. (used with autocomplete).
+	 */
+	softClear: function() {
+		$id("search").value = "";
+		search.text = "";
+		search.runQuery();
 	},
 
 	fakeInput: function(s) {
@@ -66,12 +80,12 @@ var search = {
 
 	showBubble: function() {
 		$id("search").placeholder = "";
-		$id("search__bubble").classList.add("active");
+		// $id("search__bubble").classList.add("active");
 	},
 
 	hideBubble: function() {
 		$id("search").placeholder = "Search";
-		$id("search__bubble").classList.remove("active");
+		// $id("search__bubble").classList.remove("active");
 	},
 
 	/******************************************/
@@ -90,6 +104,22 @@ var search = {
 	},
 
 	/****************************************** QUERY MEHTOD *****************************************************/
+
+	/**
+	 * attr{key, value}
+	 * tag {id, name, champIndexes[] }
+	 * 
+	 * 
+	 * reserved tag.ids
+	 *   -1: not a tag
+	 *   -2: region
+	 *   -3: species
+	 * 
+	 * note:
+	 * 	 at one point, champs' attributes such as attackRangeType / resourceType used to be searched by their attributes rather being a tag.
+	 *   now each champ has those attributes as tags as well.
+	 *   so, currently there is no
+	 */
 
 	queryAdd: function(toggleEl, attr, tag) {
 		let el = this.createTag(attr?.value ?? tag?.name);
@@ -120,8 +150,10 @@ var search = {
 		}
 
 		if (index == null) return;
-		if (search.query[index].toggleEl)
+		if (search.query[index].toggleEl) {
 			search.query[index].toggleEl.classList.remove("active");
+			search.query[index].toggleEl.checked = false;
+		}
 		search.query[index].element.remove();
 		search.query.splice(index, 1);
 		search.runQuery();
@@ -137,14 +169,47 @@ var search = {
 		search.text = search.text.replace(/[^\w\s]/g, "")
 
 		champlist.deselect();
+		champlist.resetPosition();
 
 		champions.forEach((champ, i) => {
 			let show = search.query.length == 0 ? true : null;
 			search.query.forEach(condition => {
 				if (condition.attr) {
-					if (champ[condition.attr.key].includes(condition.attr.value) && show !== false)
-						show = true;
-					else show = false;
+					let keys = condition.attr.key.split("/");
+					let attr = null;
+					switch (keys.length) {
+						default:
+						case 1: attr = champ[keys[0]]; break;
+						case 2: attr = champ[keys[0]][keys[1]]; break;
+						case 3: attr = champ[keys[0]][keys[1]][keys[2]]; break;
+					}
+
+					if (show !== false) {
+						if (keys[keys.length-1] == "damageBreakdown") {
+							switch (condition.attr.value) {
+								case "ad":   if (champ.ratings.damageBreakdown.physical > 20) show = true; break;
+								case "ap":   if (champ.ratings.damageBreakdown.magic > 20) show = true; break;
+								case "true": if (champ.ratings.damageBreakdown.true_ > 10) show = true; break;
+							}
+						}
+						else if  (keys[keys.length-1] == "style") {
+							let style = champ.ratings.style;
+							switch (condition.attr.value) {
+								case "attack":  if (style >= 0 && style <= 40) show = true; break;
+								case "both":    if (style >= 40 && style <= 60) show = true; break;
+								case "ability": if (style >= 60 && style <= 100) show = true; break;
+							}
+						}
+						else if ((typeof attr === "number" && attr == condition.attr.value) || 
+							((typeof attr === "string" || Array.isArray(attr)) && 
+								attr.includes(condition.attr.value))) {
+							show = true;
+						}
+					}
+					else {
+						show = false;
+					}
+
 				}
 
 				else if (condition.tag && show !== false) {
@@ -172,6 +237,7 @@ var search = {
 		champlist.selectFirstVisibleItem();
 		champlist.updateItemCount();
 		champlist.showAbilityKeysOnChamps2();
+		filters.attributes.highlight();
 	},
 
 	queryTags: function() {
@@ -233,5 +299,86 @@ var search = {
 	},
 	byTagId: function(id_) {
 		return this.byTag(tags.find(({id}) => id === id_));		
-	}
+	},
+
+};
+
+var autocomplete = {
+	i: -1,      // last highlight index //what happens to hover :(
+	length: 0,  // item count
+	limit:  6,  // limit //TODO ? lower for mobile
+	isVisible: function() { return $id("search__autocomplete").childElementCount > 0; },
+
+	/***
+	 * Generates list of suggestions by comparing search.text to tags.name.
+	 */
+	run() {
+		this.reset();
+		if (search.text.length < 2) return;
+		for (let item of tags.filter(tag => {
+			if (tag.name.toLowerCase().indexOf(search.text) > -1) return this;
+		})) {
+			if (this.length == this.limit) break;
+			this.length++;
+			this.createItem(item.id, item.name)
+		}
+	},
+
+	/***
+	 * Clears the list and removes elements.
+	 */
+	reset() {
+		this.i = -1;
+		this.length = 0;
+		while ($id("search__autocomplete").lastChild) {
+			$id("search__autocomplete").removeChild($id("search__autocomplete").lastChild);
+		}
+	},
+
+	createItem(tagId, tagName) {
+		let div = document.createElement("div");
+		// div.setAttribute("id", this.id + "autocomplete-list");
+      	div.setAttribute("class", "search__autocomplete-item");
+      	div.innerHTML += tagName;
+      	div.innerHTML += `<input type='hidden' tag-id="${tagId}" tag-name="${tagName}">`;
+
+      	div.addEventListener("click", function(e) {
+      		autocomplete.select(this);
+      	});
+
+      	$id("search__autocomplete").appendChild(div);
+	},
+
+	select(THIS) {
+		// if THIS is null, get dropdownItem by index.
+		if (THIS == null) {
+			if (autocomplete.i == -1) autocomplete.i = 0;
+			THIS = $class("search__autocomplete-item")[autocomplete.i];
+		}
+
+		let tagId = THIS.getElementsByTagName("input")[0].getAttribute("tag-id");
+		search.queryAdd(null, null, tags.find(tag => tag.id == tagId));
+		search.softClear();
+		autocomplete.reset();
+	},
+
+	/****************************************** HIGHLIGHT ****************************************/
+
+	focus() {
+		$class("search__autocomplete-item-active")[0]?.classList.remove("search__autocomplete-item-active");
+		$class("search__autocomplete-item")[autocomplete.i]?.classList.add("search__autocomplete-item-active");
+	},
+
+	focusNext() { 
+		if (this.i == this.length - 1) return;
+		this.i += 1;
+		autocomplete.focus();
+	},
+
+	focusPrev() { 
+		if (this.i <= 0) return;
+		this.i -= 1;
+		autocomplete.focus();
+	},
+
 };
