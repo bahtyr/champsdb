@@ -1,4 +1,4 @@
-/*
+
 // ########     ###     ######  ######## 
 // ##     ##   ## ##   ##    ## ##       
 // ##     ##  ##   ##  ##       ##       
@@ -224,8 +224,9 @@ h3 {
 // INPUT BLOCK
 */
 
-.input-block {
-	/*width: 100%;*/
+input[type=text],
+input[type=number] {
+	width: 100%;
 	background: #111;
 	border-radius: 0;
 	border: none;
@@ -233,15 +234,49 @@ h3 {
 	padding: 8px 16px;
 }
 
-.input-block::placeholder,
-.input-block:-ms-input-placeholder,
-.input-block::-ms-input-placeholder {
+input[type=text]::placeholder,
+input[type=text]:-ms-input-placeholder,
+input[type=text]::-ms-input-placeholder,
+input[type=number]::placeholder,
+input[type=number]:-ms-input-placeholder,
+input[type=number]::-ms-input-placeholder {
   color: #666;
   opacity: 1;
 }
 
-.input-block:focus {
+input[type=text]:focus,
+input[type=number]:focus {
     outline: none;
+}
+
+/*******************************************************************************/
+
+.input-block > * {
+	display: block;
+}
+
+.text-label {
+	font-size: 12px;
+	margin-bottom: 2px;
+}
+
+/*******************************************************************************/
+
+.input-group {
+	display: flex;
+	grid-gap: 10px;
+	margin-bottom: 8px;
+}
+
+img {
+	height: 46px;
+	width: 46px;
+}
+
+hr {
+	border: none;
+	border-top: 2px solid #555;
+	margin: 16px 0;
 }
 
 /*
@@ -323,7 +358,7 @@ label {
 }
 
 #champ-block-data label {
-	min-width: 8em;
+	/*min-width: 8em;*/
 }
 
 #champ-block-data input {
@@ -345,4 +380,3 @@ label[indent='2'] { margin-left: 48px; }
 	color: blue;
 }
 
-*/

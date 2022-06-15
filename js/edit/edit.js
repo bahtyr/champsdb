@@ -10,13 +10,14 @@ pageManager.populateFunctions();
 fetch("data/champions.json").then(data => data.json()).then(json => {
 	champions = json.map(item => ChampionFunctions.transfer(item));
 	pageManager.populateChampsList();
-	pageManager.populateChampsFields();
 });
 
 fetch("data/tags.json").then(data => data.json()).then(json => {
 	tags = json;
 	pageManager.populateTagList();
 });
+
+/*************************************************************************************************/
 
 function log(str) {
 	// $tag("textarea")[0].value = str;

@@ -55,10 +55,118 @@
 						<input class="search-block" type="text" name="Search" placeholder="Search">
 						<ul class="list-block noselect" id="list-champs"></ul>
 					</div>
-					<div class="right" id="champ-block-data">
-  						<!-- <label>Name</label> -->
-						<!-- <input class="input-block" type="text" value="HTML"> -->
-					</div>
+					<div class="right" id="champ-block-data"><form id="champion-form" action="">
+						<div class="input-group">
+							<div class="input-block"><label class="text-label">pascal</label><input id="idPascal" type="text"></div>
+							<div class="input-block"><label class="text-label">kebab</label><input id="idKebab" type="text"></div>
+							<div class="input-block"><label class="text-label">ddragon</label><input id="idDdragon" type="text"></div>
+							<div class="input-block"><label class="text-label">cdragon</label><input id="idCdragon" type="text"></div>
+							<div class="input-block"><label class="text-label">wiki</label><input id="idWiki" type="text"></div>
+							<div class="input-block"><label class="text-label">universe</label><input id="idUniverse" type="text"></div>
+						</div>
+						<div class="input-group">
+							<img id="img-portrait" src="">
+							<div class="input-block"><label class="text-label">name</label><input id="name" type="text"></div>
+							<div class="input-block"><label class="text-label">title</label><input id="title" type="text"></div>
+							<div class="input-block"><label class="text-label">portrait</label><input id="portrait" type="text"></div>
+						</div>
+						<hr>
+
+
+						<div class="input-group">
+							<div class="input-block"><label class="text-label" for="laneTop">Top</label><input type="checkbox" id="laneTop" name="lane" value="top"></div>
+							<div class="input-block"><label class="text-label" for="laneJg">Jg</label>  <input type="checkbox" id="laneJg" name="lane" value="jg"></div>
+							<div class="input-block"><label class="text-label" for="laneMid">Mid</label><input type="checkbox" id="laneMid" name="lane" value="mid"></div>
+							<div class="input-block"><label class="text-label" for="laneBot">Bot</label><input type="checkbox" id="laneBot" name="lane" value="bot"></div>
+							<div class="input-block"><label class="text-label" for="laneSup">Sup</label><input type="checkbox" id="laneSup" name="lane" value="sup"></div>
+							<div style="width: 24px;"></div>
+							<div class="input-block"><label class="text-label" for="roleFighter">Fighter</label><input type="checkbox" id="roleFighter" name="role" value="fighter"></div>
+							<div class="input-block"><label class="text-label" for="roleBuiser">Bruiser</label><input type="checkbox" id="roleBuiser" name="role" value="bruiser"></div>
+							<div class="input-block"><label class="text-label" for="roleAssassin">Assassin</label><input type="checkbox" id="roleAssassin" name="role" value="assassin"></div>
+							<div class="input-block"><label class="text-label" for="roleMage">Mage</label><input type="checkbox" id="roleMage" name="role" value="mage"></div>
+							<div class="input-block"><label class="text-label" for="roleMarksman">Marksman</label><input type="checkbox" id="roleMarksman" name="role" value="marksman"></div>
+							<div class="input-block"><label class="text-label" for="roleSupport">Support</label><input type="checkbox" id="roleSupport" name="role" value="support"></div>
+						</div>
+						<div class="input-group">
+							<div class="input-block"><label class="text-label">resource</label><input id="resource" type="text"></div>
+							<div class="input-block"><label class="text-label">attackRange</label><input id="attackRange" type="number"></div>
+							<div class="input-block"><label class="text-label" for="rangeTypeRanged">Ranged</label><input type="radio" id="rangeTypeRanged" name="rangeType" value="ranged"></div>
+							<div class="input-block"><label class="text-label" for="rangeTypeMelee">Melee</label><input type="radio" id="rangeTypeMelee" name="rangeType" value="melee"></div>
+						</div>
+						<hr>
+
+
+						<div class="input-group">
+							<div class="input-block"><label class="text-label">damage</label>   <input id="ratingDamage" type="number" min="1" max="3"></div>
+							<div class="input-block"><label class="text-label">mobility</label> <input id="ratingMobility" type="number" min="1" max="3"></div>
+							<div class="input-block"><label class="text-label">toughness</label><input id="ratingToughness" type="number" min="1" max="3"></div>
+							<div class="input-block"><label class="text-label">control</label>  <input id="ratingControl" type="number" min="1" max="3"></div>
+							<div class="input-block"><label class="text-label">utility</label>  <input id="ratingUtility" type="number" min="1" max="3"></div>
+						</div>
+						<div class="input-group">
+							<div class="input-block"><label class="text-label">difficulty</label><input id="difficulty" type="number" min="1" max="3"></div>
+							<div class="input-block"><label class="text-label">style</label>     <input id="style" type="number"></div>
+							<div class="input-block"><label class="text-label">magic</label>     <input id="dmgMagic" type="number"></div>
+							<div class="input-block"><label class="text-label">physical</label>  <input id="dmgPhysical" type="number"></div>
+							<div class="input-block"><label class="text-label">true_</label>     <input id="dmgTrue_" type="number"></div>
+						</div>
+						<hr>
+						<div class="input-group">
+							<div class="input-block"><label class="text-label">releaseDate</label><input id="releaseDate" type="text"></div>
+							<div class="input-block"><label class="text-label">releasePatch</label><input id="releasePatch" type="text"></div>
+						</div>
+						<hr>
+
+
+						<div class="input-group">
+							<div class="input-block"><label class="text-label">region</label><input id="region" type="text"></div>
+							<div class="input-block"><label class="text-label">species</label><input id="species" type="text"></div>
+						</div>
+						<hr>
+
+
+						<div class="input-group">
+							<div class="input-block"><label class="text-label">spotlightVideoID</label><input id="spotlightVideoID" type="text"></div>
+						</div>
+						<hr>
+
+
+						<div class="input-group">
+							<img id="img-ability-0" src="">
+							<div class="input-block"><label class="text-label">name</label><input id="ability-0-name" type="text"></div>
+							<div class="input-block"><label class="text-label">description</label><input id="ability-0-description" type="text"></div>
+							<div class="input-block"><label class="text-label">img</label><input id="ability-0-img" type="text"></div>
+							<div class="input-block"><label class="text-label">video</label><input id="ability-0-video" type="text"></div>
+						</div>
+						<div class="input-group">
+							<img id="img-ability-1" src="">
+							<div class="input-block"><label class="text-label">name</label><input id="ability-1-name" type="text"></div>
+							<div class="input-block"><label class="text-label">description</label><input id="ability-1-description" type="text"></div>
+							<div class="input-block"><label class="text-label">img</label><input id="ability-1-img" type="text"></div>
+							<div class="input-block"><label class="text-label">video</label><input id="ability-1-video" type="text"></div>
+						</div>
+						<div class="input-group">
+							<img id="img-ability-2" src="">
+							<div class="input-block"><label class="text-label">name</label><input id="ability-2-name" type="text"></div>
+							<div class="input-block"><label class="text-label">description</label><input id="ability-2-description" type="text"></div>
+							<div class="input-block"><label class="text-label">img</label><input id="ability-2-img" type="text"></div>
+							<div class="input-block"><label class="text-label">video</label><input id="ability-2-video" type="text"></div>
+						</div>
+						<div class="input-group">
+							<img id="img-ability-3" src="">
+							<div class="input-block"><label class="text-label">name</label><input id="ability-3-name" type="text"></div>
+							<div class="input-block"><label class="text-label">description</label><input id="ability-3-description" type="text"></div>
+							<div class="input-block"><label class="text-label">img</label><input id="ability-3-img" type="text"></div>
+							<div class="input-block"><label class="text-label">video</label><input id="ability-3-video" type="text"></div>
+						</div>
+						<div class="input-group">
+							<img id="img-ability-4" src="">
+							<div class="input-block"><label class="text-label">name</label><input id="ability-4-name" type="text"></div>
+							<div class="input-block"><label class="text-label">description</label><input id="ability-4-description" type="text"></div>
+							<div class="input-block"><label class="text-label">img</label><input id="ability-4-img" type="text"></div>
+							<div class="input-block"><label class="text-label">video</label><input id="ability-4-video" type="text"></div>
+						</div>
+					</form></div>
 				</div>
 			</div>
 			<!------------------------------------->
@@ -74,8 +182,8 @@
 				<input class="search-block" type="text" name="Search" placeholder="Search">
 				<ul class="list-block noselect" id="list-tags"></ul>
 				<div class="tag-edit-block">
-					<input class="input-block" type="text" name="" placeholder="000" id="input__tag-id">
-					<input class="input-block" type="text" name="" placeholder="Tag Name" id="input__tag-name">
+					<input type="text" name="" placeholder="000" id="input__tag-id">
+					<input type="text" name="" placeholder="Tag Name" id="input__tag-name">
 					<div style="width: 100%; height: 0;"></div>
 					<div class="noselect" style="display: flex; width: 100%">
 						<p class="btn">Show Champions</p>

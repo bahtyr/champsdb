@@ -45,55 +45,94 @@ class EditUiManager {
 		this.populateList("list-functions", this.funcs.map(fun => fun[0]), null, this.onClickFunc);
 	}
 
-	populateChampsFields() {
-		this.loopAndPrintEntries(champions[0], $id("champ-block-data"), 0);
-	}
+	populateChampData(i) {
+		$id("champion-form").reset();
+		$id("img-portrait").src = "";
+		$id("img-ability-0").src = "";
+		$id("img-ability-1").src = "";
+		$id("img-ability-2").src = "";
+		$id("img-ability-3").src = "";
+		$id("img-ability-4").src = "";
 
-	/****************************************** PRINT FIELDS *************************************/
+		$id("idPascal").value = champions[i].ids.pascal;
+		$id("idKebab").value = champions[i].ids.kebab;
+		$id("idDdragon").value = champions[i].ids.ddragon;
+		$id("idCdragon").value = champions[i].ids.cdragon;
+		$id("idWiki").value = champions[i].ids.wiki;
+		$id("idUniverse").value = champions[i].ids.universe;
+		
+		$id("img-portrait").src = champions[i].portrait;
+		$id("name").value = champions[i].name;
+		$id("title").value = champions[i].title;
+		$id("portrait").value = champions[i].portrait;
 
-	loopAndPrintEntries(obj, container, indent) {
-		Object.entries(obj).sort().forEach(entry => {
-			if (Array.isArray(entry[1]) || typeof entry[1] === "object") {
-				this.printLabel("champ-block-data", entry[0], indent);
-				let newRow = this.printRow(container);
-				this.loopAndPrintEntries(entry[1], newRow, indent + 1)
-			}
-			else if (typeof entry[1] === "function") { }
-			else this.printInputField(container, "text", entry[0], entry[1], indent);
-		});
-	}
+		if (champions[i].lanes.includes("Top")) $id("laneTop").checked = true;
+		if (champions[i].lanes.includes("Jun")) $id("laneJg").checked = true;
+		if (champions[i].lanes.includes("Mid")) $id("laneMid").checked = true;
+		if (champions[i].lanes.includes("Bot")) $id("laneBot").checked = true;
+		if (champions[i].lanes.includes("Sup")) $id("laneSup").checked = true;
 
-	printRow(container) {
-		let div = document.createElement("div");
-		div.classList.add("row");
-		container.appendChild(div);
-		return div;
-	}
+		if (champions[i].tags.includes("Fighter")) $id("roleFighter").checked = true;
+		if (champions[i].tags.includes("Bruiser")) $id("roleBuiser").checked = true;
+		if (champions[i].tags.includes("Assassin")) $id("roleAssassin").checked = true;
+		if (champions[i].tags.includes("Mage")) $id("roleMage").checked = true;
+		if (champions[i].tags.includes("Marksman")) $id("roleMarksman").checked = true;
+		if (champions[i].tags.includes("Support")) $id("roleSupport").checked = true;
 
-	printInputField(container, type, label, value, indent) {
-		let label_ = document.createElement("label");
-		let input = document.createElement("input");
-		let br = document.createElement("br");
-		label_.innerHTML = label;
-		label_.setAttribute("indent", indent);
-		input.setAttribute("type", type);
-		input.setAttribute("placeholder", label);
-		input.classList.add("input-block");
-		input.classList.add("row");
-		if (value) input.setAttribute("value", value);
-		container.appendChild(label_);
-		container.appendChild(input);
-		container.appendChild(br);
-	}
+		$id("resource").value = champions[i].resource;
+		$id("attackRange").value = champions[i].attackRange;
+		if (champions[i].rangeType.includes("Ranged")) $id("rangeTypeRanged").checked = true;
+		if (champions[i].rangeType.includes("Melee")) $id("rangeTypeMelee").checked = true;
 
-	printLabel(containerId, label, indent) {
-		let label_ = document.createElement("label");
-		let br = document.createElement("br");
-		label_.innerHTML = label;
-		label_.classList.add("collapsible-header");
-		label_.setAttribute("indent", indent);
-		$id(containerId).appendChild(label_);
-		$id(containerId).appendChild(br);
+		$id("ratingDamage").value = champions[i].ratings.damage;
+		$id("ratingMobility").value = champions[i].ratings.mobility;
+		$id("ratingToughness").value = champions[i].ratings.toughness;
+		$id("ratingControl").value = champions[i].ratings.control;
+		$id("ratingUtility").value = champions[i].ratings.utility;
+
+		$id("difficulty").value = champions[i].ratings.difficulty;
+		$id("style").value = champions[i].ratings.style;
+		$id("dmgMagic").value = champions[i].ratings.damageBreakdown.magic;
+		$id("dmgPhysical").value = champions[i].ratings.damageBreakdown.physical;
+		$id("dmgTrue_").value = champions[i].ratings.damageBreakdown.true_;
+
+		$id("releaseDate").value = champions[i].releaseDate;
+		$id("releasePatch").value = champions[i].releasePatch;
+
+		$id("region").value = champions[i].region;
+		$id("species").value = champions[i].species;
+
+		$id("spotlightVideoID").value = champions[i].spotlightVideoID;
+
+		$id("img-ability-0").src = champions[i].abilities[0].img;
+		$id("ability-0-name").value = champions[i].abilities[0].name;
+		$id("ability-0-description").value = champions[i].abilities[0].description;
+		$id("ability-0-img").value = champions[i].abilities[0].img;
+		$id("ability-0-video").value = champions[i].abilities[0].video;
+		
+		$id("img-ability-1").src = champions[i].abilities[1].img;
+		$id("ability-1-name").value = champions[i].abilities[1].name;
+		$id("ability-1-description").value = champions[i].abilities[1].description;
+		$id("ability-1-img").value = champions[i].abilities[1].img;
+		$id("ability-1-video").value = champions[i].abilities[1].video;
+		
+		$id("img-ability-2").src = champions[i].abilities[2].img;
+		$id("ability-2-name").value = champions[i].abilities[2].name;
+		$id("ability-2-description").value = champions[i].abilities[2].description;
+		$id("ability-2-img").value = champions[i].abilities[2].img;
+		$id("ability-2-video").value = champions[i].abilities[2].video;
+		
+		$id("img-ability-3").src = champions[i].abilities[3].img;
+		$id("ability-3-name").value = champions[i].abilities[3].name;
+		$id("ability-3-description").value = champions[i].abilities[3].description;
+		$id("ability-3-img").value = champions[i].abilities[3].img;
+		$id("ability-3-video").value = champions[i].abilities[3].video;
+
+		$id("img-ability-4").src = champions[i].abilities[4].img;
+		$id("ability-4-name").value = champions[i].abilities[4].name;
+		$id("ability-4-description").value = champions[i].abilities[4].description;
+		$id("ability-4-img").value = champions[i].abilities[4].img;
+		$id("ability-4-video").value = champions[i].abilities[4].video;
 	}
 
 	/****************************************** ONCLICK ******************************************/
@@ -103,7 +142,7 @@ class EditUiManager {
 	}
 
 	onClickChamp(i) {
-
+		pageManager.populateChampData(i);
 	}
 
 	onClickTag(i) {
