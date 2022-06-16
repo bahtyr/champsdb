@@ -1225,6 +1225,86 @@
     }
   },
   {
+    "ids": {
+      "cdragon": "200",
+      "ddragon": "Belveth",
+      "kebab": "bel-veth",
+      "universe": "Belveth",
+      "wiki": "Bel'Veth"
+    },
+    "name": "Bel'Veth",
+    "title": "the Empress of the Void",
+    "tags": [
+      "Fighter"
+    ],
+    "portrait": "https://ddragon.leagueoflegends.com/cdn/12.11.1/img/champion/Belveth.png",
+    "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Belveth_0.jpg",
+    "resource": "Mana",
+    "attackRange": "125",
+    "abilities": [
+      {
+        "name": "Death in Lavender ",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.11.1/img/passive/Belveth_Passive.Belveth.png",
+        "description": "Bel'Veth gains permanent attack speed stacks after taking down large monsters and champions. She also gains temporary bonus attack speed after using an ability.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0200/ability_0200_P1.webm"
+      },
+      {
+        "name": "Void Surge",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.11.1/img/spell/BelvethQ.png",
+        "description": "Bel'Veth dashes in a chosen direction and damages all enemies she passes through.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0200/ability_0200_Q1.webm"
+      },
+      {
+        "name": "Above and Below",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.11.1/img/spell/BelvethW.png",
+        "description": "Bel'Veth slams her tail to the ground, damaging, knocking up, and slowing her enemies.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0200/ability_0200_W1.webm"
+      },
+      {
+        "name": "Royal Maelstrom",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.11.1/img/spell/BelvethE.png",
+        "description": "Bel'Veth roots herself in place, channeling a storm of slashes around her that targets the lowest-health enemy and grants her lifesteal and damage reduction.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0200/ability_0200_E1.webm"
+      },
+      {
+        "name": "Endless Banquet",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.11.1/img/spell/BelvethR.png",
+        "description": "Bel'Veth consumes Void coral remnants, transforming into a her true form and increasing her max health, attack range, attack speed, and out-of-combat movement speed. Consuming the Void coral remnants of a Void epic monster will grant her a longer ultimate duration, as well as the power to summon Void remora.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0200/ability_0200_R1.webm"
+      }
+    ],
+    "ratings": {
+      "difficulty": "2",
+      "style": "10",
+      "damage": "3",
+      "toughness": "1",
+      "control": "2",
+      "mobility": "3",
+      "utility": "1",
+      "damageBreakdown": {
+        "magic": "0",
+        "physical": "100",
+        "true_": "0"
+      }
+    },
+    "lanes": "Jungle",
+    "lane": "Jungle",
+    "releaseDate": "2022-06-09",
+    "releasePatch": "V12.11",
+    "region": "Void",
+    "species": "Voidborn",
+    "spotlightVideoID": "lZC0QV4N3OU",
+    "rangeType": "Melee",
+    "tagArrays": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ]
+  },
+  {
     "name": "Blitzcrank",
     "title": "the Great Steam Golem",
     "tags": [
