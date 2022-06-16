@@ -1,4 +1,4 @@
-
+/*
 // ########     ###     ######  ######## 
 // ##     ##   ## ##   ##    ## ##       
 // ##     ##  ##   ##  ##       ##       
@@ -10,6 +10,11 @@
 // BASE
 */
 
+:root {
+	--header-height: 88px;
+  --max-width: 1060px;
+}
+
 ::-webkit-scrollbar-thumb:vertical {
 	background-color: #111;
 	-webkit-border-radius: 0;
@@ -19,18 +24,35 @@ body {
 	font-family: Spiegel-Regular;
 }
 
-#header__edit {
-	height: 48px;
-	display: flex;
-	align-items: center;
-	margin-left: 16px;
-	/*border-bottom: 1px solid #222;*/
+#header {
+	width: 100%;
+	background-color: #000;
+	background: radial-gradient(100% 90% at 0px 0px, rgb(147 115 65 / 20%), transparent 100%);
+	/*border-bottom: 1px solid #111;*/
 }
 
-#header__edit div {
-	height: 100%;
+#header .wrapper {
 	display: flex;
 	align-items: center;
+	justify-content: center;
+	max-width: var(--max-width);
+	margin: 0 auto;	
+	height: 88px;
+	grid-gap: 14px;
+}
+
+#header p {
+	color: #aaa;
+	font-family: Spiegel-Regular;
+	font-size: 12px;
+	letter-spacing: 0.07em;
+	letter-spacing: 1;
+}
+
+#logo {
+	display: flex;
+	align-items: center;
+	grid-gap: 10px;
 }
 
 h2 {
@@ -58,7 +80,7 @@ h2 {
 
 .sections {
 	position: absolute;
-	top: 48px;
+	top: var(--header-height);
 	bottom: 8px;
 	width: 100%;
 	display: flex;
