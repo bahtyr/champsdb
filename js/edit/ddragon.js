@@ -32,6 +32,21 @@ class DDragon {
 	}
 
 	/**
+	 * 
+	 */
+	 removeExistingChamps() {
+		this.champions = this.champions.filter(newChamp => {
+			// find matching names, and filter the rest
+			if (champions.find(champ => champ.name == newChamp.name))
+				return false;
+			else return true;
+		});
+
+		console.log(this.champions);
+		log(`${this.champions.length} champion(s) remain.`);
+	 }
+
+	/**
 	 * Get basic champion info.
 	 * - Name, Title, Tags[Fighter, Tank..], Portrait
 	 */
@@ -139,4 +154,14 @@ class DDragon {
 
 		fetchAll.start();
 	}
+
+	/**
+	 * This method removes this.champions to the main champions array.
+	 */
+	 transferChamps() {
+	 	champions.push(...this.champions);
+		champions.sort(ChampionFunctions.compareNames);
+		pageManager.populateChampsList();
+		log(`${this.champions.length} are added to champions list.`);
+	 }
 }

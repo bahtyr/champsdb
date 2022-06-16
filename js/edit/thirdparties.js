@@ -6,11 +6,14 @@ class ThirdParties {
 
 	// Games of Legends
 	URL_GOL_START = "https://gol.gg/champion";
-	URL_GOL = "https://gol.gg/champion/list/season-S12/split-Spring/tournament-ALL/"; // season no needs to be changed manually
+	URL_GOL = "https://gol.gg/champion/list/season-S12/split-ALL/tournament-ALL/"; // season no needs to be changed manually
 	//URL_GOL_CHAMP = "https://gol.gg/champion/champion-stats/champno/season-S12/split-Spring/tournament-ALL/"; //ie. 37 (0..100+)
 
 	constructor() { }
 
+	/**
+	 * Go to GOL, compare champ names (based on DDragon), save links of found champs.
+	 */
 	getGolChampUrls() {
 		fetch(this.URL_GOL)
 			.then(data => data.text())
@@ -19,10 +22,10 @@ class ThirdParties {
 				let champs = doc.querySelectorAll("table.playerslist tr td a");
 				champs.forEach(champ => {
 					/** FILTER HERE IF NECESSARY **/
-					if (!champ.textContent.includes("Zeri") && !champ.textContent.includes("Renata"))
-						return;
-					thirdparties.urls.push(
-						thirdparties.URL_GOL_START + champ.getAttribute("href").substring(1))
+					if (ddragon.champions.find(ddChamp => champ.textContent.includes(ddChamp.name))) {
+						thirdparties.urls.push(thirdparties.URL_GOL_START + champ.getAttribute("href").substring(1))
+					}
+					// if (!champ.textContent.includes("Zeri") && !champ.textContent.includes("Renata")) return;
 				});
 				console.warn("Games of Legends champions have loaded.")
 			});

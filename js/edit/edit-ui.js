@@ -7,12 +7,14 @@ class EditUiManager {
 	 */
 	funcs = [
 		["ddragon.getChamps", function() { ddragon.getChamps() }],
+		["ddragon.removeExistingChamps", function() { ddragon.removeExistingChamps() }],
 		["ddragon.getChampAbilities", function() { ddragon.getChampAbilities() }],
 		["ddragon.getChampLoreInfo", function() { ddragon.getChampLoreInfo() }],
 		["ddragon.getChampAbilityVideos", function() { ddragon.getChampAbilityVideos() }],
 		["cdragon.getChampRatings", function() { cdragon.getChampRatings() }],
 		["thirdparties.getGolChampUrls", function() { thirdparties.getGolChampUrls() }],
-		["thirdparties.getChampDamageBreakdown", function() { thirdparties.getChampDamageBreakdown() }]
+		["thirdparties.getChampDamageBreakdown", function() { thirdparties.getChampDamageBreakdown() }],
+		["ddragon.transferChamps", function() { ddragon.transferChamps() }],
 	];
 
 	selectedChampIndex = null;
@@ -23,13 +25,14 @@ class EditUiManager {
 	/****************************************** PRINT LISTS **************************************/
 
 	populateList(listId, array, onClick, onDblClick) {
+		$id(listId).innerHTML = "";
 		array.forEach((item, index) => {
 			let li = document.createElement("li");
 			let text = document.createTextNode(item);
 			if (onClick) li.onclick = function() { onClick(index) };
 			if (onDblClick) li.ondblclick = function() { onDblClick(index) };
 			li.appendChild(text);
-			document.getElementById(listId).appendChild(li);
+			$id(listId).appendChild(li);
 		});
 	}
 
@@ -54,7 +57,6 @@ class EditUiManager {
 		$id("img-ability-3").src = "";
 		$id("img-ability-4").src = "";
 
-		$id("idPascal").value = champions[i].ids.pascal;
 		$id("idKebab").value = champions[i].ids.kebab;
 		$id("idDdragon").value = champions[i].ids.ddragon;
 		$id("idCdragon").value = champions[i].ids.cdragon;
@@ -66,43 +68,43 @@ class EditUiManager {
 		$id("title").value = champions[i].title;
 		$id("portrait").value = champions[i].portrait;
 
-		if (champions[i].lanes.includes("Top")) $id("laneTop").checked = true;
-		if (champions[i].lanes.includes("Jun")) $id("laneJg").checked = true;
-		if (champions[i].lanes.includes("Mid")) $id("laneMid").checked = true;
-		if (champions[i].lanes.includes("Bot")) $id("laneBot").checked = true;
-		if (champions[i].lanes.includes("Sup")) $id("laneSup").checked = true;
+		if (champions[i].lanes?.includes("Top")) $id("laneTop").checked = true;
+		if (champions[i].lanes?.includes("Jun")) $id("laneJg").checked = true;
+		if (champions[i].lanes?.includes("Mid")) $id("laneMid").checked = true;
+		if (champions[i].lanes?.includes("Bot")) $id("laneBot").checked = true;
+		if (champions[i].lanes?.includes("Sup")) $id("laneSup").checked = true;
 
-		if (champions[i].tags.includes("Fighter")) $id("roleFighter").checked = true;
-		if (champions[i].tags.includes("Bruiser")) $id("roleBuiser").checked = true;
-		if (champions[i].tags.includes("Assassin")) $id("roleAssassin").checked = true;
-		if (champions[i].tags.includes("Mage")) $id("roleMage").checked = true;
-		if (champions[i].tags.includes("Marksman")) $id("roleMarksman").checked = true;
-		if (champions[i].tags.includes("Support")) $id("roleSupport").checked = true;
+		if (champions[i].tags?.includes("Fighter")) $id("roleFighter").checked = true;
+		if (champions[i].tags?.includes("Bruiser")) $id("roleBuiser").checked = true;
+		if (champions[i].tags?.includes("Assassin")) $id("roleAssassin").checked = true;
+		if (champions[i].tags?.includes("Mage")) $id("roleMage").checked = true;
+		if (champions[i].tags?.includes("Marksman")) $id("roleMarksman").checked = true;
+		if (champions[i].tags?.includes("Support")) $id("roleSupport").checked = true;
 
 		$id("resource").value = champions[i].resource;
 		$id("attackRange").value = champions[i].attackRange;
-		if (champions[i].rangeType.includes("Ranged")) $id("rangeTypeRanged").checked = true;
-		if (champions[i].rangeType.includes("Melee")) $id("rangeTypeMelee").checked = true;
+		if (champions[i].rangeType?.includes("Ranged")) $id("rangeTypeRanged").checked = true;
+		if (champions[i].rangeType?.includes("Melee")) $id("rangeTypeMelee").checked = true;
 
-		$id("ratingDamage").value = champions[i].ratings.damage;
-		$id("ratingMobility").value = champions[i].ratings.mobility;
-		$id("ratingToughness").value = champions[i].ratings.toughness;
-		$id("ratingControl").value = champions[i].ratings.control;
-		$id("ratingUtility").value = champions[i].ratings.utility;
+		$id("ratingDamage").value = champions[i].ratings?.damage;
+		$id("ratingMobility").value = champions[i].ratings?.mobility;
+		$id("ratingToughness").value = champions[i].ratings?.toughness;
+		$id("ratingControl").value = champions[i].ratings?.control;
+		$id("ratingUtility").value = champions[i].ratings?.utility;
 
-		$id("difficulty").value = champions[i].ratings.difficulty;
-		$id("style").value = champions[i].ratings.style;
-		$id("dmgMagic").value = champions[i].ratings.damageBreakdown.magic;
-		$id("dmgPhysical").value = champions[i].ratings.damageBreakdown.physical;
-		$id("dmgTrue_").value = champions[i].ratings.damageBreakdown.true_;
+		$id("difficulty").value = champions[i].ratings?.difficulty;
+		$id("style").value = champions[i].ratings?.style;
+		$id("dmgMagic").value = champions[i].ratings?.damageBreakdown?.magic ?? 0;
+		$id("dmgPhysical").value = champions[i].ratings?.damageBreakdown?.physical ?? 0;
+		$id("dmgTrue_").value = champions[i].ratings?.damageBreakdown?.true_ ?? 0;
 
-		$id("releaseDate").value = champions[i].releaseDate;
-		$id("releasePatch").value = champions[i].releasePatch;
+		$id("releaseDate").value = champions[i].releaseDate ?? "";
+		$id("releasePatch").value = champions[i].releasePatch ?? "";
 
-		$id("region").value = champions[i].region;
-		$id("species").value = champions[i].species;
+		$id("region").value = champions[i].region ?? "";
+		$id("species").value = champions[i].species ?? "";
 
-		$id("spotlightVideoID").value = champions[i].spotlightVideoID;
+		$id("spotlightVideoID").value = champions[i].spotlightVideoID ?? "";
 
 		$id("img-ability-0").src = champions[i].abilities[0].img;
 		$id("ability-0-name").value = champions[i].abilities[0].name;
@@ -150,5 +152,4 @@ class EditUiManager {
 		$id("input__tag-id").value = tags[i].id;
 		$id("input__tag-name").value = tags[i].name;
 	}
-
 }

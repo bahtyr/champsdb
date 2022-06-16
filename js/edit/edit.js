@@ -28,6 +28,7 @@ function log(str) {
 
 function updateChamps() { updateData("champions", champions); }
 function updateData(fileName, data) {
+	log(`Updating ${fileName}.`);
 	let xhr = new XMLHttpRequest();
 	xhr.onreadystatechange = () => (xhr.readyState === 4) && console.log(xhr.responseText);
 	xhr.open("POST", "./js/server/update.php?file="+fileName, true);
