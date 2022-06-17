@@ -17,8 +17,10 @@ class EditUiManager {
 		["ddragon.transferChamps", function() { ddragon.transferChamps() }],
 	];
 
-	selectedChampIndex = null;
+	selectedChampIndex = null;   //index within data array
+	selectedChampElIndex = null; //index of the html list element
 	selectedTagIndex = null;
+	selectedTagElIndex = null;
 
 	constructor() {}
 
@@ -36,12 +38,22 @@ class EditUiManager {
 		});
 	}
 
-	populateChampsList() {
-		this.populateList("list-champs", champions.map(champ => champ.name), this.onClickChamp);
+	populateChampsList(indexArr) {
+		let arr;
+		if (indexArr != null)
+			arr = champions.filter((champ, index) => indexArr.includes(index)).map(champ => champ.name);
+		else arr = champions.map(champ => champ.name);
+
+		this.populateList("list-champs", arr, this.onClickChamp);
 	}
 
-	populateTagList() {
-		this.populateList("list-tags", tags.map(tag => tag.id + " - " + tag.name), this.onClickTag);
+	populateTagList(search) {
+		let arr;
+		if (search && typeof search == "string")
+			arr = tags.filter(tag => tag.name.toLowerCase().includes(search)).map(tag => tag.id + " - " + tag.name);
+		else arr = tags.map(tag => tag.id + " - " + tag.name);
+
+		this.populateList("list-tags", arr, this.onClickTag);
 	}
 
 	populateFunctions() {
@@ -241,14 +253,60 @@ class EditUiManager {
 		pageManager.funcs[i][1]();
 	}
 
-	onClickChamp(i) {
-		pageManager.selectedChampIndex = i;
-		pageManager.populateChampData(i);
+	onClickChamp(elIndex) {
+		let champName = $query(`#list-champs li:nth-child(${elIndex+1})`).textContent;
+		pageManager.selectedChampElIndex = elIndex;
+		pageManager.selectedChampIndex = champions.findIndex(champ => champ.name == champName);
+		pageManager.populateChampData(pageManager.selectedChampIndex);
 	}
 
-	onClickTag(i) {
+	onClickTag(elIndex) {
+		let text = $query(`#list-tags li:nth-child(${elIndex+1})`).textContent;
+		let id = parseInt(text.split(" - ")[0]);
+		let i = tags.findIndex(tag => tag.id == id);
+		pageManager.selectedTagElIndex = elIndex;
 		pageManager.selectedTagIndex = i;
 		$id("input__tag-id").value = tags[i].id;
 		$id("input__tag-name").value = tags[i].name;
+	}
+
+	onSearchTag(obj) {
+		this.populateTagList(obj.value.trim().toLowerCase());
+	}
+
+	/******************** tags *****************/
+
+	tagOnClickShowChamps() {
+		console.log(tags[this.selectedTagIndex].champIndexes)
+		this.populateChampsList(tags[this.selectedTagIndex].champIndexes);
+	}
+
+	tagOnClickClear() {
+		this.selectedTagIndex = null;
+		$id("input__tag-id").value = "";
+		$id("input__tag-name").value = "";
+	}
+
+	tagOnClickNew() {
+		if ($id("input__tag-name").value == "") return;
+		let name = $id("input__tag-name").value;
+		TagFunctions.createTag(name);
+		this.populateTagList();
+		$id("list-tags").scrollTop = $id("list-tags").scrollHeight;
+	}
+
+	tagOnClickSave() {
+		let i = this.selectedTagIndex;
+		let name = $id("input__tag-name").value;
+		let id = parseInt($id("input__tag-id").value);
+		TagFunctions.updateTag(i, id, name);
+		$query(`#list-tags li:nth-child(${this.selectedTagElIndex+1})`).textContent = id + " - " + name;
+	}
+
+	addTagToAbility(ability) {
+		if (pageManager.selectedChampIndex == null) return;
+		let tagId = tags[pageManager.selectedTagIndex].id;
+		TagFunctions.addToChamp(tagId, selectedChampIndex, ability)
+		console.log(champions[pageManager.selectedChampIndex].tagArrays[ability]);
 	}
 }

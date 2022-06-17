@@ -15,6 +15,7 @@ fetch("data/champions.json").then(data => data.json()).then(json => {
 fetch("data/tags.json").then(data => data.json()).then(json => {
 	tags = json;
 	pageManager.populateTagList();
+	TagFunctions.initIndexes();
 });
 
 /*************************************************************************************************/
@@ -27,6 +28,7 @@ function log(str) {
 /****************************************** UPDATE DATA ******************************************/
 
 function updateChamps() { updateData("champions", champions); }
+function updateTags() { updateData("tags", tags); }
 function updateData(fileName, data) {
 	log(`Updating ${fileName}.`);
 	let xhr = new XMLHttpRequest();
@@ -38,13 +40,9 @@ function updateData(fileName, data) {
 
 /****************************************** TAGS *************************************************/
 
-function _createTag(name) {
-	let newId = tags[tags.length - 1].id + 1;
-	tags.push({id: newId, name: name, champIndexes: []});
-	return newId;
-}
 
-/******************/
+
+/***************** REMOVE THESE  */
 
 function _addTagToChamps(tagId) {
 	if (tagId == null)

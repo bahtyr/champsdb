@@ -22,7 +22,7 @@ fetch("data/sidebar.json").then(data => data.json()).then(json => {
 
 fetch("data/tags.json").then(data => data.json()).then(json => {
 	tags = json;
-	matchChampionsAndTags();
+	TagFunctions.initIndexes();
 });
 
 fetch("data/patches.json").then(data => data.json()).then(json => {
@@ -30,21 +30,6 @@ fetch("data/patches.json").then(data => data.json()).then(json => {
 	printPatchInfo();
 });
 
-/* wait for both champions & tags to be initiated, then run only once */
-let champTagsMatched = false;
-function matchChampionsAndTags() {
-	if (champTagsMatched) return;
-	if (champions && champions.length == 0) return;
-	if (tags      && tags.length == 0) return;
-	champTagsMatched = true;
-
-	/* put champions' tagArrays to each tag as championIndexes */
-	tags.forEach(tag => champions.forEach((champ, index) => {
-		champ.tagArrays.forEach(t => {
-			if (t.includes(tag.id)) tag.champIndexes.push(index);
-		});
-	}));
-}
 
 /* find current patch and print */
 function printPatchInfo() {

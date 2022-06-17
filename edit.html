@@ -190,29 +190,30 @@
 			<div class="section-block" style="flex: 0.5">
 				<div class="section-header noselect">
 					<h3>Tags</h3>
-					<div style="width: 100%"></div>
-					<p class="btn">New</p>
-					<p class="btn">Export</p>
+					<div style="flex: 1;"></div>
+					<p class="btn" onclick="updateTags()">Export to File</p>
 				</div>
-				<input class="search-block" type="text" name="Search" placeholder="Search">
+				<input class="search-block" type="text" name="Search" placeholder="Search" oninput="pageManager?.onSearchTag(this)">
 				<ul class="list-block noselect" id="list-tags"></ul>
 				<div class="tag-edit-block">
 					<input type="text" name="" placeholder="000" id="input__tag-id">
 					<input type="text" name="" placeholder="Tag Name" id="input__tag-name">
 					<div style="width: 100%; height: 0;"></div>
 					<div class="noselect" style="display: flex; width: 100%">
-						<p class="btn">Show Champions</p>
+						<p class="btn"onclick="pageManager?.tagOnClickShowChamps()">Show Champions</p>
 						<div style="flex: 1;"></div>
-						<p class="btn">Save</p>
+						<p class="btn" onclick="pageManager?.tagOnClickClear()">X</p>
+						<p class="btn" onclick="pageManager?.tagOnClickNew()">New</p>
+						<p class="btn" onclick="pageManager?.tagOnClickSave()">Save</p>
 					</div>
 					<div class="noselect" >
 						<p class="btn fake">Add Tag to:</p>
-						<p class="btn">Champ</p>
-						<p class="btn">P</p>
-						<p class="btn">Q</p>
-						<p class="btn">W</p>
-						<p class="btn">E</p>
-						<p class="btn">R</p>
+						<p class="btn" onclick="pageManager?.addTagToAbility(0)">Champ</p>
+						<p class="btn" onclick="pageManager?.addTagToAbility(1)">P</p>
+						<p class="btn" onclick="pageManager?.addTagToAbility(2)">Q</p>
+						<p class="btn" onclick="pageManager?.addTagToAbility(3)">W</p>
+						<p class="btn" onclick="pageManager?.addTagToAbility(4)">E</p>
+						<p class="btn" onclick="pageManager?.addTagToAbility(5)">R</p>
 					</div>
 					<div style="width: 100%; height: 0;"></div>
 				</div>

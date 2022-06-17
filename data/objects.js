@@ -56,3 +56,48 @@ var ChampionMiscFunctions = {
 		return str.replace(/[\s]/g, '_');
 	}
 }
+
+var TagFunctions = {
+
+	/**
+	 * matches champions' indexes with tags, (adds a champ's index to a tag's champIndexes[])
+	 * wait for both champions & tags to be initiated, then run only once
+	 * */
+	isInitDone: false,
+	initIndexes: function() {
+		if (this.isInitDone) return;
+		if (champions && champions.length == 0) return;
+		if (tags      && tags.length == 0) return;
+		this.isInitDone = true;
+
+		/* put champions' tagArrays to each tag as championIndexes */
+		tags.forEach(tag => champions.forEach((champ, index) => {
+			champ.tagArrays.forEach(t => {
+				if (t.includes(tag.id)) tag.champIndexes.push(index);
+			});
+		}));
+	},
+
+	/******************** CRUD *****************/
+
+	createTag: function(name) {
+		let newId = tags[tags.length - 1].id + 1;
+		tags.push({id: newId, name: name, champIndexes: []});
+		return newId;
+	},
+
+	deleteTag: function() {}, //TODO
+
+	renameTag: function(index, name, id) {
+		if (index != null) return;
+		if (name != null)  tags[i].name = name
+		if (id != null)    tags[i].id = id;
+	},
+
+	addToChamp: function(tagId, champIndex, champAbilityIndex) {
+		if (champions[champIndex].tagArrays[champAbilityIndex].includes(tagId)) return;
+		    champions[champIndex].tagArrays[champAbilityIndex].push(tagId);
+	},
+
+	removeFromChamp: function(tagId, champIndex, champAbilityIndex) {} //TODO
+}
