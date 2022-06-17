@@ -31,8 +31,8 @@ class EditUiManager {
 		array.forEach((item, index) => {
 			let li = document.createElement("li");
 			let text = document.createTextNode(item);
-			if (onClick) li.onclick = function() { onClick(index) };
-			if (onDblClick) li.ondblclick = function() { onDblClick(index) };
+			if (onClick) li.onclick = function(event) { onClick(index, item, event) };
+			if (onDblClick) li.ondblclick = function() { onDblClick(index, item, event) };
 			li.appendChild(text);
 			$id(listId).appendChild(li);
 		});
@@ -49,8 +49,10 @@ class EditUiManager {
 
 	populateTagList(search) {
 		let arr;
-		if (search && typeof search == "string")
-			arr = tags.filter(tag => tag.name.toLowerCase().includes(search)).map(tag => tag.id + " - " + tag.name);
+		if (typeof search == "string")
+			search = search.trim().toLowerCase();
+		if (search != null)
+			arr = tags.filter(tag => tag.name.toLowerCase().includes(search) || tag.id === search).map(tag => tag.id + " - " + tag.name);
 		else arr = tags.map(tag => tag.id + " - " + tag.name);
 
 		this.populateList("list-tags", arr, this.onClickTag);
@@ -147,6 +149,20 @@ class EditUiManager {
 		$id("ability-4-description").value = champions[i].abilities[4].description;
 		$id("ability-4-img").value = champions[i].abilities[4].img;
 		$id("ability-4-video").value = champions[i].abilities[4].video;
+
+		pageManager.populateChampTags();
+	}
+
+	populateChampTags() {
+		$id("champtags-0").innerHTML = "";
+		$id("champtags-1").innerHTML = "";
+		$id("champtags-2").innerHTML = "";
+		$id("champtags-3").innerHTML = "";
+		$id("champtags-4").innerHTML = "";
+		$id("champtags-5").innerHTML = "";
+		champions[pageManager.selectedChampIndex].tagArrays.forEach((arr, index) => {
+			this.populateList(`champtags-${index}`, arr.map(id => tags.find(tag => tag.id == id)?.name), this.champOnClickTag, this.champOnDblClickTag);
+		});
 	}
 
 	/****************************************** READ *********************************************/
@@ -246,7 +262,6 @@ class EditUiManager {
 		log(`Saved ${i}:${champions[i].name}.`);
 	}
 
-
 	/****************************************** ONCLICK ******************************************/
 
 	onClickFunc(i) {
@@ -271,7 +286,22 @@ class EditUiManager {
 	}
 
 	onSearchTag(obj) {
-		this.populateTagList(obj.value.trim().toLowerCase());
+		this.populateTagList(obj.value);
+	}
+
+	/******************** champ's tags *********/
+
+	champOnClickTag(elIndex, elText, event) {
+		let tagName = elText;
+		$id("search-tags").value = tagName;
+		pageManager.populateTagList(tagName);
+		pageManager.onClickTag(0);
+	}
+
+	champOnDblClickTag(elIndex, elText, event) {
+		let abilityIndex = parseInt(event.path[1].id.split("-")[1]);
+		TagFunctions.removeFromChamp(pageManager.selectedChampIndex, abilityIndex, elIndex)
+		pageManager.populateChampTags();
 	}
 
 	/******************** tags *****************/

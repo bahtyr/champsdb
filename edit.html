@@ -34,18 +34,6 @@
 			</div>
 		</div>
 
-		<!-- <div id="header__edit">
-			<h1 id="site-heading">ChampsDB</h1>
-			<h2 class="edit-heading">Functions</h2>
-			<h2 class="edit-heading">Champions</h2>
-			<h2 class="edit-heading" >Tags</h2>
-			<h2 class="edit-heading">Sidebar</h2>
-			<h2 class="edit-heading">Patches</h2>
-		</div> -->
-
-		<!------------------------------------->
-		<!--           ALL SECTIONS          -->
-		<!------------------------------------->
 		<div class="sections">
 			<!------------------------------------->
 			<!--       SECTION: Functions        -->
@@ -181,6 +169,32 @@
 							<div class="input-block"><label class="text-label">img</label><input id="ability-4-img" type="text"></div>
 							<div class="input-block"><label class="text-label">video</label><input id="ability-4-video" type="text"></div>
 						</div>
+						<hr>
+
+						<div class="input-group champtags noselect">
+							<label>champ</label>
+							<ul id="champtags-0"></ul>
+						</div>
+						<div class="input-group champtags noselect">
+							<label>p</label>
+							<ul id="champtags-1"></ul>
+						</div>
+						<div class="input-group champtags noselect">
+							<label>q</label>
+							<ul id="champtags-2"></ul>
+						</div>
+						<div class="input-group champtags noselect">
+							<label>w</label>
+							<ul id="champtags-3"></ul>
+						</div>
+						<div class="input-group champtags noselect">
+							<label>e</label>
+							<ul id="champtags-4"></ul>
+						</div>
+						<div class="input-group champtags noselect">
+							<label>r</label>
+							<ul id="champtags-5"></ul>
+						</div>
 					</form></div>
 				</div>
 			</div>
@@ -193,7 +207,7 @@
 					<div style="flex: 1;"></div>
 					<p class="btn" onclick="updateTags()">Export to File</p>
 				</div>
-				<input class="search-block" type="text" name="Search" placeholder="Search" oninput="pageManager?.onSearchTag(this)">
+				<input id="search-tags" class="search-block" type="text" name="Search" placeholder="Search" oninput="pageManager?.onSearchTag(this)">
 				<ul class="list-block noselect" id="list-tags"></ul>
 				<div class="tag-edit-block">
 					<input type="text" name="" placeholder="000" id="input__tag-id">

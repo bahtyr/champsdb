@@ -391,14 +391,36 @@ label[indent='1'] { margin-left: 24px; }
 label[indent='2'] { margin-left: 48px; }
 
 
-/*-----------------*/
+/*---------------------------------------*/
 
-.collapsible-header {
-	color: red;
-
-}
-/*
-.collapsible-content {
-	color: blue;
+.champtags {
+	align-items: center;
+	padding-top: 4px;
 }
 
+.champtags label {
+	min-width: 5ch;
+	min-height: 30px;
+	text-align: right;
+	font-weight: bold;
+}
+
+.champtags li {
+	display: inline-block;
+	color: #666;
+	background-color: #111;
+	cursor: pointer;
+	margin-right: 4px;
+	margin-bottom: 4px;
+	padding: 4px 12px;
+	font-size: 14px;
+}
+
+.champtags:hover { background-color: hsl(0deg 0% 3%); }
+
+.champtags:hover label { color: #999; }
+
+.champtags li:hover {
+	color: #ccc;
+	background-color: #333;
+}
