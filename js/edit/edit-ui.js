@@ -336,7 +336,7 @@ class EditUiManager {
 	addTagToAbility(ability) {
 		if (pageManager.selectedChampIndex == null) return;
 		let tagId = tags[pageManager.selectedTagIndex].id;
-		TagFunctions.addToChamp(tagId, selectedChampIndex, ability)
-		console.log(champions[pageManager.selectedChampIndex].tagArrays[ability]);
+		TagFunctions.addToChamp(tagId, pageManager.selectedChampIndex, ability)
+		pageManager.populateChampTags();
 	}
 }
