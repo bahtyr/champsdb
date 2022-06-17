@@ -59,9 +59,9 @@ class DDragon {
 				obj.ids = {};
 				obj.ids.cdragon = champ.key;
 				obj.ids.ddragon = champ.id;
-				obj.ids.kebab = ChampionMiscFunctions.toKebabCase(champ.name);
+				obj.ids.kebab = ChampionFunctions.generateIdKebabCase(champ.name);
 				obj.ids.universe = champ.id;
-				obj.ids.wiki = ChampionMiscFunctions.toWikiCase(champ.name);
+				obj.ids.wiki = ChampionFunctions.generateIdWikiCase(champ.name);
 
 				/** HANDLE SPECIAL CASES HERE **/
 				switch (obj.ids.ddragon) {
@@ -154,14 +154,4 @@ class DDragon {
 
 		fetchAll.start();
 	}
-
-	/**
-	 * This method removes this.champions to the main champions array.
-	 */
-	 transferChamps() {
-	 	champions.push(...this.champions);
-		champions.sort(ChampionFunctions.compareNames);
-		pageManager.populateChampsList();
-		log(`${this.champions.length} are added to champions list.`);
-	 }
 }

@@ -14,7 +14,7 @@ class EditUiManager {
 		["cdragon.getChampRatings", function() { cdragon.getChampRatings() }],
 		["thirdparties.getGolChampUrls", function() { thirdparties.getGolChampUrls() }],
 		["thirdparties.getChampDamageBreakdown", function() { thirdparties.getChampDamageBreakdown() }],
-		["ddragon.transferChamps", function() { ddragon.transferChamps() }],
+		["ChampionFunctions.addChamps", function() { ChampionFunctions.addChamps(); pageManager.populateChampsList(); }],
 	];
 
 	selectedChampIndex = null;   //index within data array
