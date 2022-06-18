@@ -176,7 +176,7 @@ class EditUiManager {
 		});
 	}
 
-	readChampData() {
+	saveChampData() {
 		let form = $id("champion-form");
 		let i = this.selectedChampIndex;
 		// let champ = {ids: {}, abilities: [{},{},{},{},{}], ratings: {damageBreakdown: {}}};
@@ -269,9 +269,27 @@ class EditUiManager {
 			champions[i].tagArrays = [[],[],[],[],[],[]];
 
 		log(`Saved ${i}:${champions[i].name}.`);
+		pageManager.highlightExport("champions");
 	}
 
 	/****************************************** ONCLICK ******************************************/
+
+	/******************** save / export ********/
+
+	onClickExport(id) {
+		// note: pointerEvetns of export without highlight is disabled through css
+		$id(id).classList.remove("highlight");
+		switch (id) {
+			case "export-champions": updateChamps(); break;
+			case "export-tags":      updateTags(); break;
+		}
+	}
+
+	highlightExport(sectionName) {
+		$id("export-"+sectionName).classList.add("highlight");
+	}
+
+	/******************** list *****************/
 
 	onClickFunc(i) {
 		pageManager.funcs[i][1]();
@@ -325,12 +343,12 @@ class EditUiManager {
 		let abilityIndex = parseInt(event.path[1].id.split("-")[1]);
 		TagFunctions.removeFromChamp(pageManager.selectedChampIndex, abilityIndex, elIndex)
 		pageManager.populateChampTags();
+		pageManager.highlightExport("champions");
 	}
 
 	/******************** tags *****************/
 
 	tagOnClickShowChamps() {
-		console.log(tags[this.selectedTagIndex].champIndexes)
 		this.populateChampsList(tags[this.selectedTagIndex].champIndexes);
 	}
 
@@ -346,20 +364,23 @@ class EditUiManager {
 		TagFunctions.createTag(name);
 		this.populateTagList();
 		$id("list-tags").scrollTop = $id("list-tags").scrollHeight;
+		pageManager.highlightExport("tags");
 	}
 
 	tagOnClickSave() {
 		let i = this.selectedTagIndex;
 		let name = $id("input__tag-name").value;
 		let id = parseInt($id("input__tag-id").value);
-		TagFunctions.updateTag(i, id, name);
+		TagFunctions.renameTag(i, id, name);
 		$query(`#list-tags li:nth-child(${this.selectedTagElIndex+1})`).textContent = id + " - " + name;
+		pageManager.highlightExport("tags");
 	}
 
-	addTagToAbility(ability) {
+	tagOnClickAddToAbility(ability) {
 		if (pageManager.selectedChampIndex == null) return;
 		let tagId = tags[pageManager.selectedTagIndex].id;
 		TagFunctions.addToChamp(tagId, pageManager.selectedChampIndex, ability)
 		pageManager.populateChampTags();
+		pageManager.highlightExport("champions");
 	}
 }

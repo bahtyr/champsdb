@@ -176,6 +176,27 @@ h3 {
 	background-color: initial;
 }
 
+.btn.export {
+	color: #888;
+	cursor: unset;
+	transition: .3s ease-in-out;
+	transition-property: color, background;
+	margin: 0 4px;
+}
+
+.btn.export:not(.highlight):hover {
+	background-color: unset;
+	pointer-events: none;
+}
+
+.btn.export.highlight {
+	cursor: pointer;
+	color: var(--yellow-text);
+	background-color: #151109;
+}
+
+
+
 /*
 // ##       ####  ######  ########    ########  ##        #######   ######  ##    ## 
 // ##        ##  ##    ##    ##       ##     ## ##       ##     ## ##    ## ##   ##  
