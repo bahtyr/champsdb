@@ -38,7 +38,7 @@
 			<!------------------------------------->
 			<!--       SECTION: Functions        -->
 			<!------------------------------------->
-			<div class="section-block" style="flex: 0.5">
+			<div class="section-block" style="flex: 0.25">
 				<div class="section-header noselect">
 					<h3>Functions</h3>
 				</div>
@@ -56,7 +56,10 @@
 				</div>
 				<div class="leftright-wrapper">
 					<div class="left">
-						<input class="search-block" type="text" name="Search" placeholder="Search">
+						<div class="search-block">
+							<input id="search-champions" type="text" placeholder="Search" oninput="pageManager?.onSearchChampion(this)">
+							<span class="noselect" onclick="pageManager?.clearSearch('search-champions')">X</span>
+						</div>
 						<ul class="list-block noselect" id="list-champs"></ul>
 					</div>
 					<div class="right" id="champ-block-data"><form id="champion-form" action="">
@@ -207,7 +210,10 @@
 					<div style="flex: 1;"></div>
 					<p class="btn" onclick="updateTags()">Export to File</p>
 				</div>
-				<input id="search-tags" class="search-block" type="text" name="Search" placeholder="Search" oninput="pageManager?.onSearchTag(this)">
+				<div class="search-block">
+					<input id="search-tags" type="text" placeholder="Search" oninput="pageManager?.onSearchTag(this)">
+					<span class="noselect" onclick="pageManager?.clearSearch('search-tags')">X</span>
+				</div>
 				<ul class="list-block noselect" id="list-tags"></ul>
 				<div class="tag-edit-block">
 					<input type="text" name="" placeholder="000" id="input__tag-id">

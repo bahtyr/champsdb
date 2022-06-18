@@ -213,6 +213,10 @@ h3 {
 */
 
 .search-block {
+	position: relative;
+}
+
+.search-block input {
 	width: 100%;
 	background: transparent;
 	border-radius: 0;
@@ -223,15 +227,28 @@ h3 {
 	border-bottom: 1px solid #222;
 }
 
-.search-block::placeholder,
-.search-block:-ms-input-placeholder,
-.search-block::-ms-input-placeholder {
+.search-block input::placeholder,
+.search-block input:-ms-input-placeholder,
+.search-block input::-ms-input-placeholder {
   color: #666;
   opacity: 1;
 }
 
-.search-block:focus {
+.search-block input:focus {
     outline: none;
+}
+
+/* clear */
+
+.search-block span {
+	position: absolute;
+	right: 5;
+	font-style: monospace;
+	font-weight: bold;
+	text-transform: lowercase;
+	color: #ccc;
+	cursor: pointer;
+	padding: 5px;
 }
 
 /*

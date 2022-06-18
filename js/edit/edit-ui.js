@@ -38,11 +38,14 @@ class EditUiManager {
 		});
 	}
 
-	populateChampsList(indexArr) {
+	populateChampsList(search) {
 		let arr;
-		if (indexArr != null)
-			arr = champions.filter((champ, index) => indexArr.includes(index)).map(champ => champ.name);
-		else arr = champions.map(champ => champ.name);
+		if (search == null)
+			arr = champions.map(champ => champ.name);
+		else if (typeof search == "string")
+			arr = champions.filter(champ => champ.name.toLowerCase().includes(search.toLowerCase())).map(champ => champ.name);
+		else if (Array.isArray(search))
+			arr = champions.filter((champ, index) => search.includes(index)).map(champ => champ.name);
 
 		this.populateList("list-champs", arr, this.onClickChamp);
 	}
@@ -61,6 +64,8 @@ class EditUiManager {
 	populateFunctions() {
 		this.populateList("list-functions", this.funcs.map(fun => fun[0]), null, this.onClickFunc);
 	}
+
+	/****************************************** SECTION CONTENT **********************************/
 
 	populateChampData(i) {
 		$id("champion-form").reset();
@@ -164,8 +169,6 @@ class EditUiManager {
 			this.populateList(`champtags-${index}`, arr.map(id => tags.find(tag => tag.id == id)?.name), this.champOnClickTag, this.champOnDblClickTag);
 		});
 	}
-
-	/****************************************** READ *********************************************/
 
 	readChampData() {
 		let form = $id("champion-form");
@@ -285,8 +288,22 @@ class EditUiManager {
 		$id("input__tag-name").value = tags[i].name;
 	}
 
+	/******************** search ***************/
+
+	onSearchChampion(obj) {
+		this.populateChampsList(obj.value);
+	}
+
 	onSearchTag(obj) {
 		this.populateTagList(obj.value);
+	}
+
+	clearSearch(id) {
+		$id(id).value = "";
+		switch (id) {
+			case "search-champions": this.populateChampsList(); break;
+			case "search-tags": this.populateTagList(); break;
+		}
 	}
 
 	/******************** champ's tags *********/
