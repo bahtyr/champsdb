@@ -13,6 +13,7 @@
 :root {
 	--header-height: 88px;
   --max-width: 1060px;
+  --yellow-text: #937341;
 }
 
 ::-webkit-scrollbar-thumb:vertical {
@@ -47,6 +48,11 @@ body {
 	font-size: 12px;
 	letter-spacing: 0.07em;
 	letter-spacing: 1;
+	cursor: pointer;
+}
+
+#header p:hover {
+	color: var(--yellow-text);
 }
 
 #logo {
@@ -94,6 +100,10 @@ h2 {
 	height: 100%;
 	border: 1px solid #222;
 	border-radius: 5px;
+}
+
+.section-block.hide{
+	display: none;
 }
 
 /*
@@ -246,7 +256,7 @@ h3 {
 	font-style: monospace;
 	font-weight: bold;
 	text-transform: lowercase;
-	color: #ccc;
+	color: #666;
 	cursor: pointer;
 	padding: 5px;
 }

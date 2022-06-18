@@ -23,6 +23,12 @@ class EditUiManager {
 	selectedTagElIndex = null;
 
 	constructor() {}
+	/****************************************** ETC **********************************************/
+
+	toggleSection(id) {
+		if (!id) return;
+		$id(id).classList.toggle("hide");
+	}
 
 	/****************************************** PRINT LISTS **************************************/
 
@@ -47,7 +53,7 @@ class EditUiManager {
 		else if (Array.isArray(search))
 			arr = champions.filter((champ, index) => search.includes(index)).map(champ => champ.name);
 
-		this.populateList("list-champs", arr, this.onClickChamp);
+		this.populateList("list-champions", arr, this.onClickChamp);
 	}
 
 	populateTagList(search) {
@@ -272,7 +278,7 @@ class EditUiManager {
 	}
 
 	onClickChamp(elIndex) {
-		let champName = $query(`#list-champs li:nth-child(${elIndex+1})`).textContent;
+		let champName = $query(`#list-champions li:nth-child(${elIndex+1})`).textContent;
 		pageManager.selectedChampElIndex = elIndex;
 		pageManager.selectedChampIndex = champions.findIndex(champ => champ.name == champName);
 		pageManager.populateChampData(pageManager.selectedChampIndex);
