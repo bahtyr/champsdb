@@ -438,6 +438,7 @@ label {
 
 #champ-block-data input {
 	/*width: 100%;*/
+	padding-right: 4px;
 }
 
 label[indent='1'] { margin-left: 24px; }
