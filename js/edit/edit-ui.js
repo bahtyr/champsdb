@@ -300,12 +300,14 @@ class EditUiManager {
 	}
 
 	champAutoAddAttackRangeTag() {
-		let current = 69; //69: Melee
-		let remove  = 68; //68: Ranged
+		let t;
+		let current = tags.findIndex(tag => tag.name.toLowerCase().includes("melee"));
+		let remove = tags.findIndex(tag => tag.name.toLowerCase().includes("ranged"));
 
 		if (champions[this.selectedChampIndex].rangeType == "Ranged") {
-			current = 68;
-			remove  = 69;
+			t = current;
+			current = remove;
+			remove  = t;
 		}
 
 		TagFunctions.removeFromChamp(this.selectedChampIndex, 0, null, remove);
