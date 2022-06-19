@@ -388,7 +388,6 @@
     "name": "Alistar",
     "title": "the Minotaur",
     "tags": [
-      "Tank",
       "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Alistar.png",
@@ -483,13 +482,13 @@
       "cdragon": 12,
       "wiki": "Alistar",
       "universe": "Alistar"
-    }
+    },
+    "spotlightVideoID": "k8nic2IMW-A"
   },
   {
     "name": "Amumu",
     "title": "the Sad Mummy",
     "tags": [
-      "Tank",
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Amumu.png",
@@ -527,7 +526,7 @@
       }
     ],
     "splashPosition": "-679px -145px",
-    "lanes": "Support Jungle",
+    "lanes": "Jungle Support",
     "releaseDate": "2009-06-26",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -579,7 +578,8 @@
       "cdragon": 32,
       "wiki": "Amumu",
       "universe": "Amumu"
-    }
+    },
+    "spotlightVideoID": "dceS7yaTV5g"
   },
   {
     "name": "Anivia",
@@ -756,7 +756,8 @@
       "cdragon": 1,
       "wiki": "Annie",
       "universe": "Annie"
-    }
+    },
+    "spotlightVideoID": "lB8iPgGWkgM"
   },
   {
     "name": "Aphelios",
@@ -1296,7 +1297,9 @@
     "spotlightVideoID": "lZC0QV4N3OU",
     "rangeType": "Melee",
     "tagArrays": [
-      [],
+      [
+        69
+      ],
       [],
       [],
       [],
@@ -2338,7 +2341,8 @@
       "cdragon": 36,
       "wiki": "Dr._Mundo",
       "universe": "DrMundo"
-    }
+    },
+    "spotlightVideoID": "1MOjmAsF3OM"
   },
   {
     "name": "Draven",
@@ -3530,7 +3534,7 @@
       }
     ],
     "splashPosition": "-540px -63px",
-    "lanes": "Jungle Top Support",
+    "lanes": "Top Jungle Support",
     "releaseDate": "2010-02-02",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -3582,7 +3586,8 @@
       "cdragon": 79,
       "wiki": "Gragas",
       "universe": "Gragas"
-    }
+    },
+    "spotlightVideoID": "G9uXVi2DnZA"
   },
   {
     "name": "Graves",
