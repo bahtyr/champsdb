@@ -388,6 +388,7 @@
     "name": "Alistar",
     "title": "the Minotaur",
     "tags": [
+      "Tank",
       "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Alistar.png",
@@ -489,6 +490,7 @@
     "name": "Amumu",
     "title": "the Sad Mummy",
     "tags": [
+      "Tank",
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Amumu.png",
