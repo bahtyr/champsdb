@@ -126,7 +126,7 @@ class EditUiManager {
 		if (champions[i].lanes?.includes("Sup")) $id("laneSup").checked = true;
 
 		if (champions[i].tags?.includes("Fighter")) $id("roleFighter").checked = true;
-		if (champions[i].tags?.includes("Bruiser")) $id("roleBuiser").checked = true;
+		if (champions[i].tags?.includes("Tank")) $id("roleTank").checked = true;
 		if (champions[i].tags?.includes("Assassin")) $id("roleAssassin").checked = true;
 		if (champions[i].tags?.includes("Mage")) $id("roleMage").checked = true;
 		if (champions[i].tags?.includes("Marksman")) $id("roleMarksman").checked = true;
@@ -209,7 +209,7 @@ class EditUiManager {
 
 		champions[i].ids.kebab = $id("idKebab").value;
 		champions[i].ids.ddragon = $id("idDdragon").value;
-		champions[i].ids.cdragon = $id("idCdragon").value;
+		champions[i].ids.cdragon = parseInt($id("idCdragon").value);
 		champions[i].ids.wiki = $id("idWiki").value;
 		champions[i].ids.universe = $id("idUniverse").value;
 		
@@ -228,30 +228,30 @@ class EditUiManager {
 
 		champions[i].tags = [];
 		if ($id("roleFighter").checked)  champions[i].tags.push("Fighter");
-		if ($id("roleBuiser").checked)   champions[i].tags.push("Bruiser");
+		if ($id("roleTank").checked)   champions[i].tags.push("Tank");
 		if ($id("roleAssassin").checked) champions[i].tags.push("Assassin");
 		if ($id("roleMage").checked)     champions[i].tags.push("Mage");
 		if ($id("roleMarksman").checked) champions[i].tags.push("Marksman");
 		if ($id("roleSupport").checked)  champions[i].tags.push("Support");
 
 		champions[i].resource = $id("resource").value;
-		champions[i].attackRange = $id("attackRange").value;
+		champions[i].attackRange = parseInt($id("attackRange").value);
 		if ($id("rangeTypeRanged").checked) champions[i].rangeType = "Ranged";
 		if ($id("rangeTypeMelee").checked)  champions[i].rangeType = "Melee";
 
-		champions[i].ratings.damage = $id("ratingDamage").value;
-		champions[i].ratings.mobility = $id("ratingMobility").value;
-		champions[i].ratings.toughness = $id("ratingToughness").value;
-		champions[i].ratings.control = $id("ratingControl").value;
-		champions[i].ratings.utility = $id("ratingUtility").value;
+		champions[i].ratings.damage    = parseInt($id("ratingDamage").value);
+		champions[i].ratings.mobility  = parseInt($id("ratingMobility").value);
+		champions[i].ratings.toughness = parseInt($id("ratingToughness").value);
+		champions[i].ratings.control   = parseInt($id("ratingControl").value);
+		champions[i].ratings.utility   = parseInt($id("ratingUtility").value);
 
-		champions[i].ratings.difficulty = $id("difficulty").value;
-		champions[i].ratings.style = $id("style").value;
+		champions[i].ratings.difficulty = parseInt($id("difficulty").value);
+		champions[i].ratings.style = parseFloat($id("style").value);
 		if (champions[i].ratings.damageBreakdown == null)
 			champions[i].ratings.damageBreakdown = {};
-		champions[i].ratings.damageBreakdown.magic = $id("dmgMagic").value;
-		champions[i].ratings.damageBreakdown.physical = $id("dmgPhysical").value;
-		champions[i].ratings.damageBreakdown.true_ = $id("dmgTrue_").value;
+		champions[i].ratings.damageBreakdown.magic    = parseFloat($id("dmgMagic").value);
+		champions[i].ratings.damageBreakdown.physical = parseFloat($id("dmgPhysical").value);
+		champions[i].ratings.damageBreakdown.true_    = parseFloat($id("dmgTrue_").value);
 
 		champions[i].releaseDate = $id("releaseDate").value;
 		champions[i].releasePatch = $id("releasePatch").value;
