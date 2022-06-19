@@ -293,8 +293,23 @@ class EditUiManager {
 		if (champions[i].tagArrays == null)
 			champions[i].tagArrays = [[],[],[],[],[],[]];
 
-		log(`Saved ${i}:${champions[i].name}.`);
+		pageManager.champAutoAddAttackRangeTag();
+		pageManager.populateChampTags()
 		pageManager.highlightExport("champions");
+		log(`Saved ${i}:${champions[i].name}.`);
+	}
+
+	champAutoAddAttackRangeTag() {
+		let current = 69; //69: Melee
+		let remove  = 68; //68: Ranged
+
+		if (champions[this.selectedChampIndex].rangeType == "Ranged") {
+			current = 68;
+			remove  = 69;
+		}
+
+		TagFunctions.removeFromChamp(this.selectedChampIndex, 0, null, remove);
+		TagFunctions.addToChamp(current, this.selectedChampIndex, 0);
 	}
 
 	/****************************************** ONCLICK ******************************************/

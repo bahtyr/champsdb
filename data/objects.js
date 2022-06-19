@@ -127,7 +127,9 @@ var TagFunctions = {
 		    champions[champIndex].tagArrays[champAbilityIndex].push(tagId);
 	},
 
-	removeFromChamp: function(champIndex, champAbilityIndex, tagIndex) {
+	removeFromChamp: function(champIndex, champAbilityIndex, tagIndex, tagId) {
+		if (tagIndex == null && tagId !=null)
+			tagIndex = champions[champIndex].tagArrays[champAbilityIndex].findIndex(tag => tag.id == tagId);
 		return champions[champIndex].tagArrays[champAbilityIndex].splice(tagIndex, 1);
 	},
 }
