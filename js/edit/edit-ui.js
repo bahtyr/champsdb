@@ -22,7 +22,11 @@ class EditUiManager {
 	selectedTagIndex = null;
 	selectedTagElIndex = null;
 
-	constructor() {}
+	constructor() {
+		//other populate functions are run after the JSON files are read.
+		this.populateFunctions();
+	}
+
 	/****************************************** ETC **********************************************/
 
 	toggleSection(id) {
@@ -42,6 +46,10 @@ class EditUiManager {
 			li.appendChild(text);
 			$id(listId).appendChild(li);
 		});
+	}
+
+	populateFunctions() {
+		this.populateList("list-functions", this.funcs.map(fun => fun[0]), null, this.onClickFunc);
 	}
 
 	populateChampsList(search) {
@@ -67,8 +75,25 @@ class EditUiManager {
 		this.populateList("list-tags", arr, this.onClickTag);
 	}
 
-	populateFunctions() {
-		this.populateList("list-functions", this.funcs.map(fun => fun[0]), null, this.onClickFunc);
+	populateSidebarList() {
+		//
+		// this.populateList("list-sidebar", sidebar.map(fun => fun[0]), null, this.onClickFunc);
+	}
+
+	populatePatchList(search) {
+		let arr;
+		if (!search)
+			arr = patches;
+		else if (typeof search == "string")
+			arr = patches.filter(patch => patch.version.includes(search));
+
+		this.populateList("list-patches", arr.map(patch => {
+			let date = new Date(patch.start * 1000).toLocaleDateString("ko-KR", {year: "numeric", month: "2-digit", day: "2-digit"});
+			return `V${patch.version} --- ${date}`;
+		}), null, this.onDblClickPatch);
+
+		if (!search)
+			$query(`#list-patches li:nth-child(${PatchFunctions.getCurrentPatchIndex()+1})`).classList.add("highlight-patch");
 	}
 
 	/****************************************** SECTION CONTENT **********************************/
@@ -312,14 +337,22 @@ class EditUiManager {
 		$id("input__tag-name").value = tags[i].name;
 	}
 
-	/******************** search ***************/
+	onClickPatch() { }
 
-	onSearchChampion(obj) {
-		this.populateChampsList(obj.value);
+	onDblClickPatch(elIndex, elText) {
+		let patch = elText.split(" ")[0].substring(1);
+		let i = patches.findIndex(p => p.version == patch);
+		if (i > -1) window.open(patches[i].link, '_blank');
 	}
 
-	onSearchTag(obj) {
-		this.populateTagList(obj.value);
+	/******************** search ***************/
+
+	onSearch(obj) {
+		switch (obj.id) {
+			case "search-champions": this.populateChampsList(obj.value); break;
+			case "search-tags": this.populateTagList(obj.value); break;
+			case "search-patches": this.populatePatchList(obj.value); break;
+		}
 	}
 
 	clearSearch(id) {
@@ -327,6 +360,7 @@ class EditUiManager {
 		switch (id) {
 			case "search-champions": this.populateChampsList(); break;
 			case "search-tags": this.populateTagList(); break;
+			case "search-patches": this.populatePatchList(); break;
 		}
 	}
 

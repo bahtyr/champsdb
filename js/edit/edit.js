@@ -1,11 +1,12 @@
 var champions = [];
 var tags      = [];
+var sidebar   = [];
+var patches   = {};
+
 let ddragon = new DDragon;
 let cdragon = new CDragon;
 let thirdparties = new ThirdParties;
 let pageManager = new EditUiManager;
-
-pageManager.populateFunctions();
 
 fetch("data/champions.json").then(data => data.json()).then(json => {
 	champions = json.map(item => ChampionFunctions.transfer(item));
@@ -16,6 +17,16 @@ fetch("data/tags.json").then(data => data.json()).then(json => {
 	tags = json;
 	pageManager.populateTagList();
 	TagFunctions.initIndexes();
+});
+
+fetch("data/sidebar.json").then(data => data.json()).then(json => {
+	sidebar = json;
+	pageManager.populateSidebarList();
+});
+
+fetch("data/patches.json").then(data => data.json()).then(json => {
+	patches = json;
+	pageManager.populatePatchList();
 });
 
 /*************************************************************************************************/

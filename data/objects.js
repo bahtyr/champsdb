@@ -131,3 +131,13 @@ var TagFunctions = {
 		return champions[champIndex].tagArrays[champAbilityIndex].splice(tagIndex, 1);
 	},
 }
+
+var PatchFunctions = {
+	getCurrentPatchIndex() {
+		/** start from the last and check if the date is bigger than today */
+		let today = Date.now();
+		let current = patches.length - 1;
+		while (patches[current].start * 1000 > today) current--;
+		return current;
+	}
+}

@@ -29,8 +29,8 @@
 				<p onclick="pageManager?.toggleSection('section-functions')">Functions</p>
 				<p onclick="pageManager?.toggleSection('section-champions')">Champions</p>
 				<p onclick="pageManager?.toggleSection('section-tags')">Tags</p>
-				<p onclick="pageManager?.toggleSection('patches')">Sidebar</p>
-				<p onclick="pageManager?.toggleSection('patches')">Patches</p>
+				<p onclick="pageManager?.toggleSection('section-sidebar')">Sidebar</p>
+				<p onclick="pageManager?.toggleSection('section-patches')">Patches</p>
 			</div>
 		</div>
 
@@ -47,7 +47,7 @@
 			<!------------------------------------->
 			<!--       SECTION: Champions        -->
 			<!------------------------------------->
-			<div class="section-block champ-block" id="section-champions">
+			<div class="section-block champ-block" style="flex: 3" id="section-champions">
 				<div class="section-header noselect">
 					<h3>Champions</h3>
 					<div style="flex: 1"></div>
@@ -57,7 +57,7 @@
 				<div class="leftright-wrapper">
 					<div class="left">
 						<div class="search-block">
-							<input id="search-champions" type="text" placeholder="Search" oninput="pageManager?.onSearchChampion(this)">
+							<input id="search-champions" type="text" placeholder="Search" oninput="pageManager?.onSearch(this)">
 							<span class="noselect" onclick="pageManager?.clearSearch('search-champions')">X</span>
 						</div>
 						<ul class="list-block noselect" id="list-champions"></ul>
@@ -204,14 +204,14 @@
 			<!------------------------------------->
 			<!--       SECTION: Tags             -->
 			<!------------------------------------->
-			<div class="section-block" style="flex: 0.5" id="section-tags">
+			<div class="section-block" style="flex: 1.5" id="section-tags">
 				<div class="section-header noselect">
 					<h3>Tags</h3>
 					<div style="flex: 1;"></div>
 					<p class="btn export" onclick="pageManager?.onClickExport(this.id)" id="export-tags">Export to File</p>
 				</div>
 				<div class="search-block">
-					<input id="search-tags" type="text" placeholder="Search" oninput="pageManager?.onSearchTag(this)">
+					<input id="search-tags" type="text" placeholder="Search" oninput="pageManager?.onSearch(this)">
 					<span class="noselect" onclick="pageManager?.clearSearch('search-tags')">X</span>
 				</div>
 				<ul class="list-block noselect" id="list-tags"></ul>
@@ -237,6 +237,36 @@
 					</div>
 					<div style="width: 100%; height: 0;"></div>
 				</div>
+			</div>
+			<!------------------------------------->
+			<!--       SECTION: Sidebar          -->
+			<!------------------------------------->
+			<div class="section-block" id="section-sidebar">
+				<div class="section-header noselect">
+					<h3>Sidebar</h3>
+					<div style="flex: 1;"></div>
+					<!-- <p class="btn export" onclick="pageManager?.onClickExport(this.id)" id="export-sidebar">Export to File</p> -->
+				</div>
+				<div class="search-block">
+					<input id="search-sidebar" type="text" placeholder="Search" oninput="pageManager?.onSearch(this)">
+					<span class="noselect" onclick="pageManager?.clearSearch('search-sidebar')">X</span>
+				</div>
+				<ul class="list-block noselect" id="list-sidebar"></ul>
+			</div>
+			<!------------------------------------->
+			<!--       SECTION: Patches          -->
+			<!------------------------------------->
+			<div class="section-block" style="flex: 1" id="section-patches">
+				<div class="section-header noselect">
+					<h3>Patches</h3>
+					<div style="flex: 1;"></div>
+					<!-- <p class="btn export" onclick="pageManager?.onClickExport(this.id)" id="export-patches">Export to File</p> -->
+				</div>
+				<div class="search-block">
+					<input id="search-patches" type="text" placeholder="Search patch version" oninput="pageManager?.onSearch(this)">
+					<span class="noselect" onclick="pageManager?.clearSearch('search-patches')">X</span>
+				</div>
+				<ul class="list-block noselect" id="list-patches"></ul>
 			</div>
 		</div>
 

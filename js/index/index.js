@@ -38,10 +38,7 @@ function printPatchInfo() {
 	 * 2. current + 1 is next patch, unless it is the last known patch
 	 * 3. if next == current, we reached to the end of known pacthes, don't show next patch date
 	 */
-	let today = Date.now();
-	let current = patches.length - 1;
-	while (patches[current].start * 1000 > today) current--;
-
+	let current = PatchFunctions.getCurrentPatchIndex();
 	let next = current == patches.length ? current : current + 1;
 	let nextPatchDate = new Date(patches[next].start * 1000).toLocaleDateString("en-US", {month: "short", weekday: "short", day: "numeric"});
 
