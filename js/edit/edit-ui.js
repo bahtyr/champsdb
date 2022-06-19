@@ -15,6 +15,7 @@ class EditUiManager {
 		["thirdparties.getGolChampUrls", function() { thirdparties.getGolChampUrls() }],
 		["thirdparties.getChampDamageBreakdown", function() { thirdparties.getChampDamageBreakdown() }],
 		["ChampionFunctions.addChamps", function() { ChampionFunctions.addChamps(); pageManager.populateChampsList(); }],
+		["Open Spotlight Video Playlist", function() { window.open("https://www.youtube.com/playlist?list=PLbAFXJC0J5GaVjPNNw_i-oLNKc7bVQcFk", '_blank'); }],
 	];
 
 	selectedChampIndex = null;   //index within data array
@@ -258,7 +259,9 @@ class EditUiManager {
 		champions[i].region = $id("region").value;
 		champions[i].species = $id("species").value;
 
-		champions[i].spotlightVideoID = $id("spotlightVideoID").value;
+		let _spotlight = this.champAutoRemoveYoutubeLink($id("spotlightVideoID").value)
+		champions[i].spotlightVideoID = _spotlight;
+		$id("spotlightVideoID").value = _spotlight;
 
 		champions[i].abilities[0].img = $id("img-ability-0").src;
 		champions[i].abilities[0].name = $id("ability-0-name").value;
@@ -312,6 +315,10 @@ class EditUiManager {
 
 		TagFunctions.removeFromChamp(this.selectedChampIndex, 0, null, remove);
 		TagFunctions.addToChamp(current, this.selectedChampIndex, 0);
+	}
+
+	champAutoRemoveYoutubeLink(s) {
+		return !s.includes("http") ? s : s.split("=")[1].split("&")[0];
 	}
 
 	/****************************************** ONCLICK ******************************************/
