@@ -26,9 +26,16 @@ class EditUiManager {
 	constructor() {
 		//other populate functions are run after the JSON files are read.
 		this.populateFunctions();
+		this.checkCORS();
 	}
 
 	/****************************************** ETC **********************************************/
+
+	checkCORS() {
+		fetch("https://bahtyr.com")
+			.then(() => $id("cors-indicator").classList.add("good"))
+			.catch((error) => {});
+	}
 
 	toggleSection(id) {
 		if (!id) return;
