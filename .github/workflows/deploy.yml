@@ -1,10 +1,10 @@
 name: Deploy Main
 
 on:
-  push:
-    branches: [ "main" ]
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
+  push:
+    branches: [ "main" ]
 
 jobs:
   deploy:
@@ -20,5 +20,5 @@ jobs:
         shell: |
             mkdir test
             cd test
-            git clone git@github.com/bahtyr/champsdb
+            # git clone git@github.com/bahtyr/champsdb
             echo 'Deployment successful'
