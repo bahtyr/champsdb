@@ -95,7 +95,7 @@ var TagFunctions = {
 	initIndexes: function() {
 		if (this.isInitDone) return;
 		if (champions && champions.length == 0) return;
-		if (tags      && tags.length == 0) return;
+		if (tags      && tags.length == 0)      return;
 		this.isInitDone = true;
 
 		/* put champions' tagArrays to each tag as championIndexes */
@@ -147,11 +147,18 @@ var TagFunctions = {
 }
 
 var PatchFunctions = {
+
 	getCurrentPatchIndex() {
 		/** start from the last and check if the date is bigger than today */
 		let today = Date.now();
 		let current = patches.length - 1;
 		while (patches[current].start * 1000 > today) current--;
 		return current;
-	}
+	},
+
+	hoursDiff(index, hours) {
+		let a = (patches[index].start * 1000) - Date.now();
+		let b = hours * 60 * 60 * 1000;
+		return a <= b;
+	},
 }

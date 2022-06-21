@@ -12,7 +12,7 @@ var sort      = {};
 fetch("data/champions.json").then(data => data.json()).then(json => {
 	champions = json.map(item => ChampionFunctions.transfer(item));
 	champlist.print();
-	matchChampionsAndTags();;
+	TagFunctions.initIndexes();
 });
 
 fetch("data/sidebar.json").then(data => data.json()).then(json => {
@@ -50,7 +50,7 @@ function printPatchInfo() {
 	if (next === current) return;
 
 	// enable the link one day before patch is released
-	if ((patches[next].start * 1000) - today <= 86400000)
+	if (PatchFunctions.hoursDiff(next, 24))
 		$id("patch-notes-next").classList.remove("disabled");
 	$id("next-patch-date").textContent = nextPatchDate;
 	$id("patch-notes-next").children[1].textContent = "Patch " + patches[next].version + " Notes";
