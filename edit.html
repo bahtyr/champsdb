@@ -29,6 +29,7 @@
 				<p onclick="pageManager?.toggleSection('section-functions')">Functions</p>
 				<p onclick="pageManager?.toggleSection('section-champions')">Champions</p>
 				<p onclick="pageManager?.toggleSection('section-tags')">Tags</p>
+				<p onclick="pageManager?.toggleSection('section-champsandtags')">Champs & Tags</p>
 				<p onclick="pageManager?.toggleSection('section-sidebar')">Sidebar</p>
 				<p onclick="pageManager?.toggleSection('section-patches')">Patches</p>
 				<span id="cors-indicator" title="CORS Status"></span>
@@ -39,7 +40,7 @@
 			<!------------------------------------->
 			<!--       SECTION: Functions        -->
 			<!------------------------------------->
-			<div class="section-block" style="flex: 0.25" id="section-functions">
+			<div class="section-block hide" style="flex: 0.25" id="section-functions">
 				<div class="section-header noselect">
 					<h3>Functions</h3>
 				</div>
@@ -221,7 +222,7 @@
 					<input type="text" name="" placeholder="Tag Name" id="input__tag-name">
 					<div style="width: 100%; height: 0;"></div>
 					<div class="noselect" style="display: flex; width: 100%">
-						<p class="btn"onclick="pageManager?.tagOnClickShowChamps()">Show Champions</p>
+						<!-- <p class="btn"onclick="pageManager?.tagOnClickShowChamps()">Show Champions</p> -->
 						<div style="flex: 1;"></div>
 						<p class="btn" onclick="pageManager?.tagOnClickClear()">X</p>
 						<p class="btn" onclick="pageManager?.tagOnClickNew()">New</p>
@@ -240,9 +241,25 @@
 				</div>
 			</div>
 			<!------------------------------------->
+			<!--       SECTION: Champs & Tags    -->
+			<!------------------------------------->
+			<div class="section-block" id="section-champsandtags">
+				<div class="section-header noselect">
+					<h3>Champs & Tags</h3>
+					<div style="flex: 1;"></div>
+					<p class="btn" onclick="pageManager?.tagOnClickClear()">X</p>
+					<p class="btn" onclick="pageManager?.champsandtagsOnClickSave()">Save</p>
+
+				</div>
+				<div class="list-block noselect" id="list-champsandtags">
+					<div id="list-champsandtags-active"></div>
+					<div id="list-champsandtags-all"></div>
+				</div>
+			</div>
+			<!------------------------------------->
 			<!--       SECTION: Sidebar          -->
 			<!------------------------------------->
-			<div class="section-block" id="section-sidebar">
+			<div class="section-block hide" id="section-sidebar">
 				<div class="section-header noselect">
 					<h3>Sidebar</h3>
 					<div style="flex: 1;"></div>
@@ -257,7 +274,7 @@
 			<!------------------------------------->
 			<!--       SECTION: Patches          -->
 			<!------------------------------------->
-			<div class="section-block" style="flex: 1" id="section-patches">
+			<div class="section-block hide" style="flex: 1" id="section-patches">
 				<div class="section-header noselect">
 					<h3>Patches</h3>
 					<div style="flex: 1;"></div>

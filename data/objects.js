@@ -132,6 +132,18 @@ var TagFunctions = {
 			tagIndex = champions[champIndex].tagArrays[champAbilityIndex].findIndex(tag => tag.id == tagId);
 		return champions[champIndex].tagArrays[champAbilityIndex].splice(tagIndex, 1);
 	},
+
+	/******************** CHAMP INDEXES ********/
+
+	addToChampIndexes: function(tagIndex, champIndex) {
+		if (!tags[tagIndex].champIndexes.includes(champIndex))
+			tags[tagIndex].champIndexes.push(champIndex);
+	},
+
+	removeFromChampIndexes: function(tagIndex, champIndex) {
+		let i = tags[tagIndex].champIndexes.findIndex(champ => champ == champIndex);
+		if (i > -1) tags[tagIndex].champIndexes.splice(i, 1);
+	},
 }
 
 var PatchFunctions = {

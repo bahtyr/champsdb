@@ -183,6 +183,7 @@ h3 {
 }
 
 .btn.fake {
+	color: #999;
 	cursor: initial;
 }
 
@@ -248,6 +249,41 @@ h3 {
 /*patches*/
 li.highlight-patch {
 	color: var(--yellow-text);
+}
+
+/*** champsandtags ***/
+
+#list-champsandtags {
+	flex: unset;
+	width: 340px;
+	padding-right: 8px;
+}
+
+#list-champsandtags .row:hover { background-color: hsl(0deg 0% 3%); }
+#list-champsandtags .row:hover label { color: #aaa; }
+
+#list-champsandtags label {
+	min-width: 15ch;
+}
+
+#list-champsandtags span {
+	padding: 4px 8px;
+	background-color: hsl(0deg 0% 7%);
+	margin-right: 4px;
+	font-size: 12px;
+}
+
+#list-champsandtags span:hover {
+	background-color: hsl(0deg 0% 15%);
+}
+
+#list-champsandtags span.highlight {
+	color: var(--yellow-text);
+	background-color: #322815;
+}
+
+#list-champsandtags-active:not(:empty) {
+	margin-bottom: 25px;
 }
 
 /*

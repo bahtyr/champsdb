@@ -22,6 +22,7 @@ class EditUiManager {
 	selectedChampElIndex = null; //index of the html list element
 	selectedTagIndex = null;
 	selectedTagElIndex = null;
+	selectedTagId = null;
 
 	constructor() {
 		//other populate functions are run after the JSON files are read.
@@ -102,6 +103,44 @@ class EditUiManager {
 
 		if (!search)
 			$query(`#list-patches li:nth-child(${PatchFunctions.getCurrentPatchIndex()+1})`).classList.add("highlight-patch");
+	}
+
+	populateChampsandtagsList(champIndexes) {
+		let listId = "list-champsandtags",
+			listIdActive = "list-champsandtags-active",
+			listIdAll = "list-champsandtags-all";
+		let onClickLabel = this.champsandtagsOnClickLabel,
+			onClickAbility = this.champsandtagsOnClickAbility;
+		let filter = champIndexes && Array.isArray(champIndexes);
+		$id(listId).scrollTop = 0;
+		$id(listIdActive).innerHTML = "";
+		$id(listIdAll).innerHTML = "";
+
+		champions.forEach((champ, champIndex) => {
+			let div = document.createElement("div");
+			let label = document.createElement("label");
+			label.onclick = function(event) { onClickLabel(champ.name, champIndex); };
+			label.appendChild(document.createTextNode(champ.name));
+			div.appendChild(label);
+			div.classList.add("row")
+			div.setAttribute("data-champ-index", champIndex);
+
+			["-","P","Q","W","E","R"].forEach((t, abilityIndex) => {
+				let s = document.createElement("span");
+				s.appendChild(document.createTextNode(t));
+				s.onclick = function(event) { onClickAbility(event, abilityIndex, champIndex, champ.name); };
+				s.setAttribute("data-ability-index", abilityIndex);
+
+				if (filter && champ.tagArrays[abilityIndex].includes(tags[pageManager.selectedTagIndex].id))
+					s.classList.add("highlight");
+
+				div.appendChild(s);
+			});
+			
+			if (filter && champIndexes.includes(champIndex))
+				$id(listIdActive).appendChild(div);
+			else $id(listIdAll).appendChild(div);
+		});
 	}
 
 	/****************************************** SECTION CONTENT **********************************/
@@ -364,6 +403,8 @@ class EditUiManager {
 		let i = tags.findIndex(tag => tag.id == id);
 		pageManager.selectedTagElIndex = elIndex;
 		pageManager.selectedTagIndex = i;
+		pageManager.selectedTagId = id;
+		pageManager.tagOnClickShowChamps();
 		$id("input__tag-id").value = tags[i].id;
 		$id("input__tag-name").value = tags[i].name;
 	}
@@ -414,13 +455,15 @@ class EditUiManager {
 	/******************** tags *****************/
 
 	tagOnClickShowChamps() {
-		this.populateChampsList(tags[this.selectedTagIndex].champIndexes);
+		if (this.selectedTagIndex == null) return;
+		this.populateChampsandtagsList(tags[this.selectedTagIndex].champIndexes);
 	}
 
 	tagOnClickClear() {
 		this.selectedTagIndex = null;
 		$id("input__tag-id").value = "";
 		$id("input__tag-name").value = "";
+		pageManager.populateChampsandtagsList();
 	}
 
 	tagOnClickNew() {
@@ -448,4 +491,41 @@ class EditUiManager {
 		pageManager.populateChampTags();
 		pageManager.highlightExport("champions");
 	}
+
+	/******************** champs & tags ********/
+
+	champsandtagsOnClickLabel(champName, champIndex) {
+		// if the list-champions is filter, clickChamp(0);
+		// this.populateChampsList(champName);
+		pageManager.onClickChamp(champIndex);
+	}
+
+	champsandtagsOnClickAbility(event, abilityIndex, champIndex, champName) {
+		event.srcElement.classList.toggle("highlight");
+	}
+
+	champsandtagsOnClickSave() {
+		let arr = $queryAll("#list-champsandtags .row");
+		arr.forEach(item => {
+			let addToChampIndexes = false;
+			
+			//update champ.tagArrays[][]
+			let champ = parseInt(item.getAttribute("data-champ-index"));
+			for (let span of item.getElementsByTagName("span")) {
+				let i = span.getAttribute("data-ability-index");
+				if (span.classList.contains("highlight")) {
+					addToChampIndexes = true;
+					TagFunctions.addToChamp(this.selectedTagId, champ, i);
+				} else TagFunctions.removeFromChamp(champ, i, null, this.selectedTagId);
+			}
+
+			//update tag.champIndexes[]
+			if (addToChampIndexes)
+				TagFunctions.addToChampIndexes(this.selectedTagIndex, champ);
+			else TagFunctions.removeFromChampIndexes(this.selectedTagIndex, champ);
+		});
+		pageManager.highlightExport("champions");
+		pageManager.populateChampsandtagsList(tags[this.selectedTagIndex].champIndexes);
+	}
+
 }
