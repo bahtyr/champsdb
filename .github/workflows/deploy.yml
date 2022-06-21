@@ -10,7 +10,7 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/github-script@v6
+      - uses: appleboy/ssh-action@v0.1.4
       - name: Run deploy script
         with:
           host: ${{secrets.SSH_HOST}}
