@@ -94,7 +94,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Aatrox",
       "kebab": "aatrox",
       "ddragon": "Aatrox",
       "cdragon": 266,
@@ -188,7 +187,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Ahri",
       "kebab": "ahri",
       "ddragon": "Ahri",
       "cdragon": 103,
@@ -283,7 +281,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Akali",
       "kebab": "akali",
       "ddragon": "Akali",
       "cdragon": 84,
@@ -376,7 +373,6 @@
       []
     ],
     "ids": {
-      "pascal": "Akshan",
       "kebab": "akshan",
       "ddragon": "Akshan",
       "cdragon": 166,
@@ -477,7 +473,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Alistar",
       "kebab": "alistar",
       "ddragon": "Alistar",
       "cdragon": 12,
@@ -574,7 +569,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Amumu",
       "kebab": "amumu",
       "ddragon": "Amumu",
       "cdragon": 32,
@@ -666,7 +660,6 @@
       []
     ],
     "ids": {
-      "pascal": "Anivia",
       "kebab": "anivia",
       "ddragon": "Anivia",
       "cdragon": 34,
@@ -752,7 +745,6 @@
       []
     ],
     "ids": {
-      "pascal": "Annie",
       "kebab": "annie",
       "ddragon": "Annie",
       "cdragon": 1,
@@ -842,7 +834,6 @@
       []
     ],
     "ids": {
-      "pascal": "Aphelios",
       "kebab": "aphelios",
       "ddragon": "Aphelios",
       "cdragon": 523,
@@ -935,7 +926,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Ashe",
       "kebab": "ashe",
       "ddragon": "Ashe",
       "cdragon": 22,
@@ -1030,7 +1020,6 @@
       ]
     ],
     "ids": {
-      "pascal": "AurelionSol",
       "kebab": "aurelion-sol",
       "ddragon": "AurelionSol",
       "cdragon": 136,
@@ -1123,7 +1112,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Azir",
       "kebab": "azir",
       "ddragon": "Azir",
       "cdragon": 268,
@@ -1219,7 +1207,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Bard",
       "kebab": "bard",
       "ddragon": "Bard",
       "cdragon": 432,
@@ -1396,7 +1383,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Blitzcrank",
       "kebab": "blitzcrank",
       "ddragon": "Blitzcrank",
       "cdragon": 53,
@@ -1484,7 +1470,6 @@
       []
     ],
     "ids": {
-      "pascal": "Brand",
       "kebab": "brand",
       "ddragon": "Brand",
       "cdragon": 63,
@@ -1581,7 +1566,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Braum",
       "kebab": "braum",
       "ddragon": "Braum",
       "cdragon": 201,
@@ -1677,7 +1661,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Caitlyn",
       "kebab": "caitlyn",
       "ddragon": "Caitlyn",
       "cdragon": 51,
@@ -1779,7 +1762,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Camille",
       "kebab": "camille",
       "ddragon": "Camille",
       "cdragon": 164,
@@ -1869,7 +1851,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Cassiopeia",
       "kebab": "cassiopeia",
       "ddragon": "Cassiopeia",
       "cdragon": 69,
@@ -1964,7 +1945,6 @@
       ]
     ],
     "ids": {
-      "pascal": "ChoGath",
       "kebab": "cho-gath",
       "ddragon": "Chogath",
       "cdragon": 31,
@@ -2057,7 +2037,6 @@
       []
     ],
     "ids": {
-      "pascal": "Corki",
       "kebab": "corki",
       "ddragon": "Corki",
       "cdragon": 42,
@@ -2154,7 +2133,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Darius",
       "kebab": "darius",
       "ddragon": "Darius",
       "cdragon": 122,
@@ -2247,7 +2225,6 @@
       []
     ],
     "ids": {
-      "pascal": "Diana",
       "kebab": "diana",
       "ddragon": "Diana",
       "cdragon": 131,
@@ -2337,7 +2314,6 @@
       []
     ],
     "ids": {
-      "pascal": "DrMundo",
       "kebab": "dr-mundo",
       "ddragon": "DrMundo",
       "cdragon": 36,
@@ -2428,7 +2404,6 @@
       []
     ],
     "ids": {
-      "pascal": "Draven",
       "kebab": "draven",
       "ddragon": "Draven",
       "cdragon": 119,
@@ -2527,7 +2502,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Ekko",
       "kebab": "ekko",
       "ddragon": "Ekko",
       "cdragon": 245,
@@ -2623,7 +2597,6 @@
       []
     ],
     "ids": {
-      "pascal": "Elise",
       "kebab": "elise",
       "ddragon": "Elise",
       "cdragon": 60,
@@ -2715,7 +2688,6 @@
       []
     ],
     "ids": {
-      "pascal": "Evelynn",
       "kebab": "evelynn",
       "ddragon": "Evelynn",
       "cdragon": 28,
@@ -2802,7 +2774,6 @@
       []
     ],
     "ids": {
-      "pascal": "Ezreal",
       "kebab": "ezreal",
       "ddragon": "Ezreal",
       "cdragon": 81,
@@ -2898,7 +2869,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Fiddlesticks",
       "kebab": "fiddlesticks",
       "ddragon": "Fiddlesticks",
       "cdragon": 9,
@@ -2999,7 +2969,6 @@
       []
     ],
     "ids": {
-      "pascal": "Fiora",
       "kebab": "fiora",
       "ddragon": "Fiora",
       "cdragon": 114,
@@ -3101,7 +3070,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Fizz",
       "kebab": "fizz",
       "ddragon": "Fizz",
       "cdragon": 105,
@@ -3205,7 +3173,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Galio",
       "kebab": "galio",
       "ddragon": "Galio",
       "cdragon": 3,
@@ -3296,7 +3263,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Gangplank",
       "kebab": "gangplank",
       "ddragon": "Gangplank",
       "cdragon": 41,
@@ -3386,7 +3352,6 @@
       []
     ],
     "ids": {
-      "pascal": "Garen",
       "kebab": "garen",
       "ddragon": "Garen",
       "cdragon": 86,
@@ -3486,7 +3451,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Gnar",
       "kebab": "gnar",
       "ddragon": "Gnar",
       "cdragon": 150,
@@ -3582,7 +3546,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Gragas",
       "kebab": "gragas",
       "ddragon": "Gragas",
       "cdragon": 79,
@@ -3678,7 +3641,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Graves",
       "kebab": "graves",
       "ddragon": "Graves",
       "cdragon": 104,
@@ -3774,7 +3736,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Gwen",
       "kebab": "gwen",
       "ddragon": "Gwen",
       "cdragon": 887,
@@ -3875,7 +3836,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Hecarim",
       "kebab": "hecarim",
       "ddragon": "Hecarim",
       "cdragon": 120,
@@ -3966,7 +3926,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Heimerdinger",
       "kebab": "heimerdinger",
       "ddragon": "Heimerdinger",
       "cdragon": 74,
@@ -4055,7 +4014,6 @@
       []
     ],
     "ids": {
-      "pascal": "Illaoi",
       "kebab": "illaoi",
       "ddragon": "Illaoi",
       "cdragon": 420,
@@ -4151,7 +4109,6 @@
       []
     ],
     "ids": {
-      "pascal": "Irelia",
       "kebab": "irelia",
       "ddragon": "Irelia",
       "cdragon": 39,
@@ -4246,7 +4203,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Ivern",
       "kebab": "ivern",
       "ddragon": "Ivern",
       "cdragon": 427,
@@ -4338,7 +4294,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Janna",
       "kebab": "janna",
       "ddragon": "Janna",
       "cdragon": 40,
@@ -4436,7 +4391,6 @@
       ]
     ],
     "ids": {
-      "pascal": "JarvanIV",
       "kebab": "jarvan-iv",
       "ddragon": "JarvanIV",
       "cdragon": 59,
@@ -4534,7 +4488,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Jax",
       "kebab": "jax",
       "ddragon": "Jax",
       "cdragon": 24,
@@ -4634,7 +4587,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Jayce",
       "kebab": "jayce",
       "ddragon": "Jayce",
       "cdragon": 126,
@@ -4725,7 +4677,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Jhin",
       "kebab": "jhin",
       "ddragon": "Jhin",
       "cdragon": 202,
@@ -4818,7 +4769,6 @@
       []
     ],
     "ids": {
-      "pascal": "Jinx",
       "kebab": "jinx",
       "ddragon": "Jinx",
       "cdragon": 222,
@@ -4905,7 +4855,6 @@
       ]
     ],
     "ids": {
-      "pascal": "KaiSa",
       "kebab": "kai-sa",
       "ddragon": "Kaisa",
       "cdragon": 145,
@@ -4998,7 +4947,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Kalista",
       "kebab": "kalista",
       "ddragon": "Kalista",
       "cdragon": 429,
@@ -5086,7 +5034,6 @@
       []
     ],
     "ids": {
-      "pascal": "Karma",
       "kebab": "karma",
       "ddragon": "Karma",
       "cdragon": 43,
@@ -5174,7 +5121,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Karthus",
       "kebab": "karthus",
       "ddragon": "Karthus",
       "cdragon": 30,
@@ -5266,7 +5212,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Kassadin",
       "kebab": "kassadin",
       "ddragon": "Kassadin",
       "cdragon": 38,
@@ -5355,7 +5300,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Katarina",
       "kebab": "katarina",
       "ddragon": "Katarina",
       "cdragon": 55,
@@ -5445,7 +5389,6 @@
       []
     ],
     "ids": {
-      "pascal": "Kayle",
       "kebab": "kayle",
       "ddragon": "Kayle",
       "cdragon": 10,
@@ -5546,7 +5489,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Kayn",
       "kebab": "kayn",
       "ddragon": "Kayn",
       "cdragon": 141,
@@ -5633,7 +5575,6 @@
       []
     ],
     "ids": {
-      "pascal": "Kennen",
       "kebab": "kennen",
       "ddragon": "Kennen",
       "cdragon": 85,
@@ -5724,7 +5665,6 @@
       []
     ],
     "ids": {
-      "pascal": "KhaZix",
       "kebab": "kha-zix",
       "ddragon": "Khazix",
       "cdragon": 121,
@@ -5816,7 +5756,6 @@
       []
     ],
     "ids": {
-      "pascal": "Kindred",
       "kebab": "kindred",
       "ddragon": "Kindred",
       "cdragon": 203,
@@ -5922,7 +5861,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Kled",
       "kebab": "kled",
       "ddragon": "Kled",
       "cdragon": 240,
@@ -6011,7 +5949,6 @@
       []
     ],
     "ids": {
-      "pascal": "KogMaw",
       "kebab": "kog-maw",
       "ddragon": "KogMaw",
       "cdragon": 96,
@@ -6111,7 +6048,6 @@
       ]
     ],
     "ids": {
-      "pascal": "LeBlanc",
       "kebab": "leblanc",
       "ddragon": "Leblanc",
       "cdragon": 7,
@@ -6209,7 +6145,6 @@
       ]
     ],
     "ids": {
-      "pascal": "LeeSin",
       "kebab": "lee-sin",
       "ddragon": "LeeSin",
       "cdragon": 64,
@@ -6306,7 +6241,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Leona",
       "kebab": "leona",
       "ddragon": "Leona",
       "cdragon": 89,
@@ -6401,7 +6335,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Lillia",
       "kebab": "lillia",
       "ddragon": "Lillia",
       "cdragon": 876,
@@ -6493,7 +6426,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Lissandra",
       "kebab": "lissandra",
       "ddragon": "Lissandra",
       "cdragon": 127,
@@ -6582,7 +6514,6 @@
       []
     ],
     "ids": {
-      "pascal": "Lucian",
       "kebab": "lucian",
       "ddragon": "Lucian",
       "cdragon": 236,
@@ -6676,7 +6607,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Lulu",
       "kebab": "lulu",
       "ddragon": "Lulu",
       "cdragon": 117,
@@ -6767,7 +6697,6 @@
       []
     ],
     "ids": {
-      "pascal": "Lux",
       "kebab": "lux",
       "ddragon": "Lux",
       "cdragon": 99,
@@ -6862,7 +6791,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Malphite",
       "kebab": "malphite",
       "ddragon": "Malphite",
       "cdragon": 54,
@@ -6954,7 +6882,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Malzahar",
       "kebab": "malzahar",
       "ddragon": "Malzahar",
       "cdragon": 90,
@@ -7054,7 +6981,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Maokai",
       "kebab": "maokai",
       "ddragon": "Maokai",
       "cdragon": 57,
@@ -7152,7 +7078,6 @@
       []
     ],
     "ids": {
-      "pascal": "MasterYi",
       "kebab": "master-yi",
       "ddragon": "MasterYi",
       "cdragon": 11,
@@ -7241,7 +7166,6 @@
       ]
     ],
     "ids": {
-      "pascal": "MissFortune",
       "kebab": "miss-fortune",
       "ddragon": "MissFortune",
       "cdragon": 21,
@@ -7334,7 +7258,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Mordekaiser",
       "kebab": "mordekaiser",
       "ddragon": "Mordekaiser",
       "cdragon": 82,
@@ -7426,7 +7349,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Morgana",
       "kebab": "morgana",
       "ddragon": "Morgana",
       "cdragon": 25,
@@ -7518,7 +7440,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Nami",
       "kebab": "nami",
       "ddragon": "Nami",
       "cdragon": 267,
@@ -7609,7 +7530,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Nasus",
       "kebab": "nasus",
       "ddragon": "Nasus",
       "cdragon": 75,
@@ -7711,7 +7631,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Nautilus",
       "kebab": "nautilus",
       "ddragon": "Nautilus",
       "cdragon": 111,
@@ -7806,7 +7725,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Neeko",
       "kebab": "neeko",
       "ddragon": "Neeko",
       "cdragon": 518,
@@ -7898,7 +7816,6 @@
       []
     ],
     "ids": {
-      "pascal": "Nidalee",
       "kebab": "nidalee",
       "ddragon": "Nidalee",
       "cdragon": 76,
@@ -7996,7 +7913,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Nocturne",
       "kebab": "nocturne",
       "ddragon": "Nocturne",
       "cdragon": 56,
@@ -8093,7 +8009,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Nunu",
       "kebab": "nunu",
       "ddragon": "Nunu",
       "cdragon": 20,
@@ -8182,7 +8097,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Olaf",
       "kebab": "olaf",
       "ddragon": "Olaf",
       "cdragon": 2,
@@ -8272,7 +8186,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Orianna",
       "kebab": "orianna",
       "ddragon": "Orianna",
       "cdragon": 61,
@@ -8372,7 +8285,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Ornn",
       "kebab": "ornn",
       "ddragon": "Ornn",
       "cdragon": 516,
@@ -8469,7 +8381,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Pantheon",
       "kebab": "pantheon",
       "ddragon": "Pantheon",
       "cdragon": 80,
@@ -8568,7 +8479,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Poppy",
       "kebab": "poppy",
       "ddragon": "Poppy",
       "cdragon": 78,
@@ -8662,7 +8572,6 @@
       []
     ],
     "ids": {
-      "pascal": "Pyke",
       "kebab": "pyke",
       "ddragon": "Pyke",
       "cdragon": 555,
@@ -8763,7 +8672,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Qiyana",
       "kebab": "qiyana",
       "ddragon": "Qiyana",
       "cdragon": 246,
@@ -8860,7 +8768,6 @@
       []
     ],
     "ids": {
-      "pascal": "Quinn",
       "kebab": "quinn",
       "ddragon": "Quinn",
       "cdragon": 133,
@@ -8960,7 +8867,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Rakan",
       "kebab": "rakan",
       "ddragon": "Rakan",
       "cdragon": 497,
@@ -9059,7 +8965,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Rammus",
       "kebab": "rammus",
       "ddragon": "Rammus",
       "cdragon": 33,
@@ -9157,7 +9062,6 @@
       ]
     ],
     "ids": {
-      "pascal": "RekSai",
       "kebab": "rek-sai",
       "ddragon": "RekSai",
       "cdragon": 421,
@@ -9257,7 +9161,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Rell",
       "kebab": "rell",
       "ddragon": "Rell",
       "cdragon": 526,
@@ -9436,7 +9339,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Renekton",
       "kebab": "renekton",
       "ddragon": "Renekton",
       "cdragon": 58,
@@ -9530,7 +9432,6 @@
       []
     ],
     "ids": {
-      "pascal": "Rengar",
       "kebab": "rengar",
       "ddragon": "Rengar",
       "cdragon": 107,
@@ -9630,7 +9531,6 @@
       []
     ],
     "ids": {
-      "pascal": "Riven",
       "kebab": "riven",
       "ddragon": "Riven",
       "cdragon": 92,
@@ -9716,7 +9616,6 @@
       []
     ],
     "ids": {
-      "pascal": "Rumble",
       "kebab": "rumble",
       "ddragon": "Rumble",
       "cdragon": 68,
@@ -9808,7 +9707,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Ryze",
       "kebab": "ryze",
       "ddragon": "Ryze",
       "cdragon": 13,
@@ -9899,7 +9797,6 @@
       []
     ],
     "ids": {
-      "pascal": "Samira",
       "kebab": "samira",
       "ddragon": "Samira",
       "cdragon": 360,
@@ -9998,7 +9895,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Sejuani",
       "kebab": "sejuani",
       "ddragon": "Sejuani",
       "cdragon": 113,
@@ -10087,7 +9983,6 @@
       []
     ],
     "ids": {
-      "pascal": "Senna",
       "kebab": "senna",
       "ddragon": "Senna",
       "cdragon": 235,
@@ -10181,7 +10076,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Seraphine",
       "kebab": "seraphine",
       "ddragon": "Seraphine",
       "cdragon": 147,
@@ -10278,7 +10172,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Sett",
       "kebab": "sett",
       "ddragon": "Sett",
       "cdragon": 875,
@@ -10377,7 +10270,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Shaco",
       "kebab": "shaco",
       "ddragon": "Shaco",
       "cdragon": 35,
@@ -10471,7 +10363,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Shen",
       "kebab": "shen",
       "ddragon": "Shen",
       "cdragon": 98,
@@ -10569,7 +10460,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Shyvana",
       "kebab": "shyvana",
       "ddragon": "Shyvana",
       "cdragon": 102,
@@ -10660,7 +10550,6 @@
       []
     ],
     "ids": {
-      "pascal": "Singed",
       "kebab": "singed",
       "ddragon": "Singed",
       "cdragon": 27,
@@ -10761,7 +10650,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Sion",
       "kebab": "sion",
       "ddragon": "Sion",
       "cdragon": 14,
@@ -10849,7 +10737,6 @@
       []
     ],
     "ids": {
-      "pascal": "Sivir",
       "kebab": "sivir",
       "ddragon": "Sivir",
       "cdragon": 15,
@@ -10943,7 +10830,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Skarner",
       "kebab": "skarner",
       "ddragon": "Skarner",
       "cdragon": 72,
@@ -11035,7 +10921,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Sona",
       "kebab": "sona",
       "ddragon": "Sona",
       "cdragon": 37,
@@ -11124,7 +11009,6 @@
       []
     ],
     "ids": {
-      "pascal": "Soraka",
       "kebab": "soraka",
       "ddragon": "Soraka",
       "cdragon": 16,
@@ -11216,7 +11100,6 @@
       []
     ],
     "ids": {
-      "pascal": "Swain",
       "kebab": "swain",
       "ddragon": "Swain",
       "cdragon": 50,
@@ -11316,7 +11199,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Sylas",
       "kebab": "sylas",
       "ddragon": "Sylas",
       "cdragon": 517,
@@ -11409,7 +11291,6 @@
       []
     ],
     "ids": {
-      "pascal": "Syndra",
       "kebab": "syndra",
       "ddragon": "Syndra",
       "cdragon": 134,
@@ -11513,7 +11394,6 @@
       ]
     ],
     "ids": {
-      "pascal": "TahmKench",
       "kebab": "tahm-kench",
       "ddragon": "TahmKench",
       "cdragon": 223,
@@ -11604,7 +11484,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Taliyah",
       "kebab": "taliyah",
       "ddragon": "Taliyah",
       "cdragon": 163,
@@ -11697,7 +11576,6 @@
       []
     ],
     "ids": {
-      "pascal": "Talon",
       "kebab": "talon",
       "ddragon": "Talon",
       "cdragon": 91,
@@ -11787,7 +11665,6 @@
       []
     ],
     "ids": {
-      "pascal": "Taric",
       "kebab": "taric",
       "ddragon": "Taric",
       "cdragon": 44,
@@ -11877,7 +11754,6 @@
       []
     ],
     "ids": {
-      "pascal": "Teemo",
       "kebab": "teemo",
       "ddragon": "Teemo",
       "cdragon": 17,
@@ -11974,7 +11850,6 @@
       []
     ],
     "ids": {
-      "pascal": "Thresh",
       "kebab": "thresh",
       "ddragon": "Thresh",
       "cdragon": 412,
@@ -12068,7 +11943,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Tristana",
       "kebab": "tristana",
       "ddragon": "Tristana",
       "cdragon": 18,
@@ -12158,7 +12032,6 @@
       []
     ],
     "ids": {
-      "pascal": "Trundle",
       "kebab": "trundle",
       "ddragon": "Trundle",
       "cdragon": 48,
@@ -12247,7 +12120,6 @@
       []
     ],
     "ids": {
-      "pascal": "Tryndamere",
       "kebab": "tryndamere",
       "ddragon": "Tryndamere",
       "cdragon": 23,
@@ -12338,7 +12210,6 @@
       []
     ],
     "ids": {
-      "pascal": "TwistedFate",
       "kebab": "twisted-fate",
       "ddragon": "TwistedFate",
       "cdragon": 4,
@@ -12425,7 +12296,6 @@
       []
     ],
     "ids": {
-      "pascal": "Twitch",
       "kebab": "twitch",
       "ddragon": "Twitch",
       "cdragon": 29,
@@ -12519,7 +12389,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Udyr",
       "kebab": "udyr",
       "ddragon": "Udyr",
       "cdragon": 77,
@@ -12616,7 +12485,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Urgot",
       "kebab": "urgot",
       "ddragon": "Urgot",
       "cdragon": 6,
@@ -12708,7 +12576,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Varus",
       "kebab": "varus",
       "ddragon": "Varus",
       "cdragon": 110,
@@ -12803,7 +12670,6 @@
       []
     ],
     "ids": {
-      "pascal": "Vayne",
       "kebab": "vayne",
       "ddragon": "Vayne",
       "cdragon": 67,
@@ -12891,7 +12757,6 @@
       []
     ],
     "ids": {
-      "pascal": "Veigar",
       "kebab": "veigar",
       "ddragon": "Veigar",
       "cdragon": 45,
@@ -12982,7 +12847,6 @@
       ]
     ],
     "ids": {
-      "pascal": "VelKoz",
       "kebab": "vel-koz",
       "ddragon": "Velkoz",
       "cdragon": 161,
@@ -13071,7 +12935,6 @@
       []
     ],
     "ids": {
-      "pascal": "Vex",
       "kebab": "vex",
       "ddragon": "Vex",
       "cdragon": 711,
@@ -13176,7 +13039,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Vi",
       "kebab": "vi",
       "ddragon": "Vi",
       "cdragon": 254,
@@ -13278,7 +13140,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Viego",
       "kebab": "viego",
       "ddragon": "Viego",
       "cdragon": 234,
@@ -13373,7 +13234,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Viktor",
       "kebab": "viktor",
       "ddragon": "Viktor",
       "cdragon": 112,
@@ -13461,7 +13321,6 @@
       []
     ],
     "ids": {
-      "pascal": "Vladimir",
       "kebab": "vladimir",
       "ddragon": "Vladimir",
       "cdragon": 8,
@@ -13554,7 +13413,6 @@
       []
     ],
     "ids": {
-      "pascal": "Volibear",
       "kebab": "volibear",
       "ddragon": "Volibear",
       "cdragon": 106,
@@ -13659,7 +13517,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Warwick",
       "kebab": "warwick",
       "ddragon": "Warwick",
       "cdragon": 19,
@@ -13756,7 +13613,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Wukong",
       "kebab": "wukong",
       "ddragon": "MonkeyKing",
       "cdragon": 62,
@@ -13849,7 +13705,6 @@
       []
     ],
     "ids": {
-      "pascal": "Xayah",
       "kebab": "xayah",
       "ddragon": "Xayah",
       "cdragon": 498,
@@ -13942,7 +13797,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Xerath",
       "kebab": "xerath",
       "ddragon": "Xerath",
       "cdragon": 101,
@@ -14043,7 +13897,6 @@
       ]
     ],
     "ids": {
-      "pascal": "XinZhao",
       "kebab": "xin-zhao",
       "ddragon": "XinZhao",
       "cdragon": 5,
@@ -14138,7 +13991,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Yasuo",
       "kebab": "yasuo",
       "ddragon": "Yasuo",
       "cdragon": 157,
@@ -14240,7 +14092,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Yone",
       "kebab": "yone",
       "ddragon": "Yone",
       "cdragon": 777,
@@ -14328,7 +14179,6 @@
       []
     ],
     "ids": {
-      "pascal": "Yorick",
       "kebab": "yorick",
       "ddragon": "Yorick",
       "cdragon": 83,
@@ -14426,7 +14276,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Yuumi",
       "kebab": "yuumi",
       "ddragon": "Yuumi",
       "cdragon": 350,
@@ -14528,7 +14377,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Zac",
       "kebab": "zac",
       "ddragon": "Zac",
       "cdragon": 154,
@@ -14621,7 +14469,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Zed",
       "kebab": "zed",
       "ddragon": "Zed",
       "cdragon": 238,
@@ -14792,7 +14639,6 @@
       []
     ],
     "ids": {
-      "pascal": "Ziggs",
       "kebab": "ziggs",
       "ddragon": "Ziggs",
       "cdragon": 115,
@@ -14881,7 +14727,6 @@
       []
     ],
     "ids": {
-      "pascal": "Zilean",
       "kebab": "zilean",
       "ddragon": "Zilean",
       "cdragon": 26,
@@ -14972,7 +14817,6 @@
       []
     ],
     "ids": {
-      "pascal": "Zoe",
       "kebab": "zoe",
       "ddragon": "Zoe",
       "cdragon": 142,
@@ -15064,7 +14908,6 @@
       ]
     ],
     "ids": {
-      "pascal": "Zyra",
       "kebab": "zyra",
       "ddragon": "Zyra",
       "cdragon": 143,
