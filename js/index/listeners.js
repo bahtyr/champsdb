@@ -37,20 +37,6 @@ $id("ability-tags").addEventListener("click", e => {
 	}
 });
 
-/****************************************** SORT **************************************************/
-
-$id("sort").addEventListener("change", e => {
-	switch (e.target.value) {
-		case "abc":     champions.sort(ChampionFunctions.compareNames); break;
-		case "release": champions.sort(ChampionFunctions.compareReleaseDates); break;
-		case "rework": break;
-	}
-
-	champlist.deselect();
-	champlist.print();
-	champlist.showAbilityKeysOnChamps();
-});
-
 /****************************************** SEARCH ***********************************************/
 
 $id("search__clear").addEventListener("click", search?.clear);

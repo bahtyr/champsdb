@@ -166,8 +166,8 @@ var search = {
 		 * therefore it is better if we handle follow-up methods here as well.
 		 */
 
-		search.text = search.text.replace(/[^\w\s]/g, "")
-
+		search.text = search.text.replace(/[^\w\s]/g, "");
+		sort.reset();
 		champlist.deselect();
 		champlist.resetPosition();
 

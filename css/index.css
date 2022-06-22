@@ -89,10 +89,15 @@
 	font-size: 12px;
 	letter-spacing: 0.07em;
 	letter-spacing: 1;
+	cursor: pointer;
+}
+
+#header p:hover {
+	color: #fff;
 }
 
 #patch-version {
-  cursor: help;
+  cursor: help !important;
 }
 
 #info-btn {

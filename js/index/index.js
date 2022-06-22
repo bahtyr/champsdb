@@ -6,7 +6,7 @@ var champlist = new ChampListManager;
 var champcard = new ChampCardManager;
 var sidebar   = new SidebarManager;
 var filters   = new FiltersManager;
-var sort      = {};
+var sort      = new SortManager;
 // var search = {}; @search.js
 
 fetch("data/champions.json").then(data => data.json()).then(json => {
@@ -55,18 +55,4 @@ function printPatchInfo() {
 	$id("next-patch-date").textContent = nextPatchDate;
 	$id("patch-notes-next").children[1].textContent = "Patch " + patches[next].version + " Notes";
 	$id("patch-notes-next").setAttribute("href", patches[next].link);
-}
-
-/*************************************************************************************************/
-
-sort.reset = function () {
-	/**
-	 * is used before champlist.hideAllExcept()
-	 * since we only keep "champ index" on our tag list, we have to revert the list before showing results
-	 * otherwise "champ index" taglist and the champ list indexes will not match
-	 */
-	if ($id("sort").value != "abc") {
-		$id("sort").value =  "abc";
-		$id("sort").dispatchEvent(new Event('change'));
-	}
 }
