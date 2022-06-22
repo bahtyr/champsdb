@@ -152,13 +152,38 @@ var PatchFunctions = {
 		/** start from the last and check if the date is bigger than today */
 		let today = Date.now();
 		let current = patches.length - 1;
-		while (patches[current].start * 1000 > today) current--;
+		while (patches[current].start > today) current--;
 		return current;
 	},
 
 	hoursDiff(index, hours) {
-		let a = (patches[index].start * 1000) - Date.now();
+		let a = (patches[index].start) - Date.now();
 		let b = hours * 60 * 60 * 1000;
 		return a <= b;
 	},
+
+	/******************** CRUD *****************/
+
+	createOrUpdate(version, dateString) {
+		if (!version || !dateString) return;
+		let existing = patches.find(patch => patch.version == version);
+
+		if (existing) {
+			existing.version = version+"";
+			existing.start = Date.parse(dateString);
+			existing.link = `https://www.leagueoflegends.com/en-us/news/game-updates/patch-${version.replace(".", "-")}-notes/`
+		} else {
+			let new_ = {};
+			new_.version = version+"";
+			new_.start = Date.parse(dateString);
+			new_.link = `https://www.leagueoflegends.com/en-us/news/game-updates/patch-${version.replace(".", "-")}-notes/`
+			patches.push(new_);
+		}
+	},
+
+	/******************** SORT *****************/
+
+	sort() {
+		patches.sort((a, b) => a.start - b.start);
+	}
 }

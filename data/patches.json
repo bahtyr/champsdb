@@ -1,117 +1,117 @@
 [
   {
     "version": "12.1",
-    "start": 1641358800,
+    "start": 1641358800000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-1-notes/"
   },
   {
     "version": "12.2",
-    "start": 1642654800,
+    "start": 1642654800000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-2-notes/"
   },
   {
     "version": "12.3",
-    "start": 1643778000,
+    "start": 1643778000000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-3-notes/"
   },
   {
     "version": "12.4",
-    "start": 1644987600,
+    "start": 1644987600000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-4-notes/"
   },
   {
     "version": "12.5",
-    "start": 1646197200,
+    "start": 1646197200000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-5-notes/"
   },
   {
     "version": "12.6",
-    "start": 1648612800,
+    "start": 1648612800000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-6-notes/"
   },
   {
     "version": "12.7",
-    "start": 1649822400,
+    "start": 1649822400000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-7-notes/"
   },
   {
     "version": "12.8",
-    "start": 1651032000,
+    "start": 1651032000000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-8-notes/"
   },
   {
     "version": "12.9",
-    "start": 1652241600,
+    "start": 1652241600000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-9-notes/"
   },
   {
     "version": "12.10",
-    "start": 1653451200,
+    "start": 1653451200000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-10-notes/"
   },
   {
     "version": "12.11",
-    "start": 1654660800,
+    "start": 1654660800000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-11-notes/"
   },
   {
     "version": "12.12",
-    "start": 1655956800,
+    "start": 1655956800000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-12-notes/"
   },
   {
     "version": "12.13",
-    "start": 1657684800,
+    "start": 1657684800000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-13-notes/"
   },
   {
     "version": "12.14",
-    "start": 1658894400,
+    "start": 1658894400000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-14-notes/"
   },
   {
     "version": "12.15",
-    "start": 1660104000,
+    "start": 1660104000000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-15-notes/"
   },
   {
     "version": "12.16",
-    "start": 1661313600,
+    "start": 1661313600000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-16-notes/"
   },
   {
     "version": "12.17",
-    "start": 1662609600,
+    "start": 1662609600000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-17-notes/"
   },
   {
     "version": "12.18",
-    "start": 1663732800,
+    "start": 1663732800000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-18-notes/"
   },
   {
     "version": "12.19",
-    "start": 1664942400,
+    "start": 1664942400000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-19-notes/"
   },
   {
     "version": "12.20",
-    "start": 1666152000,
-    "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-2-notes/"
+    "start": 1666152000000,
+    "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-20-notes/"
   },
   {
     "version": "12.21",
-    "start": 1667361600,
+    "start": 1667361600000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-21-notes/"
   },
   {
     "version": "12.22",
-    "start": 1668574800,
+    "start": 1668574800000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-22-notes/"
   },
   {
     "version": "12.23",
-    "start": 1670389200,
+    "start": 1670389200000,
     "link": "https://www.leagueoflegends.com/en-us/news/game-updates/patch-12-23-notes/"
   }
 ]

@@ -41,6 +41,7 @@ function log(str) {
 
 function updateChamps() { updateData("champions", champions); }
 function updateTags() { updateData("tags", tags); }
+function updatePatches() { updateData("patches", patches); }
 function updateData(fileName, data) {
 	log(`Updating ${fileName}.`);
 	let xhr = new XMLHttpRequest();

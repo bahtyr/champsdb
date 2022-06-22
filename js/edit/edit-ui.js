@@ -99,7 +99,7 @@ class EditUiManager {
 			arr = patches.filter(patch => patch.version.includes(search));
 
 		this.populateList("list-patches", arr.map(patch => {
-			let date = new Date(patch.start * 1000).toLocaleDateString("ko-KR", {year: "numeric", month: "2-digit", day: "2-digit"});
+			let date = new Date(patch.start).toLocaleDateString("ko-KR", {year: "numeric", month: "2-digit", day: "2-digit"});
 			return `V${patch.version} --- ${date}`;
 		}), null, this.onDblClickPatch);
 
@@ -378,6 +378,7 @@ class EditUiManager {
 		switch (id) {
 			case "export-champions": updateChamps(); break;
 			case "export-tags":      updateTags(); break;
+			case "export-patches":   updatePatches(); break;
 		}
 	}
 
@@ -529,4 +530,18 @@ class EditUiManager {
 		pageManager.populateChampsandtagsList(tags[this.selectedTagIndex].champIndexes);
 	}
 
+	/******************** patches ********/
+
+	patchesOnClickExtract() {
+		let lines = $id("input__patchschedule").value.split(/\n/);
+		if (lines[0].length == 0) return;
+		lines.forEach((l, i) => {
+			if (i == 0 && l.toLowerCase().includes("scheduled date")) return;
+			l = l.trim().split(/\t/);
+			PatchFunctions.createOrUpdate(l[0], l[1]);
+		});
+		PatchFunctions.sort();
+		this.populatePatchList();
+		this.highlightExport("patches");
+	}
 }

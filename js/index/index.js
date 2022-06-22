@@ -40,7 +40,7 @@ function printPatchInfo() {
 	 */
 	let current = PatchFunctions.getCurrentPatchIndex();
 	let next = current == patches.length ? current : current + 1;
-	let nextPatchDate = new Date(patches[next].start * 1000).toLocaleDateString("en-US", {month: "short", weekday: "short", day: "numeric"});
+	let nextPatchDate = new Date(patches[next].start).toLocaleDateString("en-US", {month: "short", weekday: "short", day: "numeric"});
 
 	$id("patch-version").textContent = "Patch " + patches[current].version;
 	$id("patch-notes-current").children[0].textContent = "Patch " + patches[current].version + " Notes";
