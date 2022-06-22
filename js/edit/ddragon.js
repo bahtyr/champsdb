@@ -77,7 +77,7 @@ class DDragon {
 
 				obj.name = champ.name;
 				obj.title = champ.title;
-				obj.tags = champ.tags;
+				obj.roles = champ.tags;
 				obj.portrait = this.URL_CHAMP_PORTRAIT + champ.image.full;
 				obj.splash = this.URL_CHAMP_SPLASH + champ.id + this.URL_CHAMP_SPLASH_END;
 				obj.resource = champ.partype;

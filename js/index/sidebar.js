@@ -138,7 +138,7 @@ class FiltersManager {
 		onClick: function(target, id, parentId) {
 			window.scrollTo({top: 0});
 
-			let attr = parentId === "filter-lane" ? "lanes" : "tags";
+			let attr = parentId === "filter-lane" ? "lanes" : "roles";
 
 			if (target.classList.contains("active")) {
 				search.queryRemove({key: attr, value: id}, null);
@@ -170,7 +170,7 @@ class FiltersManager {
 		queryHasMyAttrs: function() {
 			// does not count if the attributes are for champion Lanes or Roles
 			for (let q of search.query) { 
-				if (q.attr && (q.attr.key != "lanes" && q.attr.key != "tags"))
+				if (q.attr && (q.attr.key != "lanes" && q.attr.key != "roles"))
 					return true;
 			} return false;
 		},

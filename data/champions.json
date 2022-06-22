@@ -2,7 +2,7 @@
   {
     "name": "Aatrox",
     "title": "the Darkin Blade",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -104,7 +104,7 @@
   {
     "name": "Ahri",
     "title": "the Nine-Tailed Fox",
-    "tags": [
+    "roles": [
       "Mage",
       "Assassin"
     ],
@@ -197,7 +197,7 @@
   {
     "name": "Akali",
     "title": "the Rogue Assassin",
-    "tags": [
+    "roles": [
       "Assassin"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Akali.png",
@@ -291,7 +291,7 @@
   {
     "name": "Akshan",
     "title": "the Rogue Sentinel",
-    "tags": [
+    "roles": [
       "Marksman",
       "Assassin"
     ],
@@ -383,7 +383,7 @@
   {
     "name": "Alistar",
     "title": "the Minotaur",
-    "tags": [
+    "roles": [
       "Tank",
       "Support"
     ],
@@ -484,7 +484,7 @@
   {
     "name": "Amumu",
     "title": "the Sad Mummy",
-    "tags": [
+    "roles": [
       "Tank",
       "Mage"
     ],
@@ -580,7 +580,7 @@
   {
     "name": "Anivia",
     "title": "the Cryophoenix",
-    "tags": [
+    "roles": [
       "Mage",
       "Support"
     ],
@@ -670,7 +670,7 @@
   {
     "name": "Annie",
     "title": "the Dark Child",
-    "tags": [
+    "roles": [
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Annie.png",
@@ -756,7 +756,7 @@
   {
     "name": "Aphelios",
     "title": "the Weapon of the Faithful",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Aphelios.png",
@@ -844,7 +844,7 @@
   {
     "name": "Ashe",
     "title": "the Frost Archer",
-    "tags": [
+    "roles": [
       "Marksman",
       "Support"
     ],
@@ -936,7 +936,7 @@
   {
     "name": "Aurelion Sol",
     "title": "The Star Forger",
-    "tags": [
+    "roles": [
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/AurelionSol.png",
@@ -1030,7 +1030,7 @@
   {
     "name": "Azir",
     "title": "the Emperor of the Sands",
-    "tags": [
+    "roles": [
       "Mage",
       "Marksman"
     ],
@@ -1122,7 +1122,7 @@
   {
     "name": "Bard",
     "title": "the Wandering Caretaker",
-    "tags": [
+    "roles": [
       "Support",
       "Mage"
     ],
@@ -1224,7 +1224,7 @@
     },
     "name": "Bel'Veth",
     "title": "the Empress of the Void",
-    "tags": [
+    "roles": [
       "Fighter"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/12.11.1/img/champion/Belveth.png",
@@ -1299,7 +1299,7 @@
   {
     "name": "Blitzcrank",
     "title": "the Great Steam Golem",
-    "tags": [
+    "roles": [
       "Tank",
       "Fighter"
     ],
@@ -1393,7 +1393,7 @@
   {
     "name": "Brand",
     "title": "the Burning Vengeance",
-    "tags": [
+    "roles": [
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Brand.png",
@@ -1480,7 +1480,7 @@
   {
     "name": "Braum",
     "title": "the Heart of the Freljord",
-    "tags": [
+    "roles": [
       "Support",
       "Tank"
     ],
@@ -1576,7 +1576,7 @@
   {
     "name": "Caitlyn",
     "title": "the Sheriff of Piltover",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Caitlyn.png",
@@ -1671,7 +1671,7 @@
   {
     "name": "Camille",
     "title": "the Steel Shadow",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -1772,7 +1772,7 @@
   {
     "name": "Cassiopeia",
     "title": "the Serpent's Embrace",
-    "tags": [
+    "roles": [
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Cassiopeia.png",
@@ -1861,7 +1861,7 @@
   {
     "name": "Cho'Gath",
     "title": "the Terror of the Void",
-    "tags": [
+    "roles": [
       "Tank",
       "Mage"
     ],
@@ -1955,7 +1955,7 @@
   {
     "name": "Corki",
     "title": "the Daring Bombardier",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Corki.png",
@@ -2047,7 +2047,7 @@
   {
     "name": "Darius",
     "title": "the Hand of Noxus",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -2143,7 +2143,7 @@
   {
     "name": "Diana",
     "title": "Scorn of the Moon",
-    "tags": [
+    "roles": [
       "Fighter",
       "Mage"
     ],
@@ -2235,7 +2235,7 @@
   {
     "name": "Dr. Mundo",
     "title": "the Madman of Zaun",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -2325,7 +2325,7 @@
   {
     "name": "Draven",
     "title": "the Glorious Executioner",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Draven.png",
@@ -2414,7 +2414,7 @@
   {
     "name": "Ekko",
     "title": "the Boy Who Shattered Time",
-    "tags": [
+    "roles": [
       "Assassin",
       "Fighter"
     ],
@@ -2512,7 +2512,7 @@
   {
     "name": "Elise",
     "title": "the Spider Queen",
-    "tags": [
+    "roles": [
       "Mage",
       "Fighter"
     ],
@@ -2607,7 +2607,7 @@
   {
     "name": "Evelynn",
     "title": "Agony's Embrace",
-    "tags": [
+    "roles": [
       "Assassin",
       "Mage"
     ],
@@ -2698,7 +2698,7 @@
   {
     "name": "Ezreal",
     "title": "the Prodigal Explorer",
-    "tags": [
+    "roles": [
       "Marksman",
       "Mage"
     ],
@@ -2784,7 +2784,7 @@
   {
     "name": "Fiddlesticks",
     "title": "the Ancient Fear",
-    "tags": [
+    "roles": [
       "Mage",
       "Support"
     ],
@@ -2879,7 +2879,7 @@
   {
     "name": "Fiora",
     "title": "the Grand Duelist",
-    "tags": [
+    "roles": [
       "Fighter",
       "Assassin"
     ],
@@ -2979,7 +2979,7 @@
   {
     "name": "Fizz",
     "title": "the Tidal Trickster",
-    "tags": [
+    "roles": [
       "Assassin",
       "Fighter"
     ],
@@ -3080,7 +3080,7 @@
   {
     "name": "Galio",
     "title": "the Colossus",
-    "tags": [
+    "roles": [
       "Tank",
       "Mage"
     ],
@@ -3183,7 +3183,7 @@
   {
     "name": "Gangplank",
     "title": "the Saltwater Scourge",
-    "tags": [
+    "roles": [
       "Fighter"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Gangplank.png",
@@ -3273,7 +3273,7 @@
   {
     "name": "Garen",
     "title": "The Might of Demacia",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -3362,7 +3362,7 @@
   {
     "name": "Gnar",
     "title": "the Missing Link",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -3461,7 +3461,7 @@
   {
     "name": "Gragas",
     "title": "the Rabble Rouser",
-    "tags": [
+    "roles": [
       "Fighter",
       "Mage"
     ],
@@ -3557,7 +3557,7 @@
   {
     "name": "Graves",
     "title": "the Outlaw",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Graves.png",
@@ -3651,7 +3651,7 @@
   {
     "name": "Gwen",
     "title": "The Hallowed Seamstress",
-    "tags": [
+    "roles": [
       "Fighter",
       "Assassin"
     ],
@@ -3746,7 +3746,7 @@
   {
     "name": "Hecarim",
     "title": "the Shadow of War",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -3846,7 +3846,7 @@
   {
     "name": "Heimerdinger",
     "title": "the Revered Inventor",
-    "tags": [
+    "roles": [
       "Mage",
       "Support"
     ],
@@ -3936,7 +3936,7 @@
   {
     "name": "Illaoi",
     "title": "the Kraken Priestess",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -4024,7 +4024,7 @@
   {
     "name": "Irelia",
     "title": "the Blade Dancer",
-    "tags": [
+    "roles": [
       "Fighter",
       "Assassin"
     ],
@@ -4119,7 +4119,7 @@
   {
     "name": "Ivern",
     "title": "the Green Father",
-    "tags": [
+    "roles": [
       "Support",
       "Mage"
     ],
@@ -4213,7 +4213,7 @@
   {
     "name": "Janna",
     "title": "the Storm's Fury",
-    "tags": [
+    "roles": [
       "Support",
       "Mage"
     ],
@@ -4304,7 +4304,7 @@
   {
     "name": "Jarvan IV",
     "title": "the Exemplar of Demacia",
-    "tags": [
+    "roles": [
       "Tank",
       "Fighter"
     ],
@@ -4401,7 +4401,7 @@
   {
     "name": "Jax",
     "title": "Grandmaster at Arms",
-    "tags": [
+    "roles": [
       "Fighter",
       "Assassin"
     ],
@@ -4498,7 +4498,7 @@
   {
     "name": "Jayce",
     "title": "the Defender of Tomorrow",
-    "tags": [
+    "roles": [
       "Fighter",
       "Marksman"
     ],
@@ -4597,7 +4597,7 @@
   {
     "name": "Jhin",
     "title": "the Virtuoso",
-    "tags": [
+    "roles": [
       "Marksman",
       "Mage"
     ],
@@ -4687,7 +4687,7 @@
   {
     "name": "Jinx",
     "title": "the Loose Cannon",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Jinx.png",
@@ -4779,7 +4779,7 @@
   {
     "name": "Kai'Sa",
     "title": "Daughter of the Void",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Kaisa.png",
@@ -4865,7 +4865,7 @@
   {
     "name": "Kalista",
     "title": "the Spear of Vengeance",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Kalista.png",
@@ -4957,7 +4957,7 @@
   {
     "name": "Karma",
     "title": "the Enlightened One",
-    "tags": [
+    "roles": [
       "Mage",
       "Support"
     ],
@@ -5044,7 +5044,7 @@
   {
     "name": "Karthus",
     "title": "the Deathsinger",
-    "tags": [
+    "roles": [
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Karthus.png",
@@ -5131,7 +5131,7 @@
   {
     "name": "Kassadin",
     "title": "the Void Walker",
-    "tags": [
+    "roles": [
       "Assassin",
       "Mage"
     ],
@@ -5222,7 +5222,7 @@
   {
     "name": "Katarina",
     "title": "the Sinister Blade",
-    "tags": [
+    "roles": [
       "Assassin",
       "Mage"
     ],
@@ -5310,7 +5310,7 @@
   {
     "name": "Kayle",
     "title": "the Righteous",
-    "tags": [
+    "roles": [
       "Fighter",
       "Support"
     ],
@@ -5399,7 +5399,7 @@
   {
     "name": "Kayn",
     "title": "the Shadow Reaper",
-    "tags": [
+    "roles": [
       "Fighter",
       "Assassin"
     ],
@@ -5499,7 +5499,7 @@
   {
     "name": "Kennen",
     "title": "the Heart of the Tempest",
-    "tags": [
+    "roles": [
       "Mage",
       "Marksman"
     ],
@@ -5585,7 +5585,7 @@
   {
     "name": "Kha'Zix",
     "title": "the Voidreaver",
-    "tags": [
+    "roles": [
       "Assassin"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Khazix.png",
@@ -5675,7 +5675,7 @@
   {
     "name": "Kindred",
     "title": "The Eternal Hunters",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Kindred.png",
@@ -5766,7 +5766,7 @@
   {
     "name": "Kled",
     "title": "the Cantankerous Cavalier",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -5871,7 +5871,7 @@
   {
     "name": "Kog'Maw",
     "title": "the Mouth of the Abyss",
-    "tags": [
+    "roles": [
       "Marksman",
       "Mage"
     ],
@@ -5959,7 +5959,7 @@
   {
     "name": "LeBlanc",
     "title": "the Deceiver",
-    "tags": [
+    "roles": [
       "Assassin",
       "Mage"
     ],
@@ -6058,7 +6058,7 @@
   {
     "name": "Lee Sin",
     "title": "the Blind Monk",
-    "tags": [
+    "roles": [
       "Fighter",
       "Assassin"
     ],
@@ -6155,7 +6155,7 @@
   {
     "name": "Leona",
     "title": "the Radiant Dawn",
-    "tags": [
+    "roles": [
       "Tank",
       "Support"
     ],
@@ -6251,7 +6251,7 @@
   {
     "name": "Lillia",
     "title": "the Bashful Bloom",
-    "tags": [
+    "roles": [
       "Fighter",
       "Mage"
     ],
@@ -6345,7 +6345,7 @@
   {
     "name": "Lissandra",
     "title": "the Ice Witch",
-    "tags": [
+    "roles": [
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Lissandra.png",
@@ -6436,7 +6436,7 @@
   {
     "name": "Lucian",
     "title": "the Purifier",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Lucian.png",
@@ -6524,7 +6524,7 @@
   {
     "name": "Lulu",
     "title": "the Fae Sorceress",
-    "tags": [
+    "roles": [
       "Support",
       "Mage"
     ],
@@ -6617,7 +6617,7 @@
   {
     "name": "Lux",
     "title": "the Lady of Luminosity",
-    "tags": [
+    "roles": [
       "Mage",
       "Support"
     ],
@@ -6707,7 +6707,7 @@
   {
     "name": "Malphite",
     "title": "Shard of the Monolith",
-    "tags": [
+    "roles": [
       "Tank",
       "Fighter"
     ],
@@ -6801,7 +6801,7 @@
   {
     "name": "Malzahar",
     "title": "the Prophet of the Void",
-    "tags": [
+    "roles": [
       "Mage",
       "Assassin"
     ],
@@ -6892,7 +6892,7 @@
   {
     "name": "Maokai",
     "title": "the Twisted Treant",
-    "tags": [
+    "roles": [
       "Tank",
       "Mage"
     ],
@@ -6991,7 +6991,7 @@
   {
     "name": "Master Yi",
     "title": "the Wuju Bladesman",
-    "tags": [
+    "roles": [
       "Assassin",
       "Fighter"
     ],
@@ -7088,7 +7088,7 @@
   {
     "name": "Miss Fortune",
     "title": "the Bounty Hunter",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/MissFortune.png",
@@ -7176,7 +7176,7 @@
   {
     "name": "Mordekaiser",
     "title": "the Iron Revenant",
-    "tags": [
+    "roles": [
       "Fighter"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Mordekaiser.png",
@@ -7268,7 +7268,7 @@
   {
     "name": "Morgana",
     "title": "the Fallen",
-    "tags": [
+    "roles": [
       "Mage",
       "Support"
     ],
@@ -7359,7 +7359,7 @@
   {
     "name": "Nami",
     "title": "the Tidecaller",
-    "tags": [
+    "roles": [
       "Support",
       "Mage"
     ],
@@ -7450,7 +7450,7 @@
   {
     "name": "Nasus",
     "title": "the Curator of the Sands",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -7540,7 +7540,7 @@
   {
     "name": "Nautilus",
     "title": "the Titan of the Depths",
-    "tags": [
+    "roles": [
       "Tank",
       "Fighter"
     ],
@@ -7641,7 +7641,7 @@
   {
     "name": "Neeko",
     "title": "the Curious Chameleon",
-    "tags": [
+    "roles": [
       "Mage",
       "Support"
     ],
@@ -7735,7 +7735,7 @@
   {
     "name": "Nidalee",
     "title": "the Bestial Huntress",
-    "tags": [
+    "roles": [
       "Assassin",
       "Mage"
     ],
@@ -7826,7 +7826,7 @@
   {
     "name": "Nocturne",
     "title": "the Eternal Nightmare",
-    "tags": [
+    "roles": [
       "Assassin",
       "Fighter"
     ],
@@ -7923,7 +7923,7 @@
   {
     "name": "Nunu & Willump",
     "title": "the Boy and His Yeti",
-    "tags": [
+    "roles": [
       "Tank",
       "Fighter"
     ],
@@ -8019,7 +8019,7 @@
   {
     "name": "Olaf",
     "title": "the Berserker",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -8107,7 +8107,7 @@
   {
     "name": "Orianna",
     "title": "the Lady of Clockwork",
-    "tags": [
+    "roles": [
       "Mage",
       "Support"
     ],
@@ -8196,7 +8196,7 @@
   {
     "name": "Ornn",
     "title": "The Fire below the Mountain",
-    "tags": [
+    "roles": [
       "Tank",
       "Fighter"
     ],
@@ -8295,7 +8295,7 @@
   {
     "name": "Pantheon",
     "title": "the Unbreakable Spear",
-    "tags": [
+    "roles": [
       "Fighter",
       "Assassin"
     ],
@@ -8391,7 +8391,7 @@
   {
     "name": "Poppy",
     "title": "Keeper of the Hammer",
-    "tags": [
+    "roles": [
       "Tank",
       "Fighter"
     ],
@@ -8489,7 +8489,7 @@
   {
     "name": "Pyke",
     "title": "the Bloodharbor Ripper",
-    "tags": [
+    "roles": [
       "Support",
       "Assassin"
     ],
@@ -8582,7 +8582,7 @@
   {
     "name": "Qiyana",
     "title": "Empress of the Elements",
-    "tags": [
+    "roles": [
       "Assassin",
       "Fighter"
     ],
@@ -8682,7 +8682,7 @@
   {
     "name": "Quinn",
     "title": "Demacia's Wings",
-    "tags": [
+    "roles": [
       "Marksman",
       "Assassin"
     ],
@@ -8778,7 +8778,7 @@
   {
     "name": "Rakan",
     "title": "The Charmer",
-    "tags": [
+    "roles": [
       "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Rakan.png",
@@ -8877,7 +8877,7 @@
   {
     "name": "Rammus",
     "title": "the Armordillo",
-    "tags": [
+    "roles": [
       "Tank",
       "Fighter"
     ],
@@ -8975,7 +8975,7 @@
   {
     "name": "Rek'Sai",
     "title": "the Void Burrower",
-    "tags": [
+    "roles": [
       "Fighter"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/RekSai.png",
@@ -9072,7 +9072,7 @@
   {
     "name": "Rell",
     "title": "the Iron Maiden",
-    "tags": [
+    "roles": [
       "Tank"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Rell.png",
@@ -9178,7 +9178,7 @@
     },
     "name": "Renata Glasc",
     "title": "the Chem-Baroness",
-    "tags": [
+    "roles": [
       "Support",
       "Mage"
     ],
@@ -9254,7 +9254,7 @@
   {
     "name": "Renekton",
     "title": "the Butcher of the Sands",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -9349,7 +9349,7 @@
   {
     "name": "Rengar",
     "title": "the Pridestalker",
-    "tags": [
+    "roles": [
       "Assassin",
       "Fighter"
     ],
@@ -9442,7 +9442,7 @@
   {
     "name": "Riven",
     "title": "the Exile",
-    "tags": [
+    "roles": [
       "Fighter",
       "Assassin"
     ],
@@ -9541,7 +9541,7 @@
   {
     "name": "Rumble",
     "title": "the Mechanized Menace",
-    "tags": [
+    "roles": [
       "Fighter",
       "Mage"
     ],
@@ -9626,7 +9626,7 @@
   {
     "name": "Ryze",
     "title": "the Rune Mage",
-    "tags": [
+    "roles": [
       "Mage",
       "Fighter"
     ],
@@ -9717,7 +9717,7 @@
   {
     "name": "Samira",
     "title": "the Desert Rose",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Samira.png",
@@ -9807,7 +9807,7 @@
   {
     "name": "Sejuani",
     "title": "Fury of the North",
-    "tags": [
+    "roles": [
       "Tank",
       "Fighter"
     ],
@@ -9905,7 +9905,7 @@
   {
     "name": "Senna",
     "title": "the Redeemer",
-    "tags": [
+    "roles": [
       "Marksman",
       "Support"
     ],
@@ -9993,7 +9993,7 @@
   {
     "name": "Seraphine",
     "title": "the Starry-Eyed Songstress",
-    "tags": [
+    "roles": [
       "Mage",
       "Support"
     ],
@@ -10086,7 +10086,7 @@
   {
     "name": "Sett",
     "title": "the Boss",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -10182,7 +10182,7 @@
   {
     "name": "Shaco",
     "title": "the Demon Jester",
-    "tags": [
+    "roles": [
       "Assassin"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Shaco.png",
@@ -10280,7 +10280,7 @@
   {
     "name": "Shen",
     "title": "the Eye of Twilight",
-    "tags": [
+    "roles": [
       "Tank"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Shen.png",
@@ -10373,7 +10373,7 @@
   {
     "name": "Shyvana",
     "title": "the Half-Dragon",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -10470,7 +10470,7 @@
   {
     "name": "Singed",
     "title": "the Mad Chemist",
-    "tags": [
+    "roles": [
       "Tank",
       "Fighter"
     ],
@@ -10560,7 +10560,7 @@
   {
     "name": "Sion",
     "title": "The Undead Juggernaut",
-    "tags": [
+    "roles": [
       "Tank",
       "Fighter"
     ],
@@ -10660,7 +10660,7 @@
   {
     "name": "Sivir",
     "title": "the Battle Mistress",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Sivir.png",
@@ -10747,7 +10747,7 @@
   {
     "name": "Skarner",
     "title": "the Crystal Vanguard",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -10840,7 +10840,7 @@
   {
     "name": "Sona",
     "title": "Maven of the Strings",
-    "tags": [
+    "roles": [
       "Support",
       "Mage"
     ],
@@ -10931,7 +10931,7 @@
   {
     "name": "Soraka",
     "title": "the Starchild",
-    "tags": [
+    "roles": [
       "Support",
       "Mage"
     ],
@@ -11019,7 +11019,7 @@
   {
     "name": "Swain",
     "title": "the Noxian Grand General",
-    "tags": [
+    "roles": [
       "Mage",
       "Fighter"
     ],
@@ -11110,7 +11110,7 @@
   {
     "name": "Sylas",
     "title": "the Unshackled",
-    "tags": [
+    "roles": [
       "Mage",
       "Assassin"
     ],
@@ -11209,7 +11209,7 @@
   {
     "name": "Syndra",
     "title": "the Dark Sovereign",
-    "tags": [
+    "roles": [
       "Mage",
       "Support"
     ],
@@ -11301,7 +11301,7 @@
   {
     "name": "Tahm Kench",
     "title": "The River King",
-    "tags": [
+    "roles": [
       "Support",
       "Tank"
     ],
@@ -11404,7 +11404,7 @@
   {
     "name": "Taliyah",
     "title": "the Stoneweaver",
-    "tags": [
+    "roles": [
       "Mage",
       "Support"
     ],
@@ -11494,7 +11494,7 @@
   {
     "name": "Talon",
     "title": "the Blade's Shadow",
-    "tags": [
+    "roles": [
       "Assassin"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Talon.png",
@@ -11586,7 +11586,7 @@
   {
     "name": "Taric",
     "title": "the Shield of Valoran",
-    "tags": [
+    "roles": [
       "Support",
       "Fighter"
     ],
@@ -11675,7 +11675,7 @@
   {
     "name": "Teemo",
     "title": "the Swift Scout",
-    "tags": [
+    "roles": [
       "Marksman",
       "Assassin"
     ],
@@ -11764,7 +11764,7 @@
   {
     "name": "Thresh",
     "title": "the Chain Warden",
-    "tags": [
+    "roles": [
       "Support",
       "Fighter"
     ],
@@ -11860,7 +11860,7 @@
   {
     "name": "Tristana",
     "title": "the Yordle Gunner",
-    "tags": [
+    "roles": [
       "Marksman",
       "Assassin"
     ],
@@ -11953,7 +11953,7 @@
   {
     "name": "Trundle",
     "title": "the Troll King",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -12042,7 +12042,7 @@
   {
     "name": "Tryndamere",
     "title": "the Barbarian King",
-    "tags": [
+    "roles": [
       "Fighter",
       "Assassin"
     ],
@@ -12130,7 +12130,7 @@
   {
     "name": "Twisted Fate",
     "title": "the Card Master",
-    "tags": [
+    "roles": [
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/TwistedFate.png",
@@ -12220,7 +12220,7 @@
   {
     "name": "Twitch",
     "title": "the Plague Rat",
-    "tags": [
+    "roles": [
       "Marksman",
       "Assassin"
     ],
@@ -12306,7 +12306,7 @@
   {
     "name": "Udyr",
     "title": "the Spirit Walker",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -12399,7 +12399,7 @@
   {
     "name": "Urgot",
     "title": "the Dreadnought",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -12495,7 +12495,7 @@
   {
     "name": "Varus",
     "title": "the Arrow of Retribution",
-    "tags": [
+    "roles": [
       "Marksman",
       "Mage"
     ],
@@ -12586,7 +12586,7 @@
   {
     "name": "Vayne",
     "title": "the Night Hunter",
-    "tags": [
+    "roles": [
       "Marksman",
       "Assassin"
     ],
@@ -12680,7 +12680,7 @@
   {
     "name": "Veigar",
     "title": "the Tiny Master of Evil",
-    "tags": [
+    "roles": [
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Veigar.png",
@@ -12767,7 +12767,7 @@
   {
     "name": "Vel'Koz",
     "title": "the Eye of the Void",
-    "tags": [
+    "roles": [
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Velkoz.png",
@@ -12857,7 +12857,7 @@
   {
     "name": "Vex",
     "title": "the Gloomist",
-    "tags": [
+    "roles": [
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Vex.png",
@@ -12945,7 +12945,7 @@
   {
     "name": "Vi",
     "title": "the Piltover Enforcer",
-    "tags": [
+    "roles": [
       "Fighter",
       "Assassin"
     ],
@@ -13049,7 +13049,7 @@
   {
     "name": "Viego",
     "title": "The Ruined King",
-    "tags": [
+    "roles": [
       "Assassin",
       "Fighter"
     ],
@@ -13150,7 +13150,7 @@
   {
     "name": "Viktor",
     "title": "the Machine Herald",
-    "tags": [
+    "roles": [
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Viktor.png",
@@ -13244,7 +13244,7 @@
   {
     "name": "Vladimir",
     "title": "the Crimson Reaper",
-    "tags": [
+    "roles": [
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Vladimir.png",
@@ -13331,7 +13331,7 @@
   {
     "name": "Volibear",
     "title": "the Relentless Storm",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -13423,7 +13423,7 @@
   {
     "name": "Warwick",
     "title": "the Uncaged Wrath of Zaun",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -13527,7 +13527,7 @@
   {
     "name": "Wukong",
     "title": "the Monkey King",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -13623,7 +13623,7 @@
   {
     "name": "Xayah",
     "title": "the Rebel",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Xayah.png",
@@ -13715,7 +13715,7 @@
   {
     "name": "Xerath",
     "title": "the Magus Ascendant",
-    "tags": [
+    "roles": [
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Xerath.png",
@@ -13807,7 +13807,7 @@
   {
     "name": "Xin Zhao",
     "title": "the Seneschal of Demacia",
-    "tags": [
+    "roles": [
       "Fighter",
       "Assassin"
     ],
@@ -13907,7 +13907,7 @@
   {
     "name": "Yasuo",
     "title": "the Unforgiven",
-    "tags": [
+    "roles": [
       "Fighter",
       "Assassin"
     ],
@@ -14001,7 +14001,7 @@
   {
     "name": "Yone",
     "title": "the Unforgotten",
-    "tags": [
+    "roles": [
       "Assassin",
       "Fighter"
     ],
@@ -14102,7 +14102,7 @@
   {
     "name": "Yorick",
     "title": "Shepherd of Souls",
-    "tags": [
+    "roles": [
       "Fighter",
       "Tank"
     ],
@@ -14189,7 +14189,7 @@
   {
     "name": "Yuumi",
     "title": "the Magical Cat",
-    "tags": [
+    "roles": [
       "Support",
       "Mage"
     ],
@@ -14286,7 +14286,7 @@
   {
     "name": "Zac",
     "title": "the Secret Weapon",
-    "tags": [
+    "roles": [
       "Tank",
       "Fighter"
     ],
@@ -14387,7 +14387,7 @@
   {
     "name": "Zed",
     "title": "the Master of Shadows",
-    "tags": [
+    "roles": [
       "Assassin"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Zed.png",
@@ -14486,7 +14486,7 @@
     },
     "name": "Zeri",
     "title": "The Spark of Zaun",
-    "tags": [
+    "roles": [
       "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Zeri.png",
@@ -14561,7 +14561,7 @@
   {
     "name": "Ziggs",
     "title": "the Hexplosives Expert",
-    "tags": [
+    "roles": [
       "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Ziggs.png",
@@ -14649,7 +14649,7 @@
   {
     "name": "Zilean",
     "title": "the Chronokeeper",
-    "tags": [
+    "roles": [
       "Support",
       "Mage"
     ],
@@ -14737,7 +14737,7 @@
   {
     "name": "Zoe",
     "title": "the Aspect of Twilight",
-    "tags": [
+    "roles": [
       "Mage",
       "Support"
     ],
@@ -14827,7 +14827,7 @@
   {
     "name": "Zyra",
     "title": "Rise of the Thorns",
-    "tags": [
+    "roles": [
       "Mage",
       "Support"
     ],

@@ -171,12 +171,12 @@ class EditUiManager {
 		if (champions[i].lanes?.includes("Bot")) $id("laneBot").checked = true;
 		if (champions[i].lanes?.includes("Sup")) $id("laneSup").checked = true;
 
-		if (champions[i].tags?.includes("Fighter")) $id("roleFighter").checked = true;
-		if (champions[i].tags?.includes("Tank")) $id("roleTank").checked = true;
-		if (champions[i].tags?.includes("Assassin")) $id("roleAssassin").checked = true;
-		if (champions[i].tags?.includes("Mage")) $id("roleMage").checked = true;
-		if (champions[i].tags?.includes("Marksman")) $id("roleMarksman").checked = true;
-		if (champions[i].tags?.includes("Support")) $id("roleSupport").checked = true;
+		if (champions[i].roles?.includes("Fighter")) $id("roleFighter").checked = true;
+		if (champions[i].roles?.includes("Tank")) $id("roleTank").checked = true;
+		if (champions[i].roles?.includes("Assassin")) $id("roleAssassin").checked = true;
+		if (champions[i].roles?.includes("Mage")) $id("roleMage").checked = true;
+		if (champions[i].roles?.includes("Marksman")) $id("roleMarksman").checked = true;
+		if (champions[i].roles?.includes("Support")) $id("roleSupport").checked = true;
 
 		$id("resource").value = champions[i].resource;
 		$id("attackRange").value = champions[i].attackRange;
@@ -272,13 +272,13 @@ class EditUiManager {
 		if ($id("laneSup").checked) champions[i].lanes += "Support ";
 		champions[i].lanes = champions[i].lanes.trim();
 
-		champions[i].tags = [];
-		if ($id("roleFighter").checked)  champions[i].tags.push("Fighter");
-		if ($id("roleTank").checked)   champions[i].tags.push("Tank");
-		if ($id("roleAssassin").checked) champions[i].tags.push("Assassin");
-		if ($id("roleMage").checked)     champions[i].tags.push("Mage");
-		if ($id("roleMarksman").checked) champions[i].tags.push("Marksman");
-		if ($id("roleSupport").checked)  champions[i].tags.push("Support");
+		champions[i].roles = [];
+		if ($id("roleFighter").checked)  champions[i].roles.push("Fighter");
+		if ($id("roleTank").checked)   champions[i].roles.push("Tank");
+		if ($id("roleAssassin").checked) champions[i].roles.push("Assassin");
+		if ($id("roleMage").checked)     champions[i].roles.push("Mage");
+		if ($id("roleMarksman").checked) champions[i].roles.push("Marksman");
+		if ($id("roleSupport").checked)  champions[i].roles.push("Support");
 
 		champions[i].resource = $id("resource").value;
 		champions[i].attackRange = parseInt($id("attackRange").value);

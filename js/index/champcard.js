@@ -65,7 +65,7 @@ class ChampCardManager {
 		/******************************** OTHER TEXT ********************************/
 
 		this.table.col[1].row[0].textContent = champions[i].lanes.replaceAll(" ", ", ");
-		this.table.col[1].row[1].textContent = (champions[i].tags+"").replaceAll(",", ", ");
+		this.table.col[1].row[1].textContent = (champions[i].roles+"").replaceAll(",", ", ");
 		this.table.col[1].row[2].textContent = champions[i].rangeType + " (" + champions[i].attackRange + ")";
 		this.table.col[1].row[3].textContent = champions[i].resource;
 		this.table.col[1].row[4].textContent = champions[i].region + ", " + champions[i].species;
@@ -103,7 +103,7 @@ class ChampCardManager {
 		this.table.icons["lane"][lane].classList.remove("hide");
 
 		// ROLE
-		let role = champions[i].tags[0];
+		let role = champions[i].roles[0];
 		this.table.icons["role"]["Tank"].classList.add("hide");
 		this.table.icons["role"]["Fighter"].classList.add("hide");
 		this.table.icons["role"]["Assassin"].classList.add("hide");
