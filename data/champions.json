@@ -41,7 +41,9 @@
       }
     ],
     "splashPosition": "-653px -71px",
-    "lanes": "Top Middle",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2013-06-13",
     "resource": "Blood Well",
     "rangeType": "Melee",
@@ -143,7 +145,9 @@
       }
     ],
     "splashPosition": "-585px -34px",
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2011-12-14",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -235,7 +239,10 @@
       }
     ],
     "splashPosition": " -450px 0px",
-    "lanes": "Middle Top",
+    "lanes": [
+      "Top",
+      "Middle"
+    ],
     "releaseDate": "2010-05-11",
     "resource": "Energy",
     "rangeType": "Melee",
@@ -330,7 +337,9 @@
       }
     ],
     "splashPosition": "-651px -283px",
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2021-07-22",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -422,7 +431,9 @@
       }
     ],
     "splashPosition": "-582px -167px",
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -523,7 +534,9 @@
       }
     ],
     "splashPosition": "-679px -145px",
-    "lanes": "Jungle Support",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2009-06-26",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -619,7 +632,9 @@
       }
     ],
     "splashPosition": "-517px -140px",
-    "lanes": "Middle Support",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2009-07-10",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -708,7 +723,9 @@
       }
     ],
     "splashPosition": "-794px -1070x",
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -794,7 +811,9 @@
       }
     ],
     "splashPosition": "-551px -13px",
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2019-12-11",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -883,7 +902,10 @@
       }
     ],
     "splashPosition": "-599px -63px",
-    "lanes": "Bottom",
+    "lanes": [
+      "Support",
+      "Bottom"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -974,7 +996,9 @@
       }
     ],
     "splashPosition": "-532px -38px",
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2016-03-24",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -1069,7 +1093,9 @@
       }
     ],
     "splashPosition": "-743px -56px",
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2014-09-16",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -1161,7 +1187,9 @@
       }
     ],
     "splashPosition": "-644px -37px",
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2015-03-12",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -1277,7 +1305,9 @@
         "true_": "0"
       }
     },
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "lane": "Jungle",
     "releaseDate": "2022-06-09",
     "releasePatch": "V12.11",
@@ -1338,7 +1368,9 @@
       }
     ],
     "splashPosition": "-638px -115px",
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2009-09-02",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -1431,7 +1463,9 @@
       }
     ],
     "splashPosition": "-759px -80 px",
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2011-04-12",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -1519,7 +1553,9 @@
       }
     ],
     "splashPosition": "-776px -56px",
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2014-05-12",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -1614,7 +1650,9 @@
       }
     ],
     "splashPosition": "-731px -59px",
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2011-01-04",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -1710,7 +1748,9 @@
       }
     ],
     "splashPosition": "-859px -41px",
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2016-12-07",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -1810,7 +1850,9 @@
       }
     ],
     "splashPosition": "-621px -107px",
-    "lanes": "Middle Top",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2010-12-14",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -1900,7 +1942,9 @@
       }
     ],
     "splashPosition": "-575px -119px",
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2009-06-26",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -1993,7 +2037,9 @@
       }
     ],
     "splashPosition": "-681px -119px",
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2009-09-19",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -2086,7 +2132,9 @@
       }
     ],
     "splashPosition": "-515px 0px",
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2012-05-23",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -2182,7 +2230,9 @@
       }
     ],
     "splashPosition": "-670p× -156px",
-    "lanes": "Jungle Middle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2012-08-07",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -2274,7 +2324,9 @@
       }
     ],
     "splashPosition": "-737px -105px",
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2009-09-02",
     "resource": "Health",
     "rangeType": "Melee",
@@ -2363,7 +2415,9 @@
       }
     ],
     "splashPosition": "-494px -23px",
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2012-06-06",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -2453,7 +2507,10 @@
       }
     ],
     "splashPosition": "-747px -59px",
-    "lanes": "Jungle Middle",
+    "lanes": [
+      "Jungle",
+      "Middle"
+    ],
     "releaseDate": "2015-05-29",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -2551,7 +2608,9 @@
       }
     ],
     "splashPosition": "-708px -28px",
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2012-10-26",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -2646,7 +2705,9 @@
       }
     ],
     "splashPosition": "-486px -68px",
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2009-05-01",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -2737,7 +2798,9 @@
       }
     ],
     "splashPosition": "-572px -117px",
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2010-03-16",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -2823,7 +2886,9 @@
       }
     ],
     "splashPosition": "-511px -117px",
-    "lanes": "Jungle Support",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -2918,7 +2983,9 @@
       }
     ],
     "splashPosition": "-603px -10px",
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2012-02-29",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -3018,7 +3085,9 @@
       }
     ],
     "splashPosition": "-822px -66px",
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2011-11-15",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -3119,7 +3188,9 @@
       }
     ],
     "splashPosition": "-446px -3px",
-    "lanes": "Middle Support",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2010-08-10",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -3221,7 +3292,10 @@
       }
     ],
     "splashPosition": "-704px -95px",
-    "lanes": "Top",
+    "lanes": [
+      "Top",
+      "Middle"
+    ],
     "releaseDate": "2009-08-19",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -3312,7 +3386,9 @@
       }
     ],
     "splashPosition": "-790px -148px",
-    "lanes": "Top Middle",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2010-04-27",
     "resource": "None",
     "rangeType": "Melee",
@@ -3401,7 +3477,9 @@
       }
     ],
     "splashPosition": "-729px -253px",
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2014-08-14",
     "resource": "Rage",
     "rangeType": "Ranged",
@@ -3500,7 +3578,9 @@
       }
     ],
     "splashPosition": "-540px -63px",
-    "lanes": "Top Jungle Support",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2010-02-02",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -3595,7 +3675,10 @@
       }
     ],
     "splashPosition": "-733px -1px",
-    "lanes": "Jungle Top",
+    "lanes": [
+      "Top",
+      "Jungle"
+    ],
     "releaseDate": "2011-10-19",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -3690,7 +3773,9 @@
       }
     ],
     "splashPosition": "-453px -1px",
-    "lanes": "Top Jungle",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2021-04-15",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -3785,7 +3870,9 @@
       }
     ],
     "splashPosition": "-758px -1px",
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2012-04-18",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -3885,7 +3972,10 @@
       }
     ],
     "splashPosition": "-718px -231px",
-    "lanes": "Top",
+    "lanes": [
+      "Top",
+      "Middle"
+    ],
     "releaseDate": "2009-10-10",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -3975,7 +4065,9 @@
       }
     ],
     "splashPosition": "-571px 0px",
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2015-11-24",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -4063,7 +4155,10 @@
       }
     ],
     "splashPosition": "-476px 0px",
-    "lanes": "Top Middle",
+    "lanes": [
+      "Top",
+      "Middle"
+    ],
     "releaseDate": "2010-11-16",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -4158,7 +4253,9 @@
       }
     ],
     "splashPosition": "-502px -123px",
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2016-10-05",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -4252,7 +4349,9 @@
       }
     ],
     "splashPosition": "-861px -123px",
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2009-09-02",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -4343,7 +4442,9 @@
       }
     ],
     "splashPosition": "-708px -45px",
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2011-03-01",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -4440,7 +4541,9 @@
       }
     ],
     "splashPosition": "-708px -90px",
-    "lanes": "Top Jungle",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -4537,7 +4640,9 @@
       }
     ],
     "splashPosition": "-749px -145px",
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2012-07-07",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -4636,7 +4741,9 @@
       }
     ],
     "splashPosition": "-520px -56px",
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2016-02-01",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -4725,7 +4832,9 @@
       }
     ],
     "splashPosition": "-663px -56px",
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2013-10-10",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -4816,7 +4925,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0145/ability_0145_R1.webm"
       }
     ],
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2018-03-07",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -4902,7 +5013,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0429/ability_0429_R1.webm"
       }
     ],
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2014-11-20",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -4995,7 +5108,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0043/ability_0043_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2011-02-01",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -5081,7 +5196,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0030/ability_0030_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2009-06-12",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -5169,7 +5286,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0038/ability_0038_R1.webm"
       }
     ],
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2009-08-07",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -5260,7 +5379,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0055/ability_0055_R1.webm"
       }
     ],
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2009-09-19",
     "resource": "None",
     "rangeType": "Melee",
@@ -5348,7 +5469,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0010/ability_0010_R1.webm"
       }
     ],
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -5437,7 +5560,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0141/ability_0141_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2017-07-12",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -5537,7 +5662,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0085/ability_0085_R1.webm"
       }
     ],
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2010-04-08",
     "resource": "Energy",
     "rangeType": "Ranged",
@@ -5622,7 +5749,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0121/ability_0121_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2012-09-27",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -5712,7 +5841,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0203/ability_0203_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2015-10-14",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -5804,7 +5935,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0240/ability_0240_R1.webm"
       }
     ],
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2016-08-10",
     "resource": "Courage",
     "rangeType": "Melee",
@@ -5909,7 +6042,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0096/ability_0096_R1.webm"
       }
     ],
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2010-06-24",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -5997,7 +6132,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0007/ability_0007_R1.webm"
       }
     ],
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2010-11-02",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -6096,7 +6233,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0064/ability_0064_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2011-04-01",
     "resource": "Energy",
     "rangeType": "Melee",
@@ -6193,7 +6332,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0089/ability_0089_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2011-07-13",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -6289,7 +6430,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0876/ability_0876_R1.webm"
       }
     ],
-    "lanes": "Jungle Top",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2020-07-22",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -6382,7 +6525,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0127/ability_0127_R1.webm"
       }
     ],
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2013-04-30",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -6473,7 +6618,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0236/ability_0236_R1.webm"
       }
     ],
-    "lanes": "Bottom Top Middle",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2013-08-22",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -6562,7 +6709,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0117/ability_0117_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2012-03-20",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -6655,7 +6804,10 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0099/ability_0099_R1.webm"
       }
     ],
-    "lanes": "Support Middle",
+    "lanes": [
+      "Middle",
+      "Support"
+    ],
     "releaseDate": "2010-10-19",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -6745,7 +6897,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0054/ability_0054_R1.webm"
       }
     ],
-    "lanes": "Top Middle",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2009-09-02",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -6839,7 +6993,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0090/ability_0090_R1.webm"
       }
     ],
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2010-06-01",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -6930,7 +7086,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0057/ability_0057_R1.webm"
       }
     ],
-    "lanes": "Support Top",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2011-02-16",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -7029,7 +7187,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0011/ability_0011_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -7125,7 +7285,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0021/ability_0021_R1.webm"
       }
     ],
-    "lanes": "Bottom Support",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2010-09-08",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -7213,7 +7375,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0082/ability_0082_R1.webm"
       }
     ],
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2010-02-24",
     "resource": "Shield",
     "rangeType": "Melee",
@@ -7306,7 +7470,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0025/ability_0025_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -7397,7 +7563,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0267/ability_0267_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2012-12-07",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -7488,7 +7656,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0075/ability_0075_R1.webm"
       }
     ],
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2009-10-01",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -7578,7 +7748,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0111/ability_0111_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2012-02-14",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -7679,7 +7851,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0518/ability_0518_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2018-12-05",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -7773,7 +7947,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0076/ability_0076_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2009-12-17",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -7864,7 +8040,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0056/ability_0056_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2011-03-15",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -7961,7 +8139,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0020/ability_0020_R1.webm"
       }
     ],
-    "lanes": "Jungle Middle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -8057,7 +8237,10 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0002/ability_0002_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Top",
+      "Jungle"
+    ],
     "releaseDate": "2010-06-09",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -8145,7 +8328,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0061/ability_0061_R1.webm"
       }
     ],
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2011-06-01",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -8234,7 +8419,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0516/ability_0516_R1.webm"
       }
     ],
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2017-08-23",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -8333,7 +8520,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0080/ability_0080_R1.webm"
       }
     ],
-    "lanes": "Support Middle",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2010-02-02",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -8429,7 +8618,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0078/ability_0078_R1.webm"
       }
     ],
-    "lanes": "Jungle Top Support",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2010-01-13",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -8527,7 +8718,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0555/ability_0555_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2018-05-31",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -8620,7 +8813,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0246/ability_0246_R1.webm"
       }
     ],
-    "lanes": "Middle Jungle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2019-06-28",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -8720,7 +8915,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0133/ability_0133_R1.webm"
       }
     ],
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2013-03-01",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -8815,7 +9012,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0497/ability_0497_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2017-04-19",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -8915,7 +9114,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0033/ability_0033_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2009-07-10",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -9012,7 +9213,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0421/ability_0421_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2014-12-11",
     "resource": "Rage",
     "rangeType": "Melee",
@@ -9109,7 +9312,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0526/ability_0526_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2020-12-10",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -9232,7 +9437,9 @@
         "true_": 26.4
       }
     },
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "rangeType": "Ranged",
     "region": "Zaun",
     "species": "Human",
@@ -9292,7 +9499,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0058/ability_0058_R1.webm"
       }
     ],
-    "lanes": "Top Middle",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2011-01-18",
     "resource": "Fury",
     "rangeType": "Melee",
@@ -9387,7 +9596,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0107/ability_0107_R1.webm"
       }
     ],
-    "lanes": "Top Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2012-08-21",
     "resource": "Ferocity",
     "rangeType": "Melee",
@@ -9480,7 +9691,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0092/ability_0092_R1.webm"
       }
     ],
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2011-09-14",
     "resource": "None",
     "rangeType": "Melee",
@@ -9579,7 +9792,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0068/ability_0068_R1.webm"
       }
     ],
-    "lanes": "Top Middle Jungle",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2011-04-26",
     "resource": "Heat",
     "rangeType": "Melee",
@@ -9664,7 +9879,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0013/ability_0013_R1.webm"
       }
     ],
-    "lanes": "Middle Top",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -9754,7 +9971,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0360/ability_0360_R1.webm"
       }
     ],
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2020-09-21",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -9845,7 +10064,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0113/ability_0113_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2012-01-17",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -9943,7 +10164,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0235/ability_0235_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2019-11-10",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -10031,7 +10254,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0147/ability_0147_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2020-10-29",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -10124,7 +10349,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0875/ability_0875_R1.webm"
       }
     ],
-    "lanes": "Top Support Middle",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2020-01-14",
     "resource": "Grit",
     "rangeType": "Melee",
@@ -10219,7 +10446,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0035/ability_0035_R1.webm"
       }
     ],
-    "lanes": "Jungle Support",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2009-10-10",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -10317,7 +10546,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0098/ability_0098_R1.webm"
       }
     ],
-    "lanes": "Top Support",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2010-03-24",
     "resource": "Energy",
     "rangeType": "Melee",
@@ -10411,7 +10642,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0102/ability_0102_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2011-11-01",
     "resource": "Fury",
     "rangeType": "Melee",
@@ -10508,7 +10741,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0027/ability_0027_R1.webm"
       }
     ],
-    "lanes": "Top Middle",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2009-04-18",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -10598,7 +10833,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0014/ability_0014_R1.webm"
       }
     ],
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -10697,7 +10934,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0015/ability_0015_R1.webm"
       }
     ],
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -10785,7 +11024,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0072/ability_0072_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2011-08-09",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -10878,7 +11119,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0037/ability_0037_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2010-09-21",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -10969,7 +11212,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0016/ability_0016_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -11057,7 +11302,11 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0050/ability_0050_R1.webm"
       }
     ],
-    "lanes": "Support Bottom",
+    "lanes": [
+      "Top",
+      "Middle",
+      "Support"
+    ],
     "releaseDate": "2010-10-05",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -11148,7 +11397,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0517/ability_0517_R1.webm"
       }
     ],
-    "lanes": "Middle Top",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2019-01-25",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -11247,7 +11498,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0134/ability_0134_R1.webm"
       }
     ],
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2012-09-13",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -11339,7 +11592,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0223/ability_0223_R1.webm"
       }
     ],
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2015-07-09",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -11442,7 +11697,10 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0163/ability_0163_R1.webm"
       }
     ],
-    "lanes": "Jungle Support",
+    "lanes": [
+      "Jungle",
+      "Middle"
+    ],
     "releaseDate": "2016-05-18",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -11531,7 +11789,10 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0091/ability_0091_R1.webm"
       }
     ],
-    "lanes": "Jungle Middle",
+    "lanes": [
+      "Jungle",
+      "Middle"
+    ],
     "releaseDate": "2011-08-24",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -11624,7 +11885,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0044/ability_0044_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2009-08-19",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -11713,7 +11976,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0017/ability_0017_R1.webm"
       }
     ],
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -11802,7 +12067,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0412/ability_0412_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2013-01-23",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -11898,7 +12165,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0018/ability_0018_R1.webm"
       }
     ],
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -11991,7 +12260,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0048/ability_0048_R1.webm"
       }
     ],
-    "lanes": "Jungle Support Top",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2010-12-01",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -12080,7 +12351,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0023/ability_0023_R1.webm"
       }
     ],
-    "lanes": "Top Middle",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2009-05-01",
     "resource": "Fury",
     "rangeType": "Melee",
@@ -12167,7 +12440,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0004/ability_0004_R1.webm"
       }
     ],
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -12258,7 +12533,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0029/ability_0029_R1.webm"
       }
     ],
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2009-05-01",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -12344,7 +12621,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0077/ability_0077_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2009-12-02",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -12437,7 +12716,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0006/ability_0006_R1.webm"
       }
     ],
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2010-08-24",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -12533,7 +12814,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0110/ability_0110_R1.webm"
       }
     ],
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2012-05-08",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -12624,7 +12907,10 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0067/ability_0067_R1.webm"
       }
     ],
-    "lanes": "Bottom Top",
+    "lanes": [
+      "Top",
+      "Bottom"
+    ],
     "releaseDate": "2011-05-10",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -12717,7 +13003,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0045/ability_0045_R1.webm"
       }
     ],
-    "lanes": "Middle Support",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2009-07-24",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -12804,7 +13092,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0161/ability_0161_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2014-02-27",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -12894,7 +13184,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0711/ability_0711_R1.webm"
       }
     ],
-    "lanes": "Middle Support",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2021-09-23",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -12983,7 +13275,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0254/ability_0254_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2012-12-19",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -13087,7 +13381,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0234/ability_0234_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2021-01-22",
     "resource": "None",
     "rangeType": "Melee",
@@ -13187,7 +13483,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0112/ability_0112_R1.webm"
       }
     ],
-    "lanes": "Middle Top",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2011-12-29",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -13281,7 +13579,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0008/ability_0008_R1.webm"
       }
     ],
-    "lanes": "Middle Top",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2010-07-27",
     "resource": "Crimson Rush",
     "rangeType": "Ranged",
@@ -13369,7 +13669,10 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0106/ability_0106_R1.webm"
       }
     ],
-    "lanes": "Top Jungle",
+    "lanes": [
+      "Top",
+      "Jungle"
+    ],
     "releaseDate": "2011-11-29",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -13461,7 +13764,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0019/ability_0019_R1.webm"
       }
     ],
-    "lanes": "Jungle Top",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -13565,7 +13870,10 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0062/ability_0062_R1.webm"
       }
     ],
-    "lanes": "Top",
+    "lanes": [
+      "Top",
+      "Jungle"
+    ],
     "releaseDate": "2011-07-26",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -13660,7 +13968,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0498/ability_0498_R1.webm"
       }
     ],
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2017-04-19",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -13752,7 +14062,10 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0101/ability_0101_R1.webm"
       }
     ],
-    "lanes": "Support Middle",
+    "lanes": [
+      "Middle",
+      "Support"
+    ],
     "releaseDate": "2011-10-05",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -13845,7 +14158,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0005/ability_0005_R1.webm"
       }
     ],
-    "lanes": "Jungle",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2010-07-13",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -13945,7 +14260,11 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0157/ability_0157_R1.webm"
       }
     ],
-    "lanes": "Middle Top Bottom",
+    "lanes": [
+      "Top",
+      "Middle",
+      "Bottom"
+    ],
     "releaseDate": "2013-12-13",
     "resource": "Flow",
     "rangeType": "Melee",
@@ -14039,7 +14358,10 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0777/ability_0777_R1.webm"
       }
     ],
-    "lanes": "Middle Top",
+    "lanes": [
+      "Top",
+      "Middle"
+    ],
     "releaseDate": "2020-08-06",
     "resource": "Flow",
     "rangeType": "Melee",
@@ -14140,7 +14462,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0083/ability_0083_R1.webm"
       }
     ],
-    "lanes": "Top",
+    "lanes": [
+      "Top"
+    ],
     "releaseDate": "2011-06-22",
     "resource": "Mana",
     "rangeType": "Melee",
@@ -14227,7 +14551,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0350/ability_0350_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2019-05-14",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -14324,7 +14650,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0154/ability_0154_R1.webm"
       }
     ],
-    "lanes": "Jungle Support Top",
+    "lanes": [
+      "Jungle"
+    ],
     "releaseDate": "2013-03-29",
     "resource": "Health",
     "rangeType": "Melee",
@@ -14424,7 +14752,10 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0238/ability_0238_R1.webm"
       }
     ],
-    "lanes": "Middle Jungle",
+    "lanes": [
+      "Jungle",
+      "Middle"
+    ],
     "releaseDate": "2012-11-13",
     "resource": "Energy",
     "rangeType": "Melee",
@@ -14539,7 +14870,9 @@
         "true_": 4.3
       }
     },
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "rangeType": "Ranged",
     "region": "Zaun",
     "species": "Human",
@@ -14598,7 +14931,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0115/ability_0115_R1.webm"
       }
     ],
-    "lanes": "Bottom",
+    "lanes": [
+      "Bottom"
+    ],
     "releaseDate": "2012-02-01",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -14687,7 +15022,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0026/ability_0026_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2009-04-18",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -14775,7 +15112,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0142/ability_0142_R1.webm"
       }
     ],
-    "lanes": "Middle",
+    "lanes": [
+      "Middle"
+    ],
     "releaseDate": "2017-11-21",
     "resource": "Mana",
     "rangeType": "Ranged",
@@ -14865,7 +15204,9 @@
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0143/ability_0143_R1.webm"
       }
     ],
-    "lanes": "Support",
+    "lanes": [
+      "Support"
+    ],
     "releaseDate": "2012-07-24",
     "resource": "Mana",
     "rangeType": "Ranged",

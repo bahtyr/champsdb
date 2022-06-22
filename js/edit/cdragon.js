@@ -1,5 +1,6 @@
 class CDragon {
 
+	lanes = {};
 	//champions = ddragon.champions; //use this instead
 
 	//URLS
@@ -24,5 +25,40 @@ class CDragon {
 		};
 
 		fetchAll.start();
+	}
+
+	updateChampionLanes() {
+		fetch("https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champion-statistics/global/default/rcp-fe-lol-champion-statistics.js")
+			.then(response => response.text())
+			.then(text => {
+				let a = text.indexOf("a.exports=") + 10;
+				let b = text.lastIndexOf("},f");
+				text = text.substring(a, b);
+				text = text.replace(/[^\s{}:,]+/g, (match) => `"${match}"`);
+				this.lanes = JSON.parse(text);
+				this.updateLanesMain();
+			});
+	}
+
+	updateLanesMain() {
+		//reset
+		champions.forEach(champ => champ.lanes = []);
+
+		//add all
+		Object.entries(this.lanes).forEach(entry => {
+			let lane = `${entry[0].slice(0, 1).toUpperCase()}${entry[0].slice(1).toLowerCase()}`;
+			Object.keys(entry[1]).forEach(champId => {
+				let champ = champions.find(champ => champ.ids.cdragon == champId);
+				champ.lanes.push(lane);
+			});
+		});
+
+		//check for missings
+		champions.forEach((champ, i) => {
+			if (champ.lanes.length == 0)
+				console.error(`Champion has no lane: ${i}:${champ.name}`);
+		});
+
+		log("Champion lanes have been updated.")
 	}
 }

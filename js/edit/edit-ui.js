@@ -15,6 +15,8 @@ class EditUiManager {
 		["thirdparties.getGolChampUrls", function() { thirdparties.getGolChampUrls() }],
 		["thirdparties.getChampDamageBreakdown", function() { thirdparties.getChampDamageBreakdown() }],
 		["ChampionFunctions.addChamps", function() { ChampionFunctions.addChamps(); pageManager.populateChampsList(); }],
+		["-", function() { }],
+		["cdragon.updateChampionLanes", function() { cdragon.updateChampionLanes(); pageManager.highlightExport("champions") }],
 		["Open Spotlight Video Playlist", function() { window.open("https://www.youtube.com/playlist?list=PLbAFXJC0J5GaVjPNNw_i-oLNKc7bVQcFk", '_blank'); }],
 	];
 
@@ -166,10 +168,10 @@ class EditUiManager {
 		$id("portrait").value = champions[i].portrait;
 
 		if (champions[i].lanes?.includes("Top")) $id("laneTop").checked = true;
-		if (champions[i].lanes?.includes("Jun")) $id("laneJg").checked = true;
-		if (champions[i].lanes?.includes("Mid")) $id("laneMid").checked = true;
-		if (champions[i].lanes?.includes("Bot")) $id("laneBot").checked = true;
-		if (champions[i].lanes?.includes("Sup")) $id("laneSup").checked = true;
+		if (champions[i].lanes?.includes("Jungle")) $id("laneJg").checked = true;
+		if (champions[i].lanes?.includes("Middle")) $id("laneMid").checked = true;
+		if (champions[i].lanes?.includes("Bottom")) $id("laneBot").checked = true;
+		if (champions[i].lanes?.includes("Support")) $id("laneSup").checked = true;
 
 		if (champions[i].roles?.includes("Fighter")) $id("roleFighter").checked = true;
 		if (champions[i].roles?.includes("Tank")) $id("roleTank").checked = true;
@@ -264,13 +266,12 @@ class EditUiManager {
 		champions[i].title = $id("title").value;
 		champions[i].portrait = $id("portrait").value;
 
-		champions[i].lanes = "";
-		if ($id("laneTop").checked) champions[i].lanes += "Top ";
-		if ($id("laneJg").checked)  champions[i].lanes += "Jungle ";
-		if ($id("laneMid").checked) champions[i].lanes += "Middle ";
-		if ($id("laneBot").checked) champions[i].lanes += "Bottom ";
-		if ($id("laneSup").checked) champions[i].lanes += "Support ";
-		champions[i].lanes = champions[i].lanes.trim();
+		champions[i].lanes = [];
+		if ($id("laneTop").checked) champions[i].lanes.push("Top ");
+		if ($id("laneJg").checked)  champions[i].lanes.push("Jungle ");
+		if ($id("laneMid").checked) champions[i].lanes.push("Middle ");
+		if ($id("laneBot").checked) champions[i].lanes.push("Bottom ");
+		if ($id("laneSup").checked) champions[i].lanes.push("Support ");
 
 		champions[i].roles = [];
 		if ($id("roleFighter").checked)  champions[i].roles.push("Fighter");
