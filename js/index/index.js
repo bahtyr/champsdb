@@ -53,6 +53,6 @@ function printPatchInfo() {
 	if (PatchFunctions.hoursDiff(next, 24))
 		$id("patch-notes-next").classList.remove("disabled");
 	$id("next-patch-date").textContent = nextPatchDate;
-	$id("patch-notes-next").children[1].textContent = "Patch " + patches[next].version + " Notes";
+	$id("patch-notes-next").children[0].textContent = "Patch " + patches[next].version + " Notes";
 	$id("patch-notes-next").setAttribute("href", patches[next].link);
 }
