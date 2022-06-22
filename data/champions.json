@@ -5336,7 +5336,8 @@
       "cdragon": 38,
       "wiki": "Kassadin",
       "universe": "Kassadin"
-    }
+    },
+    "spotlightVideoID": "WiIrMY1Nwrw"
   },
   {
     "name": "Katarina",
@@ -6860,8 +6861,8 @@
     "name": "Malphite",
     "title": "Shard of the Monolith",
     "roles": [
-      "Tank",
-      "Fighter"
+      "Fighter",
+      "Tank"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Malphite.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Malphite_0.jpg",
@@ -6950,7 +6951,8 @@
       "cdragon": 54,
       "wiki": "Malphite",
       "universe": "Malphite"
-    }
+    },
+    "spotlightVideoID": "iQmYyqiY17c"
   },
   {
     "name": "Malzahar",
@@ -7705,7 +7707,8 @@
       "cdragon": 75,
       "wiki": "Nasus",
       "universe": "Nasus"
-    }
+    },
+    "spotlightVideoID": "pnbtna-Qvns"
   },
   {
     "name": "Nautilus",
@@ -9445,7 +9448,7 @@
     "species": "Human",
     "releaseDate": "2022-02-17",
     "releasePatch": "V12.4",
-    "spotlightVideoId": "yahJE5tLxHg",
+    "spotlightVideoID": "yahJE5tLxHg",
     "tagArrays": [
       [
         68,
@@ -13050,7 +13053,8 @@
       "cdragon": 45,
       "wiki": "Veigar",
       "universe": "Veigar"
-    }
+    },
+    "spotlightVideoID": "cqp04g1GUDA"
   },
   {
     "name": "Vel'Koz",
@@ -14878,7 +14882,7 @@
     "species": "Human",
     "releaseDate": "2022-01-20",
     "releasePatch": "V12.2",
-    "spotlightVideoId": "VcaUG8hV9SU",
+    "spotlightVideoID": "VcaUG8hV9SU",
     "tagArrays": [
       [
         68,

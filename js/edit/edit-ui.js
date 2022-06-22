@@ -268,11 +268,11 @@ class EditUiManager {
 		champions[i].portrait = $id("portrait").value;
 
 		champions[i].lanes = [];
-		if ($id("laneTop").checked) champions[i].lanes.push("Top ");
-		if ($id("laneJg").checked)  champions[i].lanes.push("Jungle ");
-		if ($id("laneMid").checked) champions[i].lanes.push("Middle ");
-		if ($id("laneBot").checked) champions[i].lanes.push("Bottom ");
-		if ($id("laneSup").checked) champions[i].lanes.push("Support ");
+		if ($id("laneTop").checked) champions[i].lanes.push("Top");
+		if ($id("laneJg").checked)  champions[i].lanes.push("Jungle");
+		if ($id("laneMid").checked) champions[i].lanes.push("Middle");
+		if ($id("laneBot").checked) champions[i].lanes.push("Bottom");
+		if ($id("laneSup").checked) champions[i].lanes.push("Support");
 
 		champions[i].roles = [];
 		if ($id("roleFighter").checked)  champions[i].roles.push("Fighter");
