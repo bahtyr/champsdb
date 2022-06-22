@@ -51,6 +51,10 @@ body {
 	cursor: pointer;
 }
 
+#header p.hide {
+	color: #555;
+}
+
 #header p:hover {
 	color: var(--yellow-text);
 }

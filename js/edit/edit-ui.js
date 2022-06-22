@@ -40,8 +40,9 @@ class EditUiManager {
 			.catch((error) => {});
 	}
 
-	toggleSection(id) {
+	toggleSection(el, id) {
 		if (!id) return;
+		el.classList.toggle("hide");
 		$id(id).classList.toggle("hide");
 	}
 
