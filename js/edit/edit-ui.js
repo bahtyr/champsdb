@@ -81,7 +81,7 @@ class EditUiManager {
 		if (typeof search == "string")
 			search = search.trim().toLowerCase();
 		if (search != null)
-			arr = tags.filter(tag => tag.name.toLowerCase().includes(search) || tag.id === search).map(tag => tag.id + " - " + tag.name);
+			arr = tags.filter(tag => tag.name.toLowerCase().includes(search) || tag.id == search).map(tag => tag.id + " - " + tag.name);
 		else arr = tags.map(tag => tag.id + " - " + tag.name);
 
 		this.populateList("list-tags", arr, this.onClickTag);
