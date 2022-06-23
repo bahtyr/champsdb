@@ -107,8 +107,8 @@
     "name": "Ahri",
     "title": "the Nine-Tailed Fox",
     "roles": [
-      "Mage",
-      "Assassin"
+      "Assassin",
+      "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Ahri.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ahri_0.jpg",
@@ -299,8 +299,8 @@
     "name": "Akshan",
     "title": "the Rogue Sentinel",
     "roles": [
-      "Marksman",
-      "Assassin"
+      "Assassin",
+      "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Akshan.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Akshan_0.jpg",
@@ -903,8 +903,8 @@
     ],
     "splashPosition": "-599px -63px",
     "lanes": [
-      "Support",
-      "Bottom"
+      "Bottom",
+      "Support"
     ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
@@ -1149,8 +1149,8 @@
     "name": "Bard",
     "title": "the Wandering Caretaker",
     "roles": [
-      "Support",
-      "Mage"
+      "Mage",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Bard.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Bard_0.jpg",
@@ -1244,7 +1244,7 @@
   },
   {
     "ids": {
-      "cdragon": "200",
+      "cdragon": 200,
       "ddragon": "Belveth",
       "kebab": "bel-veth",
       "universe": "Belveth",
@@ -1258,7 +1258,7 @@
     "portrait": "https://ddragon.leagueoflegends.com/cdn/12.11.1/img/champion/Belveth.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Belveth_0.jpg",
     "resource": "Mana",
-    "attackRange": "125",
+    "attackRange": 125,
     "abilities": [
       {
         "name": "Death in Lavender ",
@@ -1292,17 +1292,17 @@
       }
     ],
     "ratings": {
-      "difficulty": "2",
-      "style": "10",
-      "damage": "3",
-      "toughness": "1",
-      "control": "2",
-      "mobility": "3",
-      "utility": "1",
+      "difficulty": 2,
+      "style": 10,
+      "damage": 3,
+      "toughness": 1,
+      "control": 2,
+      "mobility": 3,
+      "utility": 1,
       "damageBreakdown": {
-        "magic": "0",
-        "physical": "100",
-        "true_": "0"
+        "magic": 0,
+        "physical": 100,
+        "true_": 0
       }
     },
     "lanes": [
@@ -1330,8 +1330,8 @@
     "name": "Blitzcrank",
     "title": "the Great Steam Golem",
     "roles": [
-      "Tank",
-      "Fighter"
+      "Fighter",
+      "Tank"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Blitzcrank.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Blitzcrank_0.jpg",
@@ -1515,8 +1515,8 @@
     "name": "Braum",
     "title": "the Heart of the Freljord",
     "roles": [
-      "Support",
-      "Tank"
+      "Tank",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Braum.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Braum_0.jpg",
@@ -2469,8 +2469,8 @@
     "name": "Ekko",
     "title": "the Boy Who Shattered Time",
     "roles": [
-      "Assassin",
-      "Fighter"
+      "Fighter",
+      "Assassin"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Ekko.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ekko_0.jpg",
@@ -2570,8 +2570,8 @@
     "name": "Elise",
     "title": "the Spider Queen",
     "roles": [
-      "Mage",
-      "Fighter"
+      "Fighter",
+      "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Elise.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Elise_0.jpg",
@@ -2760,8 +2760,8 @@
     "name": "Ezreal",
     "title": "the Prodigal Explorer",
     "roles": [
-      "Marksman",
-      "Mage"
+      "Mage",
+      "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Ezreal.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ezreal_0.jpg",
@@ -3047,8 +3047,8 @@
     "name": "Fizz",
     "title": "the Tidal Trickster",
     "roles": [
-      "Assassin",
-      "Fighter"
+      "Fighter",
+      "Assassin"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Fizz.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Fizz_0.jpg",
@@ -4215,8 +4215,8 @@
     "name": "Ivern",
     "title": "the Green Father",
     "roles": [
-      "Support",
-      "Mage"
+      "Mage",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Ivern.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ivern_0.jpg",
@@ -4311,8 +4311,8 @@
     "name": "Janna",
     "title": "the Storm's Fury",
     "roles": [
-      "Support",
-      "Mage"
+      "Mage",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Janna.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Janna_0.jpg",
@@ -4398,14 +4398,15 @@
       "cdragon": 40,
       "wiki": "Janna",
       "universe": "Janna"
-    }
+    },
+    "spotlightVideoID": ""
   },
   {
     "name": "Jarvan IV",
     "title": "the Exemplar of Demacia",
     "roles": [
-      "Tank",
-      "Fighter"
+      "Fighter",
+      "Tank"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/JarvanIV.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/JarvanIV_0.jpg",
@@ -4703,8 +4704,8 @@
     "name": "Jhin",
     "title": "the Virtuoso",
     "roles": [
-      "Marksman",
-      "Mage"
+      "Mage",
+      "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Jhin.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Jhin_0.jpg",
@@ -6006,8 +6007,8 @@
     "name": "Kog'Maw",
     "title": "the Mouth of the Abyss",
     "roles": [
-      "Marksman",
-      "Mage"
+      "Mage",
+      "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/KogMaw.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/KogMaw_0.jpg",
@@ -6673,8 +6674,8 @@
     "name": "Lulu",
     "title": "the Fae Sorceress",
     "roles": [
-      "Support",
-      "Mage"
+      "Mage",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Lulu.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Lulu_0.jpg",
@@ -6958,8 +6959,8 @@
     "name": "Malzahar",
     "title": "the Prophet of the Void",
     "roles": [
-      "Mage",
-      "Assassin"
+      "Assassin",
+      "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Malzahar.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Malzahar_0.jpg",
@@ -7152,8 +7153,8 @@
     "name": "Master Yi",
     "title": "the Wuju Bladesman",
     "roles": [
-      "Assassin",
-      "Fighter"
+      "Fighter",
+      "Assassin"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/MasterYi.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/MasterYi_0.jpg",
@@ -7528,8 +7529,8 @@
     "name": "Nami",
     "title": "the Tidecaller",
     "roles": [
-      "Support",
-      "Mage"
+      "Mage",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Nami.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nami_0.jpg",
@@ -7714,8 +7715,8 @@
     "name": "Nautilus",
     "title": "the Titan of the Depths",
     "roles": [
-      "Tank",
-      "Fighter"
+      "Fighter",
+      "Tank"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Nautilus.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nautilus_0.jpg",
@@ -8006,8 +8007,8 @@
     "name": "Nocturne",
     "title": "the Eternal Nightmare",
     "roles": [
-      "Assassin",
-      "Fighter"
+      "Fighter",
+      "Assassin"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Nocturne.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nocturne_0.jpg",
@@ -8105,8 +8106,8 @@
     "name": "Nunu & Willump",
     "title": "the Boy and His Yeti",
     "roles": [
-      "Tank",
-      "Fighter"
+      "Fighter",
+      "Tank"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Nunu.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nunu_0.jpg",
@@ -8385,8 +8386,8 @@
     "name": "Ornn",
     "title": "The Fire below the Mountain",
     "roles": [
-      "Tank",
-      "Fighter"
+      "Fighter",
+      "Tank"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Ornn.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ornn_0.jpg",
@@ -8584,8 +8585,8 @@
     "name": "Poppy",
     "title": "Keeper of the Hammer",
     "roles": [
-      "Tank",
-      "Fighter"
+      "Fighter",
+      "Tank"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Poppy.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Poppy_0.jpg",
@@ -8684,8 +8685,8 @@
     "name": "Pyke",
     "title": "the Bloodharbor Ripper",
     "roles": [
-      "Support",
-      "Assassin"
+      "Assassin",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Pyke.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Pyke_0.jpg",
@@ -8779,8 +8780,8 @@
     "name": "Qiyana",
     "title": "Empress of the Elements",
     "roles": [
-      "Assassin",
-      "Fighter"
+      "Fighter",
+      "Assassin"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Qiyana.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Qiyana_0.jpg",
@@ -8881,8 +8882,8 @@
     "name": "Quinn",
     "title": "Demacia's Wings",
     "roles": [
-      "Marksman",
-      "Assassin"
+      "Assassin",
+      "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Quinn.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Quinn_0.jpg",
@@ -9080,8 +9081,8 @@
     "name": "Rammus",
     "title": "the Armordillo",
     "roles": [
-      "Tank",
-      "Fighter"
+      "Fighter",
+      "Tank"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Rammus.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rammus_0.jpg",
@@ -9378,7 +9379,7 @@
   },
   {
     "ids": {
-      "cdragon": "888",
+      "cdragon": 888,
       "ddragon": "Renata",
       "kebab": "renata",
       "universe": "RenataGlasc",
@@ -9387,8 +9388,8 @@
     "name": "Renata Glasc",
     "title": "the Chem-Baroness",
     "roles": [
-      "Support",
-      "Mage"
+      "Mage",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/12.7.1/img/champion/Renata.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Renata_0.jpg",
@@ -9562,8 +9563,8 @@
     "name": "Rengar",
     "title": "the Pridestalker",
     "roles": [
-      "Assassin",
-      "Fighter"
+      "Fighter",
+      "Assassin"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Rengar.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Rengar_0.jpg",
@@ -9845,8 +9846,8 @@
     "name": "Ryze",
     "title": "the Rune Mage",
     "roles": [
-      "Mage",
-      "Fighter"
+      "Fighter",
+      "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Ryze.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Ryze_0.jpg",
@@ -10030,8 +10031,8 @@
     "name": "Sejuani",
     "title": "Fury of the North",
     "roles": [
-      "Tank",
-      "Fighter"
+      "Fighter",
+      "Tank"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Sejuani.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sejuani_0.jpg",
@@ -10707,8 +10708,8 @@
     "name": "Singed",
     "title": "the Mad Chemist",
     "roles": [
-      "Tank",
-      "Fighter"
+      "Fighter",
+      "Tank"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Singed.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Singed_0.jpg",
@@ -10799,8 +10800,8 @@
     "name": "Sion",
     "title": "The Undead Juggernaut",
     "roles": [
-      "Tank",
-      "Fighter"
+      "Fighter",
+      "Tank"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Sion.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sion_0.jpg",
@@ -11085,8 +11086,8 @@
     "name": "Sona",
     "title": "Maven of the Strings",
     "roles": [
-      "Support",
-      "Mage"
+      "Mage",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Sona.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sona_0.jpg",
@@ -11178,8 +11179,8 @@
     "name": "Soraka",
     "title": "the Starchild",
     "roles": [
-      "Support",
-      "Mage"
+      "Mage",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Soraka.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Soraka_0.jpg",
@@ -11268,8 +11269,8 @@
     "name": "Swain",
     "title": "the Noxian Grand General",
     "roles": [
-      "Mage",
-      "Fighter"
+      "Fighter",
+      "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Swain.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Swain_0.jpg",
@@ -11363,8 +11364,8 @@
     "name": "Sylas",
     "title": "the Unshackled",
     "roles": [
-      "Mage",
-      "Assassin"
+      "Assassin",
+      "Mage"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Sylas.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Sylas_0.jpg",
@@ -11558,8 +11559,8 @@
     "name": "Tahm Kench",
     "title": "The River King",
     "roles": [
-      "Support",
-      "Tank"
+      "Tank",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/TahmKench.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/TahmKench_0.jpg",
@@ -11851,8 +11852,8 @@
     "name": "Taric",
     "title": "the Shield of Valoran",
     "roles": [
-      "Support",
-      "Fighter"
+      "Fighter",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Taric.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Taric_0.jpg",
@@ -11942,8 +11943,8 @@
     "name": "Teemo",
     "title": "the Swift Scout",
     "roles": [
-      "Marksman",
-      "Assassin"
+      "Assassin",
+      "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Teemo.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Teemo_0.jpg",
@@ -12033,8 +12034,8 @@
     "name": "Thresh",
     "title": "the Chain Warden",
     "roles": [
-      "Support",
-      "Fighter"
+      "Fighter",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Thresh.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Thresh_0.jpg",
@@ -12131,8 +12132,8 @@
     "name": "Tristana",
     "title": "the Yordle Gunner",
     "roles": [
-      "Marksman",
-      "Assassin"
+      "Assassin",
+      "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Tristana.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Tristana_0.jpg",
@@ -12499,8 +12500,8 @@
     "name": "Twitch",
     "title": "the Plague Rat",
     "roles": [
-      "Marksman",
-      "Assassin"
+      "Assassin",
+      "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Twitch.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Twitch_0.jpg",
@@ -12780,8 +12781,8 @@
     "name": "Varus",
     "title": "the Arrow of Retribution",
     "roles": [
-      "Marksman",
-      "Mage"
+      "Mage",
+      "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Varus.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Varus_0.jpg",
@@ -12873,8 +12874,8 @@
     "name": "Vayne",
     "title": "the Night Hunter",
     "roles": [
-      "Marksman",
-      "Assassin"
+      "Assassin",
+      "Marksman"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Vayne.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Vayne_0.jpg",
@@ -13348,8 +13349,8 @@
     "name": "Viego",
     "title": "The Ruined King",
     "roles": [
-      "Assassin",
-      "Fighter"
+      "Fighter",
+      "Assassin"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Viego.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Viego_0.jpg",
@@ -14325,8 +14326,8 @@
     "name": "Yone",
     "title": "the Unforgotten",
     "roles": [
-      "Assassin",
-      "Fighter"
+      "Fighter",
+      "Assassin"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Yone.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yone_0.jpg",
@@ -14518,8 +14519,8 @@
     "name": "Yuumi",
     "title": "the Magical Cat",
     "roles": [
-      "Support",
-      "Mage"
+      "Mage",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Yuumi.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Yuumi_0.jpg",
@@ -14617,8 +14618,8 @@
     "name": "Zac",
     "title": "the Secret Weapon",
     "roles": [
-      "Tank",
-      "Fighter"
+      "Fighter",
+      "Tank"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Zac.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zac_0.jpg",
@@ -14813,7 +14814,7 @@
   },
   {
     "ids": {
-      "cdragon": "221",
+      "cdragon": 221,
       "ddragon": "Zeri",
       "kebab": "zeri",
       "universe": "Zeri",
@@ -14989,8 +14990,8 @@
     "name": "Zilean",
     "title": "the Chronokeeper",
     "roles": [
-      "Support",
-      "Mage"
+      "Mage",
+      "Support"
     ],
     "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Zilean.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Zilean_0.jpg",
@@ -15073,7 +15074,8 @@
       "cdragon": 26,
       "wiki": "Zilean",
       "universe": "Zilean"
-    }
+    },
+    "spotlightVideoID": ""
   },
   {
     "name": "Zoe",
