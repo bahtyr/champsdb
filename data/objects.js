@@ -128,9 +128,10 @@ var TagFunctions = {
 	},
 
 	removeFromChamp: function(champIndex, champAbilityIndex, tagIndex, tagId) {
-		if (tagIndex == null && tagId !=null)
-			tagIndex = champions[champIndex].tagArrays[champAbilityIndex].findIndex(tag => tag.id == tagId);
-		return champions[champIndex].tagArrays[champAbilityIndex].splice(tagIndex, 1);
+		if (tagIndex == null && tagId != null)
+			tagIndex = champions[champIndex].tagArrays[champAbilityIndex].findIndex(tagId_ => tagId_ == tagId);
+		if (tagIndex > -1)
+			champions[champIndex].tagArrays[champAbilityIndex].splice(tagIndex, 1);
 	},
 
 	/******************** CHAMP INDEXES ********/
