@@ -262,9 +262,9 @@ select {
 .modal.show { display: flex; animation: fadeIn 0.2s ease; }
 
 .modal-content {
-	position: relative;
+	position: fixed;
 	display: inline-block;
-	margin-top: -20%;
+	top: 20%;
 
 	background-color: #111;
 	border-radius: 5px;
@@ -290,12 +290,22 @@ select {
 	line-height: 2;
 }
 
-.modal .close {
+.modal-actions-top {
+	display: flex;
 	position: absolute;
-	padding: 6px;
 	top: 14;
 	right: 14;
+}
+
+.modal-close {
+	color: #666;
+	padding: 6px;
 	cursor: pointer;
+	box-sizing: content-box;
+}
+
+.modal-close:hover {
+	color: #888;
 }
 
 /* ---------------------------------------------------------------------------------------- */

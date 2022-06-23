@@ -9,6 +9,8 @@ var filters   = new FiltersManager;
 var sort      = new SortManager;
 // var search = {}; @search.js
 
+var modalHelp = new Modal("modal-help");
+
 fetch("data/champions.json").then(data => data.json()).then(json => {
 	champions = json.map(item => ChampionFunctions.transfer(item));
 	champlist.print();

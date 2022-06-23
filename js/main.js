@@ -1,6 +1,5 @@
 /****************************************** VARS ***********************************************/
 
-var modal;
 var alert = {
     show: function() {
         $id("sticky-top").classList.remove("hide");
@@ -38,11 +37,13 @@ function $index(element, i = 0) {
 class Modal {
     el;
 
-    constructor() {
-        this.el = $class("modal")[0];
+    constructor(id) {
+        if (id) this.el = $id(id);
+        else this.el = $class("modal")[0];
         this.el.addEventListener("click", () => this.close());
-        $query(".modal .close").addEventListener("click", () => this.close());
-        $class("modal-content")[0].addEventListener("click", e => e.stopPropagation());
+        this.el.getElementsByClassName("modal-close")[0].addEventListener("click", () => this.close());
+        this.el.getElementsByClassName("modal-content")[0].addEventListener("click", e => e.stopPropagation());
+        modals.register(this);
     }
 
     show() {
@@ -62,4 +63,24 @@ class Modal {
     }
 }
 
-modal = new Modal;
+var modals = {
+    /**
+     * A helper var to execute functions on all available modals.
+     */
+    arr: [],
+
+    register(modalObj) {
+        this.arr.push(modalObj);
+    },
+
+    closeAll() {
+        for (let modal of this.arr)
+            modal.close();
+    },
+
+    hasFocus() {
+        for (let modal of this.arr)
+            if (modal.hasFocus()) return true;
+        return false;
+    },
+};

@@ -32,10 +32,10 @@
 		<!-- Modal & Alert -->
 		<div id="sticky-top" class="hide"><p>Copied to clipboard.</p></div>
 
-		<div class="modal">
+		<div class="modal" id="modal-help">
 			<div class="modal-content">
-				<div class="close">
-					<svg style="width:16px;height:16px" viewBox="0 0 24 24"><path fill="#666" d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" /></svg>
+				<div class="modal-actions-top">
+					<svg class="modal-close" style="width:16px;height:16px" viewBox="0 0 24 24"><path fill="currentColor" d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" /></svg>
 				</div>
 				<p class="heading">Keyboard Shortcuts</p>
 				<div class="inline-icon">
@@ -63,6 +63,28 @@
 			</div>
 		</div>
 
+		<div class="modal" id="modal-tagcreator">
+			<div class="modal-content">
+				<div class="modal-actions-top">
+					<p class="modal-btn">Create</p>
+					<svg class="modal-close" style="width:16px;height:16px" viewBox="0 0 24 24"><path fill="currentColor" d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" /></svg>
+				</div>
+				<p class="heading">Create a New Tag</p>
+				<label class="flat-input-label" for="tagcreator__input-name">Name</label>
+				<input class="flat-input" id="tagcreator__input-name" type="text" placeholder="Name" oninput="">
+				<div style="height: 12px;"></div>
+				<label class="flat-input-label" for="tagcreator__input-name">Filter</label>
+				<textarea class="flat-input" id="tagcreator__input-name" rows="3" placeholder="Enter Champion Name (+ Abilities)" ></textarea>
+				<div style="height: 12px;"></div>
+				<div id="tagcreator-champlist">
+					<span class="divider">Selected Champions</span>
+					<div id="tagcreator-champlist-active"></div>
+					<span class="divider">All Champions</span>
+					<div id="tagcreator-champlist-all"></div>
+				</div>
+			</div>
+		</div>
+
 		<!-- HEADER -->
 		<div id="header">
 			<div class="wrapper">
@@ -81,8 +103,8 @@
 				</div>
 				<p onclick="sort?.byRelease()">Latest Champions</p>
 				<!-- <p>Reworks</p> -->
-				<p>Create a List</p>
-				<svg id="info-btn" onclick="modal.show()" style="width:16px;height:16px" viewBox="0 0 24 24"><path fill="#555" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
+				<p onclick="TagCreator.showModal()">Create a List</p>
+				<svg id="info-btn" onclick="modalHelp.show()" style="width:16px;height:16px" viewBox="0 0 24 24"><path fill="#555" d="M13,9H11V7H13M13,17H11V11H13M12,2A10,10 0 0,0 2,12A10,10 0 0,0 12,22A10,10 0 0,0 22,12A10,10 0 0,0 12,2Z" /></svg>
 			</div>
 		</div>
 		
@@ -487,6 +509,7 @@
 		<script src="./js/index/search.js"></script>
 		<script src="./js/index/sort.js"></script>
 		<script src="./js/index/index.js"></script>
+		<script src="./js/index/tagcreator.js"></script>
 		<script src="./js/index/listeners.js"></script>
 	</body>
 </html>

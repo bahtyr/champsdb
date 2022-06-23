@@ -160,7 +160,7 @@ document.addEventListener("keydown", e => {
 
 	// LETTERS
 	if ((e.which > 64 && e.which < 91) || e.which == 8) {
-		if (!search.hasFocus)
+		if (!modals.hasFocus() && !search.hasFocus)
 			$id("search").focus();
 	}
 
@@ -178,7 +178,7 @@ document.addEventListener("keydown", e => {
 
 	// ESC KEY
 	if (e.which == 27) {
-		if (typeof modal !== "undefined" && modal.hasFocus()) modal.close();
+		if (modals.hasFocus()) modals.closeAll();
 		else { // close champcard
 			search.el.blur();
 			champlist.deselect();
