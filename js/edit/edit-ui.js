@@ -344,16 +344,16 @@ class EditUiManager {
 		if (champions[i].tagArrays == null)
 			champions[i].tagArrays = [[],[],[],[],[],[]];
 
-		pageManager.champAutoAddAttackRangeTag();
-		pageManager.populateChampTags()
+		// pageManager.champAutoAddAttackRangeTag();
+		pageManager.populateChampTags();
 		pageManager.highlightExport("champions");
 		log(`Saved ${i}:${champions[i].name}.`);
 	}
 
 	champAutoAddAttackRangeTag() {
 		let t;
-		let current = tags.findIndex(tag => tag.name.toLowerCase().includes("melee"));
-		let remove = tags.findIndex(tag => tag.name.toLowerCase().includes("ranged"));
+		let current = tags.find(tag => tag.name.toLowerCase().includes("melee")).id;
+		let remove = tags.find(tag => tag.name.toLowerCase().includes("ranged")).id;
 
 		if (champions[this.selectedChampIndex].rangeType == "Ranged") {
 			t = current;
