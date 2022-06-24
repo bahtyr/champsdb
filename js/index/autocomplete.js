@@ -83,10 +83,7 @@ var autocompleteChampNames = {
 	arr: [],
 	suggestion: null,
 
-	/**
-	 * Run this function when champions is ready.
-	 */
-	init() {
+	addChampions() {
 		champions.forEach(champ => {
 			this.arr.push({
 				search: champ.name.toLowerCase().replace(/[^0-9a-z]/g, ""),
@@ -94,6 +91,12 @@ var autocompleteChampNames = {
 			});
 		});
 	},
+
+	addAliases(arr) {
+		this.arr.push(...arr);
+	},
+
+	/******************************************************************************/
 
 	/***
 	 * Generates list of suggestions by comparing search.text to tags.name.

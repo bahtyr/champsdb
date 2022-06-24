@@ -15,7 +15,11 @@ fetch("data/champions.json").then(data => data.json()).then(json => {
 	champions = json.map(item => ChampionFunctions.transfer(item));
 	champlist.print();
 	TagFunctions.initIndexes();
-	autocompleteChampNames.init();
+	autocompleteChampNames.addChampions();
+});
+
+fetch("data/champion-aliases.json").then(data => data.json()).then(json => {
+	autocompleteChampNames.addAliases(json);
 });
 
 fetch("data/sidebar.json").then(data => data.json()).then(json => {
