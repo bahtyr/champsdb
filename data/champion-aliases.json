@@ -6,6 +6,17 @@
 	{"search": "lb",     "text": "LeBlanc"},
 	{"search": "ww",     "text": "Warwick"},
 	{"search": "asol",   "text": "Aurelion Sol"},
+	{"search": "k6",     "text": "Kha'Zix"},
+
 	{"search": "susan",  "text": "Nasus"},
-	{"search": "rat",    "text": "Twitch"}
+
+	{"search": "rat",    "text": "Twitch"},
+	{"search": "cat",    "text": "Yuumi"},
+	{"search": "cow",    "text": "Alistar"},
+	{"search": "monkey", "text": "Wukong"},
+	{"search": "deer",   "text": "Lillia"},
+
+	{"search": "gosu",   "text": "Vayne"},
+	{"search": "tyler1", "text": "Draven"},
+	{"search": "hasagi", "text": "Yasuo"}
 ]
