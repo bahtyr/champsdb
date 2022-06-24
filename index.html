@@ -73,13 +73,13 @@
 				<label class="flat-input-label" for="tagcreator__input-name">Name</label>
 				<input class="flat-input" id="tagcreator__input-name" type="text" placeholder="Name" oninput="">
 				<div style="height: 12px;"></div>
-				<label class="flat-input-label" for="tagcreator__input-name">Filter</label>
-				<textarea class="flat-input" id="tagcreator__input-name" rows="3" placeholder="Enter Champion Name (+ Abilities)" ></textarea>
+				<label class="flat-input-label" for="tagcreator__input-champs">Filter</label>
+				<textarea class="flat-input" id="tagcreator__input-champs" rows="3" placeholder="Enter Champion Name (+ Abilities)" ></textarea>
 				<div style="height: 12px;"></div>
 				<div id="tagcreator-champlist">
-					<span class="divider">Selected Champions</span>
+					<div class="divider"><span>Selected Champions</span><span class="refresh" onclick="TagCreator.onClickRefresh()">Refresh</span></div>
 					<div id="tagcreator-champlist-active"></div>
-					<span class="divider">All Champions</span>
+					<div class="divider"><span>All Champions</span><span class="refresh" onclick="TagCreator.onClickRefresh()">Refresh</span></div>
 					<div id="tagcreator-champlist-all"></div>
 				</div>
 			</div>

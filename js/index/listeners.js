@@ -200,7 +200,11 @@ document.addEventListener("keydown", e => {
 
 	// ENTER KEY
 	if (e.which == 13) {
-		if (autocomplete.isVisible()) {
+		if (TagCreator.modal.hasFocus()) {
+			TagCreator.onClickFilter();
+		}
+
+		else if (autocomplete.isVisible()) {
 			autocomplete.select();
 		}
 	}

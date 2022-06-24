@@ -1539,7 +1539,7 @@ factionIonia1    { font-weight: bold; color: #F2E8D4; }  /* Yasuo R Airborne */
 	--tagcreator-list-divider-bg: hsl(0deg 0% 5%);
 	--tagcreator-list-hover-bg: hsl(0deg 0% 20%);
 	--tagcreator-list-toggle-bg: hsl(0deg 0% 8%);
-	--tagcreator-list-toggle-hover-bg: hsl(0deg 0% 15%);
+	--tagcreator-list-toggle-hover-bg: hsl(0deg 0% 5%);
 	--tagcreator-list-toggle-active-text: #937341;
 	--tagcreator-list-toggle-active-bg: #322815;
 }
@@ -1606,20 +1606,32 @@ factionIonia1    { font-weight: bold; color: #F2E8D4; }  /* Yasuo R Airborne */
 
 #tagcreator-champlist {
 	overflow: auto;
-	height: 200px;
+	height: 360px;
 	background-color: var(--tagcreator-input-bg);
+	position: relative;
 }
 
-#tagcreator-champlist span.divider {
-	display: block;
+#tagcreator-champlist .divider {
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+	z-index: 100;
+
+	display: flex;
+	justify-content: space-between;
 	height: auto;
 	width: 100%;
 	padding: 4px;
+	
+	color: #888;
 	background-color: var(--tagcreator-list-divider-bg);
 	font-family: Spiegel-Bold;
-	text-transform: uppercase;
 	font-size: 10px;
+	text-transform: uppercase;
 }
+
+#tagcreator-champlist .divider .refresh       { cursor: pointer; }
+#tagcreator-champlist .divider .refresh:hover { color: #bbb; }
 
 /****************/
 
