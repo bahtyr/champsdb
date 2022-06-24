@@ -14,8 +14,12 @@ var search = {
 	/****************************************** Search Input Listener ******************************************/
 
 	onInput: function(e) {
+		window.scrollTo({top: 0});
 		let s = $id("search").value.trim().toLowerCase();
 		this.text = s;
+		search.runQuery();
+		autocomplete.run();
+		autocompleteChampNames.run(s);
 
 		// if (s.length == 0) {
 			// search.clear();
@@ -26,9 +30,7 @@ var search = {
 		// $id("search__bubble").classList.add("active");
 		// $id("search__clear").classList.remove("hide");
 
-		window.scrollTo({top: 0});
-		search.runQuery();
-		autocomplete.run();
+
 		// sidebar.clearSelection();
 
 		// if (!search.byTagText(s))

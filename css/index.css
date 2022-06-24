@@ -129,6 +129,15 @@
  * SEARCH - INPUT
  ************************************************/
 
+/* for items to have relative position to search input (since tags can change it's position) */
+#search__anchor {
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: 100%;
+	width: 100%;
+}
+
 #search__wrapper {
 	flex: 1;
 	display: flex;
@@ -240,6 +249,38 @@
 .search__autocomplete-item:hover {
 	background-color: #222;
 }
+
+/************************************************
+ * SEARCH - AUTOCOMPLETE CHAMPION NAMES
+ ************************************************/
+
+#search__autocomplete-champ {
+	--char-length: 0ch;
+	z-index: 1;
+	display: flex;
+	position: absolute;
+	align-items: center;
+	left: calc(var(--char-length) + 8px);
+	pointer-events: none;
+	color: #333;
+	opacity: 0;
+}
+
+#search__autocomplete-champ.show {
+	opacity: 1;
+}
+
+#search__autocomplete-champ__text {
+	font-size: 14px;
+	font-family: Spiegel-Bold;
+	letter-spacing: 0.07em;
+	margin-bottom: 1px;
+
+	color: #444;
+	margin-left: 2px;
+	white-space: nowrap
+}
+
 
 /*
 //  ######## #### ##       ######## ######## ########          ########   #######  ##      ## 

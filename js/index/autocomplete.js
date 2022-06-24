@@ -55,6 +55,7 @@ var autocomplete = {
 		search.queryAdd(null, null, tags.find(tag => tag.id == tagId));
 		search.softClear();
 		autocomplete.reset();
+		autocompleteChampNames.hide();
 	},
 
 	/****************************************** HIGHLIGHT ****************************************/
@@ -77,3 +78,69 @@ var autocomplete = {
 	},
 
 };
+
+var autocompleteChampNames = {
+	arr: [],
+	suggestion: null,
+
+	/**
+	 * Run this function when champions is ready.
+	 */
+	init() {
+		champions.forEach(champ => {
+			this.arr.push({
+				search: champ.name.toLowerCase().replace(/[^0-9a-z]/g, ""),
+				text: champ.name
+			});
+		});
+	},
+
+	/***
+	 * Generates list of suggestions by comparing search.text to tags.name.
+	 */
+	run(text) {
+
+		//too short, hide
+		if (text.length < 2)  {
+			this.hide();
+			return;
+		}
+
+		//get rid of spaces and non-letter chars
+		text = text.replace(/[^0-9a-z]/g, "");
+
+		//find suggestion
+		for (let item of this.arr) {
+			if (item.search.includes(text)) {
+				this.showSuggestion(text, item.text)
+				return;
+			}
+		}
+
+		//no suggestions
+		this.hide();
+	},
+
+	showSuggestion(search, text) {
+		this.suggestion = text;
+		$id("search__autocomplete-champ__text").textContent = this.suggestion;
+		$id("search__autocomplete-champ").style.setProperty('--char-length', search.length+"ch");
+		$id("search__autocomplete-champ").classList.add("show");
+	},
+
+	fill() {
+		if (this.suggestion == null) return;
+		$id("search").value = this.suggestion;
+		$id("search").dispatchEvent(new Event("input"));
+		this.hide();
+	},
+
+	hide() {
+		this.suggestion = null;
+		$id("search__autocomplete-champ").classList.remove("show");
+	},
+
+	isVisible() {
+		return this.suggestion != null;
+	}
+}

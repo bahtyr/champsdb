@@ -171,6 +171,14 @@ document.addEventListener("keydown", e => {
 		}
 	}
 
+	// TAB
+	if (e.which == 9) {
+		if (autocompleteChampNames.isVisible()) {
+			autocompleteChampNames.fill();
+			e.preventDefault();
+		}
+	}
+
 	// SPACE
 	if (e.which == 32 && champcard.isOpen() && !search.hasFocus) {
 		e.preventDefault();
