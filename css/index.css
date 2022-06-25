@@ -162,21 +162,17 @@
 	background: transparent;
 	border: none;
 	border-radius: 0;
-	margin-right: 12px;
+	padding-right: 12px;
 	font-size: 14px;
 	font-family: Spiegel-Regular;
 	letter-spacing: 0.07em;
 	color: #b0aca0;
 	caret-color: #604820;
-	cursor: default;
 }
 
-#search::placeholder,
-#search:-ms-input-placeholder,
-#search::-ms-input-placeholder {
-  color: #999485;
-  opacity: 1;
-}
+#search:-ms-input-placeholder { color: #777; }
+#search::-ms-input-placeholder { color: #777; }
+#search::placeholder { color: #777; opacity: 1; }
 
 #search:focus {
     outline: none;
@@ -274,7 +270,7 @@
 	font-size: 14px;
 	font-family: Spiegel-Bold;
 	letter-spacing: 0.07em;
-	margin-bottom: 1px;
+	margin-top: 1px;
 
 	color: #444;
 	margin-left: 2px;

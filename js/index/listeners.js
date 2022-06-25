@@ -194,8 +194,6 @@ document.addEventListener("keydown", e => {
 				search.clear(); //clear search
 		}
 		keyPressTime = Date.now();
-		// we don't don't check if the prev key was also escape because, 
-		// key press time is only reigstered if the key is escape
 	}
 
 	// ENTER KEY

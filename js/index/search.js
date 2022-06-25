@@ -20,35 +20,16 @@ var search = {
 		search.runQuery();
 		autocomplete.run();
 		autocompleteChampNames.run(s);
-
-		// if (s.length == 0) {
-			// search.clear();
-			// $id("search__bubble").classList.remove("active");
-			// return;
-		// }
-
-		// $id("search__bubble").classList.add("active");
-		// $id("search__clear").classList.remove("hide");
-
-
-		// sidebar.clearSelection();
-
-		// if (!search.byTagText(s))
-		// if (!search.byAttr("region", s, true))
-		// if (!search.byAttr("species", s, true))
-			// search.byText(s);
-		
-		// champlist.selectFirstVisibleItem();
-		// champlist.updateItemCount();
 	},
 
 	/****************************************** Search Input Methods ******************************************/
 	
 	clear: function() {
 		$id("search").value = "";
-		$id("search__bubble").classList.remove("active");
 		$id("search").placeholder = "Search";
 		$id("search__tags").innerHTML = ""
+		autocomplete.reset();
+		autocompleteChampNames.hide();
 		champlist.deselect();
 		champlist.unhideAll();
 		champlist.updateItemCount();
@@ -70,24 +51,6 @@ var search = {
 		$id("search").value = "";
 		search.text = "";
 		search.runQuery();
-	},
-
-	fakeInput: function(s) {
-		this.text = s.toLowerCase();
-		$id("search").placeholder = "";
-		$id("search__clear").classList.remove("hide");
-		$id("search__bubble").classList.add("active");
-		this.createTag(s);
-	},
-
-	showBubble: function() {
-		$id("search").placeholder = "";
-		// $id("search__bubble").classList.add("active");
-	},
-
-	hideBubble: function() {
-		$id("search").placeholder = "Search";
-		// $id("search__bubble").classList.remove("active");
 	},
 
 	/******************************************/
@@ -233,9 +196,7 @@ var search = {
 			else champlist.hide(i);
 		});
 
-		search.query.length == 0 
-			? search.hideBubble()
-			: search.showBubble();
+		// search.query.length == 0 ? : ;
 		champlist.selectFirstVisibleItem();
 		champlist.updateItemCount();
 		champlist.showAbilityKeysOnChamps2();
