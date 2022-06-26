@@ -7,11 +7,11 @@ var autocomplete = {
 	/***
 	 * Generates list of suggestions by comparing search.text to tags.name.
 	 */
-	run() {
+	run(text) {
 		this.reset();
-		if (search.text.length < 2) return;
+		if (text.length < 2) return;
 		for (let item of tags.filter(tag => {
-			if (tag.name.toLowerCase().indexOf(search.text) > -1) return this;
+			if (tag.name.toLowerCase().indexOf(text) > -1) return this;
 		})) {
 			if (this.length == this.limit) break;
 			this.length++;

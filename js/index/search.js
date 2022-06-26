@@ -15,11 +15,10 @@ var search = {
 
 	onInput: function(e) {
 		window.scrollTo({top: 0});
-		let s = $id("search").value.trim().toLowerCase();
-		this.text = s;
+		search.text = $id("search").value.trim().toLowerCase().replace(/[^\w\s]/g, "");
 		search.runQuery();
-		autocomplete.run();
-		autocompleteChampNames.run(s);
+		autocomplete.run(this.text);
+		autocompleteChampNames.run(this.text);
 	},
 
 	/****************************************** Search Input Methods ******************************************/
@@ -131,7 +130,6 @@ var search = {
 		 * therefore it is better if we handle follow-up methods here as well.
 		 */
 
-		search.text = search.text.replace(/[^\w\s]/g, "");
 		sort.reset();
 		champlist.deselect();
 		champlist.resetPosition();
