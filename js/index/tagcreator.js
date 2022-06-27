@@ -27,7 +27,7 @@ var TagCreator = {
 	 * champName: full champ name
 	 * ability:   tagArrays index: 0 = champ, 1-6 = PQWER
 	 */
-	addToList(champName, ability) {
+	addToList(champName, champIndex, ability) {
 		let item = TagCreator.list.find(item => item.name == champName);
 		if (item) {
 			if (!item.abilities.includes(ability))
@@ -35,7 +35,7 @@ var TagCreator = {
 			return;
 		}
 
-		TagCreator.list.push({name: champName, abilities: [ability]});
+		TagCreator.list.push({name: champName, index: champIndex, abilities: [ability]});
 		return;
 	},
 
@@ -100,7 +100,7 @@ var TagCreator = {
 		event.srcElement.classList.toggle("highlight");
 
 		if (event.srcElement.classList.contains("highlight")) {
-			TagCreator.addToList(champName, abilityIndex);
+			TagCreator.addToList(champName, champIndex, abilityIndex);
 		} else TagCreator.removeFromList(champName, abilityIndex);
 	},
 
@@ -115,13 +115,28 @@ var TagCreator = {
 			if (text.length < 2) return;
 
 			text = text.split("#");
-			let champName = this.findChampName(text[0]);
+			let champName = TagCreator.findChampName(text[0]);
+			let champIndex = champions.findIndex(champ => champ.name == champName);
 			let ability = text.length == 2 ? parseInt(text[1])+1 : 0;
 
-			this.addToList(champName, ability)
+			if (champIndex > -1)
+				TagCreator.addToList(champName, champIndex, ability)
 		}
 
-		this.printList(this.list);
+		TagCreator.printList(TagCreator.list);
+	},
+
+	onClickSave() {
+		let name = $id("tagcreator__input-name").value.trim();
+		let id = TagFunctions.createTag(name);
+		console.log(`${id} : ${name}`);
+		TagCreator.list.forEach(item => {
+			item.abilities.forEach(ability => {
+				TagFunctions.addToChamp(id, item.index, ability);
+			});
+		});
+		TagCreator.updateChamps();
+		TagCreator.updateTags();
 	},
 
 	/******************************************************************************/
@@ -134,5 +149,16 @@ var TagCreator = {
 			}
 		}
 		return null;
+	},
+
+	updateChamps() { TagCreator.updateData("champions", champions); },
+	updateTags() { TagCreator.updateData("tags", tags); },
+	updateData(fileName, data) {
+		console.log(`Updating ${fileName}.`);
+		let xhr = new XMLHttpRequest();
+		xhr.onreadystatechange = () => (xhr.readyState === 4) && console.log(xhr.responseText);
+		xhr.open("POST", "./js/server/update.php?file="+fileName, true);
+		xhr.setRequestHeader("Content-type", "application/json");
+		xhr.send(JSON.stringify(data, null, 2));
 	},
 }
