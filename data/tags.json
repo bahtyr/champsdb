@@ -433,5 +433,15 @@
     "id": 86,
     "name": "CC Interactions",
     "champIndexes": []
+  },
+  {
+    "id": 87,
+    "name": "Cast Range: Global",
+    "champIndexes": []
+  },
+  {
+    "id": 88,
+    "name": "On-Takedown Trigger",
+    "champIndexes": []
   }
 ]
