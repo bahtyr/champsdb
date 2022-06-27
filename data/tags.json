@@ -443,5 +443,15 @@
     "id": 88,
     "name": "On-Takedown Trigger",
     "champIndexes": []
+  },
+  {
+    "id": 89,
+    "name": "Channel",
+    "champIndexes": []
+  },
+  {
+    "id": 90,
+    "name": "Charge",
+    "champIndexes": []
   }
 ]
