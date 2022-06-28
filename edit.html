@@ -18,12 +18,12 @@
 					<h1>ChampsDB</h1>
 				</div>
 				<div style="flex: 1"></div>
-				<p onclick="pageManager?.toggleSection(this, 'section-functions')"     class="">Functions</p>
+				<p onclick="pageManager?.toggleSection(this, 'section-functions')"     class="hide">Functions</p>
 				<p onclick="pageManager?.toggleSection(this, 'section-champions')"     class="">Champions</p>
 				<p onclick="pageManager?.toggleSection(this, 'section-tags')"          class="">Tags</p>
-				<p onclick="pageManager?.toggleSection(this, 'section-champsandtags')" class="hide">Champs & Tags</p>
+				<p onclick="pageManager?.toggleSection(this, 'section-champsandtags')" class="">Champs & Tags</p>
 				<p onclick="pageManager?.toggleSection(this, 'section-sidebar')"       class="hide">Sidebar</p>
-				<p onclick="pageManager?.toggleSection(this, 'section-patches')"       class="">Patches</p>
+				<p onclick="pageManager?.toggleSection(this, 'section-patches')"       class="hide">Patches</p>
 				<span id="cors-indicator" title="CORS Status"></span>
 			</div>
 		</div>
@@ -32,7 +32,7 @@
 			<!------------------------------------->
 			<!--       SECTION: Functions        -->
 			<!------------------------------------->
-			<div class="section-block" style="flex: 0.25" id="section-functions">
+			<div class="section-block hide" style="flex: 0.25" id="section-functions">
 				<div class="section-header noselect">
 					<h3>Functions</h3>
 				</div>
@@ -235,7 +235,7 @@
 			<!------------------------------------->
 			<!--       SECTION: Champs & Tags    -->
 			<!------------------------------------->
-			<div class="section-block hide" id="section-champsandtags">
+			<div class="section-block" id="section-champsandtags">
 				<div class="section-header noselect">
 					<h3>Champs & Tags</h3>
 					<div style="flex: 1;"></div>
@@ -244,7 +244,9 @@
 
 				</div>
 				<div class="list-block noselect" id="list-champsandtags">
+					<div class="divider"><span>Selected Champions</span><span class="refresh" onclick="">Refresh</span></div>
 					<div id="list-champsandtags-active"></div>
+					<div class="divider"><span>All Champions</span><span class="refresh" onclick="">Refresh</span></div>
 					<div id="list-champsandtags-all"></div>
 				</div>
 			</div>
@@ -266,7 +268,7 @@
 			<!------------------------------------->
 			<!--       SECTION: Patches          -->
 			<!------------------------------------->
-			<div class="section-block" style="flex: 1" id="section-patches">
+			<div class="section-block hide" style="flex: 1" id="section-patches">
 				<div class="section-header noselect">
 					<h3>Patches</h3>
 					<div style="flex: 1;"></div>

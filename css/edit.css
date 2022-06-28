@@ -260,35 +260,82 @@ li.highlight-patch {
 #list-champsandtags {
 	flex: unset;
 	width: 340px;
-	padding-right: 8px;
+	padding: unset;
+
+	--tagcreator-input-bg: hsl(0deg 0% 13%);
+	--tagcreator-list-divider-bg: hsl(0deg 0% 5%);
+	--tagcreator-list-hover-bg: hsl(0deg 0% 7%);
+	--tagcreator-list-toggle-bg: hsl(0deg 0% 3%);
+	--tagcreator-list-toggle-hover-bg: hsl(0deg 0% 0%);
+	--tagcreator-list-toggle-active-text: #937341;
+	--tagcreator-list-toggle-active-bg: #322815;
 }
 
-#list-champsandtags .row:hover { background-color: hsl(0deg 0% 3%); }
+#list-champsandtags .row {
+	display: flex;
+	align-items: center;
+	padding: 2px 4px;
+}
+
+#list-champsandtags .row:hover { background-color: var(--tagcreator-list-hover-bg); }
 #list-champsandtags .row:hover label { color: #aaa; }
 
+#list-champsandtags img {
+	width: 26px;
+	height: 26px;
+	clip-path: circle(40%); /* cropping more on the sides to hide the black square border */
+	margin-right: 8px;
+}
+
 #list-champsandtags label {
-	min-width: 15ch;
+	flex: 1;
 }
 
-#list-champsandtags span {
-	padding: 4px 8px;
-	background-color: hsl(0deg 0% 7%);
-	margin-right: 4px;
+#list-champsandtags .row span {
 	font-size: 12px;
+	background-color: var(--tagcreator-list-toggle-bg);
+	padding: 4px 8px;
+	margin-right: 2px;
+	border-radius: 2px;
+	cursor: pointer;
 }
 
-#list-champsandtags span:hover {
-	background-color: hsl(0deg 0% 15%);
+#list-champsandtags .row span:hover {
+	background-color: var(--tagcreator-list-toggle-hover-bg);
 }
 
-#list-champsandtags span.highlight {
-	color: var(--yellow-text);
-	background-color: #322815;
+#list-champsandtags .row span.highlight {
+	color: var(--tagcreator-list-toggle-active-text);
+	background-color: var(--tagcreator-list-toggle-active-bg);
 }
 
 #list-champsandtags-active:not(:empty) {
 	margin-bottom: 25px;
 }
+
+/****************/
+
+#list-champsandtags .divider {
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+	z-index: 100;
+
+	display: flex;
+	justify-content: space-between;
+	height: auto;
+	width: 100%;
+	padding: 4px;
+	
+	color: #888;
+	background-color: var(--tagcreator-list-divider-bg);
+	font-family: Spiegel-Bold;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+#list-champsandtags .divider .refresh       { cursor: pointer; }
+#list-champsandtags .divider .refresh:hover { color: #bbb; }
 
 /*
 //  ######  ########    ###    ########   ######  ##     ##    ########  ##        #######   ######  ##    ## 

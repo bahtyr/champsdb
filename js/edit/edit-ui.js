@@ -115,15 +115,18 @@ class EditUiManager {
 		let onClickLabel = this.champsandtagsOnClickLabel,
 			onClickAbility = this.champsandtagsOnClickAbility;
 		let filter = champIndexes && Array.isArray(champIndexes);
-		$id(listId).scrollTop = 0;
+		// $id(listId).scrollTop = 0;
 		$id(listIdActive).innerHTML = "";
 		$id(listIdAll).innerHTML = "";
 
 		champions.forEach((champ, champIndex) => {
 			let div = document.createElement("div");
+			let img = document.createElement("img");
 			let label = document.createElement("label");
+			img.setAttribute("src", champ.portrait);
 			label.onclick = function(event) { onClickLabel(champ.name, champIndex); };
 			label.appendChild(document.createTextNode(champ.name));
+			div.appendChild(img);
 			div.appendChild(label);
 			div.classList.add("row")
 			div.setAttribute("data-champ-index", champIndex);
