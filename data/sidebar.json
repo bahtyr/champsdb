@@ -61,6 +61,131 @@
     }
   ],
   {
+    "heading": "Ability"
+  },
+  {
+    "subheading": "Cast Types"
+  },
+  [
+    {
+      "text": "Charge",
+      "link": "",
+      "tooltip": "",
+      "id": 90
+    },
+    {
+      "text": "Channel",
+      "link": "",
+      "tooltip": "",
+      "id": 89
+    },
+    {
+      "text": "Toggle",
+      "link": "",
+      "tooltip": "",
+      "id": 92
+    },
+    {
+      "text": "Multi-Cast",
+      "link": "",
+      "tooltip": "",
+      "id": 91
+    },
+    {
+      "text": "Passive-Only",
+      "link": "",
+      "tooltip": "",
+      "id": 93
+    }
+  ],
+  {
+    "subheading": "Cast Target"
+  },
+  [
+    {
+      "text": "None",
+      "link": "",
+      "tooltip": "",
+      "id": -1
+    },
+    {
+      "text": "Self",
+      "link": "",
+      "tooltip": "",
+      "id": -1
+    },
+    {
+      "text": "Auto",
+      "link": "",
+      "tooltip": "",
+      "id": -1
+    },
+    {
+      "text": "Direction",
+      "link": "",
+      "tooltip": "",
+      "id": -1
+    },
+    {
+      "text": "Unit",
+      "link": "",
+      "tooltip": "",
+      "id": -1
+    },
+    {
+      "text": "Location",
+      "link": "",
+      "tooltip": "",
+      "id": -1
+    }
+  ],
+  {
+    "subheading": "Cast Range"
+  },
+  [
+    {
+      "text": "Semi-Global",
+      "link": "",
+      "tooltip": "",
+      "id": -1
+    },
+    {
+      "text": "Global",
+      "link": "",
+      "tooltip": "",
+      "id": 87
+    }
+  ],
+  {
+    "subheading": "..."
+  },
+  [
+    {
+      "text": "Champion Ammo",
+      "link": "",
+      "tooltip": "",
+      "id": -1
+    },
+    {
+      "text": "Ability Charge",
+      "link": "",
+      "tooltip": "",
+      "id": -1
+    },
+    {
+      "text": "Takedown Resets",
+      "link": "",
+      "tooltip": "",
+      "id": 94
+    },
+    {
+      "text": "On-Takedown Trigger",
+      "link": "",
+      "tooltip": "",
+      "id": 88
+    }
+  ],
+  {
     "heading": "Crowd Control"
   },
   {
@@ -234,66 +359,8 @@
     }
   ],
   {
-    "heading": "Other"
+    "heading": "Effects"
   },
-  {
-    "subheading": "Ability Cast Types"
-  },
-  [
-    {
-      "text": "Charge",
-      "link": "",
-      "tooltip": "",
-      "id": 90
-    },
-    {
-      "text": "Channel",
-      "link": "",
-      "tooltip": "",
-      "id": 89
-    },
-    {
-      "text": "Toggle",
-      "link": "",
-      "tooltip": "",
-      "id": 92
-    },
-    {
-      "text": "Multi-Cast",
-      "link": "",
-      "tooltip": "",
-      "id": 91
-    },
-    {
-      "text": "Passive-Only",
-      "link": "",
-      "tooltip": "",
-      "id": 93
-    }
-  ],
-  {
-    "subheading": "Ability / Other"
-  },
-  [
-    {
-      "text": "Cast Range: Global",
-      "link": "",
-      "tooltip": "",
-      "id": 87
-    },
-    {
-      "text": "Takedown Resets",
-      "link": "",
-      "tooltip": "",
-      "id": 94
-    },
-    {
-      "text": "On-Takedown Trigger",
-      "link": "",
-      "tooltip": "",
-      "id": 88
-    }
-  ],
   {
     "subheading": "Resource Generation"
   },
