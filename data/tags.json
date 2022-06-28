@@ -468,5 +468,20 @@
     "id": 93,
     "name": "Passive-Only",
     "champIndexes": []
+  },
+  {
+    "id": 94,
+    "name": "Takedown Resets",
+    "champIndexes": []
+  },
+  {
+    "id": 95,
+    "name": "Mana Restoration",
+    "champIndexes": []
+  },
+  {
+    "id": 96,
+    "name": "Gold Generation",
+    "champIndexes": []
   }
 ]
