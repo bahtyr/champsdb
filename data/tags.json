@@ -528,5 +528,20 @@
     "id": 105,
     "name": "Ability Charge",
     "champIndexes": []
+  },
+  {
+    "id": 106,
+    "name": "Target: Skillshot",
+    "champIndexes": []
+  },
+  {
+    "id": 107,
+    "name": "Target: Point and Click",
+    "champIndexes": []
+  },
+  {
+    "id": 108,
+    "name": "Target: Auto-nearby",
+    "champIndexes": []
   }
 ]

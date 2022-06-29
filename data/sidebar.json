@@ -157,6 +157,29 @@
     }
   ],
   {
+    "subheading": "Target Acquisition"
+  },
+  [
+    {
+      "text": "Skillshot",
+      "link": "",
+      "tooltip": "",
+      "id": 106
+    },
+    {
+      "text": "Point and Click",
+      "link": "",
+      "tooltip": "",
+      "id": 107
+    },
+    {
+      "text": "Auto-nearby",
+      "link": "",
+      "tooltip": "",
+      "id": 108
+    }
+  ],
+  {
     "subheading": "..."
   },
   [
