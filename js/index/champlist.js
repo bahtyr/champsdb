@@ -259,26 +259,11 @@ class ChampListManager {
 	}
 
 	showAbilityKeysOnChamps() {
-		this.visibleItems.forEach((visible, i) => {
-			if (visible && !!search.tagId) {
-				let s = "";
-				s += champions[i].tagArrays[1].includes(search.tagId) ? "P" : "";
-				s += champions[i].tagArrays[2].includes(search.tagId) ? "Q" : "";
-				s += champions[i].tagArrays[3].includes(search.tagId) ? "W" : "";
-				s += champions[i].tagArrays[4].includes(search.tagId) ? "E" : "";
-				s += champions[i].tagArrays[5].includes(search.tagId) ? "R" : "";
-				this.elements[i].children[0].children[2].textContent = s.split("").join(" ");
-			}
-
-			else this.elements[i].children[0].children[2].textContent = "";
-		});
-	}
-
-	showAbilityKeysOnChamps2() {
 		let tags_ = search.queryTags();
+		let searchHasTags = tags_.length > 0;
 
 		this.visibleItems.forEach((visible, i) => {
-			if (visible && tags_.length > 0) {
+			if (visible && searchHasTags) {
 				let s = "";
 				s += champions[i].tagArrays[1].some(t => tags_.includes(t)) ? "P" : "";
 				s += champions[i].tagArrays[2].some(t => tags_.includes(t)) ? "Q" : "";

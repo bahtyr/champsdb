@@ -68,14 +68,6 @@ $queryAll(".export-tooltip a").forEach(el => el.addEventListener("click", e => {
 	champlist.exportVisibleItems(e.target.id);
 }));
 
-function onPrefTextChange(el) {
-	search.prefs.text = parseInt(el.value);
-}
-
-function onPrefTagsChange(el) {
-	search.prefs.tags = el.checked ? 1 : 0;
-}
-
 /****************************************** FILTERS **********************************************/
 
 $id("filter-row").addEventListener("click", e => {
