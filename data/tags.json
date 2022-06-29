@@ -483,5 +483,50 @@
     "id": 96,
     "name": "Gold Generation",
     "champIndexes": []
+  },
+  {
+    "id": 97,
+    "name": "Cast Range: Semi-Global",
+    "champIndexes": []
+  },
+  {
+    "id": 98,
+    "name": "Cast Target: None",
+    "champIndexes": []
+  },
+  {
+    "id": 99,
+    "name": "Cast Target: Self",
+    "champIndexes": []
+  },
+  {
+    "id": 100,
+    "name": "Cast Target: Auto",
+    "champIndexes": []
+  },
+  {
+    "id": 101,
+    "name": "Cast Target: Direction",
+    "champIndexes": []
+  },
+  {
+    "id": 102,
+    "name": "Cast Target: Unit",
+    "champIndexes": []
+  },
+  {
+    "id": 103,
+    "name": "Cast Target: Location",
+    "champIndexes": []
+  },
+  {
+    "id": 104,
+    "name": "Champion Ammo",
+    "champIndexes": []
+  },
+  {
+    "id": 105,
+    "name": "Ability Charge",
+    "champIndexes": []
   }
 ]

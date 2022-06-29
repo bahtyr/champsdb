@@ -106,37 +106,37 @@
       "text": "None",
       "link": "",
       "tooltip": "",
-      "id": -1
+      "id": 98
     },
     {
       "text": "Self",
       "link": "",
       "tooltip": "",
-      "id": -1
+      "id": 99
     },
     {
       "text": "Auto",
       "link": "",
       "tooltip": "",
-      "id": -1
+      "id": 100
     },
     {
       "text": "Direction",
       "link": "",
       "tooltip": "",
-      "id": -1
+      "id": 101
     },
     {
       "text": "Unit",
       "link": "",
       "tooltip": "",
-      "id": -1
+      "id": 102
     },
     {
       "text": "Location",
       "link": "",
       "tooltip": "",
-      "id": -1
+      "id": 103
     }
   ],
   {
@@ -144,16 +144,16 @@
   },
   [
     {
-      "text": "Semi-Global",
-      "link": "",
-      "tooltip": "",
-      "id": -1
-    },
-    {
       "text": "Global",
       "link": "",
       "tooltip": "",
       "id": 87
+    },
+    {
+      "text": "Semi-Global",
+      "link": "",
+      "tooltip": "",
+      "id": 97
     }
   ],
   {
@@ -164,13 +164,13 @@
       "text": "Champion Ammo",
       "link": "",
       "tooltip": "",
-      "id": -1
+      "id": 104
     },
     {
       "text": "Ability Charge",
       "link": "",
       "tooltip": "",
-      "id": -1
+      "id": 105
     },
     {
       "text": "Takedown Resets",
