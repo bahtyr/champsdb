@@ -137,11 +137,13 @@ var TagFunctions = {
 	/******************** CHAMP INDEXES ********/
 
 	addToChampIndexes: function(tagIndex, champIndex) {
+		if (tagIndex < 0 || champIndex < 0) return;
 		if (!tags[tagIndex].champIndexes.includes(champIndex))
 			tags[tagIndex].champIndexes.push(champIndex);
 	},
 
 	removeFromChampIndexes: function(tagIndex, champIndex) {
+		if (tagIndex < 0 || champIndex < 0) return;
 		let i = tags[tagIndex].champIndexes.findIndex(champ => champ == champIndex);
 		if (i > -1) tags[tagIndex].champIndexes.splice(i, 1);
 	},
