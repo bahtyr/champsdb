@@ -239,12 +239,12 @@
 				<div class="section-header noselect">
 					<h3>Champs & Tags</h3>
 					<div style="flex: 1;"></div>
-					<p class="btn" onclick="pageManager?.tagOnClickClear()">X</p>
+					<p class="btn" onclick="pageManager?.champsandtagsOnClickClear()">X</p>
 				</div>
 				<div id="champsandtags__top">
-					<p class="btn" onclick="pageManager.champsandtagsOnClickSaveReplace()">Create / Replace</p>
-					<p class="btn" onclick="pageManager.champsandtagsOnClickSaveAdd()">Add</p>
-					<p class="btn" onclick="pageManager.champsandtagsOnClickSaveRemove()">Remove</p>
+					<p class="btn" onclick="pageManager.champsandtagsOnClickSave(0)">Create / Replace</p>
+					<p class="btn" onclick="pageManager.champsandtagsOnClickSave(1)">Add</p>
+					<p class="btn" onclick="pageManager.champsandtagsOnClickSave(2)">Remove</p>
 					<div style="flex-basis: 100%;"></div>
 					<input type="text" name="" placeholder="000"      id="input-champsandtags-tagid">
 					<input type="text" name="" placeholder="Tag Name" id="input-champsandtags-tagname">

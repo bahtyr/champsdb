@@ -44,7 +44,7 @@ function updatePatches() { updateData("patches", patches); }
 function updateTags() {
 		tags.forEach(tag => { tag.champIndexes = []; });
 		updateData("tags", tags);
-		TagFunctions.initIndexes();
+		TagFunctions.initIndexes(true);
 }
 function updateData(fileName, data) {
 	log(`Updating ${fileName}.`);

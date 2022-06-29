@@ -76,7 +76,7 @@ class EditUiManager {
 		this.populateList("list-champions", arr, this.onClickChamp);
 	}
 
-	populateTagList(search) {
+	populateTagList(search, scrollToBottom) {
 		let arr;
 		if (typeof search == "string")
 			search = search.trim().toLowerCase();
@@ -85,6 +85,8 @@ class EditUiManager {
 		else arr = tags.map(tag => tag.id + " - " + tag.name);
 
 		this.populateList("list-tags", arr, this.onClickTag);
+		if (scrollToBottom)
+			$id("list-tags").scrollTop = $id("list-tags").scrollHeight;
 	}
 
 	populateSidebarList() {
@@ -474,6 +476,8 @@ class EditUiManager {
 
 	tagOnClickClear() {
 		this.selectedTagIndex = null;
+		this.selectedTagElIndex = null;
+		this.selectedTagId = null;
 		$id("input__tag-id").value = "";
 		$id("input__tag-name").value = "";
 		pageManager.populateChampsandtagsList();
@@ -483,8 +487,7 @@ class EditUiManager {
 		if ($id("input__tag-name").value == "") return;
 		let name = $id("input__tag-name").value;
 		TagFunctions.createTag(name);
-		this.populateTagList();
-		$id("list-tags").scrollTop = $id("list-tags").scrollHeight;
+		this.populateTagList(null, true);
 		pageManager.highlightExport("tags");
 	}
 
@@ -513,30 +516,6 @@ class EditUiManager {
 		pageManager.onClickChamp(champIndex);
 	}
 
-	champsandtagsOnClickSave() {
-		let arr = $queryAll("#list-champsandtags .row");
-		arr.forEach(item => {
-			let addToChampIndexes = false;
-			
-			//update champ.tagArrays[][]
-			let champ = parseInt(item.getAttribute("data-champ-index"));
-			for (let span of item.getElementsByTagName("span")) {
-				let i = span.getAttribute("data-ability-index");
-				if (span.classList.contains("highlight")) {
-					addToChampIndexes = true;
-					TagFunctions.addToChamp(this.selectedTagId, champ, i);
-				} else TagFunctions.removeFromChamp(champ, i, null, this.selectedTagId);
-			}
-
-			//update tag.champIndexes[]
-			if (addToChampIndexes)
-				TagFunctions.addToChampIndexes(this.selectedTagIndex, champ);
-			else TagFunctions.removeFromChampIndexes(this.selectedTagIndex, champ);
-		});
-		pageManager.highlightExport("champions");
-		pageManager.populateChampsandtagsList(null, tags[this.selectedTagIndex].champIndexes);
-	}
-
 	/******************** patches ********/
 
 	patchesOnClickExtract() {
@@ -555,7 +534,6 @@ class EditUiManager {
 	/****************************************** CHAMPS AND TAGS **********************************/
 
 	champsandtagsList = [];
-	//do champindexes
 
 	/******************** list ********/
 
@@ -604,6 +582,14 @@ class EditUiManager {
 
 	/******************** other ********/
 
+	champsandtagsOnClickClear() {
+		$id("input-champsandtags-tagid").value = "";
+		$id("input-champsandtags-tagname").value = "";
+		$id("input-champsandtags-filter").value = "";
+		pageManager.champsandtagsList = [];
+		pageManager.populateChampsandtagsList();
+	}
+
 	champsandtagsOnClickAbility(event, abilityIndex, champIndex, champName) {
 		event.srcElement.classList.toggle("highlight");
 
@@ -618,15 +604,50 @@ class EditUiManager {
 
 	/******************** CREATE / REPLACE / ADD / REMOVE ********/
 
-	champsandtagsOnClickSaveReplace() {
+	/* 0: replace, 1: add, 2: remove */
+	champsandtagsOnClickSave(mode) {
 		pageManager.champsandtagsOnClickRefresh();
 
-		let isNew = $id("input-champsandtags-tagid").value == "";
-		let name = $id("input-champsandtags-tagname").value.trim();
-		let id = isNew ? TagFunctions.createTag(name) : parseInt($id("input-champsandtags-tagid").value.trim());
-		$id("input-champsandtags-tagid").value = id;
-		let tagIndex = tags.findIndex(tag => tag.id == id);
+		let tagName = $id("input-champsandtags-tagname").value.trim();
+		let tagId = parseInt($id("input-champsandtags-tagid").value);
+		let tagIndex = -1;
 
+		// existing tag
+		if (tagId) {
+			tags.find((tag, index) => {
+				if (tag.id == tagId) {
+					$id("input-champsandtags-tagname").value = tag.name;
+					tagIndex = index;
+					return true;
+				} else return false;
+			});
+		}
+
+		// create tag
+		else if (mode == 0) {
+			tagId = TagFunctions.createTag(tagName);
+			tagIndex = tags.length - 1;
+			$id("input-champsandtags-tagid").value = tagId;
+			pageManager.populateTagList(null, true);
+			pageManager.highlightExport("tags");
+		}
+
+		// abort
+		else {
+			console.error("Remove failed. Unable to find tag: " + $id("input-champsandtags-tagid").value);
+			return;
+		}
+
+		switch (mode) {
+			case 0: pageManager.champsandtagsOnClickSaveReplace(tagId, tagIndex); break;
+			case 1: pageManager.champsandtagsOnClickSaveAdd(tagId, tagIndex); break;
+			case 2: pageManager.champsandtagsOnClickSaveRemove(tagId, tagIndex); break;
+		}
+
+		pageManager.highlightExport("champions");
+	}
+
+	champsandtagsOnClickSaveReplace(tagId, tagIndex) {
 		let arr = $queryAll("#list-champsandtags .row");
 		arr.forEach(item => {
 			let addToChampIndexes = false;
@@ -637,8 +658,8 @@ class EditUiManager {
 				let i = span.getAttribute("data-ability-index");
 				if (span.classList.contains("highlight")) {
 					addToChampIndexes = true;
-					TagFunctions.addToChamp(id, champ, i);
-				} else TagFunctions.removeFromChamp(champ, i, null, id);
+					TagFunctions.addToChamp(tagId, champ, i);
+				} else TagFunctions.removeFromChamp(champ, i, null, tagId);
 			}
 
 			//update tag.champIndexes[]
@@ -646,62 +667,23 @@ class EditUiManager {
 				TagFunctions.addToChampIndexes(tagIndex, champ);
 			else TagFunctions.removeFromChampIndexes(tagIndex, champ);
 		});
-
-		updateChamps();
-		updateTags();
 	}
 
-	champsandtagsOnClickSaveAdd() {
-		pageManager.champsandtagsOnClickRefresh();
-
-		let id = parseInt($id("input-champsandtags-tagid").value);
-		let tagIndex = -1;
-		if (id) {
-			tagIndex = tags.findIndex(tag => tag.id == id);
-			if (tagIndex > -1) {
-				$id("input-champsandtags-tagname").value = tags[tagIndex].name;
-				id = tags[tagIndex].id;
-			}
-		} else {
-			console.error("Add failed. Unable to find tag: " + $id("input-champsandtags-tagid").value);
-			return;
-		}
-
+	champsandtagsOnClickSaveAdd(tagId, tagIndex) {
 		pageManager.champsandtagsList.forEach(item => {
 			item.abilities.forEach(ability => {
-				TagFunctions.addToChamp(id, item.index, ability);
-				TagFunctions.addToChampIndexes(tagIndex, champ);
+				TagFunctions.addToChamp(tagId, item.index, ability);
+				TagFunctions.addToChampIndexes(tagIndex, item.index);
 			});
 		});
-
-		updateChamps();
-		updateTags();
 	}
 
-	champsandtagsOnClickSaveRemove() {
-		pageManager.champsandtagsOnClickRefresh();
-
-		let id = parseInt($id("input-champsandtags-tagid").value);
-		let tagIndex = -1;
-		if (id) {
-			tagIndex = tags.findIndex(tag => tag.id == id);
-			if (tagIndex > -1) {
-				$id("input-champsandtags-tagname").value = tags[tagIndex].name;
-				id = tags[tagIndex].id;
-			}
-		} else {
-			console.error("Remove failed. Unable to find tag: " + $id("input-champsandtags-tagid").value);
-			return;
-		}
-
-		pageManager.champsandtagsList.forEach(item => {
-			item.abilities.forEach(ability => {
-				TagFunctions.removeFromChamp(item.index, ability, null, id);
-				TagFunctions.removeFromChampIndexes(tagIndex, champ);
+	champsandtagsOnClickSaveRemove(tagId, tagIndex) {
+		pageManager.champsandtagsList.forEach(champ => {
+			champ.abilities.forEach(ability => {
+				TagFunctions.removeFromChamp(champ.index, ability, null, tagId);
+				TagFunctions.removeFromChampIndexes(tagIndex, champ.index);
 			});
 		});
-
-		updateChamps();
-		updateTags();
 	}
 }

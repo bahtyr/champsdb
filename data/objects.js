@@ -92,12 +92,11 @@ var TagFunctions = {
 	 * wait for both champions & tags to be initiated, then run only once
 	 * */
 	isInitDone: false,
-	initIndexes: function() {
-		if (this.isInitDone) return;
+	initIndexes: function(force) {
+		if (this.isInitDone && force == null)   return;
 		if (champions && champions.length == 0) return;
 		if (tags      && tags.length == 0)      return;
 		this.isInitDone = true;
-
 		/* put champions' tagArrays to each tag as championIndexes */
 		tags.forEach(tag => champions.forEach((champ, index) => {
 			champ.tagArrays.forEach(t => {
@@ -144,6 +143,18 @@ var TagFunctions = {
 
 	removeFromChampIndexes: function(tagIndex, champIndex) {
 		if (tagIndex < 0 || champIndex < 0) return;
+
+		let champTagCount = 0;
+		let tagId = tags[tagIndex].id;
+		champions[champIndex].tagArrays.forEach(arr => {
+			if (arr.includes(tagId))
+				champTagCount += 1;
+		});
+
+		if (champTagCount > 1) return;
+		/* this means champ still has an ability(s) which contains this tag, 
+		   therefore don't remove the champ from champIndexes yet */
+
 		let i = tags[tagIndex].champIndexes.findIndex(champ => champ == champIndex);
 		if (i > -1) tags[tagIndex].champIndexes.splice(i, 1);
 	},
