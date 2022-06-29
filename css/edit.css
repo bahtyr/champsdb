@@ -255,88 +255,6 @@ li.highlight-patch {
 	color: var(--yellow-text);
 }
 
-/*** champsandtags ***/
-
-#list-champsandtags {
-	flex: unset;
-	width: 340px;
-	padding: unset;
-
-	--tagcreator-input-bg: hsl(0deg 0% 13%);
-	--tagcreator-list-divider-bg: hsl(0deg 0% 5%);
-	--tagcreator-list-hover-bg: hsl(0deg 0% 7%);
-	--tagcreator-list-toggle-bg: hsl(0deg 0% 3%);
-	--tagcreator-list-toggle-hover-bg: hsl(0deg 0% 0%);
-	--tagcreator-list-toggle-active-text: #937341;
-	--tagcreator-list-toggle-active-bg: #322815;
-}
-
-#list-champsandtags .row {
-	display: flex;
-	align-items: center;
-	padding: 2px 4px;
-}
-
-#list-champsandtags .row:hover { background-color: var(--tagcreator-list-hover-bg); }
-#list-champsandtags .row:hover label { color: #aaa; }
-
-#list-champsandtags img {
-	width: 26px;
-	height: 26px;
-	clip-path: circle(40%); /* cropping more on the sides to hide the black square border */
-	margin-right: 8px;
-}
-
-#list-champsandtags label {
-	flex: 1;
-}
-
-#list-champsandtags .row span {
-	font-size: 12px;
-	background-color: var(--tagcreator-list-toggle-bg);
-	padding: 4px 8px;
-	margin-right: 2px;
-	border-radius: 2px;
-	cursor: pointer;
-}
-
-#list-champsandtags .row span:hover {
-	background-color: var(--tagcreator-list-toggle-hover-bg);
-}
-
-#list-champsandtags .row span.highlight {
-	color: var(--tagcreator-list-toggle-active-text);
-	background-color: var(--tagcreator-list-toggle-active-bg);
-}
-
-#list-champsandtags-active:not(:empty) {
-	margin-bottom: 25px;
-}
-
-/****************/
-
-#list-champsandtags .divider {
-	position: sticky;
-	position: -webkit-sticky;
-	top: 0;
-	z-index: 100;
-
-	display: flex;
-	justify-content: space-between;
-	height: auto;
-	width: 100%;
-	padding: 4px;
-	
-	color: #888;
-	background-color: var(--tagcreator-list-divider-bg);
-	font-family: Spiegel-Bold;
-	font-size: 10px;
-	text-transform: uppercase;
-}
-
-#list-champsandtags .divider .refresh       { cursor: pointer; }
-#list-champsandtags .divider .refresh:hover { color: #bbb; }
-
 /*
 //  ######  ########    ###    ########   ######  ##     ##    ########  ##        #######   ######  ##    ## 
 // ##    ## ##         ## ##   ##     ## ##    ## ##     ##    ##     ## ##       ##     ## ##    ## ##   ##  
@@ -584,4 +502,121 @@ label[indent='2'] { margin-left: 48px; }
 .champtags li:hover {
 	color: #ccc;
 	background-color: #333;
+}
+
+/*
+//   ## ##     ## ##       ######  ##     ##    ###    ##     ## ########   ######        ###    ##    ## ########     ########    ###     ######    ######  
+//   ## ##     ## ##      ##    ## ##     ##   ## ##   ###   ### ##     ## ##    ##      ## ##   ###   ## ##     ##       ##      ## ##   ##    ##  ##    ## 
+// ######### #########    ##       ##     ##  ##   ##  #### #### ##     ## ##           ##   ##  ####  ## ##     ##       ##     ##   ##  ##        ##       
+//   ## ##     ## ##      ##       ######### ##     ## ## ### ## ########   ######     ##     ## ## ## ## ##     ##       ##    ##     ## ##   ####  ######  
+// ######### #########    ##       ##     ## ######### ##     ## ##              ##    ######### ##  #### ##     ##       ##    ######### ##    ##        ## 
+//   ## ##     ## ##      ##    ## ##     ## ##     ## ##     ## ##        ##    ##    ##     ## ##   ### ##     ##       ##    ##     ## ##    ##  ##    ## 
+//   ## ##     ## ##       ######  ##     ## ##     ## ##     ## ##         ######     ##     ## ##    ## ########        ##    ##     ##  ######    ######  
+//
+// Champs and Tags
+*/
+
+/************************************************
+ * INPUTS / TOP
+ ************************************************/
+
+#champsandtags__top {
+	display: flex;
+	flex-flow: row wrap;
+	justify-content: space-between;
+	padding: 8px;
+	grid-gap: 4px 4px;
+}
+
+#input-champsandtags-tagid { width: 60px; }
+#input-champsandtags-tagname { width: unset; flex: 1; }
+
+/************************************************
+ * LIST - DIVIDER
+ ************************************************/
+
+#list-champsandtags .divider {
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+	z-index: 100;
+
+	display: flex;
+	justify-content: space-between;
+	height: auto;
+	width: 100%;
+	padding: 4px 12px;
+	
+	color: #888;
+	background-color: var(--tagcreator-list-divider-bg);
+	font-family: Spiegel-Bold;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+#list-champsandtags .divider .refresh       { cursor: pointer; }
+#list-champsandtags .divider .refresh:hover { color: #bbb; }
+
+/************************************************
+ * LIST
+ ************************************************/
+
+#list-champsandtags {
+	flex: unset;
+	width: 340px;
+	padding: unset;
+
+	--tagcreator-input-bg: hsl(0deg 0% 13%);
+	--tagcreator-list-divider-bg: hsl(0deg 0% 5%);
+	--tagcreator-list-hover-bg: hsl(0deg 0% 7%);
+	--tagcreator-list-toggle-bg: hsl(0deg 0% 3%);
+	--tagcreator-list-toggle-hover-bg: hsl(0deg 0% 0%);
+	--tagcreator-list-toggle-active-text: #937341;
+	--tagcreator-list-toggle-active-bg: #322815;
+}
+
+/************************************************
+ * LIST - ROW
+ ************************************************/
+
+#list-champsandtags .row {
+	display: flex;
+	align-items: center;
+	padding: 2px 4px;
+}
+
+#list-champsandtags .row:hover { background-color: var(--tagcreator-list-hover-bg); }
+#list-champsandtags .row:hover label { color: #aaa; }
+
+/************************************************/
+
+#list-champsandtags img {
+	width: 26px;
+	height: 26px;
+	clip-path: circle(40%); /* cropping more on the sides to hide the black square border */
+	margin-right: 8px;
+}
+
+#list-champsandtags label {
+	flex: 1;
+}
+
+#list-champsandtags .row span {
+	font-size: 12px;
+	background-color: var(--tagcreator-list-toggle-bg);
+	padding: 4px 8px;
+	margin-right: 2px;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+/************************************************/
+
+#list-champsandtags .row span:hover {
+	background-color: var(--tagcreator-list-toggle-hover-bg);
+}
+
+#list-champsandtags .row span.highlight {
+	color: var(--tagcreator-list-toggle-active-text);
+	background-color: var(--tagcreator-list-toggle-active-bg);
 }

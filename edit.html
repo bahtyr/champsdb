@@ -240,13 +240,20 @@
 					<h3>Champs & Tags</h3>
 					<div style="flex: 1;"></div>
 					<p class="btn" onclick="pageManager?.tagOnClickClear()">X</p>
-					<p class="btn" onclick="pageManager?.champsandtagsOnClickSave()">Save</p>
-
+				</div>
+				<div id="champsandtags__top">
+					<p class="btn" onclick="pageManager.champsandtagsOnClickSaveReplace()">Create / Replace</p>
+					<p class="btn" onclick="pageManager.champsandtagsOnClickSaveAdd()">Add</p>
+					<p class="btn" onclick="pageManager.champsandtagsOnClickSaveRemove()">Remove</p>
+					<div style="flex-basis: 100%;"></div>
+					<input type="text" name="" placeholder="000"      id="input-champsandtags-tagid">
+					<input type="text" name="" placeholder="Tag Name" id="input-champsandtags-tagname">
+					<textarea id="input-champsandtags-filter" rows="5" placeholder="Enter Champion Name (+ Abilities)" ></textarea>
 				</div>
 				<div class="list-block noselect" id="list-champsandtags">
-					<div class="divider"><span>Selected Champions</span><span class="refresh" onclick="">Refresh</span></div>
+					<div class="divider"><span>Selected Champions</span><span class="refresh" onclick="pageManager.champsandtagsOnClickRefresh()">Refresh</span></div>
 					<div id="list-champsandtags-active"></div>
-					<div class="divider"><span>All Champions</span><span class="refresh" onclick="">Refresh</span></div>
+					<div class="divider"><span>All Champions</span><span class="refresh" onclick="pageManager.champsandtagsOnClickRefresh()">Refresh</span></div>
 					<div id="list-champsandtags-all"></div>
 				</div>
 			</div>

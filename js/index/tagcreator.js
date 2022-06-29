@@ -129,7 +129,6 @@ var TagCreator = {
 	onClickSave() {
 		let name = $id("tagcreator__input-name").value.trim();
 		let id = TagFunctions.createTag(name);
-		console.log(`${id} : ${name}`);
 		TagCreator.list.forEach(item => {
 			item.abilities.forEach(ability => {
 				TagFunctions.addToChamp(id, item.index, ability);
@@ -142,7 +141,7 @@ var TagCreator = {
 	/******************************************************************************/
 
 	findChampName(text) {
-		text = text.replace(/[^0-9a-z]/g, "");
+		text = text.replace(/[^0-9a-zA-Z]/g, "").toLowerCase();
 		for (let champ of autocompleteChampNames.arr) {
 			if (champ.search == text) {
 				return champ.text;
@@ -152,7 +151,11 @@ var TagCreator = {
 	},
 
 	updateChamps() { TagCreator.updateData("champions", champions); },
-	updateTags() { TagCreator.updateData("tags", tags); },
+	updateTags() {
+		tags.forEach(tag => { tag.champIndexes = []; });
+		TagCreator.updateData("tags", tags);
+		TagFunctions.initIndexes();
+	},
 	updateData(fileName, data) {
 		console.log(`Updating ${fileName}.`);
 		let xhr = new XMLHttpRequest();
