@@ -248,9 +248,11 @@
 					<div style="flex-basis: 100%;"></div>
 					<input type="text" name="" placeholder="000"      id="input-champsandtags-tagid">
 					<input type="text" name="" placeholder="Tag Name" id="input-champsandtags-tagname">
-					<textarea id="input-champsandtags-filter" rows="5" placeholder="Enter Champion Name (+ Abilities)" ></textarea>
+					<input id="search-champsandtags" type="text" placeholder="Search" oninput="pageManager?.onSearch(this)">
 				</div>
 				<div class="list-block noselect" id="list-champsandtags">
+					<div class="divider"><span>Search</span><span class="refresh" onclick="pageManager.champsandtagsOnClickRefresh()">Refresh</span></div>
+					<div id="list-champsandtags-search"></div>
 					<div class="divider"><span>Selected Champions</span><span class="refresh" onclick="pageManager.champsandtagsOnClickRefresh()">Refresh</span></div>
 					<div id="list-champsandtags-active"></div>
 					<div class="divider"><span>All Champions</span><span class="refresh" onclick="pageManager.champsandtagsOnClickRefresh()">Refresh</span></div>

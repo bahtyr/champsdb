@@ -110,14 +110,16 @@ class EditUiManager {
 			$query(`#list-patches li:nth-child(${PatchFunctions.getCurrentPatchIndex()+1})`).classList.add("highlight-patch");
 	}
 
-	populateChampsandtagsList(list, champIndexes) {
+	populateChampsandtagsList(list, search) {
 		let listId = "list-champsandtags",
 			listIdActive = "list-champsandtags-active",
-			listIdAll = "list-champsandtags-all";
+			listIdAll = "list-champsandtags-all",
+			listIdSearch = "list-champsandtags-search";
 		let onClickLabel = this.champsandtagsOnClickLabel,
 			onClickAbility = this.champsandtagsOnClickAbility;
 		$id(listIdActive).innerHTML = "";
 		$id(listIdAll).innerHTML = "";
+		$id(listIdSearch).innerHTML = "";
 
 		champions.forEach((champ, champIndex) => {
 			let div = document.createElement("div");
@@ -141,14 +143,14 @@ class EditUiManager {
 
 				if (filterIndex > -1 && list[filterIndex].abilities.includes(abilityIndex))
 					s.classList.add("highlight");
-				else if (champIndexes && champ.tagArrays[abilityIndex].includes(tags[pageManager.selectedTagIndex].id))
-					s.classList.add("highlight");
 
 				div.appendChild(s);
 			});
 			
-			if ((filterIndex > -1) || (champIndexes && champIndexes.includes(champIndex)))
+			if ((filterIndex > -1))
 				$id(listIdActive).appendChild(div);
+			else if (search && champ.name.toLowerCase().includes(search))
+				$id(listIdSearch).appendChild(div);
 			else $id(listIdAll).appendChild(div);
 		});
 	}
@@ -434,6 +436,7 @@ class EditUiManager {
 			case "search-champions": this.populateChampsList(obj.value); break;
 			case "search-tags": this.populateTagList(obj.value); break;
 			case "search-patches": this.populatePatchList(obj.value); break;
+			case "search-champsandtags": this.populateChampsandtagsList(this.champsandtagsList, obj.value.toLowerCase()); break;
 		}
 	}
 
