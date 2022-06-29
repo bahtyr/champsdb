@@ -109,10 +109,18 @@ var autocompleteChampNames = {
 			return;
 		}
 
-		//get rid of spaces and non-letter chars
-		text = text.replace(/[^0-9a-z]/g, "");
+		text = text.replace(/\W/g, "");
+		let len = text.length;
 
-		//find suggestion
+		//if an element starts with search text
+		for (let item of this.arr) {
+			if (item.search.substring(0, len) == text) {
+				this.showSuggestion(text, item.text)
+				return;
+			}
+		}
+
+		//if our arr cointains search text
 		for (let item of this.arr) {
 			if (item.search.includes(text)) {
 				this.showSuggestion(text, item.text)
