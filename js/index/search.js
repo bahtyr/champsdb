@@ -135,9 +135,13 @@ var search = {
 		champlist.resetPosition();
 
 		champions.forEach((champ, i) => {
-			let show = search.query.length == 0 ? true : null;
+
+			let show = search.query.length == 0 ? true : null; //show all if query is empty
 			search.query.forEach(condition => {
-				if (condition.attr) {
+
+				// ATTRS
+
+				if (condition.attr && show !== false) {
 					let keys = condition.attr.key.split("/");
 					let attr = null;
 					switch (keys.length) {
@@ -147,33 +151,30 @@ var search = {
 						case 3: attr = champ[keys[0]][keys[1]][keys[2]]; break;
 					}
 
-					if (show !== false) {
-						if (keys[keys.length-1] == "damageBreakdown") {
-							switch (condition.attr.value) {
-								case "ad":   if (champ.ratings.damageBreakdown.physical > 20) show = true; break;
-								case "ap":   if (champ.ratings.damageBreakdown.magic > 20) show = true; break;
-								case "true": if (champ.ratings.damageBreakdown.true_ > 10) show = true; break;
-							}
-						}
-						else if  (keys[keys.length-1] == "style") {
-							let style = champ.ratings.style;
-							switch (condition.attr.value) {
-								case "attack":  if (style >= 0 && style <= 40) show = true; break;
-								case "both":    if (style >= 40 && style <= 60) show = true; break;
-								case "ability": if (style >= 60 && style <= 100) show = true; break;
-							}
-						}
-						else if ((typeof attr === "number" && attr == condition.attr.value) || 
-							((typeof attr === "string" || Array.isArray(attr)) && 
-								attr.includes(condition.attr.value))) {
-							show = true;
+					if (keys[keys.length-1] == "damageBreakdown") {
+						switch (condition.attr.value) {
+							case "ad":   if (champ.ratings.damageBreakdown.physical > 20) show = true; else show = false; break;
+							case "ap":   if (champ.ratings.damageBreakdown.magic > 20)    show = true; else show = false; break;
+							case "true": if (champ.ratings.damageBreakdown.true_ > 10)    show = true; else show = false; break;
 						}
 					}
-					else {
-						show = false;
+					else if  (keys[keys.length-1] == "style") {
+						let style = champ.ratings.style;
+						switch (condition.attr.value) {
+							case "attack":  if (style >= 0 && style <= 40)   show = true; else show = false; break;
+							case "both":    if (style >= 40 && style <= 60)  show = true; else show = false; break;
+							case "ability": if (style >= 60 && style <= 100) show = true; else show = false; break;
+						}
 					}
-
+					else if ((typeof attr === "number" && attr == condition.attr.value) || 
+						((typeof attr === "string" || Array.isArray(attr)) && 
+							attr.includes(condition.attr.value))) {
+						show = true;
+					}
+					else show = false;
 				}
+
+				// TAGS
 
 				else if (condition.tag && show !== false) {
 					let any = false;
@@ -183,11 +184,15 @@ var search = {
 				}
 			});
 
+			// TEXT
+
 			if (search.text.length > 0 && show !== false) {
 				if (champ.searchableText().toLowerCase().includes(search.text))
 					show = true;
 				else show = false;
 			}
+
+			// FINALLY SHOW
 
 			if (show)
 				champlist.show(i);
