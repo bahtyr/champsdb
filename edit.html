@@ -248,6 +248,7 @@
 					<div style="flex-basis: 100%;"></div>
 					<input type="text" name="" placeholder="000"      id="input-champsandtags-tagid">
 					<input type="text" name="" placeholder="Tag Name" id="input-champsandtags-tagname">
+					<textarea id="input-champsandtags-filter" rows="3" placeholder="Filter: Champ#0-5, Champ" onkeyup="pageManager?.champsandtagsOnFilter(event)"></textarea>
 					<input id="search-champsandtags" type="text" placeholder="Search" oninput="pageManager?.onSearch(this)">
 				</div>
 				<div class="list-block noselect" id="list-champsandtags">

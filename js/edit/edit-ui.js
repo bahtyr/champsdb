@@ -472,6 +472,8 @@ class EditUiManager {
 		$id("list-champsandtags").scrollTop = 0;
 		$id("input-champsandtags-tagname").value = tags[this.selectedTagIndex].name;
 		$id("input-champsandtags-tagid").value = tags[this.selectedTagIndex].id;
+		$id("input-champsandtags-filter").value = "";
+		$id("search-champsandtags").value = "";
 
 		this.champsandtagsAddAll(tags[this.selectedTagIndex].champIndexes, this.selectedTagId)
 		this.populateChampsandtagsList(this.champsandtagsList);
@@ -585,10 +587,39 @@ class EditUiManager {
 
 	/******************** other ********/
 
+	champsandtagsOnFilter(event) {
+		if (event.which != 13) return;
+		let input = $id("input-champsandtags-filter").value.split(/[,\n]/g);
+
+		for (let text of input) {
+			if (text.length < 2) continue;
+
+			text = text.split("#");
+			text[0] = text[0].trim().toLowerCase().replace(/[^a-z]/g, "");
+			let champName, champIndex;
+			let ability = text.length == 2 ? parseInt(text[1])+1 : 0;
+
+			champions.find((champ, i) => {
+				if (text[0] == champ.name.toLowerCase().replace(/[^a-z]/g, "")) {
+					champName = champ.name;
+					champIndex = i;
+					return true;
+				}
+			})
+
+			if (champName && champIndex)
+				pageManager.champsandtagsAddToList(champName, champIndex, ability);
+		}
+
+		pageManager.populateChampsandtagsList(pageManager.champsandtagsList);
+	}
+
 	champsandtagsOnClickClear() {
 		$id("input-champsandtags-tagid").value = "";
 		$id("input-champsandtags-tagname").value = "";
+		$id("input-champsandtags-filter").value = "";
 		$id("search-champsandtags").value = "";
+
 		pageManager.champsandtagsList = [];
 		pageManager.populateChampsandtagsList();
 	}
