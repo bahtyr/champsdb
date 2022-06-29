@@ -588,7 +588,7 @@ class EditUiManager {
 	champsandtagsOnClickClear() {
 		$id("input-champsandtags-tagid").value = "";
 		$id("input-champsandtags-tagname").value = "";
-		$id("input-champsandtags-filter").value = "";
+		$id("search-champsandtags").value = "";
 		pageManager.champsandtagsList = [];
 		pageManager.populateChampsandtagsList();
 	}
