@@ -147,10 +147,10 @@ class EditUiManager {
 				div.appendChild(s);
 			});
 			
-			if ((filterIndex > -1))
-				$id(listIdActive).appendChild(div);
-			else if (search && champ.name.toLowerCase().includes(search))
+			if (search && champ.name.toLowerCase().includes(search))
 				$id(listIdSearch).appendChild(div);
+			else if ((filterIndex > -1))
+				$id(listIdActive).appendChild(div);
 			else $id(listIdAll).appendChild(div);
 		});
 	}
