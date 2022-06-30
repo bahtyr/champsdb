@@ -52,8 +52,8 @@ var autocomplete = {
 		}
 
 		let tagId = THIS.getElementsByTagName("input")[0].getAttribute("tag-id");
-		search.queryAdd(null, null, tags.find(tag => tag.id == tagId));
 		search.softClear();
+		search.queryAdd(null, null, tags.find(tag => tag.id == tagId));
 		autocomplete.reset();
 		autocompleteChampNames.hide();
 	},

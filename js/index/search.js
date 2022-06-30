@@ -37,12 +37,17 @@ var search = {
 	},
 
 	/***
-	 * Does not empty the whole search query, only removes the search text. Re-runs the query to search with existing tags. (used with autocomplete).
+	 * Clears search text only. Used by tagAutocomplete.
 	 */
 	softClear: function() {
 		$id("search").value = "";
 		search.text = "";
-		search.runQuery();
+	},
+
+	updateSearchPlaceholder() {
+		if (search.text == "" && search.query.length > 0)
+			$id("search").placeholder = "";
+		else $id("search").placeholder = "Search";
 	},
 
 	/****************************************** TAG UI *******************************************/
@@ -88,6 +93,7 @@ var search = {
 		let el = this.createTag(attr?.value ?? tag?.name);
 		this.query.push({toggleEl: toggleEl, attr: attr, tag: tag, element: el});
 		search.runQuery();
+		search.updateSearchPlaceholder();
 	},
 
 	queryRemove: function(attr, tag, el, index) {
@@ -120,6 +126,7 @@ var search = {
 		search.query[index].element.remove();
 		search.query.splice(index, 1);
 		search.runQuery();
+		search.updateSearchPlaceholder();
 	},
 
 	runQuery: function() {

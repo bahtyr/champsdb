@@ -226,7 +226,7 @@
 	min-width: 6em;
 	left: 46;
 	top: 32;
-	z-index: 1;
+	z-index: 10;
 }
 
 #search__autocomplete:empty {
@@ -466,19 +466,17 @@
 	color: #888;
 	line-height: 1.6;
 	padding: 12px 22px;
-	/*right: -30;*/
-	left: -30;
-	/*text-align: right;*/
+	left: -8px;
 	box-shadow: var(--shadow-large);
 }
 
 .patch-version-tooltip {
 	transform-origin: top;
-	left: -22px;
 	right: unset;
 }
 
 .export-tooltip {
+	left: -4px;
 	text-align: left;
 }
 
@@ -499,7 +497,7 @@
 
 /* modal */
 #attributes-modal {
-	z-index: 98;
+	z-index: 10;
 	top: 30;
 	position: absolute;
 	background-color: hsl(0deg 0% 3%);
