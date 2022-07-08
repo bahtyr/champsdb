@@ -6,6 +6,21 @@
   --transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
   --max-width: 1060px;
   --shadow-large: 0 8px 24px #010409;
+
+	--color-champcard-bg:       hsl(0deg 0% 2%);
+	--color-champcard-bg-odd:   hsl(0deg 0% 4%);
+	--color-champcard-border:   1px solid hsl(0deg 0% 10%);
+	--color-gold-gradient:      linear-gradient(180deg, #CDBE91 0, #8E7141);
+	--color-gold-gradient-dark: linear-gradient(180deg, #BEAA6F 0, #5F4B2B);
+	--color-yellow:             #BBA87B;
+	--color-yellow-dark:        #937341;
+
+	--color-shadow-small:       0 0hsl(0deg 0% 0% / 0%);
+	--color-shadow-medium:      0 3px 6px hsl(218deg 80% 2%);
+	--color-shadow-large:       0 8px 24px hsl(218deg 80% 2%);
+	--color-shadow-extra-large: 0 12px 48px hsl(218deg 80% 2%);
+	--champcard-shadow:         0 -2px 10px rgba(0, 0, 0, 1);
+	--champcard-shadow:         var(--color-shadow-extra-large);
 }
 
 /*
@@ -844,7 +859,7 @@ p.sidebar-subheading svg {
 
 #champ-list.spotlight .item:not(.active) { /* fadeout everyother item */
 	opacity: 0.7;
-	filter: grayscale(100%);
+	filter: grayscale(70%);
 }
 
 /*
@@ -866,9 +881,9 @@ p.sidebar-subheading svg {
 	bottom: 0;
 	overflow: overlay;
 	/*width: 100%;*/
-	background-color: #000;
-	box-shadow: 0 -2px 10px rgba(0, 0, 0, 1);
-	border: 1px solid #1a1a1a;
+	background-color: var(--color-champcard-bg);
+	box-shadow: var(--champcard-shadow);
+	border: var(--color-champcard-border);
 	/*margin: 0 0 16px 14px;*/
 	/*margin-left: -21px;*/
 	/*padding: 22px 40px calc(22px - 5px) 22px;*/
@@ -914,7 +929,7 @@ p.sidebar-subheading svg {
 	font-size: 20px;
 	letter-spacing: 0.05em;
 	text-transform: uppercase;
-	background: linear-gradient(180deg, #CDBE91 0, #8E7141);
+	background: var(--color-gold-gradient);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -925,7 +940,7 @@ p.sidebar-subheading svg {
 	font-weight: bold;
 	font-size: 14px;
 	letter-spacing: 0.03em;
-	background: linear-gradient(180deg, #BEAA6F 0, #5F4B2B);
+	background: var(--color-gold-gradient-dark);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -951,7 +966,7 @@ p.sidebar-subheading svg {
   font-size: 9px;
   text-transform: uppercase;
   letter-spacing: 0.20em;
-  color: #BBA87B;
+  color: var(--color-yellow);
 	line-height: 1.1;
 }
 
@@ -1062,7 +1077,7 @@ p.sidebar-subheading svg {
 	/*opacity: 1;*/
 	/*bg*/
 	background-color: #000;
-	outline: 1px solid #181818;
+	outline: var(--color-champcard-border);
 	color: unset;
 	/*size*/
 	padding: 0;
@@ -1104,7 +1119,7 @@ p.sidebar-subheading svg {
 
 #champcard__table {
 	display: flex;
-  border-top: 1px solid #181818;
+  border-top: var(--color-champcard-border);
 }
 
 #champcard__table .col { flex: 1; }
@@ -1115,8 +1130,8 @@ p.sidebar-subheading svg {
 	display: flex;
 	height: 37px;
 	align-items: center;
-  border-right: 1px solid #181818;
-  border-bottom: 1px solid #181818;
+  border-right: var(--color-champcard-border);
+  border-bottom: var(--color-champcard-border);
 	padding-left: 20px;
 	color: #fff;
 }
@@ -1130,7 +1145,7 @@ p.sidebar-subheading svg {
 	font-size: 9px;
 	text-transform: uppercase;
 	letter-spacing: 0.20em;
-	color: #BBA87B;
+	color: var(--color-yellow);
 }
 
 #champcard__table .row p {
@@ -1139,8 +1154,8 @@ p.sidebar-subheading svg {
 	font-size: 12px;
 }
 
-#champcard__table .row:nth-child(odd) { background-color: #090909; }
-#champcard__table .row:nth-child(1)   { background-color: #000000; }
+#champcard__table .row:nth-child(odd) { background-color: var(--color-champcard-bg-odd); }
+#champcard__table .row:nth-child(1)   { background-color: var(--color-champcard-bg); }
 
 /* ---------------------------------------- ICONS */
 
@@ -1187,7 +1202,7 @@ p.sidebar-subheading svg {
 	font-size: 10px;
 	font-weight: bold;
 	font-family: monospace;
-	background: linear-gradient(180deg, #CDBE91 0, #8E7141);
+	background: var(--color-yellow);
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
@@ -1362,9 +1377,15 @@ p.sidebar-subheading svg {
 /* ---------------------------------------------------------------------------------------- ETC */
 
 .row.highlight {
-	background-color: #160f01 !important;
-  border-bottom-color: #261d08 !important;
+	background-color:    hsl(40deg 91% 5%) !important;
+	border-bottom-color: hsl(42deg 65% 9%) !important;
 }
+
+.row.highlight:nth-child(odd) {
+	background-color:    hsl(40deg 91% 3%) !important;
+	border-bottom-color: hsl(42deg 65% 9%) !important;
+}
+
 .row.highlight .name {
 	color: #a78c60 !important;
 }
