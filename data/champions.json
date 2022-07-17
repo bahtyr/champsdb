@@ -1427,9 +1427,9 @@
       "mobility": 3,
       "utility": 1,
       "damageBreakdown": {
-        "magic": 0,
-        "physical": 100,
-        "true_": 0
+        "magic": 16,
+        "physical": 59.5,
+        "true_": 24.5
       }
     },
     "lanes": [
@@ -3995,7 +3995,6 @@
     ],
     "splashPosition": "-733px -1px",
     "lanes": [
-      "Top",
       "Jungle"
     ],
     "releaseDate": "2011-10-19",
@@ -6976,7 +6975,8 @@
       }
     ],
     "lanes": [
-      "Jungle"
+      "Jungle",
+      "Top"
     ],
     "releaseDate": "2020-07-22",
     "resource": "Mana",
@@ -8716,7 +8716,7 @@
       "utility": 2,
       "damageBreakdown": {
         "magic": 0,
-        "physical": 0,
+        "physical": 100,
         "true_": 0
       }
     },
@@ -8993,8 +8993,7 @@
       }
     ],
     "lanes": [
-      "Top",
-      "Jungle"
+      "Top"
     ],
     "releaseDate": "2010-06-09",
     "resource": "Mana",
@@ -12269,7 +12268,6 @@
       }
     ],
     "lanes": [
-      "Top",
       "Middle",
       "Support"
     ],
@@ -14833,8 +14831,8 @@
       }
     ],
     "lanes": [
-      "Top",
-      "Jungle"
+      "Jungle",
+      "Top"
     ],
     "releaseDate": "2011-11-29",
     "resource": "Mana",
@@ -15048,8 +15046,8 @@
       }
     ],
     "lanes": [
-      "Top",
-      "Jungle"
+      "Jungle",
+      "Top"
     ],
     "releaseDate": "2011-07-26",
     "resource": "Mana",
@@ -15464,8 +15462,8 @@
     ],
     "lanes": [
       "Top",
-      "Middle",
-      "Bottom"
+      "Bottom",
+      "Middle"
     ],
     "releaseDate": "2013-12-13",
     "resource": "Flow",
@@ -16116,7 +16114,8 @@
       }
     },
     "lanes": [
-      "Bottom"
+      "Bottom",
+      "Middle"
     ],
     "rangeType": "Ranged",
     "region": "Zaun",
