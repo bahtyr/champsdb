@@ -8657,6 +8657,88 @@
     }
   },
   {
+    "ids": {
+      "cdragon": 895,
+      "ddragon": "Nilah",
+      "kebab": "nilah",
+      "universe": "Nilah",
+      "wiki": "Nilah"
+    },
+    "name": "Nilah",
+    "title": "the Joy Unbound",
+    "roles": [
+      "Fighter",
+      "Assassin"
+    ],
+    "portrait": "https://ddragon.leagueoflegends.com/cdn/12.13.1/img/champion/Nilah.png",
+    "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Nilah_0.jpg",
+    "resource": "Mana",
+    "attackRange": 225,
+    "abilities": [
+      {
+        "name": "Joy Unending",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.13.1/img/passive/NIlahP.Nilah.png",
+        "description": "Nilah gains increased experience from last-hitting minions along with the ability to enhance and share nearby healing and shielding from her allies.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0895/ability_0895_P1.webm"
+      },
+      {
+        "name": "Formless Blade",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.13.1/img/spell/NilahQ.png",
+        "description": "With a snap of her whip-blade, Nilah damages any enemies she hits in a straight line in her chosen direction. This action extends her attack range for a short duration.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0895/ability_0895_Q1.webm"
+      },
+      {
+        "name": "Jubilant Veil",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.13.1/img/spell/NilahW.png",
+        "description": "Nilah envelops herself in mist, increasing her movement speed and allowing her to gracefully dodge all incoming attacks. Any allies she touches during the mist's duration will also gain this effect.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0895/ability_0895_W1.webm"
+      },
+      {
+        "name": "Slipstream",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.13.1/img/spell/NilahE.png",
+        "description": "Nilah enthusiastically dashes toward her target, dealing damage to any enemies she passes through on the way.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0895/ability_0895_E1.webm"
+      },
+      {
+        "name": "Apotheosis",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.13.1/img/spell/NilahR.png",
+        "description": "Twirling her whip-blade in joyful exuberance, Nilah deals damage to enemies around her before pulling them closer with her weapon.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0895/ability_0895_R1.webm"
+      }
+    ],
+    "ratings": {
+      "difficulty": 3,
+      "style": 30,
+      "damage": 3,
+      "toughness": 1,
+      "control": 1,
+      "mobility": 3,
+      "utility": 2,
+      "damageBreakdown": {
+        "magic": 0,
+        "physical": 0,
+        "true_": 0
+      }
+    },
+    "tagArrays": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
+    "lanes": [
+      "Bottom"
+    ],
+    "releaseDate": "2022-07-13",
+    "releasePatch": "12.13",
+    "region": "Bilgewater",
+    "species": "Human",
+    "spotlightVideoID": "6OBgIHyPAJ8",
+    "rangeType": "Melee"
+  },
+  {
     "name": "Nocturne",
     "title": "the Eternal Nightmare",
     "roles": [
