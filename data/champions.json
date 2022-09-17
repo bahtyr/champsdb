@@ -592,7 +592,8 @@
     ],
     "splashPosition": "-679px -145px",
     "lanes": [
-      "Jungle"
+      "Jungle",
+      "Support"
     ],
     "releaseDate": "2009-06-26",
     "resource": "Mana",
@@ -1000,8 +1001,8 @@
     ],
     "splashPosition": "-599px -63px",
     "lanes": [
-      "Bottom",
-      "Support"
+      "Support",
+      "Bottom"
     ],
     "releaseDate": "2009-02-21",
     "resource": "Mana",
@@ -4311,7 +4312,6 @@
     ],
     "splashPosition": "-718px -231px",
     "lanes": [
-      "Top",
       "Middle"
     ],
     "releaseDate": "2009-10-10",
@@ -7896,6 +7896,7 @@
       }
     ],
     "lanes": [
+      "Support",
       "Bottom"
     ],
     "releaseDate": "2010-09-08",
@@ -9298,6 +9299,7 @@
       }
     ],
     "lanes": [
+      "Jungle",
       "Support"
     ],
     "releaseDate": "2010-02-02",
@@ -10951,7 +10953,8 @@
       }
     ],
     "lanes": [
-      "Jungle"
+      "Jungle",
+      "Top"
     ],
     "releaseDate": "2012-01-17",
     "resource": "Mana",
@@ -11567,7 +11570,8 @@
       }
     ],
     "lanes": [
-      "Jungle"
+      "Jungle",
+      "Top"
     ],
     "releaseDate": "2011-11-01",
     "resource": "Fury",
@@ -13728,7 +13732,10 @@
       [],
       []
     ],
-    "lanes": [],
+    "lanes": [
+      "Jungle",
+      "Top"
+    ],
     "rangeType": "Melee",
     "releaseDate": "2009-12-02",
     "releasePatch": "V1.0.0.61",
@@ -15443,8 +15450,8 @@
     ],
     "lanes": [
       "Top",
-      "Bottom",
-      "Middle"
+      "Middle",
+      "Bottom"
     ],
     "releaseDate": "2013-12-13",
     "resource": "Flow",
@@ -16095,8 +16102,7 @@
       }
     },
     "lanes": [
-      "Bottom",
-      "Middle"
+      "Bottom"
     ],
     "rangeType": "Ranged",
     "region": "Zaun",
@@ -16165,7 +16171,7 @@
       }
     ],
     "lanes": [
-      "Bottom"
+      "Middle"
     ],
     "releaseDate": "2012-02-01",
     "resource": "Mana",
