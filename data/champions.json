@@ -13657,103 +13657,84 @@
     }
   },
   {
+    "ids": {
+      "cdragon": 77,
+      "ddragon": "Udyr",
+      "kebab": "udyr",
+      "universe": "Udyr",
+      "wiki": "Udyr"
+    },
     "name": "Udyr",
     "title": "the Spirit Walker",
     "roles": [
       "Fighter",
       "Tank"
     ],
-    "portrait": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/champion/Udyr.png",
+    "portrait": "https://ddragon.leagueoflegends.com/cdn/12.17.1/img/champion/Udyr.png",
     "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/Udyr_0.jpg",
+    "resource": "Mana",
+    "attackRange": 125,
     "abilities": [
       {
-        "name": "Monkey's Agility",
-        "img": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/passive/Udyr_MonkeysAgility.png",
-        "description": "Udyr gains stacking Move Speed and Attack Speed after using an Ability. Udyr has four basic Abilities that he may use to swap between Stances. Changing Stances immediately ends both the passive and the on-hit portion of the previous Stance.",
+        "name": "Bridge Between",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.17.1/img/passive/Udyr_P.UdyrVGU.png",
+        "description": "Udyr has four basic Abilities that swap between Stances and can Recast an Ability to renew it with additional benefits. Additionally, after using an Ability, Udyr's next two Attacks gain Attack Speed.",
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0077/ability_0077_P1.webm"
       },
       {
-        "name": "Tiger Stance",
-        "img": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/spell/UdyrTigerStance.png",
-        "description": "Tiger Stance: Activation - Udyr's Attack Speed is increased for a few seconds. Persistent Effect - Udyr's first attack and every third attack after will deal a high amount of damage over 2 seconds.",
+        "name": "Wilding Claw",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.17.1/img/spell/UdyrQ.png",
+        "description": "Udyr gains attacks and his next two attack deal bonus physical damage. Recast: Gain even more attack speed, and next two attacks call lightning to strike the target.",
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0077/ability_0077_Q1.webm"
       },
       {
-        "name": "Turtle Stance",
-        "img": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/spell/UdyrTurtleStance.png",
-        "description": "Turtle Stance: Activation - Udyr gains a temporary shield that absorbs damage. Persistent Effect - Udyr's first attack and every third attack after heals him for 2.5% of his maximum health.",
+        "name": "Iron Mantle",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.17.1/img/spell/UdyrW.png",
+        "description": "Udyr gains a shield and his next two attacks heal him. Recast: Gain an even bigger shield and heal based on max health over the next couple seconds.",
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0077/ability_0077_W1.webm"
       },
       {
-        "name": "Bear Stance",
-        "img": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/spell/UdyrBearStance.png",
-        "description": "Bear Stance: Activation - Udyr increases Movement Speed for a short duration. Persistent Effect - Udyr's basic attacks stun his target for 1 second. This effect cannot occur on the same target for several seconds.",
+        "name": "Blazing Stampede",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.17.1/img/spell/UdyrE.png",
+        "description": "Udyr gains movement speed and his first attack against each target will Stun them. Recast: Gain even more movement speed and immunity to immobilizing effects for a couple seconds. ",
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0077/ability_0077_E1.webm"
       },
       {
-        "name": "Phoenix Stance",
-        "img": "https://ddragon.leagueoflegends.com/cdn/11.23.1/img/spell/UdyrPhoenixStance.png",
-        "description": "Phoenix Stance: Activation - Udyr unleashes pulsing waves of fire, dealing damage to nearby enemies. Persistent Effect - Udyr's first attack and every third attack after engulfs enemies in front of him with flames.",
+        "name": "Wingborne Storm",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.17.1/img/spell/UdyrR.png",
+        "description": "Udyr surrounds himself in a glacial storm, damaging and slowing nearby enemies. Recast: Empower and unleash the storm, causing it to track enemies and deal additional damage.",
         "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0077/ability_0077_R1.webm"
       }
     ],
-    "lanes": [
-      "Jungle"
-    ],
-    "releaseDate": "2009-12-02",
-    "resource": "Mana",
-    "rangeType": "Melee",
-    "releasePatch": "V1.0.0.61",
-    "attackRange": 125,
-    "region": "Freljord",
-    "species": "Human",
     "ratings": {
+      "difficulty": 2,
+      "style": 40,
       "damage": 2,
       "toughness": 3,
       "control": 2,
       "mobility": 2,
       "utility": 1,
-      "difficulty": 1,
-      "style": 35,
       "damageBreakdown": {
-        "magic": 50.9,
-        "physical": 37.4,
-        "true_": 11.7
+        "physical": 33.7,
+        "magic": 53.6,
+        "true_": 12.7
       }
     },
-    "spotlightVideoID": "dK4PwnV59ik",
     "tagArrays": [
-      [
-        2,
-        67,
-        69
-      ],
       [],
-      [
-        54,
-        99
-      ],
-      [
-        55,
-        99
-      ],
-      [
-        80,
-        85,
-        99
-      ],
-      [
-        53,
-        99
-      ]
+      [],
+      [],
+      [],
+      [],
+      []
     ],
-    "ids": {
-      "kebab": "udyr",
-      "ddragon": "Udyr",
-      "cdragon": 77,
-      "wiki": "Udyr",
-      "universe": "Udyr"
-    }
+    "lanes": [],
+    "rangeType": "Melee",
+    "releaseDate": "2009-12-02",
+    "releasePatch": "V1.0.0.61",
+    "region": "Freljord",
+    "species": "Human",
+    "spotlightVideoID": "kfyDoF658HA"
   },
   {
     "name": "Urgot",
