@@ -3,6 +3,7 @@
  ************************************************/
 @media only screen and (max-width: 1060px) {
 	#header {
+		/* align header with sidebar padding */
 		padding: 0 20px;
 	}
 }
@@ -11,6 +12,26 @@
  * MEDIUM
  ************************************************/
 @media only screen and (max-width: 768px) {
+
+	#header div > p:not(#patch-version),
+	#header #info-btn {
+		display: none;
+	}
+
+	#sidebar {
+		position: absolute;
+	}
+	#sidebar, #sidebar-right {
+		flex: unset;
+	}
+
+
+
+
+
+
+
+	/* OLDSTUFF */
 	
 	#sidebar {
 		z-index: 99;
@@ -61,4 +82,29 @@
  ************************************************/
 @media only screen and (max-width: 390px) {
 
+}
+
+
+
+
+
+/************************************************
+ * TABLET 768
+ ************************************************/
+@media only screen and (max-width: 768px) {
+	#header {
+		position: fixed;
+		background-color: #000;
+		z-index: 100;
+	}
+	#search-row {
+		top: 88px;
+		position: fixed;
+		z-index: 100;
+		background-color: #000;
+		width: 100%;
+	}
+	#body {
+		margin-top: 160px;
+	}
 }
