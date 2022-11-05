@@ -4,7 +4,10 @@
   "description": "An advanced search and filtering tool to find Champion and ability information including playstyle, difficulty, resource type and more.",
   "author": "Bahtiayr Ceylan <hello@bahtyr.com>",
   "homepage": "https://champsdb.gg",
-  "scripts": {},
+  "scripts": {
+    "serve": "http-server",
+    "css": "postcss css/styles.css -o output.css"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/bahtyr/champsdb.git"
@@ -12,8 +15,11 @@
   "bugs": {
     "url": "https://github.com/bahtyr/champsdb/issues"
   },
-  "dependencies": {
-    "html-includes": "^4.4.1",
-    "postcss": "^8.4.18"
+  "devDependencies": {
+    "cssnano": "^5.1.14",
+    "http-server": "^14.1.1",
+    "postcss": "^8.4.18",
+    "postcss-cli": "^10.0.0",
+    "postcss-import": "^15.0.0"
   }
 }
