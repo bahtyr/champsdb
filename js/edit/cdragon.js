@@ -31,7 +31,7 @@ class CDragon {
 		fetch("https://raw.communitydragon.org/latest/plugins/rcp-fe-lol-champion-statistics/global/default/rcp-fe-lol-champion-statistics.js")
 			.then(response => response.text())
 			.then(text => {
-				let a = text.indexOf("a.exports=") + 10;
+				let a = text.lastIndexOf("a.exports=") + 10;
 				let b = text.lastIndexOf("},f");
 				text = text.substring(a, b);
 				text = text.replace(/[^\s{}:,]+/g, (match) => `"${match}"`);

@@ -263,8 +263,8 @@
     ],
     "splashPosition": " -450px 0px",
     "lanes": [
-      "Top",
-      "Middle"
+      "Middle",
+      "Top"
     ],
     "releaseDate": "2010-05-11",
     "resource": "Energy",
@@ -592,8 +592,8 @@
     ],
     "splashPosition": "-679px -145px",
     "lanes": [
-      "Jungle",
-      "Support"
+      "Support",
+      "Jungle"
     ],
     "releaseDate": "2009-06-26",
     "resource": "Mana",
@@ -1514,7 +1514,8 @@
     ],
     "splashPosition": "-638px -115px",
     "lanes": [
-      "Support"
+      "Support",
+      "Jungle"
     ],
     "releaseDate": "2009-09-02",
     "resource": "Mana",
@@ -3583,8 +3584,7 @@
     ],
     "splashPosition": "-704px -95px",
     "lanes": [
-      "Top",
-      "Middle"
+      "Top"
     ],
     "releaseDate": "2009-08-19",
     "resource": "Mana",
@@ -4312,6 +4312,7 @@
     ],
     "splashPosition": "-718px -231px",
     "lanes": [
+      "Support",
       "Middle"
     ],
     "releaseDate": "2009-10-10",
@@ -4507,8 +4508,8 @@
     ],
     "splashPosition": "-476px 0px",
     "lanes": [
-      "Top",
-      "Middle"
+      "Middle",
+      "Top"
     ],
     "releaseDate": "2010-11-16",
     "resource": "Mana",
@@ -5368,7 +5369,7 @@
       []
     ],
     "lanes": [
-      "Support"
+      "Top"
     ],
     "rangeType": "Melee",
     "releaseDate": "2022-11-02",
@@ -7057,8 +7058,7 @@
       }
     ],
     "lanes": [
-      "Jungle",
-      "Top"
+      "Jungle"
     ],
     "releaseDate": "2020-07-22",
     "resource": "Mana",
@@ -7460,8 +7460,8 @@
       }
     ],
     "lanes": [
-      "Middle",
-      "Support"
+      "Support",
+      "Middle"
     ],
     "releaseDate": "2010-10-19",
     "resource": "Mana",
@@ -7765,7 +7765,9 @@
       }
     ],
     "lanes": [
-      "Support"
+      "Support",
+      "Jungle",
+      "Top"
     ],
     "releaseDate": "2011-02-16",
     "resource": "Mana",
@@ -7978,7 +7980,6 @@
       }
     ],
     "lanes": [
-      "Support",
       "Bottom"
     ],
     "releaseDate": "2010-09-08",
@@ -9381,8 +9382,8 @@
       }
     ],
     "lanes": [
-      "Jungle",
-      "Support"
+      "Support",
+      "Jungle"
     ],
     "releaseDate": "2010-02-02",
     "resource": "Mana",
@@ -11652,8 +11653,7 @@
       }
     ],
     "lanes": [
-      "Jungle",
-      "Top"
+      "Jungle"
     ],
     "releaseDate": "2011-11-01",
     "resource": "Fury",
@@ -12354,8 +12354,8 @@
       }
     ],
     "lanes": [
-      "Middle",
-      "Support"
+      "Support",
+      "Middle"
     ],
     "releaseDate": "2010-10-05",
     "resource": "Mana",
@@ -13815,8 +13815,7 @@
       []
     ],
     "lanes": [
-      "Jungle",
-      "Top"
+      "Jungle"
     ],
     "rangeType": "Melee",
     "releaseDate": "2009-12-02",
@@ -13973,6 +13972,7 @@
       }
     ],
     "lanes": [
+      "Middle",
       "Bottom"
     ],
     "releaseDate": "2012-05-08",
@@ -14074,8 +14074,8 @@
       }
     ],
     "lanes": [
-      "Top",
-      "Bottom"
+      "Bottom",
+      "Top"
     ],
     "releaseDate": "2011-05-10",
     "resource": "Mana",
@@ -15116,8 +15116,7 @@
       }
     ],
     "lanes": [
-      "Jungle",
-      "Top"
+      "Jungle"
     ],
     "releaseDate": "2011-07-26",
     "resource": "Mana",
@@ -15320,8 +15319,8 @@
       }
     ],
     "lanes": [
-      "Middle",
-      "Support"
+      "Support",
+      "Middle"
     ],
     "releaseDate": "2011-10-05",
     "resource": "Mana",
@@ -15531,9 +15530,8 @@
       }
     ],
     "lanes": [
-      "Top",
       "Middle",
-      "Bottom"
+      "Top"
     ],
     "releaseDate": "2013-12-13",
     "resource": "Flow",
@@ -15635,8 +15633,8 @@
       }
     ],
     "lanes": [
-      "Top",
-      "Middle"
+      "Middle",
+      "Top"
     ],
     "releaseDate": "2020-08-06",
     "resource": "Flow",
