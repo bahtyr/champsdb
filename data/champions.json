@@ -5296,6 +5296,88 @@
     }
   },
   {
+    "ids": {
+      "cdragon": 897,
+      "ddragon": "KSante",
+      "kebab": "k-sante",
+      "universe": "KSante",
+      "wiki": "K'Sante"
+    },
+    "name": "K'Sante",
+    "title": "the Pride of Nazumah",
+    "roles": [
+      "Fighter",
+      "Tank"
+    ],
+    "portrait": "https://ddragon.leagueoflegends.com/cdn/12.21.1/img/champion/KSante.png",
+    "splash": "https://ddragon.leagueoflegends.com/cdn/img/champion/splash/KSante_0.jpg",
+    "resource": "Mana",
+    "attackRange": 175,
+    "abilities": [
+      {
+        "name": "Dauntless Instinct",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.21.1/img/passive/Icons_KSante_P.png",
+        "description": "K'Sante's Abilities mark targets to take more damage on his next Attack.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0897/ability_0897_P1.webm"
+      },
+      {
+        "name": "Ntofo Strikes",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.21.1/img/spell/KSanteQ.png",
+        "description": "Strike a weapon forward, damaging and slowing all enemies in a short line.<br><br>On hit, grants a stack for a few seconds. At 2 stacks, this skill fires a shockwave that pulls enemies in.",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0897/ability_0897_Q1.webm"
+      },
+      {
+        "name": "Path Maker",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.21.1/img/spell/KSanteW.png",
+        "description": "K'Sante charges up before dashing. K'Sante is unstoppable and takes less damage while charging. Any targets hit by the dash are knocked to the end of the dash and stunned.<br><br>",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0897/ability_0897_W1.webm"
+      },
+      {
+        "name": "Footwork",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.21.1/img/spell/KSanteE.png",
+        "description": "K'Sante will dash to an ally and both will gain a shield. If there is no ally, K'Sante will still dash to the location at a reduced range and gain a shield.<br>",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0897/ability_0897_E1.webm"
+      },
+      {
+        "name": "All Out",
+        "img": "https://ddragon.leagueoflegends.com/cdn/12.21.1/img/spell/KSanteR.png",
+        "description": "K'Sante smashes an enemy away. If the enemy hits a wall they will go through the wall taking more damage. K'Sante will appear behind the target and goes All Out by shredding his defenses but greatly increasing his damage.<br><br>",
+        "video": "https://d28xe8vt774jo5.cloudfront.net/champion-abilities/0897/ability_0897_R1.webm"
+      }
+    ],
+    "ratings": {
+      "difficulty": 3,
+      "style": 30,
+      "damage": 2,
+      "toughness": 3,
+      "control": 3,
+      "mobility": 2,
+      "utility": 2,
+      "damageBreakdown": {
+        "magic": 4.5,
+        "physical": 90.1,
+        "true_": 5.4
+      }
+    },
+    "tagArrays": [
+      [],
+      [],
+      [],
+      [],
+      [],
+      []
+    ],
+    "lanes": [
+      "Support"
+    ],
+    "rangeType": "Melee",
+    "releaseDate": "2022-11-02",
+    "releasePatch": "12.21",
+    "region": "Shurima",
+    "species": "Human",
+    "spotlightVideoID": "sJupa3WcN88"
+  },
+  {
     "name": "Kai'Sa",
     "title": "Daughter of the Void",
     "roles": [
