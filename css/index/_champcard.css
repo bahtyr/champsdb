@@ -1,0 +1,535 @@
+
+/*
+//   ######  ##     ##    ###    ##     ## ########   ######     ###    ########  ########  
+//  ##    ## ##     ##   ## ##   ###   ### ##     ## ##    ##   ## ##   ##     ## ##     ## 
+//  ##       ##     ##  ##   ##  #### #### ##     ## ##        ##   ##  ##     ## ##     ## 
+//  ##       ######### ##     ## ## ### ## ########  ##       ##     ## ########  ##     ## 
+//  ##       ##     ## ######### ##     ## ##        ##       ######### ##   ##   ##     ## 
+//  ##    ## ##     ## ##     ## ##     ## ##        ##    ## ##     ## ##    ##  ##     ## 
+//   ######  ##     ## ##     ## ##     ## ##         ######  ##     ## ##     ## ########  
+//
+//  CHAMPCARD
+*/
+
+#champcard {
+	/*background-color: #fff;*/
+	z-index: 2;
+	position: fixed;
+	bottom: 0;
+	overflow: overlay;
+	/*width: 100%;*/
+	background-color: var(--color-champcard-bg);
+	box-shadow: var(--champcard-shadow);
+	border: var(--color-champcard-border);
+	/*margin: 0 0 16px 14px;*/
+	/*margin-left: -21px;*/
+	/*padding: 22px 40px calc(22px - 5px) 22px;*/
+	transform: scale(1) translateY(0px);
+	transform-origin: bottom;
+	transition: all .3s ease-out;
+}
+
+@media only screen and (max-width: 1100px) {
+	#champcard {
+		margin-left: 0;
+		width: 100%;
+	}
+	
+	#champcard__heading,
+	#champcard__table {
+		min-width: 1100px;
+	}
+}
+
+#champcard.hide {
+	opacity: 0;
+	transform: translateY(40px);;
+	transition: all .3s ease-in;
+	visibility: hidden;
+}
+
+/************************************************
+ * CHAMPCARD - HEADING
+ ************************************************/
+
+#champcard__heading {
+	display: flex;
+	align-items: center;
+	padding: 12px 0;
+	padding-left: 20px;
+}
+
+#champcard__heading > a { margin-right: 10px; }
+
+#champcard__name {
+	font-family: Beaufort-Bold;
+	font-size: 20px;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+	background: var(--color-gold-gradient);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#champcard__title {
+	margin: 0px 19px 0 6px;
+	font-family: Beaufort-Bold;
+	font-weight: bold;
+	font-size: 14px;
+	letter-spacing: 0.03em;
+	background: var(--color-gold-gradient-dark);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+/************************************************
+ * CHAMPCARD - FOOTER
+ ************************************************/
+
+.champcard__footer {
+	padding: 14 20px;
+	/*padding-bottom: 36px;*/
+	min-height: 100px;
+}
+
+.champcard__footer .header-row {
+	display: flex;
+	align-items: center;
+}
+
+.champcard__footer .heading {
+	font-family: Spiegel-Regular;
+  font-weight: bold;
+  font-size: 9px;
+  text-transform: uppercase;
+  letter-spacing: 0.20em;
+  color: var(--color-yellow);
+	line-height: 1.1;
+}
+
+.heading-min-width {
+	min-width: 56px;
+}
+
+.champcard__footer .text-icon-wrapper:not(.disabled):hover {
+	background-color: rgba(255, 255, 255, 0.1);
+	border-radius: 4px;
+	/*color: #DED5BF;*/
+	/*color: red;*/
+
+}
+.champcard__footer .text-icon-wrapper:not(.disabled):hover * {
+	stroke: #CDBF9D;
+}
+
+/* text & icon */
+
+.text-icon-wrapper {
+	display: flex;
+	align-items: center;
+	cursor: pointer;
+	padding: 4px 8px;
+}
+
+.text-icon-wrapper p,
+.text-icon-wrapper span {
+	cursor: unset;
+	line-height: 1.1;
+}
+
+.text-icon-wrapper svg {
+	margin-right: 6px;
+	margin-left: 4px;
+}
+
+.text-icon-wrapper.disabled {
+	cursor: default;
+}
+
+.text-icon-wrapper.disabled p,
+.text-icon-wrapper.disabled span {
+	color: #68604b;
+}
+
+.text-icon-wrapper.disabled svg path {
+	stroke: #3e392b;
+}
+
+/* ---------------------------------------------- */
+
+#ability-tags {
+	margin-left: -8px;
+}
+
+#ability-tags p {
+	font-family: monospace;
+	font-size: 12px;
+	color: #919191;
+	padding: 4px 8px;
+	display: inline-block;
+	border-radius: 4px;
+	transition: .2s ease;
+	transition-property: background-color, color;
+	cursor: pointer;
+}
+
+#ability-tags p:hover {
+	color: #bbb;
+	background-color: rgba(255, 255, 255, 0.1);
+}
+
+#ability-tags p.disabled {
+	pointer-events: none;
+}
+
+/* ---------------------------------------------- */
+
+.champcard__footer .text {
+	color: #919191;
+	font-family: monospace;
+	font-size: 12px;
+	margin-top: 6px;
+}
+
+.champcard__footer #ability-desc {
+	position: absolute;
+	padding: 14px 16px;
+
+	color: #777;
+	line-height: 1.4;
+	letter-spacing: 0.07em;
+
+	text-shadow: 1px 1px #000;
+	white-space: normal;
+	width: 70%;
+	z-index: 10;
+}
+
+/* ---------------------------------------------------------------------------------------- VIDEO TOOLTIP */
+
+#video-btn.disabled:hover .tooltip { opacity: 0; } /* dont show tooltip if disabled */
+
+#video-btn .tooltip {
+	/*pointer-events: initial;*/
+	/*opacity: 1;*/
+	/*bg*/
+	background-color: #000;
+	outline: var(--color-champcard-border);
+	color: unset;
+	/*size*/
+	padding: 0;
+	bottom: 25px;
+	height: 240px;
+	width: 510px;
+}
+
+.video-shadow {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 70%;
+  height: 100%;
+  background: linear-gradient(270deg, rgba(0,0,0,0) -40%, rgba(0,0,0,1) 100%);
+  z-index: -1;
+}
+
+#video-btn .tooltip video {
+	top: 0;
+	right: 0;
+	position: absolute;
+	border-radius: 5px;
+	height: 100%;
+	z-index: -2;
+}
+
+#video-btn .loader {
+	position: absolute;
+	top: 46%;
+	right: 18%;
+	opacity: 0.5;
+	z-index: -3;
+}
+
+/************************************************
+ * CHAMPCARD - TABLE
+ ************************************************/
+
+#champcard__table {
+	display: flex;
+  border-top: var(--color-champcard-border);
+}
+
+#champcard__table .col { flex: 1; }
+#champcard__table .col:first-child { flex: 1.2; }
+
+#champcard__table .row {
+	position: relative;
+	display: flex;
+	height: 37px;
+	align-items: center;
+  border-right: var(--color-champcard-border);
+  border-bottom: var(--color-champcard-border);
+	padding-left: 20px;
+	color: #fff;
+}
+
+#champcard__table .col:last-child .row { border-right: none; }
+#champcard__table .row:first-child { height: 32px; }
+
+#champcard__table .row:first-child p {
+	font-family: Spiegel-Regular;
+	font-weight: bold;
+	font-size: 9px;
+	text-transform: uppercase;
+	letter-spacing: 0.20em;
+	color: var(--color-yellow);
+}
+
+#champcard__table .row p {
+	color: #919191;
+	font-family: monospace;
+	font-size: 12px;
+}
+
+#champcard__table .row:nth-child(odd) { background-color: var(--color-champcard-bg-odd); }
+#champcard__table .row:nth-child(1)   { background-color: var(--color-champcard-bg); }
+
+/* ---------------------------------------- ICONS */
+
+#champcard__table svg {
+	margin-right: 10px;
+}
+
+#champcard__table img {
+	pointer-events: none;
+	margin-right: 10px;
+	height: 17px;
+	width: 17px;
+}
+
+#champcard__table .hide {
+	display: none;
+}
+
+/* ---------------------------------------- ABILITY */
+
+#champcard__table .ability-wrapper {
+	justify-content: space-between;
+	padding-right: 16px;
+}
+
+#champcard__table .ability {
+	display: flex;
+	align-items: center;
+	transition: all .3s ease-out 0.1s;
+}
+
+#champcard__table .ability img {
+	width: 24px;
+	height: 24px;
+	margin-left: 10px;
+	margin-right: 10px;
+	border-radius: 5px;
+}
+
+#champcard__table .ability .key {
+	/*width: 10px;*/
+	/*text-align: center;*/
+	color: #6F6F6F;
+	font-size: 10px;
+	font-weight: bold;
+	font-family: monospace;
+	background: var(--color-yellow);
+	-webkit-background-clip: text;
+	-webkit-text-fill-color: transparent;
+}
+
+#champcard__table .ability .name {
+	white-space: pre-line;
+}
+
+
+/* LINE */
+
+#champcard__table .ability-wrapper .line {
+	position: absolute;
+	left: 1;
+	/*background-color: #BBA87B;*/
+	background-color: #8a7647;
+	height: 100%;
+	width: 4px;
+	transition: all 0.3s ease;
+	z-index: 1;
+}
+
+/* hover */
+
+#champcard__table .ability-wrapper:hover .ability { transform: translateX(10px); }
+#champcard__table .ability-wrapper .action { 
+	opacity: 0;
+	transition: none;
+	transition: all 0.5s ease 0.1s;
+	/*margin-right: 4px;*/
+	/*margin-left: 10px;*/
+	margin-right: 0;
+	padding: 10px 4px;
+	box-sizing: content-box;
+}
+
+#champcard__table .action path {
+	stroke: #616161;
+}
+#champcard__table .ability-wrapper:hover .action { opacity: 1; }
+/*#champcard__table .ability-wrapper .action:hover path { stroke: #fff; }*/
+
+
+
+#champcard__table .ability > * { cursor: unset; }
+
+#champcard__table .col:first-child .row:not(:first-child) { cursor: pointer; }
+
+/* ---------------------------------------- RATINGS */
+
+#champcard__table .col.ratings .row {
+	justify-content: space-between;
+	padding-right: 20px;
+}
+
+/* ---------------------------------------- DAMAGE BAR */
+
+#damage-bar {
+	display: flex;
+	width: 94px;
+	height: 4px;
+	border-radius: 4px;
+	overflow: hidden;
+}
+
+#damage-bar .magic { background-color: #494299; width: 33%; }
+#damage-bar .physical { background-color: #8E551F; width: 33%; min-width: 4%; }
+#damage-bar .true { background-color: #D0D0D0; width: 33%; min-width: 4%; }
+
+/* ---------------------------------------- STYLE BAR */
+
+#style-bar-wrapper { display: flex; align-items: center; }
+
+#style-bar-wrapper svg { margin: 0; }
+
+#style-bar {
+	display: flex;
+	width: 58px;
+	height: 4px;
+	margin: 0 6px;
+	border-radius: 4px;
+	background-color: #251B05;
+}
+
+#style-bar .bar {
+	width: 50%;
+	height: 100%;
+	border-radius: 4px;	
+	background-color: #B68E4B;
+}
+#style-bar-wrapper svg path { fill: url(#gradient_table_icon); }
+#style-bar-wrapper[data-majority="attack"] svg:nth-child(1) path { fill: url(#gradient_table_icon); }
+#style-bar-wrapper[data-majority="attack"] svg:nth-child(3) path { fill: #342400; }
+#style-bar-wrapper[data-majority="spell"] svg:nth-child(1) path { fill: #342400; }
+#style-bar-wrapper[data-majority="spell"] svg:nth-child(3) path { fill: url(#gradient_table_icon); }
+
+/* ---------------------------------------- DIFFICULTY BAR */
+
+#difficulty-bar {
+	display: flex;
+	width: 94px;
+	height: 4px;
+	gap: 5px;
+}
+
+#difficulty-bar .bar {
+	flex: 1;
+	background-color: #251B05;
+	width: 94px;
+	height: 4px;
+	border-radius: 4px;
+}
+
+#difficulty-bar[data-value="1"] .bar:nth-child(1),
+#difficulty-bar[data-value="2"] .bar:nth-child(1),
+#difficulty-bar[data-value="2"] .bar:nth-child(2),
+#difficulty-bar[data-value="3"] .bar:nth-child(1),
+#difficulty-bar[data-value="3"] .bar:nth-child(2),
+#difficulty-bar[data-value="3"] .bar:nth-child(3) { background-color: #B68E4B; }
+
+/* ---------------------------------------- RATINGS */
+
+#champcard__table .row.bars {
+	height: calc(2*37px);
+}
+
+#champcard__table .bar-wrapper svg {
+	margin: 0;
+	margin-bottom: 6px;
+}
+
+.bar-wrapper {
+	display: flex;
+	flex: 1;
+	flex-flow: column;
+	align-items: center;
+	margin-right: 10px;
+}
+
+.bar-wrapper:nth-child(5) { margin-right: 0px; }
+
+.bar-wrapper .bar { width: 100%; }
+.bar-wrapper .bar > div {
+	background-color: #161616;
+	height: 11px;
+	width: 100%;
+}
+
+.bar-wrapper .bar > div:nth-child(1) { background-color: #342400; }
+.bar-wrapper[data-value="2"] .bar > div:nth-child(2),
+.bar-wrapper[data-value="3"] .bar > div:nth-child(2) { background-color: #594119; }
+.bar-wrapper[data-value="3"] .bar > div:nth-child(3) { background-color: #997842; }
+
+.bar-wrapper[data-value="1"] svg path { fill: #342400; }
+.bar-wrapper[data-value="2"] svg path { fill: #775928; }
+.bar-wrapper[data-value="3"] svg path { fill: url(#gradient_table_icon); }
+
+/* ---------------------------------------- ICON ALIGNMENTS */
+
+#champcard__resource {
+	margin-left: 1.5px;
+	height: 15px;
+	width: 15px;
+}
+
+#champcard__region {
+	margin-left: -1.5px;
+	height: 20px;
+	width: 20px;
+}
+
+/* ---------------------------------------------------------------------------------------- ETC */
+
+.row.highlight {
+	background-color:    hsl(40deg 91% 5%) !important;
+	border-bottom-color: hsl(42deg 65% 9%) !important;
+}
+
+.row.highlight:nth-child(odd) {
+	background-color:    hsl(40deg 91% 3%) !important;
+	border-bottom-color: hsl(42deg 65% 9%) !important;
+}
+
+.row.highlight .name {
+	color: #a78c60 !important;
+}
+
+span.highlight {
+	background-color: #B88F4C;
+	color: #000;
+	-webkit-text-fill-color: #000;
+	padding: 0 1px;
+}

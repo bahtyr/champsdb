@@ -1,0 +1,148 @@
+/*
+//   ######  #### ########  ######## ########     ###    ########  
+//  ##    ##  ##  ##     ## ##       ##     ##   ## ##   ##     ## 
+//  ##        ##  ##     ## ##       ##     ##  ##   ##  ##     ## 
+//   ######   ##  ##     ## ######   ########  ##     ## ########  
+//        ##  ##  ##     ## ##       ##     ## ######### ##   ##   
+//  ##    ##  ##  ##     ## ##       ##     ## ##     ## ##    ##  
+//   ######  #### ########  ######## ########  ##     ## ##     ## 
+//
+//  SIDEBAR
+*/
+
+#sidebar { }
+
+#sidebar.hide #sidebar-wrapper {
+	transform: translateX(-110%);
+}
+
+#sidebar-wrapper {
+	background: rgba(0, 0, 0, 0.6);
+	border-radius: 8px;
+	border: 1px solid #1a1a1a;
+	padding: 0 6px 40px 16px;
+	margin-left: 20px;
+	margin-bottom: 60px;
+	max-width: 280px;
+	min-height: 600px;
+	transition: transform .3s ease-in-out;
+}
+
+
+/************************************************
+ * SIDEBAR - TEXT
+ ************************************************/
+
+p.sidebar-heading {
+	color: #937341;
+	font-size: 12px;
+	font-family: Beaufort-Bold;
+	letter-spacing: 0.07em;
+	text-transform: uppercase;
+	margin-top: 24px;
+	margin-bottom: 4px;
+	cursor: default;
+}
+
+p.sidebar-subheading {
+	color: #DBD4BF;
+	font-size: 14px;
+	font-family: Spiegel-Regular;
+	letter-spacing: 0.07em;
+	padding: 4px 0;
+	margin-top: 8px;
+	cursor: pointer;
+}
+
+p.sidebar-subheading span {
+	cursor: unset; /*clear the default from base.css*/
+}
+
+p.sidebar-subheading:hover {
+	color: #fff;
+}
+
+p.sidebar-subheading svg {
+	margin-right: 8px;
+}
+
+#sidebar ul { margin-left: 16px; }
+/*#sidebar ul { margin-left: -2px; }*/
+#sidebar ul ul { margin-left: 20px; margin-bottom: 2px; }
+#sidebar ul.sidebar-section {
+	max-height: 0;
+	overflow: hidden;
+	transition: max-height 0.2s ease-out;
+}
+
+#sidebar li {
+	color: #95938e;
+	font-family: Spiegel-Regular;
+
+	position: relative;
+	display: flex;
+	align-items: center;
+	overflow: visible;
+	padding-bottom: 1px;
+}
+
+#sidebar li span {
+	cursor: pointer;
+}
+
+#sidebar li svg {
+	margin-right: 4px;
+	visibility: hidden;
+}
+
+#sidebar li:hover { color: #fff; }
+#sidebar li:hover svg { visibility: visible; }
+
+#sidebar li:hover a[href=""] svg,
+#sidebar li:hover a[href="#"] svg {
+	visibility: hidden;
+}
+
+#sidebar li.active {
+	color: #b68e4b;
+}
+
+/************************************************
+ * SIDEBAR - TOOLTIP
+ ************************************************/
+
+#sidebar li:hover span.tooltip {
+	opacity: 1;
+	transform: scale(1) translateZ(0px);
+}
+
+#sidebar li span.tooltip:empty {
+	display: none;
+}
+
+#sidebar li span.tooltip {
+	position: absolute;
+	top: -24px;
+	left: 2;
+	z-index: 2;
+	opacity: 0;
+	/*bg*/
+	/*box-shadow: rgb(0 0 0 / 20%) 0px 0px 6px;*/
+	/*background-color: #0C0C0D;*/
+	background-color: #DBD4BF;
+	border-radius: 5px;
+	border: 1px solid #785A28;
+	padding: 4px 12px;
+	/*text*/
+	/*color: #DBD4BF;*/
+	color: #604820;
+	font-family: Spiegel-Regular;
+	font-size: 12px;
+	letter-spacing: 0.04em;
+	white-space: nowrap;
+	/*etc*/
+	pointer-events: none;
+	transform-origin: left bottom;
+	transform: scale(0.90) translateZ(0px);
+	transition: transform .1s linear;
+}

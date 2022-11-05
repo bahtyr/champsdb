@@ -1,0 +1,171 @@
+/*
+//   ######  ########    ###    ########   ######  ##     ## 
+//  ##    ## ##         ## ##   ##     ## ##    ## ##     ## 
+//  ##       ##        ##   ##  ##     ## ##       ##     ## 
+//   ######  ######   ##     ## ########  ##       ######### 
+//        ## ##       ######### ##   ##   ##       ##     ## 
+//  ##    ## ##       ##     ## ##    ##  ##    ## ##     ## 
+//   ######  ######## ##     ## ##     ##  ######  ##     ## 
+//
+//  SEARCH
+*/
+
+#search-row {
+	display: flex;
+	align-items: center;
+	position: relative;
+	padding: 0 var(--champlist-side-padding-fake);
+	margin-bottom: 12px;
+}
+
+/************************************************
+ * SEARCH - INPUT
+ ************************************************/
+
+/* for items to have relative position to search input (since tags can change it's position) */
+#search__anchor {
+	display: flex;
+	align-items: center;
+	position: relative;
+	height: 100%;
+	flex: 1;
+}
+
+#search__wrapper {
+	flex: 1;
+	display: flex;
+	align-items: center;
+	height: 40px;
+	border-radius: 4px;
+	border: var(--filter-border);
+	transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+	transition-property: border-color;
+}
+
+#search__wrapper.hover {
+	border-color: #6BA4F8;
+	border-color: #291B02;
+	border-color: #937341;
+	border-color: #604820;
+}
+
+#search {
+	flex: 1;
+	height: 100%;
+	background: transparent;
+	border: none;
+	border-radius: 0;
+	padding-right: 12px;
+	font-size: 14px;
+	font-family: Spiegel-Regular;
+	letter-spacing: 0.07em;
+	color: #b0aca0;
+	caret-color: #604820;
+}
+
+#search:-ms-input-placeholder { color: #777; }
+#search::-ms-input-placeholder { color: #777; }
+#search::placeholder { color: #777; opacity: 1; }
+
+#search:focus {
+    outline: none;
+}
+
+#search__icon {
+	margin-left: 12px;
+	margin-right: 12px;
+}
+
+/************************************************
+ * SEARCH - TAGS
+ ************************************************/
+
+.search__tags {
+	display: flex;
+}
+
+.search__tags p {
+	transition: all .2s ease;
+	cursor: pointer;
+
+	font-size: 12px;
+	font-weight: bold;
+  font-family: monospace;
+	letter-spacing: 0.07em;
+
+	border-radius: 4px;
+	margin-right: 6px;
+	padding: 4px 12px;
+	background-color: #291B02;
+	color: #896F58;
+}
+
+.search__tags p:hover {
+	background-color: #40130a;
+	color: #8b6e68;
+}
+
+/************************************************
+ * SEARCH - AUTOCOMPLETE
+ ************************************************/
+
+#search__autocomplete {
+	border-radius: 2px;
+	background-color: #111;
+	box-shadow: rgb(0 0 0 / 20%) 0px 0px 6px;
+	color: #888;
+	position: absolute;
+	padding: 6px 0;
+	min-width: 6em;
+	left: 46;
+	top: 32;
+	z-index: 10;
+}
+
+#search__autocomplete:empty {
+	display: none;
+}
+
+.search__autocomplete-item {
+	padding: 4px 12px;
+	font-family: Spiegel-Regular;
+	font-size: 14px;
+	letter-spacing: 0.04em;
+	white-space: nowrap;
+}
+
+.search__autocomplete-item-active,
+.search__autocomplete-item:hover {
+	background-color: #222;
+}
+
+/************************************************
+ * SEARCH - AUTOCOMPLETE CHAMPION NAMES
+ ************************************************/
+
+#search__autocomplete-champ {
+	--char-length: 0ch;
+	z-index: 1;
+	display: flex;
+	position: absolute;
+	align-items: center;
+	left: calc(var(--char-length) + 8px);
+	pointer-events: none;
+	color: #333;
+	opacity: 0;
+}
+
+#search__autocomplete-champ.show {
+	opacity: 1;
+}
+
+#search__autocomplete-champ__text {
+	font-size: 14px;
+	font-family: Spiegel-Bold;
+	letter-spacing: 0.07em;
+	margin-top: 1px;
+
+	color: #444;
+	margin-left: 2px;
+	white-space: nowrap
+}

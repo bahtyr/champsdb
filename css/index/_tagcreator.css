@@ -1,0 +1,154 @@
+/*
+// ########    ###     ######    ######  ########  ########    ###    ########  #######  ########  
+//    ##      ## ##   ##    ##  ##    ## ##     ## ##         ## ##      ##    ##     ## ##     ## 
+//    ##     ##   ##  ##        ##       ##     ## ##        ##   ##     ##    ##     ## ##     ## 
+//    ##    ##     ## ##   #### ##       ########  ######   ##     ##    ##    ##     ## ########  
+//    ##    ######### ##    ##  ##       ##   ##   ##       #########    ##    ##     ## ##   ##   
+//    ##    ##     ## ##    ##  ##    ## ##    ##  ##       ##     ##    ##    ##     ## ##    ##  
+//    ##    ##     ##  ######    ######  ##     ## ######## ##     ##    ##     #######  ##     ## 
+//
+// TAGCREATOR
+*/
+
+:root {
+	--modal-btn-hover-bg: hsl(0deg 0% 13%);
+	--tagcreator-input-bg: hsl(0deg 0% 13%);
+	--tagcreator-list-divider-bg: hsl(0deg 0% 5%);
+	--tagcreator-list-hover-bg: hsl(0deg 0% 20%);
+	--tagcreator-list-toggle-bg: hsl(0deg 0% 8%);
+	--tagcreator-list-toggle-hover-bg: hsl(0deg 0% 5%);
+	--tagcreator-list-toggle-active-text: #937341;
+	--tagcreator-list-toggle-active-bg: #322815;
+}
+
+#modal-tagcreator .modal-content {
+	/*clamp?*/
+	min-width: 400px;
+}
+
+/****************/
+
+.modal-btn {
+	border-radius: 4px;
+	color: #777;
+	cursor: pointer;
+	display: inline-block;
+	font-family: Spiegel-Bold;
+	font-size: 12px;
+	font-weight: bold;
+	letter-spacing: 0.08em;
+	/*letter-spacing: 0.24em;*/
+	padding: 6px 12px;
+	text-transform: uppercase;
+	transition: all .3s ease;
+}
+
+.modal-btn:hover {
+	background-color: var(--modal-btn-hover-bg);
+}
+
+/****************/
+
+.flat-input-label {
+	font-size: 12px;
+	text-transform: lowercase;
+	font-family: Spiegel-Bold;
+	margin-bottom: 2px;
+	display: block;
+}
+
+.flat-input {
+	font-size: 14px;
+	width: 100%;
+	background-color: var(--tagcreator-input-bg);
+	border-radius: 0;
+	border: none;
+	color: #ccc;
+	padding: 8px 16px;
+	resize: none;
+}
+
+.flat-input::placeholder,
+.flat-input:-ms-input-placeholder,
+.flat-input::-ms-input-placeholder {
+  color: #666;
+  opacity: 1;
+}
+
+.flat-input:focus {
+    outline: none;
+}
+
+/****************/
+
+#tagcreator-champlist {
+	overflow: auto;
+	height: 360px;
+	background-color: var(--tagcreator-input-bg);
+	position: relative;
+}
+
+#tagcreator-champlist .divider {
+	position: sticky;
+	position: -webkit-sticky;
+	top: 0;
+	z-index: 100;
+
+	display: flex;
+	justify-content: space-between;
+	height: auto;
+	width: 100%;
+	padding: 4px;
+	
+	color: #888;
+	background-color: var(--tagcreator-list-divider-bg);
+	font-family: Spiegel-Bold;
+	font-size: 10px;
+	text-transform: uppercase;
+}
+
+#tagcreator-champlist .divider .refresh       { cursor: pointer; }
+#tagcreator-champlist .divider .refresh:hover { color: #bbb; }
+
+/****************/
+
+.tagcreator__champ-row {
+	display: flex;
+	align-items: center;
+	padding: 2px 4px;
+	transition: var(--transition);
+	transition-property: background-color, color;
+}
+
+.tagcreator__champ-row img {
+	width: 26px;
+	height: 26px;
+	clip-path: circle(40%); /* cropping more on the sides to hide the black square border */
+	margin-right: 8px;
+}
+
+.tagcreator__champ-row:hover { background-color: var(--tagcreator-list-hover-bg); }
+.tagcreator__champ-row:hover label { color: #aaa; }
+
+.tagcreator__champ-row label {
+	flex: 1;
+}
+
+.tagcreator__champ-row span {
+	font-size: 12px;
+	background-color: var(--tagcreator-list-toggle-bg);
+	padding: 4px 8px;
+	margin-right: 2px;
+	border-radius: 2px;
+	cursor: pointer;
+}
+
+.tagcreator__champ-row span:hover {
+	background-color: var(--tagcreator-list-toggle-hover-bg);
+}
+
+.tagcreator__champ-row span.highlight {
+	-webkit-text-fill-color: unset;
+	color: var(--tagcreator-list-toggle-active-text);
+	background-color: var(--tagcreator-list-toggle-active-bg);
+}

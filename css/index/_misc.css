@@ -1,0 +1,163 @@
+:root {
+    --champlist-side-padding: 20px;
+    --champlist-side-padding-fake: 20px; /* this one is to match an an item's img start line */
+    --filter-border: 1px solid #222;
+    --filter-border-radius: 4px;
+    --transition: 80ms cubic-bezier(0.33, 1, 0.68, 1);
+    --max-width: 1060px;
+    --shadow-large: 0 8px 24px #010409;
+  
+      --color-champcard-bg:       hsl(0deg 0% 2%);
+      --color-champcard-bg-odd:   hsl(0deg 0% 4%);
+      --color-champcard-border:   1px solid hsl(0deg 0% 10%);
+      --color-gold-gradient:      linear-gradient(180deg, #CDBE91 0, #8E7141);
+      --color-gold-gradient-dark: linear-gradient(180deg, #BEAA6F 0, #5F4B2B);
+      --color-yellow:             #BBA87B;
+      --color-yellow-dark:        #937341;
+  
+      --color-shadow-small:       0 0hsl(0deg 0% 0% / 0%);
+      --color-shadow-medium:      0 3px 6px hsl(218deg 80% 2%);
+      --color-shadow-large:       0 8px 24px hsl(218deg 80% 2%);
+      --color-shadow-extra-large: 0 12px 48px hsl(218deg 80% 2%);
+      --champcard-shadow:         0 -2px 10px rgba(0, 0, 0, 1);
+      --champcard-shadow:         var(--color-shadow-extra-large);
+  }
+  
+  /*
+  //  ########     ###     ######   ########     ######  ######## ########  ##     ##  ######  ######## ##     ## ########  ######## 
+  //  ##     ##   ## ##   ##    ##  ##          ##    ##    ##    ##     ## ##     ## ##    ##    ##    ##     ## ##     ## ##       
+  //  ##     ##  ##   ##  ##        ##          ##          ##    ##     ## ##     ## ##          ##    ##     ## ##     ## ##       
+  //  ########  ##     ## ##   #### ######       ######     ##    ########  ##     ## ##          ##    ##     ## ########  ######   
+  //  ##        ######### ##    ##  ##                ##    ##    ##   ##   ##     ## ##          ##    ##     ## ##   ##   ##       
+  //  ##        ##     ## ##    ##  ##          ##    ##    ##    ##    ##  ##     ## ##    ##    ##    ##     ## ##    ##  ##       
+  //  ##        ##     ##  ######   ########     ######     ##    ##     ##  #######   ######     ##     #######  ##     ## ########
+  //
+  //  PAGE STRUCTURE
+  */
+  
+  /**
+   * #stick-top
+   * #modal
+   * 
+   * #header
+   * #body
+   *   #sidebar
+   *   #center
+   *     #search-row
+   *     #filter-row
+   *     #champlist...
+   *     #champcard - fixed
+   * #footer
+   */
+  
+  #body { 
+      display: flex;
+  }
+  
+  #center {
+      max-width: 1100px;
+  }
+  
+  #sidebar,
+  #sidebar-right {
+      flex: 1;
+  }
+  
+  /*
+  //  ##     ## ########    ###    ########  ######## ########  
+  //  ##     ## ##         ## ##   ##     ## ##       ##     ## 
+  //  ##     ## ##        ##   ##  ##     ## ##       ##     ## 
+  //  ######### ######   ##     ## ##     ## ######   ########  
+  //  ##     ## ##       ######### ##     ## ##       ##   ##   
+  //  ##     ## ##       ##     ## ##     ## ##       ##    ##  
+  //  ##     ## ######## ##     ## ########  ######## ##     ## 
+  //
+  //  HEADER
+  */
+  
+  #header {
+      width: 100%;
+      background-color: #000;
+      background: radial-gradient(100% 90% at 0px 0px, rgb(147 115 65 / 20%), transparent 100%);
+      /*border-bottom: 1px solid #111;*/
+  }
+  
+  #header .wrapper {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: var(--max-width);
+      margin: 0 auto;	
+      height: 88px;
+      grid-gap: 14px;
+  }
+  
+  #logo {
+      display: flex;
+      align-items: center;
+      grid-gap: 10px;
+  }
+  
+  #header p {
+      color: #aaa;
+      font-family: Spiegel-Regular;
+      font-size: 12px;
+      letter-spacing: 0.07em;
+      letter-spacing: 1;
+      cursor: pointer;
+  }
+  
+  #header p:hover {
+      color: #fff;
+  }
+  
+  #patch-version {
+    cursor: help !important;
+  }
+  
+  #info-btn {
+      cursor: pointer;
+      margin-top: 1px;
+  }
+  
+  
+  /*
+  //  ##     ## ####  ######   ######  ######## ##       ##          ###    ##    ## ########  #######  ##     ##  ######  
+  //  ###   ###  ##  ##    ## ##    ## ##       ##       ##         ## ##   ###   ## ##       ##     ## ##     ## ##    ## 
+  //  #### ####  ##  ##       ##       ##       ##       ##        ##   ##  ####  ## ##       ##     ## ##     ## ##       
+  //  ## ### ##  ##   ######  ##       ######   ##       ##       ##     ## ## ## ## ######   ##     ## ##     ##  ######  
+  //  ##     ##  ##        ## ##       ##       ##       ##       ######### ##  #### ##       ##     ## ##     ##       ## 
+  //  ##     ##  ##  ##    ## ##    ## ##       ##       ##       ##     ## ##   ### ##       ##     ## ##     ## ##    ## 
+  //  ##     ## ####  ######   ######  ######## ######## ######## ##     ## ##    ## ########  #######   #######   ######  
+  //
+  //  MISC.
+  */
+  
+  .labeled-input {
+      display: flex;
+      align-items: center;
+  }
+  
+  .labeled-input input {
+      margin-right: 6px;
+  }
+  
+  /* ---------------------------------------------------------------------------------------- RIOT */
+  /* ability description elements */
+  active           { font-weight: bold; color: #F7AC18; }  /* Tahm Kench */
+  passive          { font-weight: bold; color: #F8EDD8; }  /* Tahm Kench */
+  physicalDamage   { font-weight: bold; color: #D95D21; }  /* Aatrox P */
+  magicDamage      { font-weight: bold; color: #0ADAF6; }  /* Corki*/
+  spellActive      { font-weight: bold; color: #F8EDD8; }  /* Rell */
+  spellName        { font-weight: bold; color: #0BFEE4; }  /* Tahm Kench - Acquired Taste */
+  spellPassive     { font-weight: bold; color: #F8EDD8; }  /* Rell */
+  scaleArmor       { font-weight: bold; color: #FDC35B; }  /* Rell */
+  scaleMR          { font-weight: bold; color: #53E9FF; }  /* Rell */
+  keywordName      { font-weight: bold; color: #E8E87C; }  /* Velkoz Organic Deconstruction*/
+  keywordMajor     { font-weight: bold; color: #CBCC6F; }  /* Amumu Curse*/
+  mainText         { font-weight: bold; color: unset;   }  /* Ryze's spells deal extra damage...*/
+  OnHit            { font-weight: bold; color: #F3E9D5; }  /* Viego */
+  speed            { font-weight: bold; color: #F3E9D5; }  /* Vayne */
+  /*status           { font-weight: bold; color: #9367A9; }*/  /*Rell Stun */
+  status           { font-weight: bold; color: #6655CC; }  /*  official */
+  factionIonia1    { font-weight: bold; color: #F2E8D4; }  /* Yasuo R Airborne */

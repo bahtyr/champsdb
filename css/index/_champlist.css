@@ -1,0 +1,140 @@
+/*
+//   ######  ##     ##    ###    ##     ## ########  ##       ####  ######  ######## 
+//  ##    ## ##     ##   ## ##   ###   ### ##     ## ##        ##  ##    ##    ##    
+//  ##       ##     ##  ##   ##  #### #### ##     ## ##        ##  ##          ##    
+//  ##       ######### ##     ## ## ### ## ########  ##        ##   ######     ##    
+//  ##       ##     ## ######### ##     ## ##        ##        ##        ##    ##    
+//  ##    ## ##     ## ##     ## ##     ## ##        ##        ##  ##    ##    ##    
+//   ######  ##     ## ##     ## ##     ## ##        ######## ####  ######     ##    
+//
+//  CHAMPLIST
+*/
+
+#champ-list__wrapper {
+	min-height: calc(100vh - 70px);
+}
+
+#champ-list {
+	display: flex;
+	flex-flow: row wrap;
+	padding-top: 4px;
+	padding-bottom: 150px;
+	width: 100%;
+}
+
+/************************************************
+ * ITEM
+ ************************************************/
+
+.item {
+	flex: 1;
+	display: flex;
+	flex-flow: column;
+	padding-top: 12px;
+	padding-bottom: 4px;
+	min-width: 120px;
+	align-items: center;
+	cursor: pointer;
+	position: relative;
+ 	transition: all .3s ease;
+}
+
+.item span.name {
+	text-align: center;
+	margin-top: 5px;
+	color: #999485;
+	font-size: 16px;
+	font-family: Spiegel-Regular;
+	cursor: unset;
+}
+
+.item img {
+	position: absolute;
+	height: 87px;
+	width: 87px;
+	outline: 1px solid #5B5A56;
+ 	outline-offset: -3px;
+ 	opacity: 0;
+ 	animation: fadeIn 0.5s ease;
+ 	animation-play-state: paused;
+ 	transition: filter .3s ease;
+}
+
+.item .key {
+	position: absolute;
+	color: #a5a5a5;
+	background-color: #000;
+	font-family: Spiegel-Regular;
+	font-size: 14px;
+	padding: 2px 6px;
+  right: 0px;
+  bottom: 0px;
+  border-radius: 6px 0 0 0;
+  letter-spacing: 0.10em;
+}
+
+
+@keyframes fadeIn {
+  0% { opacity: 0; }
+100% { opacity: 1; }
+}
+
+.item .image__wrapper {
+	height: 84px;
+	width: 84px;
+	overflow: hidden;
+	position: relative;
+	overflow: visible;
+}
+
+/* SELECTED ITEM CORNERS */
+.item .image__wrapper svg {
+	position: absolute;
+	top: -1;
+	left: -1;
+	z-index: 1;
+	visibility: hidden;
+}
+
+
+/************************************************
+ * STATES
+ ************************************************/
+
+.item .key:empty { display: none; } /* hide key when empty */
+
+.item.active .image__wrapper svg {  /* show 'selected corners' when selected */
+ visibility: visible;
+}
+
+.item.hide { display: none; }       /* temporarily hide item */
+
+.item.hidden {                      /* invisbile placeholder items */
+	visibility: hidden;
+	height: 0;
+	margin-bottom: 0;
+}
+
+/************************************************
+ * HOVER
+ ************************************************/
+
+.item:hover img {
+	outline: 1px solid #937341;
+}
+
+.item:hover .image__wrapper::before {      /* apply a slight white highlight */
+	content: "";
+	position: absolute;
+	top: 0;
+	z-index: 1;
+	background-color: #fff;
+	opacity: 0.07;
+	height: 100%;
+	width: 100%;
+}
+
+#champ-list.spotlight .item:not(.active) { /* fadeout everyother item */
+	opacity: 0.7;
+	filter: grayscale(70%);
+}

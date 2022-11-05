@@ -1,0 +1,278 @@
+/*
+//  ######## #### ##       ######## ######## ########          ########   #######  ##      ## 
+//  ##        ##  ##          ##    ##       ##     ##         ##     ## ##     ## ##  ##  ## 
+//  ##        ##  ##          ##    ##       ##     ##         ##     ## ##     ## ##  ##  ## 
+//  ######    ##  ##          ##    ######   ########  ####### ########  ##     ## ##  ##  ## 
+//  ##        ##  ##          ##    ##       ##   ##           ##   ##   ##     ## ##  ##  ## 
+//  ##        ##  ##          ##    ##       ##    ##          ##    ##  ##     ## ##  ##  ## 
+//  ##       #### ########    ##    ######## ##     ##         ##     ##  #######   ###  ###  
+//
+//  FILTER-ROW
+*/
+
+#filter-row {
+	display: flex;
+	align-items: center;
+	margin: 0px var(--champlist-side-padding-fake);
+	border-radius: 4px;
+	grid-gap: 6px;
+	height: 34px;
+}
+
+/************************************************
+ * ICONS
+ ************************************************/
+
+#toggle-tags-pane {
+	/*width: 34px;*/
+	padding: 6px;
+	height: 100%;
+	color: #333;
+	background-color: #0d0d0d;
+	border-radius: 4px;
+	border: var(--filter-border);
+	cursor: pointer;
+	transition: var(--transition);
+	transition-property: background-color;
+}
+
+#toggle-tags-pane.active {
+	/*color: #aaa;*/
+	color: #999;
+	background-color: #222;
+	border-color: #444;
+}
+
+#toggle-tags-pane svg path { transition: var(--transition); transition-property: fill; }
+
+/* class for both #filter-lane & #filter-role */
+.filter-role {
+	display: inline-flex;
+	justify-content: space-around;
+	padding: 0 4px;
+	border-radius: 4px;
+	border: var(--filter-border);
+}
+#filter-lane { padding: 0 4px; }
+#filter-role { padding: 0 8px; }
+
+.filter-role svg {  flex: 1; box-sizing: content-box; cursor: pointer; }
+#filter-lane svg { padding: 4px 8px; }
+#filter-role svg { padding: 6px 8px; }
+
+.filter-role svg.active path { fill: #aaa; }
+.filter-role svg path { fill: #333;
+	pointer-events: none;
+	transition: var(--transition);
+	transition-property: fill;
+}
+
+/************************************************
+ * DROPDOWN
+ ************************************************/
+
+.filter-btn {
+	cursor: pointer;
+
+	height: 100%;
+	line-height: 1.5;
+	padding: 5px 16px;
+
+	color: #444;
+	font-family: Spiegel-Regular;
+	font-size: 14px;
+	letter-spacing: 0.7;
+	white-space: nowrap;
+
+	border-radius: 4px;
+	border: var(--filter-border);
+
+	transition: var(--transition);
+	transition-property: color,background-color,border-color;
+}
+
+.filter-btn:hover {
+	color: #666;
+	border-color: #555;
+}
+
+.dropdown-caret {
+	display: inline-block;
+	width: 0;
+	height: 0;
+	vertical-align: middle;
+	content: "";
+	border-style: solid;
+	border-width: 4px 4px 0;
+	border-right-color: transparent;
+	border-bottom-color: transparent;
+	border-left-color: transparent;
+	pointer-events: none;
+}
+
+/* attributes */
+
+#filter-attributes {
+	transition: var(--transition);
+	transition-property: color, background-color;
+}
+
+#filter-attributes:hover,
+#attributes-modal:not(.hide) ~ #filter-attributes {
+	color: #666;
+	background-color: hsl(0deg 0% 5%);
+	border: var(--filter-border);
+}
+
+#filter-attributes.active {
+	color: #896F58 !important;
+  background-color: #160e01 !important;
+  border-color: #483a2e !important;
+  /*color: #999 !important;*/
+  /*background-color: hsl(0deg 0% 10%) !important;*/
+  /*border-color: #444 !important;*/
+}
+
+/************************************************
+ * RIGHT SECTION
+ ************************************************/
+
+#export-and-count {
+	display: flex;
+	align-items: center;
+	height: 100%;
+	border-radius: 4px;
+	border: var(--filter-border);
+}
+
+#export-btn {
+	padding: 5px 12px;
+	color: #666;
+	background-color: #0D0D0D;
+	letter-spacing: 0.7;
+	border: none;
+	border-radius: 4px 0 0 4px;
+}
+
+#export-btn:hover {
+	color: #999;
+	background-color: #222;
+}
+
+.search__count {
+	color: #444;
+	font-size: 12px;
+	font-family: Spiegel-Regular;
+	letter-spacing: 0.7;
+	min-width: 10em;
+	padding: 0 12px;
+  text-align: right;
+}
+
+.divider {
+	width: 1px;
+	height: 100%;
+	background-color: #222;
+}
+
+/************************************************
+ * TOOLTIPS
+ ************************************************/
+
+.patch-version-tooltip,
+.export-tooltip {
+	transform-origin: top;
+	background-color: #111;
+	color: #888;
+	line-height: 1.6;
+	padding: 12px 22px;
+	left: -8px;
+	box-shadow: var(--shadow-large);
+}
+
+.patch-version-tooltip {
+	transform-origin: top;
+	right: unset;
+}
+
+.export-tooltip {
+	left: -4px;
+	text-align: left;
+}
+
+.export-tooltip a { cursor: pointer; } /* we use them as buttons */
+
+.patch-version-tooltip a span { cursor: unset; }
+.patch-version-tooltip .disabled { color: #888; pointer-events: none; }
+.patch-version-tooltip .disabled path { fill: #888; }
+
+
+/************************************************
+ * ATTRIBUTES MODAL
+ ************************************************/
+
+#filter-attributes-wrapper {
+	position: relative;
+}
+
+/* modal */
+#attributes-modal {
+	z-index: 10;
+	top: 30;
+	position: absolute;
+	background-color: hsl(0deg 0% 3%);
+	min-width: 270px;
+	min-height: 240px;
+	border: var(--filter-border);
+	border-radius: 8px;
+	box-shadow: var(--shadow-large);
+	transition: all var(--transition);
+	color: #aaa;
+
+	font-size: 14px;
+	font-family: Spiegel-Regular;
+	letter-spacing: 0.7;
+	white-space: nowrap;
+	padding: 8px 0;
+}
+
+#attributes-modal.hide {
+	display: none;
+}
+
+/* row */
+#attributes-modal .row {
+	display: flex;
+	align-items: center;
+	padding: 2px 12px;
+}
+#attributes-modal .heading {
+	border-top: 1px solid #111;
+	color: #bbb;
+	font-size: 12px;
+	text-transform: uppercase;
+	font-family: Spiegel-Bold;
+	padding: 2px 12px;
+	padding-top: 8px;
+	margin-top: 4px;
+}
+
+/* checkbox */
+.attributes-checkbox { display: none; }
+.attributes-checkbox:checked + label {
+	color: #aaa;
+	background-color: hsl(0deg 0% 20%);
+}
+
+.attributes-checkbox + label {
+	cursor: pointer;
+	color: #666;
+	background-color: hsl(0deg 0% 8%);
+	border-radius: 4px;
+	padding: 4px 8px;
+	margin-left: 4px;
+	min-width: 4ch;
+	text-align: center;
+}
+
+.flex-gap { flex: 1; }
