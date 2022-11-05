@@ -1,0 +1,23 @@
+<div class="modal" id="modal-tagcreator">
+    <div class="modal-content">
+        <div class="modal-actions-top">
+            <p class="modal-btn" onclick="TagCreator?.onClickSave()">Create</p>
+            <svg class="modal-close" style="width:16px;height:16px" viewBox="0 0 24 24">
+                <path fill="currentColor" d="M20 6.91L17.09 4L12 9.09L6.91 4L4 6.91L9.09 12L4 17.09L6.91 20L12 14.91L17.09 20L20 17.09L14.91 12L20 6.91Z" />
+            </svg>
+        </div>
+        <p class="heading">Create a New Tag</p>
+        <label class="flat-input-label" for="tagcreator__input-name">Name</label>
+        <input class="flat-input" id="tagcreator__input-name" type="text" placeholder="Name" oninput="">
+        <div style="height: 12px;"></div>
+        <label class="flat-input-label" for="tagcreator__input-champs">Filter</label>
+        <textarea class="flat-input" id="tagcreator__input-champs" rows="3" placeholder="Enter Champion Name (+ Abilities)"></textarea>
+        <div style="height: 12px;"></div>
+        <div id="tagcreator-champlist">
+            <div class="divider"><span>Selected Champions</span><span class="refresh" onclick="TagCreator.onClickRefresh()">Refresh</span></div>
+            <div id="tagcreator-champlist-active"></div>
+            <div class="divider"><span>All Champions</span><span class="refresh" onclick="TagCreator.onClickRefresh()">Refresh</span></div>
+            <div id="tagcreator-champlist-all"></div>
+        </div>
+    </div>
+</div>

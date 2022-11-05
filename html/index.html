@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <link rel="icon" href="./assets/favicon.svg">
+  <link rel="stylesheet" href="./css/index.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+  <!-- Meta Tags -->
+  <title>ChampsDB &mdash; League of Legends Champions Database</title>
+  <meta name="description" content="An advanced search and filtering tool to find Champion and ability information including play style, difficulty, resource type and more." />
+  <meta property="og:title" content="ChampsDB &mdash; League of Legends Champions Database" />
+  <meta property="og:description" content="An advanced search and filtering tool to find Champion and ability information including play style, difficulty, resource type and more." />
+  <meta property="og:image" content="https://champsdb.bahtyr.com/assets/cover.jpg" />
+  <meta property="og:url" content="champsdb.bahtyr.com" />
+  <meta property="og:type" content="website" />
+  <script async defer data-website-id="b96bd857-2eb1-41f0-bf35-4fb68cf185d9" data-host-url="https://umami.bahtyr.com" src="https://champsdb.gg/umamii.js"></script>
+</head>
+
+<body class="noselect">
+
+  <div id="sort"></div>
+  <div id="site-header__hamburger"></div>
+  <div id="search__clear"></div>
+
+  <!-- SVG Gradients -->
+  <svg width="0" height="0" viewBox="0 0 0 0" fill="none" xmlns="http://www.w3.org/2000/svg">
+    <defs>
+      <linearGradient id="paint0_linear_290_8" x1="4.17088" y1="0.0717957" x2="10.0273" y2="5.9282" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#CDBE91" />
+        <stop offset="1" stop-color="#785A28" />
+      </linearGradient>
+      <linearGradient id="paint0_linear_490_2" x1="15" y1="0" x2="15" y2="30" gradientUnits="userSpaceOnUse">
+        <stop stop-color="#CDBE91" />
+        <stop offset="1" stop-color="#785A28" />
+      </linearGradient>
+    </defs>
+  </svg>
+
+  ${require('_modal-copy.html')}
+  ${require('_modal-help.html')}
+  ${require('_modal-tagcreator.html')}
+
+  ${require('_header.html')}
+
+  <div id="body">
+    ${require('_sidebar.html')}
+    <div id="center">
+      ${require('_search-row.html')}
+      <!--======= Hidden Focus Element =====-->
+      <div tabindex=0></div>
+      ${require('_filter-row.html')}
+      ${require('_champlist.html')}
+      ${require('_champcard.html')}
+    </div>
+    <div id="sidebar-right"></div>
+  </div>
+
+  <div id="sidebar__content-overlay"></div>
+
+  ${require('_footer.html')}
+
+  <img id="bg-img" src="./assets/bg.jpg">
+
+  <!-- JavaScript -->
+  <script src="./js/main.js"></script>
+  <script src="./data/objects.js"></script>
+  <script src="./js/index/champcard.js"></script>
+  <script src="./js/index/champlist.js"></script>
+  <script src="./js/index/sidebar.js"></script>
+  <script src="./js/index/search.js"></script>
+  <script src="./js/index/autocomplete.js"></script>
+  <script src="./js/index/sort.js"></script>
+  <script src="./js/index/index.js"></script>
+  <script src="./js/index/tagcreator.js"></script>
+  <script src="./js/index/listeners.js"></script>
+</body>
+
+</html>
