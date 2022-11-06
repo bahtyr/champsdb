@@ -570,10 +570,16 @@ factionIonia1    { font-weight: bold; color: #F2E8D4; }
 //  SIDEBAR
 */
 
-#sidebar { }
+#sidebar {
+	transition: transform .3s ease-in-out;
+ }
+
+#sidebar.hide {
+	transform: translateX(-110%);
+}
 
 #sidebar.hide #sidebar-wrapper {
-	transform: translateX(-110%);
+	/* transform: translateX(-110%); */
 }
 
 #sidebar-wrapper {
@@ -1834,17 +1840,15 @@ span.highlight {
 	padding: 0 1px;
 }
 
-/*
-//   ######  ##     ##    ###    ##     ## ########  ##       ####  ######  ######## 
-//  ##    ## ##     ##   ## ##   ###   ### ##     ## ##        ##  ##    ##    ##    
-//  ##       ##     ##  ##   ##  #### #### ##     ## ##        ##  ##          ##    
-//  ##       ######### ##     ## ## ### ## ########  ##        ##   ######     ##    
-//  ##       ##     ## ######### ##     ## ##        ##        ##        ##    ##    
-//  ##    ## ##     ## ##     ## ##     ## ##        ##        ##  ##    ##    ##    
-//   ######  ##     ## ##     ## ##     ## ##        ######## ####  ######     ##    
-//
-//  CHAMPLIST
-*/
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+	}
+
+	100% {
+		opacity: 1;
+	}
+}
 
 #champ-list__wrapper {
 	min-height: calc(100vh - 70px);
@@ -1858,9 +1862,9 @@ span.highlight {
 	width: 100%;
 }
 
-/************************************************
- * ITEM
- ************************************************/
+/************************************************/
+
+/* #region ITEM */
 
 .item {
 	flex: 1;
@@ -1872,7 +1876,7 @@ span.highlight {
 	align-items: center;
 	cursor: pointer;
 	position: relative;
- 	transition: all .3s ease;
+	transition: all .3s ease;
 }
 
 .item span.name {
@@ -1889,11 +1893,11 @@ span.highlight {
 	height: 87px;
 	width: 87px;
 	outline: 1px solid #5B5A56;
- 	outline-offset: -3px;
- 	opacity: 0;
- 	animation: fadeIn 0.5s ease;
- 	animation-play-state: paused;
- 	transition: filter .3s ease;
+	outline-offset: -3px;
+	opacity: 0;
+	animation: fadeIn 0.5s ease;
+	animation-play-state: paused;
+	transition: filter .3s ease;
 }
 
 .item .key {
@@ -1903,15 +1907,10 @@ span.highlight {
 	font-family: Spiegel-Regular;
 	font-size: 14px;
 	padding: 2px 6px;
-  right: 0px;
-  bottom: 0px;
-  border-radius: 6px 0 0 0;
-  letter-spacing: 0.10em;
-}
-
-@keyframes fadeIn {
-  0% { opacity: 0; }
-100% { opacity: 1; }
+	right: 0px;
+	bottom: 0px;
+	border-radius: 6px 0 0 0;
+	letter-spacing: 0.10em;
 }
 
 .item .image__wrapper {
@@ -1922,9 +1921,8 @@ span.highlight {
 	overflow: visible;
 }
 
-/* SELECTED ITEM CORNERS */
-
 .item .image__wrapper svg {
+	/* SELECTED ITEM CORNERS */
 	position: absolute;
 	top: -1;
 	left: -1;
@@ -1932,37 +1930,46 @@ span.highlight {
 	visibility: hidden;
 }
 
-/************************************************
- * STATES
- ************************************************/
+/* #endregion */
 
-.item .key:empty { display: none; }
+/***********************************************/
 
-/* hide key when empty */
+/* #region STATES */
 
-.item.active .image__wrapper svg {  /* show 'selected corners' when selected */
- visibility: visible;
+.item .key:empty {
+	/* hide key when empty */
+	display: none;
 }
 
-.item.hide { display: none; }
+.item.active .image__wrapper svg {
+	/* show 'selected corners' when selected */
+	visibility: visible;
+}
 
-/* temporarily hide item */
+.item.hide {
+	/* temporarily hide item */
+	display: none;
+}
 
-.item.hidden {                      /* invisbile placeholder items */
+.item.hidden {
+	/* invisbile placeholder items */
 	visibility: hidden;
 	height: 0;
 	margin-bottom: 0;
 }
 
-/************************************************
- * HOVER
- ************************************************/
+/* #endregion */
+
+/************************************************/
+
+/* #region H0VER */
 
 .item:hover img {
 	outline: 1px solid #937341;
 }
 
-.item:hover .image__wrapper::before {      /* apply a slight white highlight */
+.item:hover .image__wrapper::before {
+	/* apply a slight white highlight */
 	content: "";
 	position: absolute;
 	top: 0;
@@ -1973,10 +1980,13 @@ span.highlight {
 	width: 100%;
 }
 
-#champ-list.spotlight .item:not(.active) { /* fadeout everyother item */
+#champ-list.spotlight .item:not(.active) {
+	/* fadeout everyother item */
 	opacity: 0.7;
 	filter: grayscale(70%);
 }
+
+/* #endregion */
 
 /*
 // ########    ###     ######    ######  ########  ########    ###    ########  #######  ########  
@@ -2147,57 +2157,110 @@ span.highlight {
 }
 
 /************************************************
- * MEDIUM
+ * MEDIUM / TABLET 768
  ************************************************/
 
 @media only screen and (max-width: 768px) {
 
-	#header div > p:not(#patch-version),
+	#body {
+		position: relative;
+		margin-top: 114px;
+	}
+
+	/* #region HEADER */
+
+	#header {
+		z-index: 100;
+		position: fixed;
+		background-color: #000;
+	}
+
+	#header .wrapper {
+		height: 60px;
+	}
+
+	#header div>p:not(#patch-version),
 	#header #info-btn {
 		display: none;
 	}
 
-	#sidebar {
-		position: absolute;
+	/* #endregion */
+
+	/* #region SEARCH & FILTERS */
+
+	#search-row {
+		/* to hide a pixel gap */
+		top: 59px;
+		position: fixed;
+		z-index: 100;
+		background-color: #000;
+		width: 100%;
+
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.639093137254902) 9%, rgba(0, 0, 0, 1) 22%, rgba(0, 0, 0, 1) 100%);
+		padding-bottom: 12px;
+		margin-bottom: 0px;
 	}
-	#sidebar, #sidebar-right {
+
+	#filter-row {
+		height: unset;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		scrollbar-width: none;
+		width: calc(100vw - 40px);
+	}
+
+	/* #endregion */
+
+	/* #region SIDEBAR */
+
+	#sidebar,
+	#sidebar-right {
 		flex: unset;
 	}
 
-
-
-
-
-
-
-	/* OLDSTUFF */
-	
 	#sidebar {
 		z-index: 99;
+		position: absolute;
+		height: 100%;
+		width: 100vw;
+		margin-right: 24px;
+		margin-top: 46px;
+		background: #000;
 	}
 
-	.item span.tooltip {
-		left: unset;
-		right: 10px;
-		transform-origin: right top;
+	#sidebar-wrapper {
+		background: rgba(0, 0, 0, 1);
+		margin-right: 20px;
+		max-width: unset;
 	}
 
- 	/*** SIDEBAR BG CONTENT OVERLAY ***/
+	/* #endregion */
+
+	/* #region SIDEBAR OVERLAY */
+
 	#sidebar__content-overlay {
+		z-index: -10;
 		position: fixed;
 		left: 0;
 		top: 0;
 		height: 100%;
 		width: 100%;
-		z-index: -10;
-		background-color: #000;
 		opacity: 0;
+		background-color: #000;
 		transition: all 0.3s linear;
 	}
 
 	#sidebar__content-overlay.show {
 		z-index: 98;
 		opacity: 0.6;
+	}
+
+	/* #endregion */
+
+	.item span.tooltip {
+		left: unset;
+		right: 10px;
+		transform-origin: right top;
 	}
 }
 
@@ -2208,8 +2271,8 @@ span.highlight {
 @media only screen and (max-width: 476px) {
 
 	#sidebar-wrapper {
-		width: 280px;
-		padding-bottom: 140px; /*if safari's tab is open & at the bottom of the scren, since they can't scroll the page it won't go away obscuring the sideabar elements */
+		/*if safari's tab is open & at the bottom of the scren, since they can't scroll the page it won't go away obscuring the sideabar elements */
+		padding-bottom: 140px;
 	}
 
 	.footer .wrapper {
@@ -2221,28 +2284,4 @@ span.highlight {
  * X-SMALL
  ************************************************/
 
-@media only screen and (max-width: 390px) {
-
-}
-
-/************************************************
- * TABLET 768
- ************************************************/
-
-@media only screen and (max-width: 768px) {
-	#header {
-		position: fixed;
-		background-color: #000;
-		z-index: 100;
-	}
-	#search-row {
-		top: 88px;
-		position: fixed;
-		z-index: 100;
-		background-color: #000;
-		width: 100%;
-	}
-	#body {
-		margin-top: 160px;
-	}
-}
+@media only screen and (max-width: 390px) {}
