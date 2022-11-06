@@ -9,20 +9,54 @@
 }
 
 /************************************************
- * MEDIUM
+ * MEDIUM / TABLET 768
  ************************************************/
 @media only screen and (max-width: 768px) {
+
+	#header .wrapper {
+		height: 60px;
+	}
 
 	#header div > p:not(#patch-version),
 	#header #info-btn {
 		display: none;
 	}
 
+	#body {
+		position: relative;
+	}
+
 	#sidebar {
 		position: absolute;
+		width: 100vw;
+		height: 100%;
+		margin-top: 46px;
+		margin-right: 24px;
+		background: #000;
+	}
+
+	#sidebar-wrapper {
+		max-width: unset;
+		background: rgba(0, 0, 0, 1);
+		margin-right: 20px;
 	}
 	#sidebar, #sidebar-right {
 		flex: unset;
+	}
+
+
+
+
+
+	#filter-row {
+		/* doesnt work. but need this */
+		overflow-x: scroll;
+		width: calc(100vw - 40px);
+		scrollbar-width: none;
+		overflow-y: hidden;
+		/* height: 52px; */
+		/* padding-right: 20px; */
+		height: unset;
 	}
 
 
@@ -68,7 +102,7 @@
 @media only screen and (max-width: 476px) {
 
 	#sidebar-wrapper {
-		width: 280px;
+		/* width: 280px; */
 		padding-bottom: 140px; /*if safari's tab is open & at the bottom of the scren, since they can't scroll the page it won't go away obscuring the sideabar elements */
 	}
 
@@ -89,7 +123,7 @@
 
 
 /************************************************
- * TABLET 768
+ * 
  ************************************************/
 @media only screen and (max-width: 768px) {
 	#header {
@@ -98,13 +132,18 @@
 		z-index: 100;
 	}
 	#search-row {
-		top: 88px;
+		/* to hide a pixel gap */
+		top:59px; 
 		position: fixed;
 		z-index: 100;
 		background-color: #000;
 		width: 100%;
+
+		background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.639093137254902) 9%, rgba(0,0,0,1) 22%, rgba(0,0,0,1) 100%);
+		padding-bottom: 12px;
+		margin-bottom: 0px;
 	}
 	#body {
-		margin-top: 160px;
+		margin-top: 114px;
 	}
 }

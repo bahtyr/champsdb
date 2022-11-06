@@ -10,10 +10,16 @@
 //  SIDEBAR
 */
 
-#sidebar { }
+#sidebar {
+	transition: transform .3s ease-in-out;
+ }
+
+#sidebar.hide {
+	transform: translateX(-110%);
+}
 
 #sidebar.hide #sidebar-wrapper {
-	transform: translateX(-110%);
+	/* transform: translateX(-110%); */
 }
 
 #sidebar-wrapper {
