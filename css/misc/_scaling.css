@@ -1,6 +1,7 @@
 /************************************************
  * MAX-WIDTH
  ************************************************/
+
 @media only screen and (max-width: 1060px) {
 	#header {
 		/* align header with sidebar padding */
@@ -11,82 +12,94 @@
 /************************************************
  * MEDIUM / TABLET 768
  ************************************************/
+
 @media only screen and (max-width: 768px) {
+
+	#body {
+		position: relative;
+		margin-top: 114px;
+	}
+
+	/* #region HEADER */
+
+	#header {
+		z-index: 100;
+		position: fixed;
+		background-color: #000;
+	}
 
 	#header .wrapper {
 		height: 60px;
 	}
 
-	#header div > p:not(#patch-version),
+	#header div>p:not(#patch-version),
 	#header #info-btn {
 		display: none;
 	}
 
-	#body {
-		position: relative;
+	/* #endregion */
+
+	/* #region SEARCH & FILTERS */
+
+	#search-row {
+		/* to hide a pixel gap */
+		top: 59px;
+		position: fixed;
+		z-index: 100;
+		background-color: #000;
+		width: 100%;
+
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.639093137254902) 9%, rgba(0, 0, 0, 1) 22%, rgba(0, 0, 0, 1) 100%);
+		padding-bottom: 12px;
+		margin-bottom: 0px;
+	}
+
+	#filter-row {
+		height: unset;
+		overflow-x: scroll;
+		overflow-y: hidden;
+		scrollbar-width: none;
+		width: calc(100vw - 40px);
+	}
+
+	/* #endregion */
+
+	/* #region SIDEBAR */
+
+	#sidebar,
+	#sidebar-right {
+		flex: unset;
 	}
 
 	#sidebar {
+		z-index: 99;
 		position: absolute;
-		width: 100vw;
 		height: 100%;
-		margin-top: 46px;
+		width: 100vw;
 		margin-right: 24px;
+		margin-top: 46px;
 		background: #000;
 	}
 
 	#sidebar-wrapper {
-		max-width: unset;
 		background: rgba(0, 0, 0, 1);
 		margin-right: 20px;
-	}
-	#sidebar, #sidebar-right {
-		flex: unset;
+		max-width: unset;
 	}
 
+	/* #endregion */
 
+	/* #region SIDEBAR OVERLAY */
 
-
-
-	#filter-row {
-		/* doesnt work. but need this */
-		overflow-x: scroll;
-		width: calc(100vw - 40px);
-		scrollbar-width: none;
-		overflow-y: hidden;
-		/* height: 52px; */
-		/* padding-right: 20px; */
-		height: unset;
-	}
-
-
-
-
-
-
-
-	/* OLDSTUFF */
-	
-	#sidebar {
-		z-index: 99;
-	}
-
-	.item span.tooltip {
-		left: unset;
-		right: 10px;
-		transform-origin: right top;
-	}
-
- 	/*** SIDEBAR BG CONTENT OVERLAY ***/
 	#sidebar__content-overlay {
+		z-index: -10;
 		position: fixed;
 		left: 0;
 		top: 0;
 		height: 100%;
 		width: 100%;
-		z-index: -10;
-		background-color: #000;
 		opacity: 0;
+		background-color: #000;
 		transition: all 0.3s linear;
 	}
 
@@ -94,16 +107,25 @@
 		z-index: 98;
 		opacity: 0.6;
 	}
+
+	/* #endregion */
+
+	.item span.tooltip {
+		left: unset;
+		right: 10px;
+		transform-origin: right top;
+	}
 }
 
 /************************************************
  * SMALL
  ************************************************/
+
 @media only screen and (max-width: 476px) {
 
 	#sidebar-wrapper {
-		/* width: 280px; */
-		padding-bottom: 140px; /*if safari's tab is open & at the bottom of the scren, since they can't scroll the page it won't go away obscuring the sideabar elements */
+		/*if safari's tab is open & at the bottom of the scren, since they can't scroll the page it won't go away obscuring the sideabar elements */
+		padding-bottom: 140px;
 	}
 
 	.footer .wrapper {
@@ -114,36 +136,5 @@
 /************************************************
  * X-SMALL
  ************************************************/
-@media only screen and (max-width: 390px) {
 
-}
-
-
-
-
-
-/************************************************
- * 
- ************************************************/
-@media only screen and (max-width: 768px) {
-	#header {
-		position: fixed;
-		background-color: #000;
-		z-index: 100;
-	}
-	#search-row {
-		/* to hide a pixel gap */
-		top:59px; 
-		position: fixed;
-		z-index: 100;
-		background-color: #000;
-		width: 100%;
-
-		background: linear-gradient(0deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.639093137254902) 9%, rgba(0,0,0,1) 22%, rgba(0,0,0,1) 100%);
-		padding-bottom: 12px;
-		margin-bottom: 0px;
-	}
-	#body {
-		margin-top: 114px;
-	}
-}
+@media only screen and (max-width: 390px) {}
