@@ -592,8 +592,7 @@
     ],
     "splashPosition": "-679px -145px",
     "lanes": [
-      "Support",
-      "Jungle"
+      "Support"
     ],
     "releaseDate": "2009-06-26",
     "resource": "Mana",
@@ -1514,8 +1513,7 @@
     ],
     "splashPosition": "-638px -115px",
     "lanes": [
-      "Support",
-      "Jungle"
+      "Support"
     ],
     "releaseDate": "2009-09-02",
     "resource": "Mana",
@@ -4312,8 +4310,7 @@
     ],
     "splashPosition": "-718px -231px",
     "lanes": [
-      "Support",
-      "Middle"
+      "Support"
     ],
     "releaseDate": "2009-10-10",
     "resource": "Mana",
@@ -7765,9 +7762,7 @@
       }
     ],
     "lanes": [
-      "Support",
-      "Jungle",
-      "Top"
+      "Support"
     ],
     "releaseDate": "2011-02-16",
     "resource": "Mana",
@@ -8078,6 +8073,7 @@
       }
     ],
     "lanes": [
+      "Jungle",
       "Top"
     ],
     "releaseDate": "2010-02-24",
@@ -9382,8 +9378,7 @@
       }
     ],
     "lanes": [
-      "Support",
-      "Jungle"
+      "Support"
     ],
     "releaseDate": "2010-02-02",
     "resource": "Mana",
@@ -10742,6 +10737,7 @@
       }
     ],
     "lanes": [
+      "Middle",
       "Top"
     ],
     "releaseDate": "2011-04-26",
@@ -11036,8 +11032,7 @@
       }
     ],
     "lanes": [
-      "Jungle",
-      "Top"
+      "Jungle"
     ],
     "releaseDate": "2012-01-17",
     "resource": "Mana",
@@ -12457,6 +12452,7 @@
       }
     ],
     "lanes": [
+      "Jungle",
       "Middle"
     ],
     "releaseDate": "2019-01-25",
@@ -12876,7 +12872,6 @@
       }
     ],
     "lanes": [
-      "Jungle",
       "Middle"
     ],
     "releaseDate": "2011-08-24",
@@ -14074,8 +14069,7 @@
       }
     ],
     "lanes": [
-      "Bottom",
-      "Top"
+      "Bottom"
     ],
     "releaseDate": "2011-05-10",
     "resource": "Mana",
@@ -15319,8 +15313,7 @@
       }
     ],
     "lanes": [
-      "Support",
-      "Middle"
+      "Support"
     ],
     "releaseDate": "2011-10-05",
     "resource": "Mana",
